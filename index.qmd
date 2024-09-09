@@ -1,0 +1,86 @@
+---
+title: "MATH 517: Statistical computation and visualisation"
+execute: 
+  freeze: false
+---
+
+This page contains an outline of the topics, exercises (ex.), and assignments (ae.) for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester. See the [overview](/course-overview.qmd) page for more information about the course.
+
+
+::: callout-tip
+It can be useful to check the available tutorials to get ready for the assignments quickly. You can find them under the resources section on your left.
+Please check the [FAQ](/course-faq.qmd) page for common questions and answers.
+:::
+
+::: {.callout-important}
+## This is important
+Please note that the second lecture scheduled for Friday, September 20th, has been exceptionally cancelled and rescheduled to **Wednesday, September 18th, from 1:15 PM to 3:00 PM**, in **room CE 1 100**. For those unable to attend the lecture on Wednesday, a recording will be made available as soon as possible. The exercise session on the afternoon of Friday, September 20th, will proceed as planned.
+:::
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(googlesheets4)
+library(gt)
+library(tidyverse)
+gs4_deauth()
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1bGoITRD3YC7URYZj4U72OYIbdNOckVN80sOwoTsrxe8/edit?usp=sharing")
+```
+
+```{r}
+#| echo: false
+
+d |>
+  select(-dow) |>
+  mutate(
+    date = as.Date(date)
+  ) |>
+  gt() |>
+  fmt_date(date, date_style = 31) |>
+  sub_missing(columns = c(week, topic, resources, ae., ex., due), missing_text = "") |>
+  cols_align(
+    align = "center", 
+    columns = c(week)
+    ) |>
+  cols_align(
+    align = "right",
+    columns = c(date)
+  ) |>
+  cols_align(
+    align = "left", 
+    columns = c(topic, resources, ex., ae., due)
+    ) |>
+  tab_style(
+    style = cell_borders(
+      sides = "right",
+      color = "#D3D3D3",
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = c(date, topic, resources, ex., ae.)
+    )
+  ) |>
+  fmt_markdown(
+    columns = c(topic, resources, ex., ae., due)
+  ) |>
+  cols_width(
+    week ~ px(45),
+    date ~ px(100), 
+    topic ~ px(300),
+    resources ~ px(150),
+    ex. ~ px(90),
+    ae. ~ px(100),
+    due ~ px(120)
+  ) |>
+  cols_label_with(fn = function(x) {
+      janitor::make_clean_names(x, case = "title") |>
+        toupper() |>
+        stringr::str_replace_all("^|$", "**") |>
+        md()
+    }) |>
+  tab_options(table.font.size = 13) |>
+  opt_row_striping()
+```

@@ -1,0 +1,39 @@
+---
+title:  "Introduction to Julia"
+description: "A collection of resources for learning `Julia`"
+author: "Charles Dufour"
+date: ""
+listing: 
+    - id: classes
+      contents:
+        - "*.qmd"
+      type: table
+      fields: [title, description]
+      field-display-names:
+        title: "Subject"
+        description: "Description"
+      sort: [subtitle]
+      sort-ui: false
+      filter-ui: false
+editor: visual
+---
+
+[Julia for Optimization and Learning](https://juliateachingctu.github.io/Julia-for-Optimization-and-Learning/dev/) should
+contain everything (and more) that you need to know about `Julia` for this course.
+
+For a refresher on `Julia` basics, you can check out one of the following resources:
+
+- [Tutorials from the official documentation](https://julialang.org/learning/tutorials/)
+- [Julia Workshop for Data Science](https://crsl4.github.io/julia-workshop/)
+- [Julia academy](https://juliaacademy.com/courses?preview=logged_out)
+- [Introduction to Scientific Programming and Machine Learning with Julia](https://sylvaticus.github.io/SPMLJ/stable/)
+- [MTH 229 - Calculus Computer Laboratory](https://mth229.github.io/)
+- *and many others*
+
+::: {#classes}
+:::
+
+
+::: callout-info
+A very useful Julia package is [RDatasets.jl](https://github.com/JuliaStats/RDatasets.jl), which provides access to many of the datasets available in R packages.
+:::

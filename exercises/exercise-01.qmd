@@ -1,0 +1,31 @@
+---
+title: "Exercise 1"
+subtitle: "Peeking"
+format: 
+  html:
+    theme: labs.scss
+editor: visual
+date: 09-13-2024
+---
+
+The severity depends on the number of peeks the researcher takes at the data and on the number of observations added between peeks.
+
+**Exercise:** The "Example of Peeking" below is an example of a small simulation study, checking whether a designed test strategy respects the nominal level $\alpha = 0.05$ or not. Here, we perform a one-sample t-test with an initial sample size of 25. If we are unable to reject the null hypothesis (which is true), we add an additional 10 observations, but only once. Incorporate further levels of peeking and different amounts of added information at each peak to see how it affects the nominal significance level.
+
+
+```{r}
+peeking <- function(a,b=10){
+  x <- rnorm(25)
+  Tstat <- mean(x)/sd(x)*sqrt(length(x))
+  if(abs(Tstat) > qt(0.975,length(x)-1)){
+    return(Tstat)
+  }else{
+    x <- append(x, rnorm(b))
+    Tstat <- mean(x)/sd(x)*sqrt(length(x))
+    return(Tstat)
+  }
+}
+set.seed(517)
+Tstats <- sapply(1:10000,peeking)
+mean(I(abs(Tstats) > qnorm(0.975)))
+```

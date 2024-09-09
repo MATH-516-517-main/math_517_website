@@ -1,0 +1,45 @@
+---
+title: "Main project"
+bibliography: ref.bib
+---
+
+
+::: callout-important
+**Due date: 11:59pm on Sunday, 24 December 2023.**
+:::
+
+::: {.callout-note collapse="true"}
+# Invite link for GitHub Classroom
+
+Use the corresponding invite link in [this google doc](https://docs.google.com/document/d/1XTO7obXEr2Yxllxk48wnZ5e49ptPGMsMyl40KEZDGRg/edit?usp=sharing) (accessible with your EPFL account) to accept the project, and either join an existing team or create a new one. Once this is done, go to the [course GitHub organization](https://github.com/MATH-517) and locate the repo titled `main-project-TEAM-NAME` to get started.
+:::
+
+
+::: {.callout-warning collapse="false"}
+# Submission requirements
+
+You are required to hand in a PDF version of your report `report.pdf` (generated from the quarto file `report.qmd`) and the quarto file itself. The `report.qmd` should contain all the code necessary to reproduce your results: you should not show the actual code in the PDF report, unless you want to point out something specific.
+
+Your `README.md` should contain instructions on reproducing the PDF report from the quarto file. This can be useful if you have issues with the automatic generation of the PDF report right before the deadline.
+
+**Checklist**:
+
+1. [ ] `report.pdf` in GitHub repository (generated from `report.qmd`) (**max 20 pages**)
+2. [ ] `report.qmd` in GitHub repository (source code, should be able to run from top to bottom)
+3. [ ] `README.md` with instructions on how to run the code and reproduce the PDF report
+:::
+
+
+The goal of this project is quite broad, students are free to come up with their own ideas. While simulation studies are the designated topic, groups that found interesting data during the small project and would like to carry on analyzing it, or groups interested in studying a bit deeper one of the methodological concepts from this course are encouraged to approach the teachers during the exercises and discuss their ideas. **Prospective topics for the final project will be gradually revealed during the lectures.**
+
+A part of the grade for the final project (10 % of the total grade, i.e. one quarter of the final project) will be awarded for value added (original data analysis, simulation study answering a previously unclear question, etc.). All of the prospective topics that will be introduced during the lecture will have this element, and by half-way through the semester (when the final project will start) it should be clear through the examples what the project should aspire to. We will also discuss this in person at some point, likely on Week 7. The remaining three quarters of the project (i.e. 30 % of the total grade) will be awarded for
+
+- quality of the Markdown report _(clarity, readability, structure, referencing, etc.)_
+- graphical considerations _(well chosen (as discussed during the course) graphics with captions, referenced from the main text)_
+- concepts explored beyond the scope of the course _(in the soft sense that they were not fully covered during classes)_
+- overall quality _(correctness, demonstration of understanding, etc.)_
+
+A project seriously lacking in any of the criteria above will be penalized.
+<!--- ## Recap on global optimal bandwidth
+
+-->

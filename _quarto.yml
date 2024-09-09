@@ -1,0 +1,95 @@
+project:
+  type: website
+
+website:
+  page-navigation: true
+  title: "MATH 517"
+  description: "Homepage for MATH 517- Computational statistics and visualisation at EPFL, Fall 2024."
+  site-url: "https://math-517.github.io/math_517_website/"
+
+  repo-url: https://github.com/MATH-517/MATH_517_website
+  repo-actions: [edit, issue]
+
+  open-graph: true
+
+  sidebar:
+    background: "#798b93"
+    #logo: "images/logo.png"
+    pinned: true
+    align: center
+
+    tools:
+      - icon: github
+        href: https://github.com/MATH-517/MATH_517_website
+        text: "GitHub"
+
+    style: docked
+    search: true
+    collapse-level: 1
+
+    contents:
+      - section: "Course information"
+        contents:
+          - href: course-overview.qmd
+            text: Overview/Organisation
+          - href: course-syllabus.qmd
+            text: Syllabus
+          - href: index.qmd
+            text: Schedule
+          - href: course-faq.qmd
+      - section: "Exercises"
+        contents: exercises/*
+      - section: "Assignments"
+        contents: assignments/*
+      - section: "Projects"
+        contents:
+          - href: projects/project-01.qmd
+          - href: projects/project-02.qmd
+          - href: projects/project-tips-resources.qmd
+            text: Tips + resources
+      - section: "Supplementary notes"
+        contents: notes/*
+      - section: "Resources"
+        contents:
+          - section: "Coding introduction"
+            contents:
+              - href: resources/computing/intro_to_r/index.qmd
+                text: R
+              - href: resources/computing/intro_to_python/index.qmd
+                text: Python
+              - href: resources/computing/intro_to_julia/index.qmd
+                text: Julia
+          - section: "Tutorials"
+            contents:
+              - href: resources/tutorials/github.qmd
+                text: GitHub
+              - href: resources/tutorials/github_classroom.qmd
+                text: GitHub classroom
+              - href: resources/tutorials/installing_software.qmd
+                text: Installing software
+          - href: resources/computing/computing-cheatsheets.qmd
+            text: Cheatsheets
+          - href: resources/resources.qmd
+            text: All resources
+          
+
+  page-footer:
+    right: "This page is built with [Quarto](https://quarto.org/)"
+    left: "&copy; Copyright 2024, Charles Dufour and Linda Mhalla"
+    background: "#5d6d74"
+
+
+format:
+  html:
+    theme:
+      light: [cosmo, style/sta101.scss]
+    linkcolor: "#36A2E1" #"#798b93"
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    mainfont: "Atkinson Hyperlegible"
+
+execute:
+  freeze: auto
+
+editor: visual

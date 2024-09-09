@@ -1,0 +1,30 @@
+---
+title: "Git and GitHub"
+description: "A guide to set-up Git and GitHub"
+output:
+  html_document:
+    toc: true
+---
+
+::: callout-important 
+
+Please read the full guide if something does not work: it is very likely that the answer to your problem lies just a few lines after wherever you stopped reading.
+:::
+
+
+First follow this [set up Git tutorial](https://docs.github.com/en/get-started/quickstart/set-up-git)[^1] and then follow [this tutorial](https://docs.github.com/en/get-started/quickstart/hello-world) to get a gentle introduction to Git and GitHub.
+
+**Summary of the steps**
+
+1. [Create a GitHub account](https://github.com/join)
+2. [Install Git](https://docs.github.com/en/get-started/quickstart/set-up-git#setting-up-git)
+3. Create a repository and clone it to your computer
+4. Create a file and push it to GitHub
+
+If all of the above worked, you are ready to go.
+
+**Next steps**
+
+You should follow the instructions you received by email to join the [GitHub organization of your course](https://github.com/MATH-517). This will allow you to access the course repository and to submit your assignments.
+
+[^1]: If you need more help installing and using git, see [this tutorial](https://github.com/git-guides).

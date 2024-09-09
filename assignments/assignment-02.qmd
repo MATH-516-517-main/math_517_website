@@ -1,0 +1,23 @@
+---
+title: "Assignment 2"
+subtitle: "Bandwidth selection in Kernel Density Estimation"
+date: 09-27-2024
+format: 
+  html:
+    code-fold: true
+    code-tools: true
+editor: visual
+number-sections: true
+---
+::: callout-important
+# Deadline
+
+**Due date: 11:59pm on Sunday, 6 October 2024.**
+:::
+
+::: {.callout-note collapse="false"}
+# Invite link for GitHub Classroom
+
+Use the corresponding invite link in [this google doc](https://docs.google.com/document/d/1XTO7obXEr2Yxllxk48wnZ5e49ptPGMsMyl40KEZDGRg/edit?usp=sharing) (accessible with your EPFL account) to accept the assignment. Then go to the [course GitHub organization](https://github.com/MATH-517) and locate the repo titled `ae-2-YOUR_GITHUB_USERNAME` to get started.
+:::
+

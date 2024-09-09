@@ -1,0 +1,31 @@
+---
+title: "Small project"
+subtitle: "Data visualization and exploration"
+---
+
+
+::: callout-important
+**Due date: 11:59pm on Sunday, 22 October 2023.**
+:::
+
+::: {.callout-note collapse="true"}
+# Invite link for GitHub Classroom
+
+Use the corresponding invite link in [this google doc](https://docs.google.com/document/d/1XTO7obXEr2Yxllxk48wnZ5e49ptPGMsMyl40KEZDGRg/edit?usp=sharing) (accessible with your EPFL account) to accept the project, and either join an existing team or create a new one. Once this is done, go to the [course GitHub organization](https://github.com/MATH-517) and locate the repo titled `mini-project-TEAM-NAME` to get started.
+:::
+
+
+
+The goal of this project is *data exploration*. Find an interesting (in the sense it interests you!) data set and
+
+* explore the data
+* describe the data
+* visualize the data
+* lay out some questions about the data based on your exploration
+* use more detailed visualization techniques to hint answers
+
+
+Note that the purpose of this project is to play around, demonstrating your data exploration, wrangling and visualization skills. Hopefully, you will also find scientifically interesting questions or questions of personal interest (e.g. does ball possession matter in a game of football?), but even if not, you can still be awarded full points, as long as you avoid Kaggle data sets that have been analyzed zillion times before. 
+
+
+ The first step should be done individually. [Here](../resources/week-02/mini-project-example.qmd) is an example of what your report could look like. See [this page](project-tips-resources.qmd) for some tips and resources (e.g., example datasets).
