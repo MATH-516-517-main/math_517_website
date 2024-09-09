@@ -1,19 +1,13 @@
 [
   {
-    "listing": "/resources/computing/intro_to_python/index.html",
+    "listing": "/resources/computing/intro_to_r/index.html",
     "items": [
-      "/resources/computing/intro_to_python/good_practice_python.html"
+      "/resources/computing/intro_to_r/1_functions_and_objects.html",
+      "/resources/computing/intro_to_r/2_working_with_data.html",
+      "/resources/computing/intro_to_r/3_tidyverse.html",
+      "/resources/computing/intro_to_r/4_data_visualisation.html",
+      "/resources/computing/intro_to_r/5_good_practice_r.html"
     ]
-  },
-  {
-    "listing": "/resources/computing/intro_to_julia/index.html",
-    "items": [
-      "/resources/computing/intro_to_julia/good_practice_julia.html"
-    ]
-  },
-  {
-    "listing": "/resources/tips/reproducible_research.html",
-    "items": []
   },
   {
     "listing": "/resources/resources.html",
@@ -22,7 +16,6 @@
       "/resources/computing/intro_to_r/index.html",
       "/resources/computing/intro_to_julia/index.html",
       "/resources/computing/intro_to_python/index.html",
-      "/resources/week-01/recap-linear-regression.html",
       "/resources/tips/collaboration.html",
       "/resources/tips/tips_coding.html",
       "/resources/tips/reproducible_research.html",
@@ -33,13 +26,19 @@
     ]
   },
   {
-    "listing": "/resources/computing/intro_to_r/index.html",
+    "listing": "/resources/tips/reproducible_research.html",
+    "items": []
+  },
+  {
+    "listing": "/resources/computing/intro_to_julia/index.html",
     "items": [
-      "/resources/computing/intro_to_r/1_functions_and_objects.html",
-      "/resources/computing/intro_to_r/2_working_with_data.html",
-      "/resources/computing/intro_to_r/3_tidyverse.html",
-      "/resources/computing/intro_to_r/4_data_visualisation.html",
-      "/resources/computing/intro_to_r/5_good_practice_r.html"
+      "/resources/computing/intro_to_julia/good_practice_julia.html"
+    ]
+  },
+  {
+    "listing": "/resources/computing/intro_to_python/index.html",
+    "items": [
+      "/resources/computing/intro_to_python/good_practice_python.html"
     ]
   }
 ]

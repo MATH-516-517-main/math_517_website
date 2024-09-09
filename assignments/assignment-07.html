@@ -67,8 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta property="og:title" content="MATH 517 - Assignment 7">
 <meta property="og:description" content="Confidence intervals for the mean of an exponential distribution">
@@ -279,36 +277,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Exploring Data with <code>tidyverse</code></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../notes/week_03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Kernel Density Estimation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../notes/week_04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Non-parametric Regression</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../notes/week_05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Cross-Validation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../notes/week_06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EM Algorithm</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../notes/week_08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Monte Carlo Methods</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -457,71 +425,7 @@ Invite link for GitHub Classroom
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Submission requirements
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>You are required to hand in a PDF version of your report <code>report.pdf</code> (generated from the quarto file <code>report.qmd</code>) and the quarto file itself. The <code>report.qmd</code> should contain all the code necessary to reproduce your results: you should not show the actual code in the PDF report, unless you want to point out something specific.</p>
-<p>Your <code>README.md</code> should contain instructions on how to reproduce the PDF report from the quarto file. This can be useful if you have issues with the automatic generation of the PDF report right before the deadline.</p>
-<p><strong>Code</strong>:</p>
-<p>You are not required to code the bootstrap procedure by yourself.</p>
-<p><strong>Checklist</strong>:</p>
-<ol type="1">
-<li><input type="checkbox"><code>report.pdf</code> in GitHub repository (generated from <code>report.qmd</code>)</li>
-<li><input type="checkbox"><code>report.qmd</code> in GitHub repository (source code, should be able to run from top to bottom)</li>
-<li><input type="checkbox"><code>README.md</code> with instructions on how to run the code and reproduce the PDF report</li>
-</ol>
-</div>
-</div>
-</div>
-<p>For <span class="math inline">\(X_1,\ldots,X_{N} \stackrel{\text{ind.}}{\sim} \operatorname{Exp}(2)\)</span>, consider the following <span class="math inline">\((1-\alpha)\)</span> two-sided confidence intervals for <span class="math inline">\(\mathbb{E}[X_1] = 1/2\)</span>:</p>
-<ul>
-<li>asymptotic</li>
-<li>basic (non-parametric bootstrap)</li>
-<li>studentized (non-parametric bootstrap)</li>
-<li>percentile (non-parametric bootstrap)</li>
-</ul>
-<p>Verify the coverage of these intervals via a simulation study of <span class="math inline">\(10^3\)</span> runs for each of the following settings:</p>
-<ul>
-<li><span class="math inline">\(N=10,50,100\)</span></li>
-<li><span class="math inline">\(\alpha=0.05\)</span></li>
-<li><span class="math inline">\(B=10^4\)</span></li>
-</ul>
-<p>Specifically, for every run, do the following:</p>
-<ul>
-<li>generate new data <span class="math inline">\(X_1,\ldots,X_{N} \stackrel{\text{ind.}}{\sim} \operatorname{Exp}(2)\)</span></li>
-<li>calculate the four confidence intervals</li>
-<li>check whether <span class="math inline">\(\mathbb{E}[X_1] = 1/2\)</span> lies inside the respective intervals (yes = coverage)</li>
-<li>report the coverage proportion for the respective intervals</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Code indications
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can check the following libraries:</p>
-<ul>
-<li><code>R</code>: <a href="https://cran.r-project.org/web/packages/nptest/index.html"><code>nptest</code></a></li>
-<li><code>Python</code>: <a href="https://arch.readthedocs.io/en/latest/bootstrap/confidence-intervals.html"><code>arch</code></a></li>
-<li><code>Julia</code>: <a href="https://github.com/juliangehring/Bootstrap.jl"><code>Bootstrap.jl</code></a></li>
-</ul>
-<p>You are not required to use these libraries, you can either code the bootstrap procedure by yourself or use any other library you want.</p>
-<p><strong>Be careful of the parametrization of an exponential distribution</strong> (i.e., <a href="https://en.wikipedia.org/wiki/Exponential_distribution#Alternative_parametrization">scale vs rate</a>) <strong>in the different programming languages!</strong></p>
-</div>
-</div>
+<p>::: {.callout-warning collapse=“false”}</p>
 
 
 
