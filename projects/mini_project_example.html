@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.330">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rayan Harfouch, Lucas Clarté &amp; Tara Fjellman">
+<meta name="dcterms.date" content="2023-10-22">
+
+<title>MATH 517 - Example of data visualization and exploration report</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta property="og:title" content="MATH 517 - Example of data visualization and exploration report">
+<meta property="og:description" content="Speed dating data">
+<meta property="og:site_name" content="MATH 517">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      MATH 517
+      </li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MATH 517</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/MATH-517/MATH_517_website" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview/Organisation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help &amp; FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Exercises</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/exercise-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/exercise-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/exercise-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Assignments</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/project-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Small project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/project-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Main project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/project-tips-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tips + resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Supplementary notes</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/week_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploring Data with <code>tidyverse</code></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">Coding introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/computing/intro_to_r/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/computing/intro_to_python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/computing/intro_to_julia/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Julia</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+ <span class="menu-text">Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/tutorials/github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/tutorials/github_classroom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub classroom</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/tutorials/installing_software.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing software</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cheatsheets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">All resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-description" id="toc-data-description" class="nav-link" data-scroll-target="#data-description">Data description</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <ul class="collapse">
+  <li><a href="#gender-difference-in-preferences-for-partner" id="toc-gender-difference-in-preferences-for-partner" class="nav-link" data-scroll-target="#gender-difference-in-preferences-for-partner">Gender difference in preferences for partner</a>
+  <ul class="collapse">
+  <li><a href="#first-overview" id="toc-first-overview" class="nav-link" data-scroll-target="#first-overview">First overview</a></li>
+  <li><a href="#successful-vs.-unsuccessful-candidates" id="toc-successful-vs.-unsuccessful-candidates" class="nav-link" data-scroll-target="#successful-vs.-unsuccessful-candidates">Successful vs.&nbsp;Unsuccessful candidates</a></li>
+  </ul></li>
+  <li><a href="#how-much-do-shared-interests-really-matter" id="toc-how-much-do-shared-interests-really-matter" class="nav-link" data-scroll-target="#how-much-do-shared-interests-really-matter">How much do shared interests really matter ?</a></li>
+  <li><a href="#other-notable-factors" id="toc-other-notable-factors" class="nav-link" data-scroll-target="#other-notable-factors">Other notable factors</a>
+  <ul class="collapse">
+  <li><a href="#impact-of-sat-score-on-success-rate" id="toc-impact-of-sat-score-on-success-rate" class="nav-link" data-scroll-target="#impact-of-sat-score-on-success-rate">Impact of SAT score on success rate</a></li>
+  <li><a href="#impact-of-ethnicity-on-match" id="toc-impact-of-ethnicity-on-match" class="nav-link" data-scroll-target="#impact-of-ethnicity-on-match">Impact of ethnicity on match</a></li>
+  </ul></li>
+  <li><a href="#do-people-percieve-us-as-we-do" id="toc-do-people-percieve-us-as-we-do" class="nav-link" data-scroll-target="#do-people-percieve-us-as-we-do">Do people percieve us as we do ?</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/projects/mini_project_example.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>Example of data visualization and exploration report</strong></h1>
+<p class="subtitle lead"><em>Speed dating data</em></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rayan Harfouch, Lucas Clarté &amp; Tara Fjellman </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+NOTA BENE
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This report was submitted by a group of students as part of the course MATH-517 at EPFL, and is presented here as an example of a data visualization and exploration.</p>
+</div>
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In a contemporary society characterized by fleeting moments and limited time, the concept of speed dating has emerged as a compelling avenue for those seeking to forge romantic connections : but what are its underlying dynamics ? Are there gendered differences in partner preferences ? How much do shared interests and ethnicity preferences affect compatibility ? What sets apart successful and unsuccessful candidates ? This report presents an analysis of the data associated to the <em>Speed dating dataset</em> used in <span class="citation" data-cites="Fisman2006">Fisman et al. (<a href="#ref-Fisman2006" role="doc-biblioref">2006</a>)</span>. As we navigate through the nuanced world of speed dating, we uncover the data-driven insights that shed light on how these factors shape the pursuit of love within brief encounters.</p>
+</section>
+<section id="data-description" class="level1">
+<h1>Data description</h1>
+<p>The dataset was compiled by Columbia Business School professors Ray Fisman and Sheena Iyengar for their paper Gender Differences in Mate Selection: Evidence From a Speed Dating Experiment.</p>
+<p>Data was gathered from participants in experimental speed dating events from 2002-2004. During the events, the attendees would have a four minute “first date” with every other participant of the opposite sex. At the end of their four minutes, participants were asked if they would like to see their date again. They were also asked to rate their date on six attributes: Attractiveness, Sincerity, Intelligence, Fun, Ambition, and Shared Interests <span class="citation" data-cites="data-description"><span>“Speed Dating Experiment”</span> (<a href="#ref-data-description" role="doc-biblioref">n.d.</a>)</span>.</p>
+<p>The dataset also includes questionnaire data gathered from participants at different points in the process. These fields include: demographics, dating habits, self-perception across key attributes, beliefs on what others find valuable in a mate, and lifestyle information. Details about how the variables were encoded and their name withing the <code>.csv</code> file can be found in the <code>Speed Dating Data Key.doc</code> document.</p>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
+<section id="gender-difference-in-preferences-for-partner" class="level2">
+<h2 class="anchored" data-anchor-id="gender-difference-in-preferences-for-partner">Gender difference in preferences for partner</h2>
+<section id="first-overview" class="level3">
+<h3 class="anchored" data-anchor-id="first-overview">First overview</h3>
+<p>A first question one might ask is <strong>Are male and female participants interested in the same attributes for partner?</strong> To anwer it one can try and compare the reported importance to male and female candidates for partner characteristics (attractiveness, sincerity, intelligence, fun, ambition, shared interests). This is done by grouping the data associated to the columns : <code>attr1_1</code>, <code>sinc1_1</code>, <code>intel1_1</code>, <code>fun1_1</code>, <code>amb1_1</code>, <code>shar1_1</code> by gender and then obtaining a violin plot. For context, this data is expressed as a set of weights for the six attributes that sum up to 100.</p>
+<p>We observe in <a href="#fig-violin" class="quarto-xref">Figure&nbsp;1</a> that in our dataset, on average males attribute a greater importance to physical attractiveness, while sincerity is more important to females. Moreover, some male participants attribute a great importance to attractiveness, sometimes close to 100%. On the other hand, both genders put a similar and low importance on ambition and having shared interests.</p>
+<div id="fig-violin" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/preference_per_gender.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Violin plot of the weight of each attribute in participant’s choice of partner. A weight of 100% for an attribute means that only this attribute matters in the choice of partner.</figcaption>
+</figure>
+</div>
+</section>
+<section id="successful-vs.-unsuccessful-candidates" class="level3">
+<h3 class="anchored" data-anchor-id="successful-vs.-unsuccessful-candidates">Successful vs.&nbsp;Unsuccessful candidates</h3>
+<p>In the previous paragaraph, some differences between male and female participants were outlined. Following this, it seems natural to wonder about the existance of differences within the same gender. One way to do this is to answer the question <strong>What are the differences between successful and unsuccessful female (respectively male)?</strong></p>
+<p>In order to give an answer, we use the fact that by the end of the experiment, each participant has recieved a certain number of “yes”s (grade: 1) and “no”s (grade: 0) by the partners they have met. This is contained in the column <code>dec_o</code> (decision of the other). We define the proportion of “yes”s each individual has recieved as a measure of their success. Notice that this measure will only take values between 0 and 1. On <a href="#fig-cdf" class="quarto-xref">Figure&nbsp;2</a> are represented the cumulative distributions of the success rate for male and female participants. These will allow us to categroize successful and unsuccessful individuals by looking at the intersection with the horizontal lines <span class="math inline">\(y=25\%\)</span> and <span class="math inline">\(y=75\%\)</span></p>
+<p>The curve representing male participants is shifted to the left compared to the one representing female ones. It can be deduced that males are on average less successful than females. The 25% least successful males are labeled in the following as “Unseccessful males” while the 25% most successful males are labeled as “Successful males”. Same definition holds for females.</p>
+<div id="fig-cdf" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/CDF_men_women.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Success rate (measured as the proportion of “yes” recieved) cumulative distribution for male and female participants. Horizontal lines correspond to 25% and 75% proportions.</figcaption>
+</figure>
+</div>
+<p>In the sake of analyzing characteristics that differentiate successful and unsuccessful individuals, it is interesting to compare the interest each category (successful and unsuccessful) have, on average, for different activites. The interest for an activity has been expressed on a 1-10 scale. Data about the interest for 17 activties have been reported. <a href="#fig-male_sports" class="quarto-xref">Figure&nbsp;3</a> and <a href="#fig-female_sports" class="quarto-xref">Figure&nbsp;4</a> only report the results (for males and females respectively) for the five activities (reported in columns <code>sports</code>,<code>tvsports</code>,<code>exercise</code>,<code>dining</code> and <code>clubbing</code>)where the differences are statistically significant.</p>
+<div id="fig-male_sports" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/suc_vs_non_suc_men_activites.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Average interest (1-10 scale) for each activity among the 25% most successful, and the 25% least successful male participants.</figcaption>
+</figure>
+</div>
+<div id="fig-female_sports" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/suc_vs_non_suc_women_activites.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Average interest (1-10 scale) for each activity among the 25% most successful, and the 25% least successful female participants.</figcaption>
+</figure>
+</div>
+<p>From the figure it can be observed that successful males have more interest for sports and exercice than unsuccessful males. Tvsports find more interest among unsuccessful females than successful ones. While successful and unsucessful female participants have the same interest for dining, successful males show a significant difference of interest compared to the unsuccessful ones. Both for male and female participants, clubbing recieves more interest from successful individuals (the difference is more marked for males).</p>
+<p>Having analyzed the difference of interest for each activity there is between successful and successful male and female individuals, data regarding the rating (by the partners) of the attributes of each individual is analyzed in order to fully answer the question. Indeed, each participant recieves from their partners a grade (1-10 scale) on their percieved attributes (attractiveness, sincerity, intellect, fun and ambition). More precisely, for example, each male participant will recieve from each female participant a grade on how they look attractive. To each male will therefore be assigned an average grade on their attractiveness. An average over all successful males is then made. The same procedure is made for unsuccessful males, successful females and unsucessful females. The standard deviations of the data among each examined samples being similar and small enough (no standard deviation is greater than 0.14), it is more useful to deliver the data in tables. <a href="#tbl-attributes" class="quarto-xref">Table&nbsp;1</a> shows the average grade recieved for each attribute for the 25% most successful and the 25% most unsuccessful males and female participants respectively.</p>
+<div id="tbl-attributes" class="anchored">
+<table class="table">
+<caption>Table&nbsp;1: Attributes of successful and unsuccessful participants as perceived by the other participants</caption>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quality</th>
+<th>Successful Male</th>
+<th>Unsuccessful Male</th>
+<th>Successful Female</th>
+<th>Unsuccessful Female</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Attractiveness</td>
+<td>7.08</td>
+<td>4.52</td>
+<td>7.54</td>
+<td>5.30</td>
+</tr>
+<tr class="even">
+<td>Sincerity</td>
+<td>7.41</td>
+<td>6.83</td>
+<td>7.41</td>
+<td>7.13</td>
+</tr>
+<tr class="odd">
+<td>Intellect</td>
+<td>7.72</td>
+<td>7.18</td>
+<td>7.53</td>
+<td>7.02</td>
+</tr>
+<tr class="even">
+<td>Fun</td>
+<td>7.28</td>
+<td>5.06</td>
+<td>7.19</td>
+<td>5.77</td>
+</tr>
+<tr class="odd">
+<td>Ambition</td>
+<td>7.30</td>
+<td>6.71</td>
+<td>6.99</td>
+<td>6.13</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>On average, successful individuals are more attractive, more sincere, more intelligent, more fun and more ambitous, be they males or females. It is worth noticing that unsuccessful females are on average given a grade of 5.30/10 for their attractiveness which is signficantly higer than the average grade given to unsuccessful males.</p>
+</section>
+</section>
+<section id="how-much-do-shared-interests-really-matter" class="level2">
+<h2 class="anchored" data-anchor-id="how-much-do-shared-interests-really-matter">How much do shared interests really matter ?</h2>
+<p>In the previous sections (<a href="#fig-violin" class="quarto-xref">Figure&nbsp;1</a>), we saw that participants overall declared putting a low importance on shared interests in the choice of partner. Surprised by this result, we wanted to shed light on <strong>How important are shared interests in matching?</strong> Exploring the data, one can find a <code>int_corr</code> variable, corresponding in the words of the authors to “correlation between participant’s and partner’s ratings of interests”. Thought this variable sounds promising to study impact of shared interest on compatibility, we were : 1. not able to make sense of it (i.e.&nbsp;re-derive the way in which it was obtained) 2. not able to obtain any sensible visualisation (the data looked like noise). Because of this we turned to the 1 to 10 grades that each participants associates to each of the 17 interests present in the dataset for help. By considering the grade vectors <span class="math inline">\(v_i\)</span> and <span class="math inline">\(v_j\)</span> for two candidates, we then defined the similarity between these through a scalar product as <span class="math display">\[
+S(v_i,v_j)=\frac{\langle\tilde{v}_i,\tilde{v}_j\rangle}{\|\tilde{v}_i\|\ \|\tilde{v}_j\|},
+\]</span><br>
+where <span class="math inline">\(\tilde{v}_i={v}_i-5\)</span> to recenter the vectors. Notice that this measure of similarity gives results in the <span class="math inline">\([-1,1]\)</span> interval, with positive values associated to generally shared interests and negative ones with generally different interests.</p>
+<p>Given this definition of similarity, one can then explore the effect of shared interests on the average match rate. This is done in <a href="#fig-similarity" class="quarto-xref">Figure&nbsp;5</a>. The linear fit corresponds to an ordinary least squares linear regression. The shaded area is a 95% confidence interval that is estimated using a bootstrapping statistics, see <span class="citation" data-cites="bootstrapping">NormandErwan (<a href="#ref-bootstrapping" role="doc-biblioref">2018</a>)</span>. By looking at it, one can easily see that there is a positive correlation between interest similarity and match rate.</p>
+<div id="fig-similarity" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/similarity_vs_match_rate.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;5: Average match rate as a function of the defined interest similarity measure. The linear fit corresponds to an ordinary least squares linear regression. The shaded area is a 95% confidence interval.</figcaption>
+</figure>
+</div>
+</section>
+<section id="other-notable-factors" class="level2">
+<h2 class="anchored" data-anchor-id="other-notable-factors">Other notable factors</h2>
+<p>As mentionned previously, in addition to the data about prefered characteristics and interests, the used dataset contained a lot of personal information about the participants. Exapmples include age, field of study/work, SAT grade, income, religion and etnicity. In the following we explore the impact of some of this data.</p>
+<section id="impact-of-sat-score-on-success-rate" class="level3">
+<h3 class="anchored" data-anchor-id="impact-of-sat-score-on-success-rate">Impact of SAT score on success rate</h3>
+<p>We would like to know if academic success is correlated with success in dating. To achieve this we use the SAT score included in the <code>sat</code> column of the dataset. While the SAT score is only used for university admissions, we’ll use it here a proxy metric for academic sucess. On the other hand, to quantify the success of participants, we will use the column <code>dec_o</code> <span class="math inline">\(\in {0, 1}\)</span> indicating for each meeting if the participant was liked by the person in front of them. We define the success rate of participant <span class="math inline">\(i\)</span> as the average of <code>dec_o</code> over all the speed dates in which <span class="math inline">\(i\)</span> took part.</p>
+<p>The first observation is that the average SAT score for men and women over the dataset are of 1320 and 1280 respectively, significantly higher than the national US average which is around 1050. <a href="#fig-SAT" class="quarto-xref">Figure&nbsp;6</a> contains a scatter plot of the success rate of male and female participants as a function of their SAT score. An ordinary least squares linear regression is associated to each gender. We observe a higher slope for males than females (<span class="math inline">\(3.3 \times 10^{-3}\)</span> <em>vs</em> <span class="math inline">\(7.8 \times 10^{-5}\)</span>), hinting that academic sucess is more important for men than women in speed dating success.</p>
+<div id="fig-SAT" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/success_sat_per_gender.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6: Success rate of male and female participants as a function of their SAT score. At first glance, it would appear that a higher SAT score impacts success more for males than females.</figcaption>
+</figure>
+</div>
+</section>
+<section id="impact-of-ethnicity-on-match" class="level3">
+<h3 class="anchored" data-anchor-id="impact-of-ethnicity-on-match">Impact of ethnicity on match</h3>
+<p>Wether it is because of habituation, people wanting to stay in their comfort zone or cultural influence, it is clear some people might prefer partners of their same ehnicity. Predicting the relation between stated importance and observed preference remains however untrivial. This is what we focus on in this section.</p>
+<p>The relevant data to this section are the grades (on a 1-10 scale) that the participant attributed to the importance for their partner to be of the same ethnicity as them. The quantity we consider is the difference between the average acceptance of people of same ethnicity (which we call <span class="math inline">\(G_{ethn}\)</span>) and the general one (which we call <span class="math inline">\(G_{all}\)</span>). For the scale to be independent of the personal standards of the participants this difference is normalised by the acceptance rate of every individual. The average of <span class="math inline">\((G_{ethn}-G_{all})/G_{all}\)</span> grouped by stated importance is plotted in <a href="#fig-ethnicity" class="quarto-xref">Figure&nbsp;7</a>.</p>
+<div id="fig-ethnicity" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/Relative_same_ethnicity_preference.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;7: Average over all individuals of the relative difference between the average over grades given to people of the same race <span class="math inline">\(G_{ethn}\)</span> and the average over grades given to every person they’ve met.</figcaption>
+</figure>
+</div>
+<p>Looking at the figure it can be noticed that pople who stated a small importance (of 1,2 or 3 for example) for their partner to be of same ethnicity, indeed are (on average) associated to equal grading of the participants they met (the relative difference is close to zero). For people who state a bigger importance however, the relative difference seems to become significantly bigger than 0. People who reported a maximal importance to having a partner of the same ethnicity (10/10), are found to be 70% more likely to match with people of their ethnicity compared to others.</p>
+</section>
+</section>
+<section id="do-people-percieve-us-as-we-do" class="level2">
+<h2 class="anchored" data-anchor-id="do-people-percieve-us-as-we-do">Do people percieve us as we do ?</h2>
+<p>As seen in the section about successful and unsuccesfull candidates, some factors, such as how fun and attractive people are, affect their successrate in speed dating. Given this observation, some might try to improve their chances of success by working on their shortcomings. This should be rather straight forward, assuming that person are able to gauge where they currenly stand. <strong>But is this a reasonable assumption?</strong> In this section we focus on investigating the relevance of this assumption.</p>
+<p>To do this we need to compare data about people’s own perception of themselves, and that of other people. Fortunately we have access to such data. Indeed, in addition to the <code>attr</code>, <code>sinc</code>, <code>intel</code>, <code>fun</code>, <code>amb</code>, <code>shar</code> ratings that other people give to the candidtes they meet, the dataset includes ratings that each person gave themselves on the same attributes. <a href="#fig-elephant" class="quarto-xref">Figure&nbsp;8</a> represents the self-prescribed ratings in terms of the externally prescribed ones. The values for the response variables were obtained by grouping the candidates by their self-prescribed ratings and taking the average. The confidence intervals correspond to <span class="math inline">\(\pm\hat{\sigma}\)</span> where <span class="math inline">\(\hat \sigma\)</span> is the corrected sample standard deviation. Notice that only the values associated to attractiveness and intelligence are included in order not to overcrowed the plot (the other attributes behaved similarly to intelligence anyway). A square-aspect ratio plot was chosen since the goal is to compare the observed results to the <span class="math inline">\(y=x\)</span> baseline.</p>
+<p>Looking at the figure, we immediately see that people’s own intelligence rating (on average) does not correlate with other people’s ratings. This might sound surprising at first. It can however be understood by noticing that intelligence is a vague term, which makes it is hard to evaluate both your own rating and evaluate that of someone else. In the second case, this is aggraveted by the fact that the estimate is only based on a 4 minute interraction. The observed behaviour for attractiveness is more nuanced. On one hand, it seems that people are (on average) good at evaluating when they do not appear attractive to others. This is reflected by the fact that the points associated to the 4,5,6 ratings nicely overlap with the <span class="math inline">\(y=x\)</span> line. On the other hand, there is no significant difference in externally-reported attractiveness between groups that self-report their attractiveness as 7,8,9 or 10 out of 10. The only difference between these groups seems therefore to be in their ego.</p>
+<div id="fig-elephant" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/own_vs_others_attribute_ratings.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8: Square-aspect-ratio plot of externally-evaluated attributes as a function of self-evaluated ones. The response variable is obtained by grouping the control variable and taking the average. The confidence intervals correspond to <span class="math inline">\(\pm\hat \sigma\)</span> where <span class="math inline">\(\hat \sigma\)</span> is the corrected sample standard deviation.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>In conclusion, the exploration of the Speed dating dataset from Fisman’s 2006 study has provided valuable insights into the dynamics of modern dating within a fast-paced society. This analysis has shed light on several key aspects of speed dating, including partner preferences, gendered differences, shared interests, and ethnicity influences on compatibility.</p>
+<p>One notable finding from this investigation is the existence of gendered differences in partner’s attributes preferences. Most successful and most unsuccessful individuals show a neat difference in some interest for a certain type of actvities (such as doing sports of clubbing), as well as a difference in their attributes.</p>
+<p>Moreover, the role of shared interests and ethnicity preferences in shaping compatibility has been highlighted. The data suggests that common interests play a significant role in forming connections during brief encounters.</p>
+<p>In essence, the Speed dating dataset analysis has underscored that love and romantic connections can be influenced by a complex interplay of factors. While the findings of this study are intriguing and hold practical implications, it is essential to remember that they represent statistical insights, and the genuine power of love between two individuals transcends mere statistics.</p>
+</section>
+<section id="references" class="level1 unnumbered">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Fisman2006" class="csl-entry" role="listitem">
+Fisman, Raymond, Sheena S. Iyengar, Emir Kamenica, and Itamar Simonson. 2006. <span>“<span class="nocase">Gender Differences in Mate Selection: Evidence From a Speed Dating Experiment*</span>.”</span> <em>The Quarterly Journal of Economics</em> 121 (2): 673–97. <a href="https://doi.org/10.1162/qjec.2006.121.2.673">https://doi.org/10.1162/qjec.2006.121.2.673</a>.
+</div>
+<div id="ref-bootstrapping" class="csl-entry" role="listitem">
+NormandErwan. 2018. <span>“Answer to "Is Seaborn Confidence Interval Computed Correctly?". Stack Overflow.”</span> June 14, 2018. <a href="https://stackoverflow.com/a/50859611">https://stackoverflow.com/a/50859611</a>.
+</div>
+<div id="ref-data-description" class="csl-entry" role="listitem">
+<span>“Speed Dating Experiment.”</span> n.d. Accessed October 22, 2023. <a href="https://www.kaggle.com/datasets/annavictoria/speed-dating-experiment">https://www.kaggle.com/datasets/annavictoria/speed-dating-experiment</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2024, Charles Dufour and Linda Mhalla</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
