@@ -1,5 +1,5 @@
 ---
-title: "**Data visualization and exploration report**"
+title: "**Example of data visualization and exploration report**"
 subtitle: "*Speed dating data*"
 author:
   - name: Rayan Harfouch, Lucas Clarté & Tara Fjellman 
@@ -8,6 +8,13 @@ date: 10-22-2023
 toc: true
 bibliography: biblio.bib
 ---
+
+::: callout-important
+# NOTA BENE
+
+This report was submitted by a group of students as part of the course MATH-517 at EPFL, and is presented here as an example of a data visualization and exploration.
+:::
+
 
 # Introduction
 
