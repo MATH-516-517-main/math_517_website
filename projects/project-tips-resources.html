@@ -403,11 +403,16 @@ ul.task-list li input[type="checkbox"] {
 <li>jumping between different citation styles is bad</li>
 <li>having some captions centered above the figure produced by R and others flushed right below using Markdown is annoying</li>
 </ul></li>
+<li>The report should be self-contained.
+<ul>
+<li>it should not be a tutorial for the code</li>
+<li>the reader should not have to jump between the report and the code to understand your work</li>
+</ul></li>
 <li>Save space for better readability.
 <ul>
 <li>plots that convey little information don’t have to be large, several (related) plots can be put next to each other on the same line, etc.</li>
 <li>even in an <code>html</code> file, unnecessary scrolling back and forth when reading a report is annoying</li>
-<li>a plot frame with one or two boxplots is a waste of space (e.g.&nbsp;histograms would be better)</li>
+<li>a plot frame with one boxplot is a waste of space (e.g., histogram would be better)</li>
 <li>barplots can often be replaced by tables to both save space and improve readability</li>
 <li>in general, if a plot only shows like 3 numbers and is not important for any argument made, it should not be a plot</li>
 </ul></li>
@@ -420,13 +425,8 @@ ul.task-list li input[type="checkbox"] {
 <li>More on plots.
 <ul>
 <li>text in figures (labels, etc.) should be of similar size as the main text</li>
-<li>labels have to be readable, e.g.&nbsp;no overlaying etc.</li>
+<li>labels have to be readable, e.g., no overlaying etc.</li>
 <li>captions are necessary and should make the plot self-contained (without looking at the paragraphs around it)</li>
-</ul></li>
-<li>Less is sometimes more.
-<ul>
-<li>showing a scatterplot only to colors to it based on a group of two on the next plot, then adding one regression line, and then two regression lines on the fourth plot… just dilutes the important parts</li>
-<li>Barplots colored by an additional variable should probably be replaced by a table (potentially colored by the cell values – coloring for better readability only).</li>
 </ul></li>
 <li>List of references should be itemized or enumerated (in order to be readable).</li>
 <li>Avoid using local paths.
@@ -436,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Transforming variables.
 <ul>
 <li>if your plots look bad because of a clear skewing in one of the variables, transform the varible (typically plot it on a log-scale)</li>
-<li>if plotting on a log-scale, consider <code>log10</code> or <code>log2</code> to have better interpretability</li>
+<li>if plotting on a log-scale, you might consider <code>log10</code> or <code>log2</code> to have better interpretability</li>
 </ul></li>
 </ol>
 </section>
