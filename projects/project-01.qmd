@@ -18,14 +18,16 @@ Use the corresponding invite link in [this google doc](https://docs.google.com/d
 
 The goal of this project is *data exploration*. Find an interesting (in the sense it interests you!) data set and
 
-* explore the data
+* lay out some questions about the data 
 * describe the data
+* explore the data
 * visualize the data
-* lay out some questions about the data based on your exploration
 * use more detailed visualization techniques to hint answers
 
+These steps correspond to the first three stages of the [data science life cycle](https://vdsbook.com/02-dslc.html).
 
-Note that the purpose of this project is to play around, demonstrating your data exploration, wrangling and visualization skills. Hopefully, you will also find scientifically interesting questions or questions of personal interest (e.g. does ball possession matter in a game of football?), but even if not, you can still be awarded full points, as long as you avoid Kaggle data sets that have been analyzed zillion times before. 
+
+Note that the purpose of this project is to play around, demonstrating your data exploration, wrangling and visualization skills. Hopefully, you will also find scientifically interesting questions or questions of personal interest, e.g., does ball possession matters in a game of football? Is there a link between the GDP of a country and its contribution to global warming? Try though to avoid Kaggle data sets that have been analyzed zillion times before. 
 
 
  The first step should be done individually. [Here](mini_project_example.qmd) is an example of what your report could look like. See [this page](project-tips-resources.qmd) for some tips and resources (e.g., example datasets).
