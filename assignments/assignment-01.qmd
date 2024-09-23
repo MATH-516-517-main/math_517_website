@@ -1,7 +1,7 @@
 ---
 title: "Assignment 1"
 subtitle: "Introduction to Github and programming"
-date: 09-22-2023
+date: 09-13-2024
 format: html
 editor: visual
 ---
@@ -9,7 +9,7 @@ editor: visual
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 1 October 2023.**
+**Due date: 11:59pm on Sunday, 22 September 2024.**
 :::
 
 ::: {.callout-note collapse="false"}
