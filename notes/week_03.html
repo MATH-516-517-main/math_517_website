@@ -63,8 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../notes/week_02.html" rel="next">
-<link href="../projects/project-tips-resources.html" rel="prev">
+<link href="../resources/computing/intro_to_r/index.html" rel="next">
+<link href="../notes/week_02.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/03_KDE.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/03_KDE.html">Kernel Density Estimation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/week_02.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/week_03.html">Kernel Density Estimation</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -308,14 +308,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/03_KDE.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Kernel Density Estimation</span></a>
+  <a href="../notes/week_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploring Data with <code>tidyverse</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/week_02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Data with <code>tidyverse</code></span></a>
+  <a href="../notes/week_03.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Kernel Density Estimation</span></a>
   </div>
 </li>
       </ul>
@@ -424,12 +424,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#degrees-of-freedom" id="toc-degrees-of-freedom" class="nav-link" data-scroll-target="#degrees-of-freedom">6. Degrees of Freedom</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/notes/03_KDE.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/notes/week_03.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/03_KDE.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/03_KDE.html">Kernel Density Estimation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/week_02.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/week_03.html">Kernel Density Estimation</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Kernel Density Estimation</h1>
 </div>
@@ -458,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(faithful<span class="sc">$</span>waiting, <span class="at">probability=</span>T, <span class="at">main =</span> <span class="st">"Waiting time"</span>, <span class="at">xlab=</span><span class="st">"time [min]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="768"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 <p>We assume that there exist underlying densities from which the eruption duration and waiting times are drawn. While histograms are useful in providing some quick information (supports, bimodality, etc.) they are quite useless in capturing finer properties, such as the shape, since they heavily depend on the <em>binwidth</em> as well as the <em>origin</em> – the two quantities that determine equally-spaced breaks for the bins.</p>
@@ -472,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(faithful<span class="sc">$</span>eruptions, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="fl">1.2</span>,<span class="fl">5.2</span>,<span class="at">by=</span><span class="fl">0.5</span>), <span class="at">probability=</span>T, <span class="at">main=</span><span class="st">"Origin at 1.2"</span>, <span class="at">xlab=</span><span class="st">"time [min]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="960"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 <div class="cell">
@@ -485,7 +485,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(faithful<span class="sc">$</span>eruptions, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="fl">1.5</span>,<span class="fl">5.5</span>,<span class="at">by=</span><span class="fl">0.01</span>), <span class="at">probability=</span>T, <span class="at">main=</span><span class="st">"Binwidth=0.01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="960"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 <p>While binwidth is a reasonable tuning parameter (it’s role is quite intuitive and the histogram for different binwidths provides the same qualitative information), the choice of origin is completely arbitrary, and can significantly distort the histogram.</p>
@@ -506,7 +506,7 @@ Also, even when we compute the naive estimator <span class="math inline">\(\wide
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="768"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 <ol start="2" type="1">
@@ -584,7 +584,7 @@ Also, even when we compute the naive estimator <span class="math inline">\(\wide
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_kdes</span>(<span class="dv">1</span>); <span class="fu">plot_kdes</span>(<span class="fl">0.5</span>); <span class="fu">plot_kdes</span>(<span class="fl">0.25</span>); <span class="fu">plot_kdes</span>(<span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="960"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section>
@@ -603,7 +603,7 @@ Also, even when we compute the naive estimator <span class="math inline">\(\wide
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"h=1"</span>,<span class="st">"h=0.1"</span>,<span class="st">"h=0.01"</span>),<span class="at">lty=</span><span class="dv">1</span>,<span class="at">col=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>), <span class="at">cex=</span><span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="960"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 <p>This is actually the bias-variance decomposition in practice. We look for a sweet spot, which minimizes the mean squared error (MSE) of <span class="math inline">\(\widehat{f}\)</span> at <span class="math inline">\(x\)</span>: <span class="math display">\[\underbrace{\mathbb{E} \big[ \widehat{f}(x) - f(x) \big]^2}_{MSE} = \mathbb{E} \big[ \widehat{f}(x) \pm \mathbb{E} \widehat{f}(x) - f(x) \big]^2 = \underbrace{\big[\mathbb{E} \widehat{f}(x) - f(x) \big]^2}_{bias^2} + \underbrace{\mathrm{var}\big( \widehat{f}(x) \big)}_{variance}\]</span> Let us calculate the bias and the variance (note that they are both pointwise, i.e., depending on <span class="math inline">\(x\)</span>, just as the MSE). For the bias: <span class="math display">\[
@@ -642,7 +642,7 @@ Also, even when we compute the naive estimator <span class="math inline">\(\wide
 <p>It is possible to show that the optimal rate for MSE of KDE in <span class="math inline">\(d\)</span> dimensions is <span class="math inline">\(\mathcal{O}(n^{-4/(4+d)})\)</span>, so we loose convergence speed fast with increasing dimensions. To appreciate this, we visualize the rate for several values of <span class="math inline">\(d\)</span>:</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Notice the gray horizontal line showing that, in terms of this asymptotic rate, <span class="math inline">\(n\approx 300\)</span> with <span class="math inline">\(d=1\)</span> leads to approximately the same error as <span class="math inline">\(n=30000\)</span> with <span class="math inline">\(d=5\)</span>. This is a manifestation of the infamous <em>curse of dimensionality</em>. For this reason, KDE is usually restricted to dimensions <span class="math inline">\(d=1\)</span> or <span class="math inline">\(d=2\)</span> (beyond these, one usually assumes independence between the dimensions, estimates marginals separately using the ideas here, and then stitch the dimensions together using <em>copulas</em> for example).</p>
@@ -726,7 +726,7 @@ e^{2 \pi i j p/p} \sum_k c_{|(p-1)-k|} e^{2 \pi i j (k-p+1)/p}
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"original"</span>,<span class="st">"rounded"</span>),<span class="at">lty=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="768"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 <p>And as we can see from the right-hand plot above, calculating KDE using the rounded data <span class="math inline">\(\widetilde{X}_1,\ldots,\widetilde{X}_n\)</span> is very similar to calculating it using the original data <span class="math inline">\(X_1,\ldots,X_n\)</span>.</p>
@@ -737,12 +737,12 @@ e^{2 \pi i j p/p} \sum_k c_{|(p-1)-k|} e^{2 \pi i j (k-p+1)/p}
 <p>You can notice that KDE is a linear smoother even without rounding the observations on a grid (simply take <span class="math inline">\(\mathbf{y} \equiv \mathbf{1}\)</span>), but only on an equidistant grid is the hat matrix <span class="math inline">\(\mathbf{S}\)</span> <em>Toeplitz</em> (in this case, it is symmetric, see below).</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="384"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="384"></p>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="384"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="384"></p>
 </div>
 </div>
 <p>The kernel on the left-hand plot above just shifts (from left to right, visualized in the middle) and its values form the hat matrix on the right-hand side (from bottom to top).</p>
@@ -751,7 +751,7 @@ e^{2 \pi i j p/p} \sum_k c_{|(p-1)-k|} e^{2 \pi i j (k-p+1)/p}
 \]</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="384"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="384"></p>
 </div>
 </div>
 <p>Then, when we want to apply the Toeplitz matrix <span class="math inline">\(\mathbf{S}\)</span>, i.e., calculate the KDE from the initial histogram as <span class="math inline">\(\mathbf{S} y\)</span>, we can instead apply the wrapped circulant matrix <span class="math inline">\(\mathbf{C}\)</span> on a vector suitably extended with zeros: <span class="math display">\[
@@ -799,7 +799,7 @@ e^{2 \pi i j p/p} \sum_k c_{|(p-1)-k|} e^{2 \pi i j (k-p+1)/p}
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(faithful<span class="sc">$</span>eruptions,<span class="at">bw=</span>my_bw),<span class="at">main=</span><span class="fu">paste</span>(<span class="st">"bw ="</span>,my_bw,<span class="st">" &amp; "</span>,<span class="st">"df ="</span>,<span class="fu">round</span>(my_df,<span class="dv">5</span>)),<span class="at">xlab=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="03_KDE_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="384"></p>
+<p><img src="week_03_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="384"></p>
 </div>
 </div>
 </section>
@@ -1157,13 +1157,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../projects/project-tips-resources.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tips + resources</span>
+      <a href="../notes/week_02.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exploring Data with <code>tidyverse</code></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../notes/week_02.html" class="pagination-link">
-        <span class="nav-page-text">Exploring Data with <code>tidyverse</code></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../resources/computing/intro_to_r/index.html" class="pagination-link">
+        <span class="nav-page-text">R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
