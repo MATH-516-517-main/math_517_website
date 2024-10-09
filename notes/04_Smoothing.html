@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A collection of resources for learning Python">
 
-<title>MATH 517 - Introduction to Python</title>
+<title>MATH 517 - Non-parametric Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,47 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../resources/computing/intro_to_julia/index.html" rel="next">
-<link href="../../../resources/computing/intro_to_r/index.html" rel="prev">
-<script src="../../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../notes/week_02.html" rel="next">
+<link href="../projects/project-tips-resources.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -87,41 +65,12 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-classes .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-classes'] = new List('listing-classes', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="MATH 517 - Introduction to Python">
-<meta property="og:description" content="A collection of resources for learning Python">
+<meta property="og:title" content="MATH 517 - Non-parametric Regression">
+<meta property="og:description" content="Homepage for MATH 517- Computational statistics and visualisation at EPFL, Fall 2024.">
 <meta property="og:site_name" content="MATH 517">
 </head>
 
@@ -134,7 +83,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Resources</li><li class="breadcrumb-item"><a href="../../../resources/computing/intro_to_r/index.html">Coding introduction</a></li><li class="breadcrumb-item"><a href="../../../resources/computing/intro_to_python/index.html">Python</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/04_Smoothing.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/04_Smoothing.html">Non-parametric Regression</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -149,7 +98,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../../">MATH 517</a> 
+      <a href="../">MATH 517</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/MATH-517/MATH_517_website" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
@@ -173,25 +122,25 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../course-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview/Organisation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../course-syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../course-faq.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-faq.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Help &amp; FAQ</span></a>
   </div>
 </li>
@@ -208,19 +157,19 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../exercises/exercise-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/exercise-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../exercises/exercise-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/exercise-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../exercises/exercise-03.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/exercise-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 3</span></a>
   </div>
 </li>
@@ -237,49 +186,49 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-03.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-04.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-05.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 5</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-06.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 6</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-07.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-07.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 7</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-08.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-08.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 8</span></a>
   </div>
 </li>
@@ -296,19 +245,19 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../projects/project-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../projects/project-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Small project</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../projects/project-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../projects/project-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Main project</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../projects/project-tips-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../projects/project-tips-resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tips + resources</span></a>
   </div>
 </li>
@@ -316,28 +265,28 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
  <span class="menu-text">Supplementary notes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/04_Smoothing.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/04_Smoothing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Non-parametric Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/week_02.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/week_02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exploring Data with <code>tidyverse</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/week_03.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/week_03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kernel Density Estimation</span></a>
   </div>
 </li>
@@ -345,37 +294,37 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
  <span class="menu-text">Resources</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
  <span class="menu-text">Coding introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/computing/intro_to_r/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/computing/intro_to_r/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/computing/intro_to_python/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../resources/computing/intro_to_python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/computing/intro_to_julia/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/computing/intro_to_julia/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Julia</span></a>
   </div>
 </li>
@@ -392,19 +341,19 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/tutorials/github.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/tutorials/github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/tutorials/github_classroom.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/tutorials/github_classroom.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub classroom</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/tutorials/installing_software.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/tutorials/installing_software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installing software</span></a>
   </div>
 </li>
@@ -412,13 +361,13 @@ div.csl-indent {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cheatsheets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">All resources</span></a>
   </div>
 </li>
@@ -430,21 +379,31 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#local-constant-regression" id="toc-local-constant-regression" class="nav-link active" data-scroll-target="#local-constant-regression">1. Local Constant Regression</a></li>
+  <li><a href="#local-polynomial-regression" id="toc-local-polynomial-regression" class="nav-link" data-scroll-target="#local-polynomial-regression">2. Local Polynomial Regression</a></li>
+  <li><a href="#local-linear-regression" id="toc-local-linear-regression" class="nav-link" data-scroll-target="#local-linear-regression">3. Local Linear Regression</a>
+  <ul class="collapse">
+  <li><a href="#bandwidth-selection" id="toc-bandwidth-selection" class="nav-link" data-scroll-target="#bandwidth-selection">3.1 Bandwidth Selection</a></li>
+  <li><a href="#why-local-linear-is-the-order-of-choice" id="toc-why-local-linear-is-the-order-of-choice" class="nav-link" data-scroll-target="#why-local-linear-is-the-order-of-choice">3.2 Why Local Linear is the Order of Choice?</a></li>
+  </ul></li>
+  <li><a href="#loess-and-lowess" id="toc-loess-and-lowess" class="nav-link" data-scroll-target="#loess-and-lowess">4. <code>loess()</code> and <code>lowess()</code></a></li>
+  <li><a href="#smoothing-splines" id="toc-smoothing-splines" class="nav-link" data-scroll-target="#smoothing-splines">5. Smoothing Splines</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/notes/04_Smoothing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Resources</li><li class="breadcrumb-item"><a href="../../../resources/computing/intro_to_r/index.html">Coding introduction</a></li><li class="breadcrumb-item"><a href="../../../resources/computing/intro_to_python/index.html">Python</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/04_Smoothing.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/04_Smoothing.html">Non-parametric Regression</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introduction to Python</h1>
+<h1 class="title">Non-parametric Regression</h1>
 </div>
 
-<div>
-  <div class="description">
-    A collection of resources for learning <code>Python</code>
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -458,52 +417,108 @@ div.csl-indent {
 
 </header>
 
-<p>For a refresher on <code>Python</code> basics, you can check out one of the following resources:</p>
+<p>Suppose we observe i.i.d. copies of a bivariate random vector <span class="math inline">\((X,Y)^\top\)</span>, that is a random sample <span class="math inline">\((X_1,Y_1)^\top, \ldots, (X_n, Y_n)^\top\)</span>, and we are interested in modeling the conditional expectation of the response variable <span class="math inline">\(Y\)</span> given the single predictor variable <span class="math inline">\(X\)</span>, i.e.&nbsp;<span class="math display">\[ m(x) := \mathbb{E}\big[ Y \big| X = x \big] \]</span> In linear regression, we assume a parametric model <span class="math inline">\(m(x) = \beta_0 + \beta_1 x\)</span>. Here, we would like to make no such structural assumption, instead only assuming that <span class="math inline">\(m\)</span> is sufficiently smooth. How to estimate <span class="math inline">\(m = m(x)\)</span> from the observed data non-parametrically?</p>
+<section id="local-constant-regression" class="level1">
+<h1>1. Local Constant Regression</h1>
+<p>The simplest idea would be to use what we learned in the previous chapter, i.e.&nbsp;kernel density estimation. Denoting <span class="math inline">\(f_X(x)\)</span> the marginal density of <span class="math inline">\(X\)</span>, <span class="math inline">\(f_{X,Y}(x,y)\)</span> the joint density of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and <span class="math inline">\(f_{Y|X}(y|x)\)</span> the marginal density of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>, we can express the conditional expectation above as <span class="math display">\[ m(x) = \mathbb{E}\big[ Y \big| X = x \big] = \int_\mathbb{R} y f_{Y|X}(y|x) dy = \frac{\int_\mathbb{R} y f_{X,Y}(x,y) dy}{f_X(x)} \]</span> Plugging in the KDEs of <span class="math inline">\(f_{X|Y}(x,y)\)</span> and <span class="math inline">\(f_X(x)\)</span> (with a fixed bandwidth <span class="math inline">\(h\)</span>, a fixed kernel <span class="math inline">\(K(\cdot)\)</span> for the univariate density, and the separable kernel <span class="math inline">\(K(\cdot)K(\cdot)\)</span> for the bivariate density), i.e.&nbsp;<span class="math display">\[ \widehat{f}_X(x) = \frac{1}{nh} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) \qquad \&amp; \qquad \widehat{f}_{X,Y}(x,y) = \frac{1}{n h^2} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) K\left( \frac{Y_i-y}{h} \right), \]</span> into the previous formula, we obtain an estimator of the conditional expectation: <span class="math display">\[ \widehat{m}(x) = \frac{\sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) Y_i}{ \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right)} \]</span> where we used that <span class="math inline">\(\frac{1}{h} \int_\mathbb{R} y K\left( \frac{Y_i-x}{h} \right) dy = \int_\mathbb{R} (Y + th) K(t) dt = Y\)</span>, where we used the symmetry of the kernel (twice).</p>
+<p>Note that the previous estimator is just a weighted average, and a weighted average is a solution to a weighted least squares problem, in this case: <span class="math display">\[ \widehat{m}(x) = \underset{\beta_0 \in \mathbb{R}}{\mathrm{arg \; min}} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) (Y_i - \beta_0)^2 \]</span> So the conditional expectation can be estimated at a fixed location <span class="math inline">\(x\)</span> (i.e.&nbsp;locally) by an intercept-only linear model (i.e.&nbsp;constant). Hence we call this estimator <em>local constant regression</em>.</p>
+</section>
+<section id="local-polynomial-regression" class="level1">
+<h1>2. Local Polynomial Regression</h1>
+<p>Assuming now that <span class="math inline">\(m\)</span> is <span class="math inline">\(p\)</span>-times differentiable on the neighborhood of <span class="math inline">\(x\)</span>, we can invoke the following Taylor approximation: <span class="math display">\[m(X_i) \approx m(x) + (X_i-x) m'(x) + \frac{(X_i-x)^2}{2!} m''(x) + \ldots + \frac{(X_i-x)^p}{p!} m^{p}(x).\]</span></p>
+<p>In words, <span class="math inline">\(m\)</span> can be locally viewed as a polynomial of <span class="math inline">\(p\)</span>-th order, and we can write <span class="math display">\[Y_i = m(X_i) + \epsilon_i,\]</span> where <span class="math inline">\(\epsilon_i = Y_i - m(X_i)\)</span> is the error. For our imagination, we can think of <span class="math inline">\(\epsilon\)</span>’s being i.i.d. Gaussians, which is often assumed, but less often really needed (e.g.&nbsp;it is not needed for the bias-variance calculations we perform below).</p>
+<p>For a fixed <span class="math inline">\(x\)</span>, consider the following least squares problem: <span class="math display">\[\widehat{\beta}(x) = (\widehat{\beta}_0(x),\ldots, \widehat{\beta}_p(x)) = \underset{\boldsymbol{\beta} \in \mathbb{R}^{p+1}}{\mathrm{arg\,min}} \sum_{i=1}^n [Y_i - \beta_0 - \beta_1(X_i-x) - \ldots - \beta_p(X_i-x)^p]^2 K\left(\frac{X_i-x}{h}\right),\]</span> which is again a weighted least squares problem with</p>
 <ul>
-<li><a href="https://www.python.org/about/gettingstarted/">Python For Beginners</a></li>
-<li><a href="https://wiki.python.org/moin/IntroductoryBooks">Introductory books from the official documentation</a></li>
-<li><a href="https://docs.python.org/3/tutorial/index.html">The Python Tutorial</a></li>
-<li><a href="https://docs.python-guide.org/">The Hitchhiker’s Guide to Python</a></li>
-<li><span class="citation" data-cites="duchesnay2020statistics">Duchesnay, Lofstedt, and Younes (<a href="#ref-duchesnay2020statistics" role="doc-biblioref">2020</a>)</span></li>
-<li><em>and many others</em></li>
+<li>weights governed by the kernel function <span class="math inline">\(K(\cdot)\)</span>,</li>
+<li>a solution (for a fixed <span class="math inline">\(x\)</span>) having an explicit expression and given by <code>lm()</code>.</li>
 </ul>
-<div id="listing-classes" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Subject
-</th>
-<th>
-Description
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1728462215644" data-listing-reading-time-sort="2" data-listing-word-count-sort="271" data-listing-title-sort="Good practices in `Python`" data-listing-filename-sort="good_practice_python.qmd">
-<td>
-<a href="../../../resources/computing/intro_to_python/good_practice_python.html" class="title listing-title">Good practices in <code>Python</code></a>
-</td>
-<td>
-<span class="listing-description">Tips and tricks for writing better code</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<p>Notice from the Taylor expansion above that <span class="math inline">\(\widehat{\beta}_j(x)\)</span> estimates <span class="math inline">\(\frac{m^{(j)}(x)}{j!}\)</span>. Thus, if we are interested only in <span class="math inline">\(m(x)\)</span>, which is typically the case, we only retain <span class="math inline">\(\widehat{\beta}_0(x)\)</span>. However, this estimator will generally be different than the one from the local constant regression above. At the same time, we immediately obtain also estimates for the derivatives of <span class="math inline">\(m\)</span> (depending on the order <span class="math inline">\(p\)</span> we choose).</p>
+</section>
+<section id="local-linear-regression" class="level1">
+<h1>3. Local Linear Regression</h1>
+<p>Choosing the order <span class="math inline">\(p=1\)</span> leads to the local linear estimator <span class="math display">\[(\widehat{\beta}_0(x), \widehat{\beta}_1(x)) = \underset{\mathbf b \in \mathbb{R}^{2}}{\mathrm{arg\,min}} \sum_{i=1}^n [Y_i - \beta_0 - \beta_1(X_i-x)]^2 K\left(\frac{X_i-x}{h}\right),\]</span> which provides an estimate for the regression function <span class="math inline">\(\widehat{m}(x) = \widehat{\beta}_0(x)\)</span> (and also for its derivative <span class="math inline">\(\widehat{m}'(x) = \widehat{\beta}_1(x)\)</span>).</p>
+<p>It can be shown (quite easily, but quite tediously) that <span class="math inline">\(\widehat{\beta}_0(x) = \sum_{i=1}^n w_{ni}(x) Y_i\)</span>, where <span class="math display">\[w_{ni}(x) = \frac{\frac{1}{nh}K\left(\frac{X_i-x}{h}\right)\Big[ S_{n,2}(x) - \left(X_i-x\right) S_{n,1}(x) \Big]}{S_{n,0}(x) S_{n,2}(x) - S_{n,1}^2(x)}
+\quad \mathrm{with} \quad
+S_{n,k}(x) = \frac{1}{nh}\sum_{i=1}^n \left(X_i-x\right)^k K\left(\frac{X_i-x}{h}\right)
+\]</span> so <span class="math inline">\(\sum_{i=1}^n w_{ni}(x) = 1\)</span> (but not necessarily <span class="math inline">\(w_{ni}(x) \geq 0\)</span>, if <span class="math inline">\(x\)</span> happens to be close to the minimum or maximum of <span class="math inline">\(X\)</span>).</p>
+<p>Now, similarly (but much more tediously) to KDE, asymptotic expressions (containing stochastic little-o and big-O terms) can be found for <span class="math inline">\(S_{n,k}(x)\)</span> (under certain assumptions on the limiting behaviour of <span class="math inline">\(h_n\)</span> as well as the density of <span class="math inline">\(X\)</span>), and those can be collected into the following bias and variance formulas: <span class="math display">\[
+\begin{split}
+\mathrm{bias}\{\widehat{m}(x)\} &amp;= \frac{1}{2} m''(x) h_n^2 \int z^2 K(z) dz + \mathcal{o}_P(h^2_n)\\
+\mathrm{var}\{\widehat{m}(x)\} &amp;= \frac{\sigma^2(x) \int [K(z)]^2 dz}{f_X(x) n h_n} + \mathcal{o}_P\left( \frac{1}{n h_n} \right)
+\end{split}
+\]</span> where <span class="math inline">\(\sigma^2(x) = \mathrm{var}(Y_1|X_1=x)\)</span> is the conditional/local variance.</p>
+<p>These formulas are pertinent only to the local linear estimator. For other orders <span class="math inline">\(p\)</span>, they look differently (but are obtained by the same means). The bias and variance formulas here share many similarities to those developed for KDEs last week. In particular, we still need <span class="math inline">\(h = h_n \to 0\)</span> in order for bias to disappear asymptotically and <span class="math inline">\(n h_n \to \infty\)</span> in order for the variance to disappear asymptotically. But we also need <span class="math inline">\(n h_n^3 \to \infty\)</span> here for the calculations above (one of the “certain assumptions”), so basically we need to be even more careful when choosing the bandwidth <span class="math inline">\(h\)</span> for local regression compared to KDE.</p>
+<section id="bandwidth-selection" class="level2">
+<h2 class="anchored" data-anchor-id="bandwidth-selection">3.1 Bandwidth Selection</h2>
+<p>Similarly to what we did last week with KDEs, we consider <span class="math display">\[MSE\{\widehat{m}(x)\} = \mathrm{var}\{\widehat{m}(x)\} + \big[\mathrm{bias}\{\widehat{m}(x)\}\big]^2\]</span> and, dropping the little-o terms, we obtain <span class="math display">\[AMSE\{\widehat{m}(x)\} = \frac{\sigma^2(x) \int [K(z)]^2 dz}{f_X(x) n h_n} + \frac{1}{4} \big\{m''(x)\big\}^2 h_n^4 \bigg\lbrace \int z^2 K(z) dz\bigg\rbrace^2.\]</span></p>
+<p>Now, a local bandwidth choice can be obtained by optimizing AMSE. Taking derivatives and setting them to zero, we obtain <span class="math display">\[h_{opt}(x) = n^{-1/5} \left[ \frac{\sigma^2(x) \int \lbrace K(z)\rbrace^2 dz}{\big\lbrace m''(x) \int z^2 K(z) dz\big\rbrace^2 f_X(x)} \right]^{1/5}.\]</span></p>
+<p>This is somewhat more complicated compared to the KDE case, because we have to estimate</p>
+<ul>
+<li>the marginal density <span class="math inline">\(f_X(x)\)</span>,
+<ul>
+<li>let’s say that we already know how to do this, e.g.&nbsp;by KDE even though that requires choice of yet another bandwidth</li>
+</ul></li>
+<li>the local variance function <span class="math inline">\(\sigma^2(x)\)</span>, and</li>
+<li>the second derivative of the regression functions <span class="math inline">\(m''(x)\)</span>.</li>
+</ul>
+<p>Rule of thumb algorithms exist to actually obtain some <span class="math inline">\(h_{opt}(x)\)</span> in practice starting from some initial bandwidth:</p>
+<ul>
+<li>use a higher order <span class="math inline">\(p\)</span> (e.g., <span class="math inline">\(p=3\)</span>) to estimate <span class="math inline">\(m(x)\)</span> with an inflated value of the bandwidth, and obtain an estimate of <span class="math inline">\(m''(x)\)</span></li>
+<li>assume that <span class="math inline">\(\sigma^2(x) = \sigma^2\)</span> is constant and estimate it from the residuals as <span class="math inline">\(\frac{1}{n-d} \sum_{i=1}^n \{Y_i - \widetilde{m}(X_i)\}^2\)</span>, where <span class="math inline">\(\widetilde{m}\)</span> is the estimator from the previous step and <span class="math inline">\(d\)</span> is the degrees of freedom of <span class="math inline">\(\widetilde{m}\)</span></li>
+<li>update the current bandwidth by the <span class="math inline">\(h_{opt}(x)\)</span> formula above</li>
+</ul>
+<p>and iterate these steps a couple of times.</p>
+<p>Again, like in the case of KDEs, the global bandwidth choice can be obtained by integration:</p>
+<ul>
+<li>calculate <span class="math inline">\(AMISE(\widehat{m}) = \int AMSE(\widehat{m}(x)) f_X(x) dx\)</span>, and</li>
+<li>set <span class="math inline">\(h_{opt} = \underset{h&gt;0}{\mathrm{arg\,min}} AMISE(\widehat{m})\)</span>,</li>
+</ul>
+<p>but the situation is not simplified very much.</p>
+<p><em>Note</em>: Next week we are going to study cross-validation, which is a much simpler, data-driven (i.e., without asymptotic arguments), and popular bandwidth (or more generally any tuning parameter) selection strategy.</p>
+</section>
+<section id="why-local-linear-is-the-order-of-choice" class="level2">
+<h2 class="anchored" data-anchor-id="why-local-linear-is-the-order-of-choice">3.2 Why Local Linear is the Order of Choice?</h2>
+<p>Bias and variance can be calculated similarly also for higher order local polynomial regression estimators. In general:</p>
+<ul>
+<li>bias decreases with an increasing order</li>
+<li>variance increases with increasing order, but only for <span class="math inline">\(p=2k+1 \to p+1\)</span>, i.e., when increasing an odd order to an even one</li>
+</ul>
+<p>For this reason, odd orders are preferred to even ones, and <span class="math inline">\(p=1\)</span> is easy to grasp as it corresponds to locally fitted simple regression line. Contrarily, it is hard to argue why <span class="math inline">\(p=3\)</span> or higher should be used. In terms of degrees of freedom (and in fact also the convergence rates, which we are not showing) increasing the order has a similar effect as increasing the bandwidth. So it is reasonable to assume with a higher <span class="math inline">\(p\)</span>, lower <span class="math inline">\(h\)</span> will be optimal, and vice versa. In practice, one simply fixes <span class="math inline">\(p=1\)</span> and only tunes the bandwidth <span class="math inline">\(h\)</span>.</p>
+</section>
+</section>
+<section id="loess-and-lowess" class="level1">
+<h1>4. <code>loess()</code> and <code>lowess()</code></h1>
+<p><code>loess()</code> (LOcal regrESSion) should be local linear regression with tricube kernel</p>
+<p><code>lowess()</code> (LOcally WEighted Scatterplot Smoothing) is an iterative algorithm:</p>
+<ul>
+<li>fit <code>loess()</code></li>
+<li>repeat
+<ul>
+<li>calculate residuals of the current fit<br>
+</li>
+<li>calculate weights based on the (MAD of the) residuals</li>
+<li>fit weighted (product of the kernel and residuals-based weights) <code>loess()</code></li>
+</ul></li>
+<li>until convergence (or just 3-times)</li>
+</ul>
+<p>The goal of <code>lowess()</code> is to improve <code>loess()</code> by making it <em>robust</em> to outliers.</p>
+</section>
+<section id="smoothing-splines" class="level1">
+<h1>5. Smoothing Splines</h1>
+<p>Let’s go back to least squares (there is a natural connection to likelihood, if we assume Gaussianity) and penalize for roughness (2nd derivative is the most convenient one): <span class="math display">\[\underset{g \in C^2}{\mathrm{arg\,min}} \sum_{i=1}^n \big\lbrace Y_i - g(X_i) \big\rbrace^2 + \lambda \int \big\lbrace g''(x) \big\rbrace^2 dx,\]</span> where <span class="math inline">\(\lambda &gt; 0\)</span> is a tuning parameter controlling smoothness.</p>
+<p>Remarkably, the solution to this optimization problem is known to be the natural cubic spline. While the optimization problem is over an infinite-dimensional space (of functions with square-integrable second derivatives, which is a Sobolev space – of all Sobolev spaces, only the one with order two is RKHS and hence allows for a finite-dimensional solution), knowing that the solution is the natural cubic spline, it can be re-cast as a finite-dimensional problem, not too dissimilar to ridge regression.</p>
+<p>While in the case of natural cubic splines there is some beautiful math justifying why we look for functions that can be written as linear combinations of predefined functions (which is a parametric problem, but the beautiful math describes how this is related to the non-parametric, infinite-dimensional problem), we can also adopt a more brute viewpoint: let us simply assume that <span class="math inline">\(m\)</span> can be expressed as a linear combination of some basis functions. In statistics, <em>B-spline</em> basis is extremely popular. If we restrict the number of basis functions enough, no penalization may be needed anymore. In practice, we can meet both penalized and non-penalized approaches.</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p><a href="https://stat.ethz.ch/education/semesters/ss2010/CompStat/">M. Maechler’s and P. Buhlmann’s course notes</a></p>
+<p><a href="https://www2.karlin.mff.cuni.cz/~omelka/Vyuka_nmst434_2122.php">M. Omelka’s course notes</a></p>
+<p><a href="http://users.stat.umn.edu/~helwig/notes/smooth-notes.html">N. Helwig’s notes</a></p>
 
 
+</section>
 
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-duchesnay2020statistics" class="csl-entry" role="listitem">
-Duchesnay, Edouard, Tommy Lofstedt, and Feki Younes. 2020. <span>“Statistics and Machine Learning in Python.”</span>
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -850,13 +865,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../resources/computing/intro_to_r/index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R</span>
+      <a href="../projects/project-tips-resources.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tips + resources</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../resources/computing/intro_to_julia/index.html" class="pagination-link">
-        <span class="nav-page-text">Julia</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notes/week_02.html" class="pagination-link">
+        <span class="nav-page-text">Exploring Data with <code>tidyverse</code></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -868,7 +883,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/resources/computing/intro_to_python/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    </div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
