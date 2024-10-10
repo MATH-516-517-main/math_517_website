@@ -97,7 +97,7 @@ The reason for adding the penalty term in the formula above (as compared to ordi
 
 *Note*: One should keep in mind that CV as described above is aimed at prediction. It can actually be shown that it is inconsistent for model selection (see [here](https://www.jstor.org/stable/2290328#metadata_info_tab_contents)).
 
-![](/Users/mhalla/switchdrive/EPFL/Teaching/StatComp/StatComp_2024/Plots/bias_variance.png)
+![](../images/bias_variance.png)
 
 The plot above shows the bias-variance trade-off which is often controlled by the tuning parameter. Think about where OLS is on that plot, and where increasing $\lambda$ in ridge regression takes us. Also think about what is happening with local regression as the bandwidth increases.
 
@@ -180,9 +180,9 @@ To choose a good value of $\lambda$, we first choose candidate values for it, sa
 The candidate values are typically dictated by some practical considerations (e.g. in the case of lasso one tries for which values of $\lambda$ there is a reasonable sparsity level), but very generally one can take an equispaced grid $t_1,\ldots,t_j$ on $(0,1)$ and transform it to the range of the parameter, in the case of $\lambda \in (0, \infty)$, e.g., by taking $\lambda_i = 1/(1-t_i)$ for $i=1,\ldots,j$.
 
 ```{r, out.width="50%", fig.align='center', echo=FALSE}
-x <- 1:100/101
-y <- 1/(1-x)
-plot(x,y,type="l")
+x <- 1:100 / 101
+y <- 1 / (1 - x)
+plot(x, y, type = "l")
 ```
 
 Then $CV(\lambda)$ is calculated for every $\lambda = \lambda_1,\ldots,\lambda_j$ and the $\lambda$ with the smallest value of $CV(\lambda)$ is chosen.
@@ -225,9 +225,8 @@ v_2 &= \underset{\| v \|=1, v^\top v_1 = 0}{\mathrm{arg\,min}} v^\top \widehat{\
 $$
 The plot below (source: wiki) visualizes this for $p=2$.
 
-```{r, echo=F, out.width='30%', fig.align='center'}
-knitr::include_graphics('../Plots/PCA1.png')
-```
+
+![](../images/PCA1.png)
 
 2. The first $r$ principal components also provide the minimum-error projection of the $p$-dimensional data points onto a space of dimension $r$:
 $$
@@ -235,18 +234,16 @@ $$
 $$
 The plot below visualizes the errors when $(p=3)$-dimensional data set is projected onto $(r=2)$-dimensional subspace.
 
-```{r, echo=F, out.width='50%', fig.align='center'}
-knitr::include_graphics('../Plots/PCA2.png')
-```
+![](../images/PCA2.png)
 
 3. Finally, if the data set is centered (i.e., $\bar{\mathbf x}_N = N^{-1} \sum_{n=1}^N \mathbf{x}_n = 0$), this is also equivalent to finding the best low-rank approximation of the data matrix:
 $$
 \underset{\rank(\mathbf L) = r}{\mathrm{arg\,min}} \|\mathbf X -\mathbf L \|_2^2
 $$
 Any rank-$r$ matrix $\mathbf L \in \R^{n \times p}$ can be thought of as a product of $\mathbf{A} \in \R^{n \times r}$ and $\mathbf{B} \in \R^{p \times r}$ in the sense of matrix product $\mathbf{L} = \mathbf{A} \mathbf{B}^\top$. Visually, we think of this as a product of a long matrix $\mathbf{A}$ and a wide matrix $\mathbf{B}$, which should approximate well the original data matrix $\mathbf X$, as visualized on the plot below (where $\mathbf{X} \approx \mathbf{A} \mathbf{B}^\top$).
-```{r, echo=F, out.width='50%', fig.align='center'}
-knitr::include_graphics('../Plots/PCA3.png')
-```
+
+![](../images/PCA3.png)
+
 
 In all three cases, principal components are found by *truncating* the SVD of the data matrix $\mathbf{X} = \mathbf{U} \mathbf{D} \mathbf{V}^\top$. We understand SVD in its *economic* form. For $n > p$, this means
 
