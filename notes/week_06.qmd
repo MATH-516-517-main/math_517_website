@@ -17,6 +17,7 @@ $ \newcommand{\E}{\mathbb{E}}
 \newcommand{\R}{\mathbb{R}}$
 :::
 
+
 # Motivation and Examples
 
 Maximum likelihood is the dominant form of estimation in statistics. Recall that it is a parameter estimation procedure, so we always have to put a parametric model to our data. The EM algorithm is an iterative algorithm for calculating maximum likelihood estimators (MLEs) in situations where
