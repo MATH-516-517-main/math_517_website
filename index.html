@@ -272,12 +272,6 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notes/06_EM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EM Algorithm</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./notes/week_02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exploring Data with <code>tidyverse</code></span></a>
   </div>
@@ -298,6 +292,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./notes/week_05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cross-Validation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes/week_06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EM Algorithm</span></a>
   </div>
 </li>
       </ul>
@@ -441,23 +441,23 @@ This is important
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fllqdpxyfp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fllqdpxyfp table {
+<div id="iicatcqdbm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#iicatcqdbm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fllqdpxyfp thead, #fllqdpxyfp tbody, #fllqdpxyfp tfoot, #fllqdpxyfp tr, #fllqdpxyfp td, #fllqdpxyfp th {
+#iicatcqdbm thead, #iicatcqdbm tbody, #iicatcqdbm tfoot, #iicatcqdbm tr, #iicatcqdbm td, #iicatcqdbm th {
   border-style: none;
 }
 
-#fllqdpxyfp p {
+#iicatcqdbm p {
   margin: 0;
   padding: 0;
 }
 
-#fllqdpxyfp .gt_table {
+#iicatcqdbm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -483,12 +483,12 @@ This is important
   border-left-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_caption {
+#iicatcqdbm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fllqdpxyfp .gt_title {
+#iicatcqdbm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -500,7 +500,7 @@ This is important
   border-bottom-width: 0;
 }
 
-#fllqdpxyfp .gt_subtitle {
+#iicatcqdbm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -512,7 +512,7 @@ This is important
   border-top-width: 0;
 }
 
-#fllqdpxyfp .gt_heading {
+#iicatcqdbm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -524,13 +524,13 @@ This is important
   border-right-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_bottom_border {
+#iicatcqdbm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_col_headings {
+#iicatcqdbm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -545,7 +545,7 @@ This is important
   border-right-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_col_heading {
+#iicatcqdbm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -565,7 +565,7 @@ This is important
   overflow-x: hidden;
 }
 
-#fllqdpxyfp .gt_column_spanner_outer {
+#iicatcqdbm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -577,15 +577,15 @@ This is important
   padding-right: 4px;
 }
 
-#fllqdpxyfp .gt_column_spanner_outer:first-child {
+#iicatcqdbm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fllqdpxyfp .gt_column_spanner_outer:last-child {
+#iicatcqdbm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fllqdpxyfp .gt_column_spanner {
+#iicatcqdbm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -597,11 +597,11 @@ This is important
   width: 100%;
 }
 
-#fllqdpxyfp .gt_spanner_row {
+#iicatcqdbm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fllqdpxyfp .gt_group_heading {
+#iicatcqdbm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -627,7 +627,7 @@ This is important
   text-align: left;
 }
 
-#fllqdpxyfp .gt_empty_group_heading {
+#iicatcqdbm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -642,15 +642,15 @@ This is important
   vertical-align: middle;
 }
 
-#fllqdpxyfp .gt_from_md > :first-child {
+#iicatcqdbm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fllqdpxyfp .gt_from_md > :last-child {
+#iicatcqdbm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fllqdpxyfp .gt_row {
+#iicatcqdbm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -669,7 +669,7 @@ This is important
   overflow-x: hidden;
 }
 
-#fllqdpxyfp .gt_stub {
+#iicatcqdbm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -682,7 +682,7 @@ This is important
   padding-right: 5px;
 }
 
-#fllqdpxyfp .gt_stub_row_group {
+#iicatcqdbm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -696,15 +696,15 @@ This is important
   vertical-align: top;
 }
 
-#fllqdpxyfp .gt_row_group_first td {
+#iicatcqdbm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fllqdpxyfp .gt_row_group_first th {
+#iicatcqdbm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fllqdpxyfp .gt_summary_row {
+#iicatcqdbm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -714,16 +714,16 @@ This is important
   padding-right: 5px;
 }
 
-#fllqdpxyfp .gt_first_summary_row {
+#iicatcqdbm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_first_summary_row.thick {
+#iicatcqdbm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fllqdpxyfp .gt_last_summary_row {
+#iicatcqdbm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -733,7 +733,7 @@ This is important
   border-bottom-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_grand_summary_row {
+#iicatcqdbm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -743,7 +743,7 @@ This is important
   padding-right: 5px;
 }
 
-#fllqdpxyfp .gt_first_grand_summary_row {
+#iicatcqdbm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -753,7 +753,7 @@ This is important
   border-top-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_last_grand_summary_row_top {
+#iicatcqdbm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -763,11 +763,11 @@ This is important
   border-bottom-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_striped {
+#iicatcqdbm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fllqdpxyfp .gt_table_body {
+#iicatcqdbm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -776,7 +776,7 @@ This is important
   border-bottom-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_footnotes {
+#iicatcqdbm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -790,7 +790,7 @@ This is important
   border-right-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_footnote {
+#iicatcqdbm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -799,7 +799,7 @@ This is important
   padding-right: 5px;
 }
 
-#fllqdpxyfp .gt_sourcenotes {
+#iicatcqdbm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -813,7 +813,7 @@ This is important
   border-right-color: #D3D3D3;
 }
 
-#fllqdpxyfp .gt_sourcenote {
+#iicatcqdbm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -821,63 +821,63 @@ This is important
   padding-right: 5px;
 }
 
-#fllqdpxyfp .gt_left {
+#iicatcqdbm .gt_left {
   text-align: left;
 }
 
-#fllqdpxyfp .gt_center {
+#iicatcqdbm .gt_center {
   text-align: center;
 }
 
-#fllqdpxyfp .gt_right {
+#iicatcqdbm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fllqdpxyfp .gt_font_normal {
+#iicatcqdbm .gt_font_normal {
   font-weight: normal;
 }
 
-#fllqdpxyfp .gt_font_bold {
+#iicatcqdbm .gt_font_bold {
   font-weight: bold;
 }
 
-#fllqdpxyfp .gt_font_italic {
+#iicatcqdbm .gt_font_italic {
   font-style: italic;
 }
 
-#fllqdpxyfp .gt_super {
+#iicatcqdbm .gt_super {
   font-size: 65%;
 }
 
-#fllqdpxyfp .gt_footnote_marks {
+#iicatcqdbm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fllqdpxyfp .gt_asterisk {
+#iicatcqdbm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fllqdpxyfp .gt_indent_1 {
+#iicatcqdbm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fllqdpxyfp .gt_indent_2 {
+#iicatcqdbm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fllqdpxyfp .gt_indent_3 {
+#iicatcqdbm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fllqdpxyfp .gt_indent_4 {
+#iicatcqdbm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fllqdpxyfp .gt_indent_5 {
+#iicatcqdbm .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -992,7 +992,7 @@ This is important
 <td headers="date" class="gt_row gt_right gt_striped" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3;">Fri, Oct 18</td>
 <td headers="topic" class="gt_row gt_left gt_striped" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3;"><div class="gt_from_md"><p><a href="lectures/06_EM.pdf">EM algorithm</a></p>
 </div></td>
-<td headers="resources" class="gt_row gt_left gt_striped" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3;"><div class="gt_from_md"><p>📖 <a href="notes/week_06.qmd">EM notes</a></p>
+<td headers="resources" class="gt_row gt_left gt_striped" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3;"><div class="gt_from_md"><p>📖 <a href="./notes/week_06.html">EM notes</a></p>
 </div></td>
 <td headers="ae." class="gt_row gt_left gt_striped" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3;"><div class="gt_from_md"><p>📖 <a href="./assignments/assignment-05.html">ae-05</a></p>
 </div></td>
@@ -1026,7 +1026,7 @@ This is important
 <td headers="date" class="gt_row gt_right gt_striped" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3;">Fri, Nov 1</td>
 <td headers="topic" class="gt_row gt_left gt_striped" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3;"><div class="gt_from_md"><p><a href="lectures/07_EM.pdf">EM algorithm</a></p>
 </div></td>
-<td headers="resources" class="gt_row gt_left gt_striped" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3;"><div class="gt_from_md"><p>📖 <a href="notes/week_06.qmd">EM notes</a></p>
+<td headers="resources" class="gt_row gt_left gt_striped" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3;"><div class="gt_from_md"><p>📖 <a href="./notes/week_06.html">EM notes</a></p>
 </div></td>
 <td headers="ae." class="gt_row gt_left gt_striped" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3;"><div class="gt_from_md"><p>💻 <a href="./projects/project-02.html">project</a></p>
 </div></td>
