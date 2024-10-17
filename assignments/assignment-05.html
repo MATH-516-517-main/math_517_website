@@ -67,8 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta property="og:title" content="MATH 517 - Assignment 5">
 <meta property="og:description" content="EM for mixtures of Gaussian distributions">
@@ -386,13 +384,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#task" id="toc-task" class="nav-link active" data-scroll-target="#task"><span class="header-section-number">1</span> Task</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/assignments/assignment-05.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -474,23 +466,8 @@ Submission requirements
 </div>
 </div>
 </div>
-<section id="task" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Task</h1>
-<p>The aim of this assignment is to implement the EM algorithm (from scratch) for a mixture of two (univariate) Gaussian distributions and study its convergence rate under different scenarios. As it has been previously shown in the literature (see <a href="https://direct.mit.edu/neco/article/8/1/129/5940/On-Convergence-Properties-of-the-EM-Algorithm-for">this paper</a> for instance), the EM algorithm for Gaussian mixture models has some limitations: Large overlapping among the mixture components, bad parameter initilization, and unbalanced mixing probabilites are well known to make the final result trapped in local maximum more likely and slow down the convergence rate.</p>
-<p>Simulate data (N=1000) from the mixture of two Gaussian distributions (see Section 3 in <a href="https://math-517.github.io/math_517_website/assignments/assignment-02.html">Assignment 2</a>) and implement the EM algorithm from Example 2 in the course (see <a href="https://math-517.github.io/math_517_website/notes/week_06.html">related supplementary notes</a> for details). Use absolute change in <span class="math inline">\(\ell_{obs}\)</span> of observed data as a convergence criterion. To assess the impact of the above-mentioned issues on the convergence rate, you should perform a simulation study where you vary</p>
-<ul>
-<li>the mixing probability</li>
-<li>the proportion of overlapping (choose at least two settings one with a clear separation of the components and one with a less clear one)</li>
-<li>the initial/starting point and study the number of iterations needed until convergence.</li>
-</ul>
-<p>The following should naturally be done:</p>
-<ul>
-<li>Visualize the resulting parametric density estimators and compare with the ones you simulate from</li>
-<li>Run your algorithm on each scenario/setting multiple times (say 100 times) and report the average number of iterations until convergence as a measure of the convergence speed of the EM of the corresponding setting</li>
-</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -857,7 +834,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/assignments/assignment-05.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
