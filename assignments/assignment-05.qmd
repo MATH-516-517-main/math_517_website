@@ -1,7 +1,7 @@
 ---
 title: "Assignment 5"
 subtitle: "EM for mixtures of Gaussian distributions"
-date: 10-27-2023
+date: 10-18-2024
 format: html
 editor: visual
 number-sections: true
@@ -34,3 +34,18 @@ Your `README.md` should contain instructions on how to reproduce the PDF report 
 3. [ ] `README.md` with instructions on how to run the code and reproduce the PDF report
 :::
 
+# Task 
+
+The aim of this assignment is to implement the EM algorithm (from scratch) for a mixture of two (univariate) Gaussian distributions and study its convergence rate under different scenarios. As it has been previously shown in the literature, the EM algorithm for Gaussian mixture models has some limitations: Large overlapping among the mixture components, bad parameter initilization, and unbalanced mixing probabilites are well known to make the final result trapped in local maximum more likely and slow down the convergence rate.
+
+Simulate data (N=1000) from the mixture of two Gaussian distributions (see Section 3 in [Assignment 2](https://math-517.github.io/math_517_website/assignments/assignment-02.html)) and implement the EM algorithm from Example 2 in the course (see [related supplementary notes](https://math-517.github.io/math_517_website/notes/week_06.html) for details). Use absolute change in $\ell_{obs}$ of observed data as a convergence criterion. To assess the impact of the above-mentioned issues on the convergence rate, you should perform a simulation study where you vary
+
+  - the mixing probability
+  - the proportion of overlapping (choose at least two settings one with a clear separation of the components and one with a less clear one)
+  - the initial/starting point
+and study the number of iterations needed until convergence.
+
+The following should naturally be done:
+
+-   Visualize the resulting parametric density estimators and compare with the ones you simulate from
+-   Run your algorithm on each scenario/setting multiple times (say 100 times) and report the average number of iterations until convergence as a measure of the convergence speed of the EM of the corresponding setting
