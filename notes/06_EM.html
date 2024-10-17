@@ -63,8 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../resources/computing/intro_to_r/index.html" rel="next">
-<link href="../notes/week_05.html" rel="prev">
+<link href="../notes/week_02.html" rel="next">
+<link href="../projects/project-tips-resources.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/week_02.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/week_06.html">EM Algorithm</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/06_EM.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/06_EM.html">EM Algorithm</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -308,6 +308,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../notes/06_EM.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">EM Algorithm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../notes/week_02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exploring Data with <code>tidyverse</code></span></a>
   </div>
@@ -328,12 +334,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../notes/week_05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cross-Validation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../notes/week_06.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">EM Algorithm</span></a>
   </div>
 </li>
       </ul>
@@ -450,12 +450,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#some-comments-about-em" id="toc-some-comments-about-em" class="nav-link" data-scroll-target="#some-comments-about-em">Some Comments about EM</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/notes/week_06.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/notes/06_EM.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/week_02.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/week_06.html">EM Algorithm</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/06_EM.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/06_EM.html">EM Algorithm</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">EM Algorithm</h1>
 </div>
@@ -559,10 +559,10 @@ Q\big(\theta,\theta^{(l-1)}\big) &amp;=  \log(1-\tau) \left(N - \sum_{n=1}^{N} \
 <p>Sample <code>levelplots</code>’s of <code>mu_n_obs</code> and <code>Sigma_n_obs</code> are shown below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="week_06_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="06_EM_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="week_06_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="06_EM_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
 <p>Recall the density <span class="math inline">\(f(\mathbf{x})\)</span> of a p-variate Gaussian (e.g.&nbsp;<a href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution">here</a> on wiki). Hence we have <span class="math display">\[
@@ -1076,13 +1076,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../notes/week_05.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Cross-Validation</span>
+      <a href="../projects/project-tips-resources.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tips + resources</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../resources/computing/intro_to_r/index.html" class="pagination-link">
-        <span class="nav-page-text">R</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notes/week_02.html" class="pagination-link">
+        <span class="nav-page-text">Exploring Data with <code>tidyverse</code></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
