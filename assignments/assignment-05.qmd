@@ -10,7 +10,7 @@ number-sections: true
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 5 November 2023.**
+**Due date: 11:59pm on Sunday, 3 November 2024.**
 :::
 
 ::: {.callout-note collapse="true"}
@@ -36,7 +36,7 @@ Your `README.md` should contain instructions on how to reproduce the PDF report 
 
 # Task 
 
-The aim of this assignment is to implement the EM algorithm (from scratch) for a mixture of two (univariate) Gaussian distributions and study its convergence rate under different scenarios. As it has been previously shown in the literature, the EM algorithm for Gaussian mixture models has some limitations: Large overlapping among the mixture components, bad parameter initilization, and unbalanced mixing probabilites are well known to make the final result trapped in local maximum more likely and slow down the convergence rate.
+The aim of this assignment is to implement the EM algorithm (from scratch) for a mixture of two (univariate) Gaussian distributions and study its convergence rate under different scenarios. As it has been previously shown in the literature (see [this paper](https://direct.mit.edu/neco/article/8/1/129/5940/On-Convergence-Properties-of-the-EM-Algorithm-for) for instance), the EM algorithm for Gaussian mixture models has some limitations: Large overlapping among the mixture components, bad parameter initilization, and unbalanced mixing probabilites are well known to make the final result trapped in local maximum more likely and slow down the convergence rate.
 
 Simulate data (N=1000) from the mixture of two Gaussian distributions (see Section 3 in [Assignment 2](https://math-517.github.io/math_517_website/assignments/assignment-02.html)) and implement the EM algorithm from Example 2 in the course (see [related supplementary notes](https://math-517.github.io/math_517_website/notes/week_06.html) for details). Use absolute change in $\ell_{obs}$ of observed data as a convergence criterion. To assess the impact of the above-mentioned issues on the convergence rate, you should perform a simulation study where you vary
 
