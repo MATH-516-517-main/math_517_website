@@ -119,7 +119,7 @@ Sigma_n_obs <- Sigma[ind_n,ind_n] # covariance of x_n_obs
 
 Sample `levelplots`'s of `mu_n_obs` and `Sigma_n_obs` are shown below.
 
-```{r, echo=F, fig.show="hold", out.width="80%"}
+```{r, echo=F, fig.show="hold", out.width="100%"}
 #| panel: fill
 #| layout-ncol: 2
 library(lattice)
@@ -132,9 +132,8 @@ mu[ind_n] <- 1 # which entries of mu correspond to observed
 Sigma <- array(0, c(10, 10))
 Ind <- outer(mu == 1, mu == 1) # bi-variate index set corresponding to observed entries
 Sigma[Ind == 1] <- 1
-par(mfrow = c(1, 2))
-levelplot(t(as.matrix(mu)), main = list(TeX("$\\mu^{(n)}_{obs}$"), cex = 0.7), colorkey = FALSE, ylab = list("i=1,...,p", cex = 0.7), xlab = " ", sub = " ", pretty = TRUE)
-levelplot(Sigma, main = list(TeX("$\\Sigma^{(n)}_{obs}$"), cex = 1), colorkey = FALSE, ylab = list("i=1,...,p", cex = 0.7), xlab = list("i=1,...,p", cex = 0.7), sub = " ", pretty = TRUE)
+levelplot(t(as.matrix(mu)), main = list(TeX("$\\mu^{(n)}_{obs}$"), cex = 1.5), colorkey = FALSE, ylab = list("i=1,...,p", cex = 1), xlab = " ", sub = " ", pretty = TRUE)
+levelplot(Sigma, main = list(TeX("$\\Sigma^{(n)}_{obs}$"), cex = 1.5), colorkey = FALSE, ylab = list("i=1,...,p", cex = 1), xlab = list("i=1,...,p", cex = 1), sub = " ", pretty = TRUE)
 ```
 
 Recall the density $f(\mathbf{x})$ of a p-variate Gaussian (e.g. [here](https://en.wikipedia.org/wiki/Multivariate_normal_distribution) on wiki). Hence we have
