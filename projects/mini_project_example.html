@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.330">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Rayan Harfouch, Lucas Clarté &amp; Tara Fjellman">
 <meta name="dcterms.date" content="2023-10-22">
 
-<title>MATH 517 - Example of data visualization and exploration report</title>
+<title>Example of data visualization and exploration report – MATH 517</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,6 +26,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -65,12 +66,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -79,16 +81,44 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="MATH 517 - Example of data visualization and exploration report">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Example of data visualization and exploration report – MATH 517">
 <meta property="og:description" content="Speed dating data">
 <meta property="og:site_name" content="MATH 517">
 </head>
@@ -99,15 +129,15 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
       MATH 517
       </li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -116,7 +146,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">MATH 517</a> 
@@ -134,9 +164,9 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Course information</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -169,9 +199,9 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -198,9 +228,9 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Assignments</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -257,9 +287,9 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Projects</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -286,9 +316,9 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">Supplementary notes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -327,18 +357,18 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
  <span class="menu-text">Resources</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
  <span class="menu-text">Coding introduction</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -365,9 +395,9 @@ div.csl-indent {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
  <span class="menu-text">Tutorials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -409,7 +439,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -472,6 +502,7 @@ div.csl-indent {
 
 </header>
 
+
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -503,10 +534,14 @@ NOTA BENE
 <h3 class="anchored" data-anchor-id="first-overview">First overview</h3>
 <p>A first question one might ask is <strong>Are male and female participants interested in the same attributes for partner?</strong> To anwer it one can try and compare the reported importance to male and female candidates for partner characteristics (attractiveness, sincerity, intelligence, fun, ambition, shared interests). This is done by grouping the data associated to the columns : <code>attr1_1</code>, <code>sinc1_1</code>, <code>intel1_1</code>, <code>fun1_1</code>, <code>amb1_1</code>, <code>shar1_1</code> by gender and then obtaining a violin plot. For context, this data is expressed as a set of weights for the six attributes that sum up to 100.</p>
 <p>We observe in <a href="#fig-violin" class="quarto-xref">Figure&nbsp;1</a> that in our dataset, on average males attribute a greater importance to physical attractiveness, while sincerity is more important to females. Moreover, some male participants attribute a great importance to attractiveness, sometimes close to 100%. On the other hand, both genders put a similar and low importance on ambition and having shared interests.</p>
-<div id="fig-violin" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="img/preference_per_gender.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Violin plot of the weight of each attribute in participant’s choice of partner. A weight of 100% for an attribute means that only this attribute matters in the choice of partner.</figcaption>
+<div id="fig-violin" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/preference_per_gender.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Violin plot of the weight of each attribute in participant’s choice of partner. A weight of 100% for an attribute means that only this attribute matters in the choice of partner.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -515,30 +550,46 @@ NOTA BENE
 <p>In the previous paragaraph, some differences between male and female participants were outlined. Following this, it seems natural to wonder about the existance of differences within the same gender. One way to do this is to answer the question <strong>What are the differences between successful and unsuccessful female (respectively male)?</strong></p>
 <p>In order to give an answer, we use the fact that by the end of the experiment, each participant has recieved a certain number of “yes”s (grade: 1) and “no”s (grade: 0) by the partners they have met. This is contained in the column <code>dec_o</code> (decision of the other). We define the proportion of “yes”s each individual has recieved as a measure of their success. Notice that this measure will only take values between 0 and 1. On <a href="#fig-cdf" class="quarto-xref">Figure&nbsp;2</a> are represented the cumulative distributions of the success rate for male and female participants. These will allow us to categroize successful and unsuccessful individuals by looking at the intersection with the horizontal lines <span class="math inline">\(y=25\%\)</span> and <span class="math inline">\(y=75\%\)</span></p>
 <p>The curve representing male participants is shifted to the left compared to the one representing female ones. It can be deduced that males are on average less successful than females. The 25% least successful males are labeled in the following as “Unseccessful males” while the 25% most successful males are labeled as “Successful males”. Same definition holds for females.</p>
-<div id="fig-cdf" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="img/CDF_men_women.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Success rate (measured as the proportion of “yes” recieved) cumulative distribution for male and female participants. Horizontal lines correspond to 25% and 75% proportions.</figcaption>
+<div id="fig-cdf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/CDF_men_women.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Success rate (measured as the proportion of “yes” recieved) cumulative distribution for male and female participants. Horizontal lines correspond to 25% and 75% proportions.
+</figcaption>
 </figure>
 </div>
 <p>In the sake of analyzing characteristics that differentiate successful and unsuccessful individuals, it is interesting to compare the interest each category (successful and unsuccessful) have, on average, for different activites. The interest for an activity has been expressed on a 1-10 scale. Data about the interest for 17 activties have been reported. <a href="#fig-male_sports" class="quarto-xref">Figure&nbsp;3</a> and <a href="#fig-female_sports" class="quarto-xref">Figure&nbsp;4</a> only report the results (for males and females respectively) for the five activities (reported in columns <code>sports</code>,<code>tvsports</code>,<code>exercise</code>,<code>dining</code> and <code>clubbing</code>)where the differences are statistically significant.</p>
-<div id="fig-male_sports" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="img/suc_vs_non_suc_men_activites.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Average interest (1-10 scale) for each activity among the 25% most successful, and the 25% least successful male participants.</figcaption>
+<div id="fig-male_sports" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-male_sports-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/suc_vs_non_suc_men_activites.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-male_sports-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Average interest (1-10 scale) for each activity among the 25% most successful, and the 25% least successful male participants.
+</figcaption>
 </figure>
 </div>
-<div id="fig-female_sports" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="img/suc_vs_non_suc_women_activites.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Average interest (1-10 scale) for each activity among the 25% most successful, and the 25% least successful female participants.</figcaption>
+<div id="fig-female_sports" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-female_sports-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/suc_vs_non_suc_women_activites.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-female_sports-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Average interest (1-10 scale) for each activity among the 25% most successful, and the 25% least successful female participants.
+</figcaption>
 </figure>
 </div>
 <p>From the figure it can be observed that successful males have more interest for sports and exercice than unsuccessful males. Tvsports find more interest among unsuccessful females than successful ones. While successful and unsucessful female participants have the same interest for dining, successful males show a significant difference of interest compared to the unsuccessful ones. Both for male and female participants, clubbing recieves more interest from successful individuals (the difference is more marked for males).</p>
 <p>Having analyzed the difference of interest for each activity there is between successful and successful male and female individuals, data regarding the rating (by the partners) of the attributes of each individual is analyzed in order to fully answer the question. Indeed, each participant recieves from their partners a grade (1-10 scale) on their percieved attributes (attractiveness, sincerity, intellect, fun and ambition). More precisely, for example, each male participant will recieve from each female participant a grade on how they look attractive. To each male will therefore be assigned an average grade on their attractiveness. An average over all successful males is then made. The same procedure is made for unsuccessful males, successful females and unsucessful females. The standard deviations of the data among each examined samples being similar and small enough (no standard deviation is greater than 0.14), it is more useful to deliver the data in tables. <a href="#tbl-attributes" class="quarto-xref">Table&nbsp;1</a> shows the average grade recieved for each attribute for the 25% most successful and the 25% most unsuccessful males and female participants respectively.</p>
-<div id="tbl-attributes" class="anchored">
-<table class="table">
-<caption>Table&nbsp;1: Attributes of successful and unsuccessful participants as perceived by the other participants</caption>
+<div id="tbl-attributes" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-attributes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Attributes of successful and unsuccessful participants as perceived by the other participants
+</figcaption>
+<div aria-describedby="tbl-attributes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 22%">
 <col style="width: 19%">
@@ -594,6 +645,8 @@ NOTA BENE
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <p>On average, successful individuals are more attractive, more sincere, more intelligent, more fun and more ambitous, be they males or females. It is worth noticing that unsuccessful females are on average given a grade of 5.30/10 for their attractiveness which is signficantly higer than the average grade given to unsuccessful males.</p>
 </section>
 </section>
@@ -604,10 +657,14 @@ S(v_i,v_j)=\frac{\langle\tilde{v}_i,\tilde{v}_j\rangle}{\|\tilde{v}_i\|\ \|\tild
 \]</span><br>
 where <span class="math inline">\(\tilde{v}_i={v}_i-5\)</span> to recenter the vectors. Notice that this measure of similarity gives results in the <span class="math inline">\([-1,1]\)</span> interval, with positive values associated to generally shared interests and negative ones with generally different interests.</p>
 <p>Given this definition of similarity, one can then explore the effect of shared interests on the average match rate. This is done in <a href="#fig-similarity" class="quarto-xref">Figure&nbsp;5</a>. The linear fit corresponds to an ordinary least squares linear regression. The shaded area is a 95% confidence interval that is estimated using a bootstrapping statistics, see <span class="citation" data-cites="bootstrapping">NormandErwan (<a href="#ref-bootstrapping" role="doc-biblioref">2018</a>)</span>. By looking at it, one can easily see that there is a positive correlation between interest similarity and match rate.</p>
-<div id="fig-similarity" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="img/similarity_vs_match_rate.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: Average match rate as a function of the defined interest similarity measure. The linear fit corresponds to an ordinary least squares linear regression. The shaded area is a 95% confidence interval.</figcaption>
+<div id="fig-similarity" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-similarity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/similarity_vs_match_rate.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-similarity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Average match rate as a function of the defined interest similarity measure. The linear fit corresponds to an ordinary least squares linear regression. The shaded area is a 95% confidence interval.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -618,10 +675,14 @@ where <span class="math inline">\(\tilde{v}_i={v}_i-5\)</span> to recenter the v
 <h3 class="anchored" data-anchor-id="impact-of-sat-score-on-success-rate">Impact of SAT score on success rate</h3>
 <p>We would like to know if academic success is correlated with success in dating. To achieve this we use the SAT score included in the <code>sat</code> column of the dataset. While the SAT score is only used for university admissions, we’ll use it here a proxy metric for academic sucess. On the other hand, to quantify the success of participants, we will use the column <code>dec_o</code> <span class="math inline">\(\in {0, 1}\)</span> indicating for each meeting if the participant was liked by the person in front of them. We define the success rate of participant <span class="math inline">\(i\)</span> as the average of <code>dec_o</code> over all the speed dates in which <span class="math inline">\(i\)</span> took part.</p>
 <p>The first observation is that the average SAT score for men and women over the dataset are of 1320 and 1280 respectively, significantly higher than the national US average which is around 1050. <a href="#fig-SAT" class="quarto-xref">Figure&nbsp;6</a> contains a scatter plot of the success rate of male and female participants as a function of their SAT score. An ordinary least squares linear regression is associated to each gender. We observe a higher slope for males than females (<span class="math inline">\(3.3 \times 10^{-3}\)</span> <em>vs</em> <span class="math inline">\(7.8 \times 10^{-5}\)</span>), hinting that academic sucess is more important for men than women in speed dating success.</p>
-<div id="fig-SAT" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="img/success_sat_per_gender.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Success rate of male and female participants as a function of their SAT score. At first glance, it would appear that a higher SAT score impacts success more for males than females.</figcaption>
+<div id="fig-SAT" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-SAT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/success_sat_per_gender.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-SAT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Success rate of male and female participants as a function of their SAT score. At first glance, it would appear that a higher SAT score impacts success more for males than females.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -629,10 +690,14 @@ where <span class="math inline">\(\tilde{v}_i={v}_i-5\)</span> to recenter the v
 <h3 class="anchored" data-anchor-id="impact-of-ethnicity-on-match">Impact of ethnicity on match</h3>
 <p>Wether it is because of habituation, people wanting to stay in their comfort zone or cultural influence, it is clear some people might prefer partners of their same ehnicity. Predicting the relation between stated importance and observed preference remains however untrivial. This is what we focus on in this section.</p>
 <p>The relevant data to this section are the grades (on a 1-10 scale) that the participant attributed to the importance for their partner to be of the same ethnicity as them. The quantity we consider is the difference between the average acceptance of people of same ethnicity (which we call <span class="math inline">\(G_{ethn}\)</span>) and the general one (which we call <span class="math inline">\(G_{all}\)</span>). For the scale to be independent of the personal standards of the participants this difference is normalised by the acceptance rate of every individual. The average of <span class="math inline">\((G_{ethn}-G_{all})/G_{all}\)</span> grouped by stated importance is plotted in <a href="#fig-ethnicity" class="quarto-xref">Figure&nbsp;7</a>.</p>
-<div id="fig-ethnicity" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="img/Relative_same_ethnicity_preference.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Average over all individuals of the relative difference between the average over grades given to people of the same race <span class="math inline">\(G_{ethn}\)</span> and the average over grades given to every person they’ve met.</figcaption>
+<div id="fig-ethnicity" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ethnicity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/Relative_same_ethnicity_preference.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ethnicity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Average over all individuals of the relative difference between the average over grades given to people of the same race <span class="math inline">\(G_{ethn}\)</span> and the average over grades given to every person they’ve met.
+</figcaption>
 </figure>
 </div>
 <p>Looking at the figure it can be noticed that pople who stated a small importance (of 1,2 or 3 for example) for their partner to be of same ethnicity, indeed are (on average) associated to equal grading of the participants they met (the relative difference is close to zero). For people who state a bigger importance however, the relative difference seems to become significantly bigger than 0. People who reported a maximal importance to having a partner of the same ethnicity (10/10), are found to be 70% more likely to match with people of their ethnicity compared to others.</p>
@@ -643,10 +708,14 @@ where <span class="math inline">\(\tilde{v}_i={v}_i-5\)</span> to recenter the v
 <p>As seen in the section about successful and unsuccesfull candidates, some factors, such as how fun and attractive people are, affect their successrate in speed dating. Given this observation, some might try to improve their chances of success by working on their shortcomings. This should be rather straight forward, assuming that person are able to gauge where they currenly stand. <strong>But is this a reasonable assumption?</strong> In this section we focus on investigating the relevance of this assumption.</p>
 <p>To do this we need to compare data about people’s own perception of themselves, and that of other people. Fortunately we have access to such data. Indeed, in addition to the <code>attr</code>, <code>sinc</code>, <code>intel</code>, <code>fun</code>, <code>amb</code>, <code>shar</code> ratings that other people give to the candidtes they meet, the dataset includes ratings that each person gave themselves on the same attributes. <a href="#fig-elephant" class="quarto-xref">Figure&nbsp;8</a> represents the self-prescribed ratings in terms of the externally prescribed ones. The values for the response variables were obtained by grouping the candidates by their self-prescribed ratings and taking the average. The confidence intervals correspond to <span class="math inline">\(\pm\hat{\sigma}\)</span> where <span class="math inline">\(\hat \sigma\)</span> is the corrected sample standard deviation. Notice that only the values associated to attractiveness and intelligence are included in order not to overcrowed the plot (the other attributes behaved similarly to intelligence anyway). A square-aspect ratio plot was chosen since the goal is to compare the observed results to the <span class="math inline">\(y=x\)</span> baseline.</p>
 <p>Looking at the figure, we immediately see that people’s own intelligence rating (on average) does not correlate with other people’s ratings. This might sound surprising at first. It can however be understood by noticing that intelligence is a vague term, which makes it is hard to evaluate both your own rating and evaluate that of someone else. In the second case, this is aggraveted by the fact that the estimate is only based on a 4 minute interraction. The observed behaviour for attractiveness is more nuanced. On one hand, it seems that people are (on average) good at evaluating when they do not appear attractive to others. This is reflected by the fact that the points associated to the 4,5,6 ratings nicely overlap with the <span class="math inline">\(y=x\)</span> line. On the other hand, there is no significant difference in externally-reported attractiveness between groups that self-report their attractiveness as 7,8,9 or 10 out of 10. The only difference between these groups seems therefore to be in their ego.</p>
-<div id="fig-elephant" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="img/own_vs_others_attribute_ratings.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;8: Square-aspect-ratio plot of externally-evaluated attributes as a function of self-evaluated ones. The response variable is obtained by grouping the control variable and taking the average. The confidence intervals correspond to <span class="math inline">\(\pm\hat \sigma\)</span> where <span class="math inline">\(\hat \sigma\)</span> is the corrected sample standard deviation.</figcaption>
+<div id="fig-elephant" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-elephant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/own_vs_others_attribute_ratings.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-elephant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Square-aspect-ratio plot of externally-evaluated attributes as a function of self-evaluated ones. The response variable is obtained by grouping the control variable and taking the average. The confidence intervals correspond to <span class="math inline">\(\pm\hat \sigma\)</span> where <span class="math inline">\(\hat \sigma\)</span> is the corrected sample standard deviation.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -665,7 +734,7 @@ where <span class="math inline">\(\tilde{v}_i={v}_i-5\)</span> to recenter the v
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Fisman2006" class="csl-entry" role="listitem">
 Fisman, Raymond, Sheena S. Iyengar, Emir Kamenica, and Itamar Simonson. 2006. <span>“<span class="nocase">Gender Differences in Mate Selection: Evidence From a Speed Dating Experiment*</span>.”</span> <em>The Quarterly Journal of Economics</em> 121 (2): 673–97. <a href="https://doi.org/10.1162/qjec.2006.121.2.673">https://doi.org/10.1162/qjec.2006.121.2.673</a>.
 </div>
@@ -711,18 +780,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -754,7 +812,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/math-517\.github\.io\/math_517_website\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -789,7 +887,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -804,15 +906,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -821,7 +936,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -863,6 +986,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -938,7 +1084,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
@@ -1028,7 +1173,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/projects/mini_project_example.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
