@@ -15,18 +15,6 @@ listing:
       sort: [subtitle]
       sort-ui: false
       filter-ui: false
-    - id: supp
-      contents:
-        - "week-01/recap-linear-regression.qmd"
-        - "week-02/mini-project-example.qmd"
-      type: table
-      fields: [title, description]
-      field-display-names:
-        title: "Subject"
-        description: "Description"
-      sort: [subtitle]
-      sort-ui: false
-      filter-ui: false
     - id: tips
       contents:
         - "tips/*.qmd"
