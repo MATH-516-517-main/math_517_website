@@ -10,6 +10,7 @@ editor: visual
 # Deadline
 
 **Due date: 11:59pm on Sunday, 20 October 2024.**
+ _(pushed back to 27 October 2024)_
 :::
 
 ::: {.callout-note collapse="true"}
