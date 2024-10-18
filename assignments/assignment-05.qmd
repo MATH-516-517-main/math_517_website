@@ -29,7 +29,7 @@ Your `README.md` should contain instructions on how to reproduce the PDF report 
 
 **Checklist**:
 
-1. [ ] `report.pdf` in GitHub repository (generated from `report.qmd`)
+1. [ ] `report.pdf` in GitHub repository (e.g., generated from `report.qmd` or `report.tex`)
 2. [ ] source code in GitHub repository (should be able to run from top to bottom)
 3. [ ] `README.md` with instructions on how to run the code and reproduce the PDF report
 :::
