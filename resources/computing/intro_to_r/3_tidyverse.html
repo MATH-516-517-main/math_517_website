@@ -484,17 +484,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Create a new R script called <code>class3.R</code>, and add <code># Introduction to R: Class 3</code> as a title.</p>
 <p>For this lesson, we’ll be working with a group of R packages called <code>tidyverse</code>. A package is a group of related functions that help you accomplish particular tasks. <a href="https://www.tidyverse.org"><code>tidyverse</code></a> packages have been designed specifically to support tasks related to data science, such as data manipulation, filtering, and visualization.</p>
 <p>The first thing we need to do is install the software:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>The following package(s) will be installed:
-- tidyverse [2.0.0]
-These packages will be installed into "~/Documents/Teaching/computational_statistics/websites/website_2024/renv/library/R-4.3/aarch64-apple-darwin20".
-
-# Installing packages --------------------------------------------------------
-- Installing tidyverse ...                      OK [linked from cache]
-Successfully installed 1 package in 3 milliseconds.</code></pre>
-</div>
-</div>
 <p>A few notes about installing packages:</p>
 <ul>
 <li>You only need to perform this installation once per computer, or when updating R or the package.</li>
@@ -504,8 +493,8 @@ Successfully installed 1 package in 3 milliseconds.</code></pre>
 </ul>
 <p>Once you have the software installed, you’ll need to load it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load library/package</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load library/package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.2     ✔ readr     2.1.4
@@ -532,8 +521,8 @@ Successfully installed 1 package in 3 milliseconds.</code></pre>
 <h2 class="anchored" data-anchor-id="selecting-columns-and-rows">Selecting columns and rows</h2>
 <p>The first task we’ll undertake with our newly installed <code>tidyverse</code> tools is importing our data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import data</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>clinical <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/clinical.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>clinical <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/clinical.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 6832 Columns: 20
 ── Column specification ────────────────────────────────────────────────────────
@@ -549,8 +538,8 @@ dbl  (8): age_at_diagnosis, days_to_death, days_to_birth, days_to_last_follo...
 <p>The data import execution includes a description of how each variable (column) is interpreted. In our data’s case, the numeric data are <code>col_double</code> and the character data are <code>col_character</code> (not factors!).</p>
 <p>We can explore these differences further:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect object</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(clinical)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect object</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(clinical)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>spc_tbl_ [6,832 × 20] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ primary_diagnosis          : chr [1:6832] "C34.1" "C34.1" "C34.3" "C34.1" ...
@@ -604,21 +593,21 @@ dbl  (8): age_at_diagnosis, days_to_death, days_to_birth, days_to_last_follo...
 <p>Now that our data are imported, we can explore the <code>tidyverse</code> functions for extracting parts of the dataset.</p>
 <p>First, we can explore selecting certain columns by name:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting columns with tidyverse (dplyr)</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sel_columns <span class="ot">&lt;-</span> <span class="fu">select</span>(clinical, tumor_stage, ethnicity, disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting columns with tidyverse (dplyr)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sel_columns <span class="ot">&lt;-</span> <span class="fu">select</span>(clinical, tumor_stage, ethnicity, disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The syntax for the <code>select</code> function is to specify the dataset first, then the names of each of the columns you would like to retain in the output object. If we look at the object, we’ll see it has only three columns but all rows.</p>
 <p>You’ll note that the column headers don’t require quotation marks; this is a shortcut programmed into <code>tidyverse</code> functions.</p>
 <p>As with base R functions, we can also select a range of columns:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select range of columns</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sel_columns2 <span class="ot">&lt;-</span> <span class="fu">select</span>(clinical, tumor_stage<span class="sc">:</span>vital_status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select range of columns</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sel_columns2 <span class="ot">&lt;-</span> <span class="fu">select</span>(clinical, tumor_stage<span class="sc">:</span>vital_status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In addition to these approaches, we can also use other helper functions for selecting columns: <code>starts_with()</code>, <code>ends_with()</code>, and <code>contains()</code> are examples that assist in extracting columns with headers that meet certain conditions. For example, using <code>starts_with(tumor)</code> in place of the column names will give you all columns that start with the word tumor.</p>
 <p>We can use a separate function to extract rows that meet particular conditions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select rows conditionally: keep only lung cancer cases</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>filtered_rows <span class="ot">&lt;-</span> <span class="fu">filter</span>(clinical, disease <span class="sc">==</span> <span class="st">"LUSC"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select rows conditionally: keep only lung cancer cases</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>filtered_rows <span class="ot">&lt;-</span> <span class="fu">filter</span>(clinical, disease <span class="sc">==</span> <span class="st">"LUSC"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The syntax here is similar to <code>select</code>, and the conditional filters can be applied in similarly to base R functions.</p>
 <blockquote class="blockquote">
@@ -634,18 +623,18 @@ dbl  (8): age_at_diagnosis, days_to_death, days_to_birth, days_to_last_follo...
 <h2 class="anchored" data-anchor-id="combining-commands">Combining commands</h2>
 <p>The last challenges used an intermediate object to obtain an object with two subsetting methods applied. It’s common in data science to apply more than one requirement for extracting data. If you want to avoid creating an intermediate object, you could nest one command inside the other:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># same task as challenges, but nested commands </span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>race_BRCA2 <span class="ot">&lt;-</span> <span class="fu">select</span>(<span class="fu">filter</span>(clinical, disease <span class="sc">==</span> <span class="st">"BRCA"</span>), race, ethnicity, disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># same task as challenges, but nested commands </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>race_BRCA2 <span class="ot">&lt;-</span> <span class="fu">select</span>(<span class="fu">filter</span>(clinical, disease <span class="sc">==</span> <span class="st">"BRCA"</span>), race, ethnicity, disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this case, <code>filter(clinical, disease == "BRCA")</code> becomes the input for <code>select</code>.</p>
 <p>While this is a common approach, especially in base R, it can be difficult for us as coders to read and interpret the code.</p>
 <p>One of the most useful features of <code>tidyverse</code> is its inclusion of a programming method called pipes. This approach can be found in many programming languages, in part because of its utility: a pipe sends the output from the lefthand side of the symbol as the input for the righthand side. In R, pipes are represented as <code>%&gt;%</code>.</p>
 <p>We can use pipes to connect the same two data extraction tasks:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># same task as above, but with pipes</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>piped <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(race, ethnicity, disease) <span class="sc">%&gt;%</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(disease <span class="sc">==</span> <span class="st">"BRCA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># same task as above, but with pipes</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>piped <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(race, ethnicity, disease) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(disease <span class="sc">==</span> <span class="st">"BRCA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The command above starts by naming the object that will result from this assignment. The dataset is named as the first input. Because executing the name of an object sends the object contents as output, this means the second line receives the object as input. The output from the <code>select</code> line is sent as input to the <code>filter</code> line. This effectively demonstrates how pipes can be used to connect multiple commands together.</p>
 <blockquote class="blockquote">
@@ -654,16 +643,16 @@ dbl  (8): age_at_diagnosis, days_to_death, days_to_birth, days_to_last_follo...
 <p>These examples also help highlight the importance of style and convention in code formatting. After the first line, the code is indented. While this isn’t necessary for the code to work, it does make it a lot easier to read and understand the code.</p>
 <p>Let’s take a look at another example of piped commands:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract race, ethinicity, and disease from cases born prior to 1930</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>piped2 <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year_of_birth <span class="sc">&lt;</span> <span class="dv">1930</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(race, ethnicity, disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract race, ethinicity, and disease from cases born prior to 1930</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>piped2 <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year_of_birth <span class="sc">&lt;</span> <span class="dv">1930</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(race, ethnicity, disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In the code above, we’re applying a mathematical condition to find specific rows, and the selecting certain columns. Does the order of commands differ? We can switch the order of the <code>filter</code> and <code>select</code> lines to see:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>piped3 <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(race, ethnicity, disease) <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year_of_birth <span class="sc">&lt;</span> <span class="dv">1930</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>piped3 <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(race, ethnicity, disease) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year_of_birth <span class="sc">&lt;</span> <span class="dv">1930</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The code above should give you an error, because in this case, the order does matter! The output from the second line does not include the <code>year_of_birth</code> column, so R is unable to apply the filter in the third line.</p>
 <blockquote class="blockquote">
@@ -676,9 +665,9 @@ dbl  (8): age_at_diagnosis, days_to_death, days_to_birth, days_to_last_follo...
 <p>This lesson so far has mostly shown new ways of accomplishing the same tasks we learned in the last lesson. <code>tidyverse</code> includes much more functionality, however, including the ability to <code>mutate</code> columns. Common tasks for which <code>mutate</code> is useful include unit conversions, transformation, and creating ratios from among existing columns.</p>
 <p>We can use this function to convert the <code>days_to_death</code> column to years:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert days to years</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>clinical_years <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">years_to_death =</span> days_to_death <span class="sc">/</span> <span class="dv">365</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert days to years</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>clinical_years <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">years_to_death =</span> days_to_death <span class="sc">/</span> <span class="dv">365</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The actual conversion works by providing a formula (<code>days_to_death / 365</code>) and the name of the new column (<code>years_to_death</code>). If you inspect the resulting object, you’ll see <code>years_to_death</code> added as a new column at the end of the table.</p>
 <blockquote class="blockquote">
@@ -686,11 +675,11 @@ dbl  (8): age_at_diagnosis, days_to_death, days_to_birth, days_to_last_follo...
 </blockquote>
 <p>We can use <code>mutate</code> to perform multiple conversions at once:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert days to year and months at same time, and we don't always need to assign to object</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>clinical <span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">years_to_death =</span> days_to_death <span class="sc">/</span> <span class="dv">365</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">months_to_death =</span> days_to_death <span class="sc">/</span> <span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>() <span class="co"># preview data output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert days to year and months at same time, and we don't always need to assign to object</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>clinical <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">years_to_death =</span> days_to_death <span class="sc">/</span> <span class="dv">365</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">months_to_death =</span> days_to_death <span class="sc">/</span> <span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>() <span class="co"># preview data output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 6,832
 Columns: 22
@@ -728,8 +717,8 @@ $ months_to_death             &lt;dbl&gt; 12.366667, 4.533333, 76.800000, NA, 4.
 <h2 class="anchored" data-anchor-id="split-apply-combine">Split-apply-combine</h2>
 <p>Our <code>clinical</code> dataset includes categorical (character) data. One example is the <code>gender</code> column. We can assess the different categories available using a base R function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show categories in gender</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(clinical<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show categories in gender</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(clinical<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "male"   "female" NA      </code></pre>
 </div>
@@ -742,10 +731,10 @@ $ months_to_death             &lt;dbl&gt; 12.366667, 4.533333, 76.800000, NA, 4.
 </ul>
 <p>We can try out this approach by counting the number of each gender in our dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># count number of individuals of each gender</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>clinical <span class="sc">%&gt;%</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># count number of individuals of each gender</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>clinical <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   gender     n
@@ -758,10 +747,10 @@ $ months_to_death             &lt;dbl&gt; 12.366667, 4.533333, 76.800000, NA, 4.
 <p><code>group_by</code> is not particularly useful by itself, but powerful together with a second function like <code>tally</code>. The two columns in the resulting tibble represent the categories from <code>group_by</code> and the number of cases for each gender (n).</p>
 <p>An additional function for use with <code>group_by</code> is <code>summarize</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize average days to death by gender</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>clinical <span class="sc">%&gt;%</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_days_to_death =</span> <span class="fu">mean</span>(days_to_death, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize average days to death by gender</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>clinical <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_days_to_death =</span> <span class="fu">mean</span>(days_to_death, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   gender mean_days_to_death
@@ -775,11 +764,11 @@ $ months_to_death             &lt;dbl&gt; 12.366667, 4.533333, 76.800000, NA, 4.
 <p>In the command above, we use <code>na.rm = TRUE</code> to exclude missing data from the calculation of mean from <code>days_to_death</code>. We still have <code>NA</code> reported in the output table, though, because of the <code>NA</code> category in <code>gender</code>.</p>
 <p>We can apply an additional filter to remove this missing data, prior to grouping:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove NA</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>clinical <span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(gender)) <span class="sc">%&gt;%</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_days_to_death =</span> <span class="fu">mean</span>(days_to_death))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove NA</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>clinical <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(gender)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_days_to_death =</span> <span class="fu">mean</span>(days_to_death))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   gender mean_days_to_death
@@ -798,10 +787,10 @@ $ months_to_death             &lt;dbl&gt; 12.366667, 4.533333, 76.800000, NA, 4.
 </blockquote>
 <p>The solution to the challenges above represent the first of two datasets we’ll be using for data visualization in our next class. Make sure you’ve executed this code to save the filtered data file for use next time:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>smoke_complete <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age_at_diagnosis)) <span class="sc">%&gt;%</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(cigarettes_per_day))</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(smoke_complete, <span class="st">"data/smoke_complete.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>smoke_complete <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age_at_diagnosis)) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(cigarettes_per_day))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(smoke_complete, <span class="st">"data/smoke_complete.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The command above uses <code>write_csv</code>, which is the <code>tidyverse</code> method of saving a csv file. Base R possesses a function, <code>write.csv</code>, that performs a similar task, but by default includes quotation marks around cells with character data as well as row names (sequential numbers, unless otherwise specified).</p>
 <blockquote class="blockquote">
@@ -810,11 +799,11 @@ $ months_to_death             &lt;dbl&gt; 12.366667, 4.533333, 76.800000, NA, 4.
 </blockquote>
 <p>This challenge begins filtering the second of our two datasets for next time. Make sure you include the filter to remove missing data that’s been encoded as “not reported”!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure ALL missing data is removed!</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>birth_complete <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(year_of_birth)) <span class="sc">%&gt;%</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(vital_status)) <span class="sc">%&gt;%</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(vital_status <span class="sc">!=</span> <span class="st">"not reported"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure ALL missing data is removed!</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>birth_complete <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(year_of_birth)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(vital_status)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(vital_status <span class="sc">!=</span> <span class="st">"not reported"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="filtering-data-based-on-number-of-cases-of-each-type" class="level2">
@@ -822,29 +811,29 @@ $ months_to_death             &lt;dbl&gt; 12.366667, 4.533333, 76.800000, NA, 4.
 <p>We’re going to perform one last manipulation on this second dataset for next time, which will allow us to reduce the total number of cancer types present in this dataset.</p>
 <p>First, we’ll need to count how many cases for each cancer type exist in the dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># counting number of records in each cancer</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>cancer_counts <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(disease) <span class="sc">%&gt;%</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(n) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># counting number of records in each cancer</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>cancer_counts <span class="ot">&lt;-</span> clinical <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(disease) <span class="sc">%&gt;%</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(n) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>count</code> function is similar to <code>tally</code>, but doesn’t need to have <code>group_by</code> applied first. The <code>arrange</code> function added at the end sorts the table using the column specified. Although this isn’t necessary for the analysis to proceed, it makes it easier for us to interpret the results.</p>
 <p>Next, we’ll identify which cancer types are represented by at least 500 cases in this dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get names of frequently occurring cancers</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>frequent_cancers <span class="ot">&lt;-</span> cancer_counts <span class="sc">%&gt;%</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">500</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get names of frequently occurring cancers</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>frequent_cancers <span class="ot">&lt;-</span> cancer_counts <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">500</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can then use this object to filter based on the number of cases:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract data from cancers to keep</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>birth_reduced <span class="ot">&lt;-</span> birth_complete <span class="sc">%&gt;%</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(disease <span class="sc">%in%</span> frequent_cancers<span class="sc">$</span>disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract data from cancers to keep</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>birth_reduced <span class="ot">&lt;-</span> birth_complete <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(disease <span class="sc">%in%</span> frequent_cancers<span class="sc">$</span>disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The new syntax here is <code>%in%</code>, which allows you to compare each entry in <code>disease</code> from <code>birth_complete</code> to the disease column in <code>frequent_cancers</code> (remember that <code>frequent_cancers$disease</code> means the <code>disease</code> column from <code>frequent_cancers</code>). This keeps only cases from the <code>birth_complete</code> dataset that are from cancers that are frequently occurring.</p>
 <p>Finally, we’ll write the final output to a file:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save results to file in data/ named birth_reduced</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(birth_reduced, <span class="st">"data/birth_reduced.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save results to file in data/ named birth_reduced</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(birth_reduced, <span class="st">"data/birth_reduced.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <h4 id="challenge-tumor" class="anchored">Challenge-tumor</h4>
