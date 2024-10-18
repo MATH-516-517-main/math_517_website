@@ -121,6 +121,8 @@ Sample `levelplots`'s of `mu_n_obs` and `Sigma_n_obs` are shown below.
 
 ```{r, echo=F, fig.show="hold", out.width="50%"}
 library(lattice)
+library(Matrix)
+library(latex2exp)
 set.seed(123)
 ind_n <- sample(1:10,size=7)
 mu <- rep(0,10)
