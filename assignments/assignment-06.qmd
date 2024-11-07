@@ -1,7 +1,7 @@
 ---
 title: "Assignment 6"
 subtitle: "Generating Gaussian samples"
-date: 11-10-2023
+date: 08-10-2024
 format: html
 editor: visual
 bibliography: ref.bib
@@ -10,7 +10,7 @@ bibliography: ref.bib
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 19 November 2023.**
+**Due date: 11:59pm on Sunday, 17 November 2024.**
 :::
 
 ::: {.callout-note collapse="true"}
