@@ -1,0 +1,37 @@
+---
+title: "Exercise 4"
+subtitle: "Rejection Algorithms for the Standard Normal Random Variable"
+date: 08-11-2024
+editor: visual
+---
+
+
+This exercise focuses on using rejection sampling to generate standard normal random variables with different instrumental densities.
+
+## Part a
+
+1. Provide a rejection algorithm to generate $\mathcal{N}(0,1)$ random variables, where the instrumental density is Cauchy:
+     \[
+     g(x) = \frac{1}{\pi (1 + x^2)}, \quad x \in \mathbb{R}
+     \]
+   - Determine the efficiency of this algorithm.
+
+## Part b
+
+1. Develop an algorithm that generates realizations from a double exponential (Laplace) distribution, with density:
+     \[
+     g(x) = \frac{\alpha}{2} \exp(-\alpha |x|), \quad \alpha > 0, \; x \in \mathbb{R}
+     \]
+
+2. 
+   - Formulate a rejection algorithm to generate $\mathcal{N}(0,1)$ random variables, where the instrumental density is a double exponential distribution.
+   - Find the optimal value of the parameter $\alpha$ for this density, and determine the corresponding efficiency.
+
+## Part c
+
+1. Implement the above algorithms in R, using functions such as `rcauchy`, `runif`, `rexp`, or `abs` where appropriate.
+
+2. Empirically verify the theoretical efficiencies of each algorithm.
+
+---
+
