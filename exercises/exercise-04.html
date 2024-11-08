@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-08-11">
+<meta name="dcterms.date" content="2024-11-08">
 
 <title>Exercise 4 – MATH 517</title>
 <style>
@@ -460,7 +460,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 11, 2024</p>
+      <p class="date">November 8, 2024</p>
     </div>
   </div>
   
@@ -476,7 +476,7 @@ window.Quarto = {
 <section id="part-a" class="level2">
 <h2 class="anchored" data-anchor-id="part-a">Part a</h2>
 <ol type="1">
-<li>Provide a rejection algorithm to generate <span class="math inline">\(\mathcal{N}(0,1)\)</span> random variables, where the instrumental density is Cauchy: [ g(x) = , x ]
+<li>Provide a rejection algorithm to generate <span class="math inline">\(\mathcal{N}(0,1)\)</span> random variables, where the instrumental density is Cauchy: <span class="math display">\[ g(x) = \frac{1}{\pi (1 + x^2)}, \quad x \in \mathbb{R} \]</span>
 <ul>
 <li>Determine the efficiency of this algorithm.</li>
 </ul></li>
@@ -485,7 +485,9 @@ window.Quarto = {
 <section id="part-b" class="level2">
 <h2 class="anchored" data-anchor-id="part-b">Part b</h2>
 <ol type="1">
-<li><p>Develop an algorithm that generates realizations from a double exponential (Laplace) distribution, with density: [ g(x) = (-|x|), &gt; 0, ; x ]</p></li>
+<li><p>Develop an algorithm that generates realizations from a double exponential (Laplace) distribution, with density: <span class="math display">\[
+  g(x) = \frac{\alpha}{2} \exp(-\alpha |x|), \quad \alpha &gt; 0, \; x \in \mathbb{R}
+\]</span></p></li>
 <li><ul>
 <li>Formulate a rejection algorithm to generate <span class="math inline">\(\mathcal{N}(0,1)\)</span> random variables, where the instrumental density is a double exponential distribution.</li>
 <li>Find the optimal value of the parameter <span class="math inline">\(\alpha\)</span> for this density, and determine the corresponding efficiency.</li>
@@ -495,7 +497,7 @@ window.Quarto = {
 <section id="part-c" class="level2">
 <h2 class="anchored" data-anchor-id="part-c">Part c</h2>
 <ol type="1">
-<li><p>Implement the above algorithms in R, using functions such as <code>rcauchy</code>, <code>runif</code>, <code>rexp</code>, or <code>abs</code> where appropriate.</p></li>
+<li><p>Implement the above algorithms in <code>R</code>, using functions such as <code>rcauchy</code>, <code>runif</code>, <code>rexp</code>, or <code>abs</code> where appropriate.</p></li>
 <li><p>Empirically verify the theoretical efficiencies of each algorithm.</p></li>
 </ol>
 <hr>

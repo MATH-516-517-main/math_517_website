@@ -26,7 +26,7 @@
     "href": "exercises/exercise-04.html#part-a",
     "title": "Exercise 4",
     "section": "Part a",
-    "text": "Part a\n\nProvide a rejection algorithm to generate \\(\\mathcal{N}(0,1)\\) random variables, where the instrumental density is Cauchy: [ g(x) = , x ]\n\nDetermine the efficiency of this algorithm.",
+    "text": "Part a\n\nProvide a rejection algorithm to generate \\(\\mathcal{N}(0,1)\\) random variables, where the instrumental density is Cauchy: \\[ g(x) = \\frac{1}{\\pi (1 + x^2)}, \\quad x \\in \\mathbb{R} \\]\n\nDetermine the efficiency of this algorithm.",
     "crumbs": [
       "Exercises",
       "Exercise 4"
@@ -37,7 +37,7 @@
     "href": "exercises/exercise-04.html#part-b",
     "title": "Exercise 4",
     "section": "Part b",
-    "text": "Part b\n\nDevelop an algorithm that generates realizations from a double exponential (Laplace) distribution, with density: [ g(x) = (-|x|), &gt; 0, ; x ]\n\nFormulate a rejection algorithm to generate \\(\\mathcal{N}(0,1)\\) random variables, where the instrumental density is a double exponential distribution.\nFind the optimal value of the parameter \\(\\alpha\\) for this density, and determine the corresponding efficiency.",
+    "text": "Part b\n\nDevelop an algorithm that generates realizations from a double exponential (Laplace) distribution, with density: \\[\n  g(x) = \\frac{\\alpha}{2} \\exp(-\\alpha |x|), \\quad \\alpha &gt; 0, \\; x \\in \\mathbb{R}\n\\]\n\nFormulate a rejection algorithm to generate \\(\\mathcal{N}(0,1)\\) random variables, where the instrumental density is a double exponential distribution.\nFind the optimal value of the parameter \\(\\alpha\\) for this density, and determine the corresponding efficiency.",
     "crumbs": [
       "Exercises",
       "Exercise 4"
