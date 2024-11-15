@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Bootstrap – MATH 517</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../resources/computing/intro_to_r/index.html" rel="next">
+<link href="../notes/week_08.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Bootstrap – MATH 517">
+<meta property="og:description" content="Homepage for MATH 517- Computational statistics and visualisation at EPFL, Fall 2024.">
+<meta property="og:site_name" content="MATH 517">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/week_02.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/week_09.html">Bootstrap</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MATH 517</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/MATH-517/MATH_517_website" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview/Organisation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help &amp; FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Exercises</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/exercise-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/exercise-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/exercise-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/exercise-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Assignments</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/project-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Small project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/project-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Main project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/project-tips-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tips + resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Supplementary notes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/week_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploring Data with <code>tidyverse</code></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/week_03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kernel Density Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/week_04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Non-parametric Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/week_05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cross-Validation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/week_06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EM Algorithm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/week_08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Monte Carlo Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/week_09.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Bootstrap</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Coding introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/computing/intro_to_r/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/computing/intro_to_python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/computing/intro_to_julia/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Julia</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/tutorials/github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/tutorials/github_classroom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub classroom</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/tutorials/installing_software.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing software</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cheatsheets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">All resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#the-non-parametric-bootstrap" id="toc-the-non-parametric-bootstrap" class="nav-link" data-scroll-target="#the-non-parametric-bootstrap">The Non-Parametric Bootstrap</a>
+  <ul class="collapse">
+  <li><a href="#some-theory" id="toc-some-theory" class="nav-link" data-scroll-target="#some-theory">Some Theory</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a>
+  <ul class="collapse">
+  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence Intervals</a></li>
+  <li><a href="#variance-estimation" id="toc-variance-estimation" class="nav-link" data-scroll-target="#variance-estimation">Variance Estimation</a></li>
+  <li><a href="#bias-reduction" id="toc-bias-reduction" class="nav-link" data-scroll-target="#bias-reduction">Bias Reduction</a></li>
+  <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">Hypothesis Testing</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#related-methods" id="toc-related-methods" class="nav-link" data-scroll-target="#related-methods">Related Methods</a>
+  <ul class="collapse">
+  <li><a href="#parametric-bootstrap-and-goodness-of-fit-testing" id="toc-parametric-bootstrap-and-goodness-of-fit-testing" class="nav-link" data-scroll-target="#parametric-bootstrap-and-goodness-of-fit-testing">Parametric Bootstrap and Goodness-of-Fit Testing</a></li>
+  <li><a href="#iterated-bootstrap" id="toc-iterated-bootstrap" class="nav-link" data-scroll-target="#iterated-bootstrap">Iterated Bootstrap</a></li>
+  <li><a href="#jackknife" id="toc-jackknife" class="nav-link" data-scroll-target="#jackknife">Jackknife</a></li>
+  </ul></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts">Final Thoughts</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/notes/week_09.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/week_02.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/week_09.html">Bootstrap</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Bootstrap</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>The primary goal of statistics is to extract information about a population (described by the distribution function <span class="math inline">\(F\)</span>) based on a random sample <span class="math inline">\(\mathcal{X} = \{ X_1,\ldots,X_N \}\)</span> from this population. More often than not, one is interested in a particular characteristic of the population denoted generally by <span class="math inline">\(\theta = \theta(F)\)</span>.</p>
+<p><strong>Leading Ex.:</strong> The mean <span class="math inline">\(\theta = \mathbb{E}X_1 = \int x d F(x)\)</span>. <span style="float:right"><span class="math inline">\(\Delta\)</span></span></p>
+<p>Let us focus generally on <span class="math inline">\(F\)</span> rather than specifically on <span class="math inline">\(\theta\)</span>. We can estimate <span class="math inline">\(F\)</span></p>
+<ul>
+<li>parametrically, if we are willing to assume that <span class="math inline">\(F \in \{ F_\lambda \mid \lambda \in \Lambda \subset \mathbb{R}^p \}\)</span> for some integer <span class="math inline">\(p\)</span>, we can take <span class="math inline">\(\widehat{F} = F_{\widehat{\lambda}}\)</span> for an <span class="math inline">\(\widehat{\lambda}\)</span> estimator of the parameter vector <span class="math inline">\(\lambda\)</span>, or</li>
+<li>non-parametrically by the empirical distribution function [ <em>N(x) = </em>{n=1}^N _{[X_n x]} ]</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>edf_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(N){</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  EDF <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(X)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(EDF)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>,<span class="at">by=</span><span class="fl">0.01</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">points</span>(x,<span class="fu">pnorm</span>(x),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">517</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">edf_plot</span>(<span class="dv">12</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">edf_plot</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_09_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_09_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Leading Ex.:</strong> The empirical estimator of the mean is exactly the mean of the empirical distribution <span class="math inline">\(\widehat{\theta} := \frac{1}{N} \sum_{n=1}^N X_n = \int x d \widehat{F}_N(x)\)</span>. <span style="float:right"><span class="math inline">\(\Delta\)</span></span></p>
+<p>In both cases, the population characteristic of interest <span class="math inline">\(\theta = \theta(F)\)</span> can often be estimated by the corresponding sample characteristic of <span class="math inline">\(\widehat{\theta} = \theta(\widehat{F})\)</span>. The sample characteristic is called a <em>statistic</em>, and it has a <em>sampling distribution</em>. Sometimes the <em>statistic</em> of interest can be a scaled version of the sample characteristic.</p>
+<p><strong>Leading Ex.:</strong> For <span class="math inline">\(F\)</span> a distribution function of the Gaussian distribution with variance <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(\widehat{\theta} \sim \mathcal{N}(\theta,\frac{\sigma^2}{N})\)</span>, which is the sampling distribution. <span style="float:right"><span class="math inline">\(\Delta\)</span></span></p>
+<p>We are rarely ever interested only in a point estimator of <span class="math inline">\(\theta\)</span>: most statistical procedures require some knowledge of the sampling distribution. For example, confidence intervals for <span class="math inline">\(\theta\)</span> or hypothesis testing about <span class="math inline">\(\theta\)</span> require knowledge of quantiles of the sampling distribution. And even in the case of point estimation, we may be interested in the estimator’s bias, variance, or jointly its mean squared error. Those are all characteristics of the sampling distribution.</p>
+<p>While the sampling distribution is generally unknown (it can be found and worked with analytically in simple cases only, like in our leading example, in other cases it has to be approximated by the CLT), it is identified by the underlying <span class="math inline">\(F\)</span> and the sampling process. The <em>bootstrap</em> embraces the <strong>idea</strong> that a (re)sampling process from <span class="math inline">\(\widehat{F}\)</span> can mimic the sampling process from <span class="math inline">\(F\)</span> itself that has produced the data. But since <span class="math inline">\(\widehat{F}\)</span> is known, the characteristics of the resampling distribution (which will in turn serve as proxies for the characteristics of the sampling distribution) are more readily available. Consider the following diagram <span class="math display">\[
+\begin{eqnarray}
+\text{Sampling (real world):} \quad &amp; F &amp;\Longrightarrow X_1,\ldots,X_N &amp;\Longrightarrow \widehat{\theta} = \theta(\widehat{F}_N) \\
+\text{Resampling (bootstrap world):} \quad &amp; \widehat{F}_N &amp;\Longrightarrow X_1^\star,\ldots,X_N^\star &amp;\Longrightarrow \widehat{\theta}^\star = \theta(\widehat{F}_N^\star)
+\end{eqnarray}
+\]</span> The bootstrap idea is that the bootstrap world can serve as a proxy for the real world. The advantage of the bootstrap world is that it is ours to control. Moreover, approximating the sampling process by resampling (i.e.&nbsp;performing <em>bootstrap</em>) can sometimes have further benefits.</p>
+<p><a name="running_ex"></a> <strong>Leading Ex.:</strong> Assume we are looking for a one-sided CI <span class="math inline">\([\theta_{\alpha},\infty)\)</span> with coverage <span class="math inline">\(1-\alpha\)</span>, that is we search for a random variable <span class="math inline">\(\theta_{\alpha}\)</span> such that <span class="math inline">\(P( \theta \geq \theta_{\alpha}) = 1-\alpha\)</span>, for <span class="math inline">\(\alpha \in (0,1)\)</span>. We know that <span class="math display">\[
+T = \sqrt{N}\frac{\bar{X}_N - \theta}{\widehat{\sigma}} \sim t_{n-1} \quad \Rightarrow \quad P\{T \leq t_{n-1}(1-\alpha)\} = 1-\alpha
+\]</span> and so we get a CI with exact coverage by expressing <span class="math inline">\(\theta\)</span> from the inequality <span class="math inline">\(T \leq t_{n-1}(1-\alpha)\)</span>: <span class="math display">\[
+\theta \geq \bar{X}_N - \frac{\widehat{\sigma}}{\sqrt{N}} t_{n-1}(1-\alpha) := \widehat{\theta}_{\alpha}.
+\]</span> When the Gaussianity assumption is taken away, i.e., when we only assume <span class="math inline">\(X_1,\ldots,X_N\)</span> are i.i.d. with <span class="math inline">\(\mathbb{E}X_1^2 &lt; \infty\)</span>, we have from the CLT that <span class="math inline">\(T \stackrel{d}{\to} \mathcal{N}(0,1)\)</span> and thus <span class="math display">\[
+P( \theta \geq \widehat{\theta}_{\alpha} ) \approx 1-\alpha \quad \text{for}\quad \widehat{\theta}_{\alpha} = \bar{X}_N - \frac{\widehat{\sigma}}{\sqrt{N}} z(1-\alpha),
+\]</span> where <span class="math inline">\(z(1-\alpha)\)</span> is the <span class="math inline">\((1-\alpha)\)</span>-quantile of the standard Gaussian. By the <a href="https://en.wikipedia.org/wiki/Berry%E2%80%93Esseen_theorem">Berry-Esseen theorem</a>: <span class="math display">\[
+P_F( T \leq x) - \Phi(x) = \mathcal{O}\left({\frac{1}{\sqrt{N}}}\right) \quad \text{for all } x \quad \Rightarrow \quad
+P( \theta \geq \widehat{\theta}_{\alpha}) = 1-\alpha + \mathcal{O}\left({\frac{1}{\sqrt{N}}}\right).
+\]</span> That is, the coverage of the asymptotic CI is exact up to the order <span class="math inline">\(\mathcal{O}(N^{-1/2})\)</span>.</p>
+<p>Now consider the bootstrap version of the CI. Let <span class="math inline">\(X_1^\star,\ldots,X_N^\star\)</span> be i.i.d. from the empirical distribution <span class="math inline">\(\widehat{F}_N\)</span> obtained from <span class="math inline">\(X_1,\ldots,X_N\)</span> i.i.d. with <span class="math inline">\(\mathbb{E}X_1^2 &lt; \infty\)</span>. Then, it can be shown using Edgeworth expansions that <span class="math display">\[
+P_F(T \leq x) = \Phi(x) + \frac{1}{\sqrt{N}} a(x) \phi(x) + \mathcal{O}\left( \frac{1}{N} \right)
+\]</span> for all <span class="math inline">\(x \in \mathbb{R}\)</span> and <span class="math inline">\(\Phi\)</span> and <span class="math inline">\(\phi\)</span> being respectively the distribution function and the density of the standard Gaussian, while the bootstrap version satisfies <span class="math display">\[
+P_{\widehat{F}_N}(T^\star \leq x) = \Phi(x) + \frac{1}{\sqrt{N}} \widehat{a}(x) \phi(x) + \mathcal{O}\left( \frac{1}{N} \right),
+\]</span> where <span class="math inline">\(\widehat{a}(x) - a(x) = \mathcal{O}(N^{-1/2})\)</span> and <span class="math inline">\(T^{\star} = \sqrt{N}\frac{\overline{X}_N^{\star} - \overline{X}_N}{\widehat{\sigma}^{\star}}\)</span>. Hence</p>
+<span class="math display">\[\begin{equation}\label{eq:boot_rate}\tag{1}
+P_{\widehat{F}_N}(T^\star \leq x) - P_F(T \leq x) = \mathcal{O}\left( \frac{1}{N} \right) \quad \Rightarrow \quad P\left(\theta \geq \bar{X}_N - \frac{\widehat{\sigma}}{\sqrt{N}} q^\star(1-\alpha) =: \widehat{\theta}^\star_{\alpha} \right) = 1-\alpha + \mathcal{O}\left( \frac{1}{N} \right),
+\end{equation}\]</span>
+<p>i.e., the (one-sided) bootstrap interval has exact coverage up to the order <span class="math inline">\(\mathcal{O}(N^{-1})\)</span>!</p>
+<p>The previous implication probably requires some more justification though. <span class="math inline">\(T\)</span> has a sampling distribution inherited from <span class="math inline">\(F\)</span> and let <span class="math inline">\(q(\alpha)\)</span> be its <span class="math inline">\(\alpha\)</span>-quantile. Then naturally <span class="math display">\[
+P\{T \leq q(1-\alpha)\} = 1-\alpha \quad \Rightarrow \quad P\left(\theta \geq \bar{X}_N - \frac{\widehat{\sigma}}{\sqrt{N}} q(1-\alpha)\right) = 1-\alpha,
+\]</span> but the problem is we do not know the sampling distribution, and hence neither its quantiles. If we use asymptotic normality, we approximate the quantile as the corresponding Gaussian quantile, but we commit a certain error. The bootstrap alternative instead tries to approximate the unknown sampling distribution more directly by the distribution of <span class="math inline">\(T^\star = \sqrt{N}\frac{\overline{X}_N^\star - \overline{X}_N}{\widehat{\sigma}^\star}\)</span>, where <span class="math inline">\(\overline{X}_N^\star\)</span> and <span class="math inline">\(\widehat{\sigma}^\star\)</span> are calculated from the bootstrap sample <span class="math inline">\(X_1^\star,\ldots,X_N^\star\)</span>. <span class="math inline">\(T^\star\)</span> also has a sampling distribution (inherited from <span class="math inline">\(\widehat{F}_N\)</span>) and let <span class="math inline">\(q^\star(\alpha)\)</span> be its <span class="math inline">\(\alpha\)</span>-quantile. Then <span class="math inline">\(P(T^\star_1 \leq q^\star(1-\alpha)) = 1-\alpha\)</span>, and according to the LHS of <span class="math inline">\(\eqref{eq:boot_rate}\)</span> we only commit error of order <span class="math inline">\(\mathcal{O}(N^{-1})\)</span> when we replace <span class="math inline">\(T^\star\)</span> by <span class="math inline">\(T\)</span>, which then yields the RHS of <span class="math inline">\(\eqref{eq:boot_rate}\)</span>. <span style="float:right"><span class="math inline">\(\Delta\)</span></span></p>
+<p><a name="bias_ex"></a></p>
+<p><strong>Remark:</strong> As discussed by Davison and Hinkley (see reference to their book below), the benefits of the bootstrap distribution of <span class="math inline">\(T\)</span>, and hence being an order of magnitude closer to the true distribution, disappears if <span class="math inline">\(T\)</span> is not pivotal, i.e., if its (limiting) distribution does not depend on unknowns. This is justified by the fact that the unknown parameters on which the (limiting) distribution of <span class="math inline">\(T\)</span> would depend, needs to be estimated to get the bootstrap distribution which would have a different leading term (in the Edgeworth expansion) than the true (limiting) distribution.</p>
+<p><strong>Example:</strong> Assume <span class="math inline">\(X_1,\ldots,X_N\)</span> are i.i.d. with <span class="math inline">\(\mathbb{E}|X_1|^3 &lt; \infty\)</span> and <span class="math inline">\(\mathbb{E}X_1 = \mu\)</span>, and let <span class="math inline">\(\theta = \mu^3\)</span>. In the same spirit to the leading example above, the empirical estimator of <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\widehat{\theta} = (\bar{X}_N)^3\)</span>, which is biased: <span class="math inline">\(b := \text{bias}(\widehat{\theta}) = \mathbb{E}\widehat{\theta} - \theta\)</span>. We can use the bootstrap to estimate the bias <span class="math inline">\(b\)</span> as <span class="math inline">\(\widehat{b}^\star\)</span> and define a bias-corrected estimator as <span class="math inline">\(\widehat{\theta}_b^\star = \widehat{\theta} - \widehat{b}^\star\)</span>. Let us do just that.</p>
+<p>In this case, the bias can actually be calculated explicitly: <span class="math display">\[
+\mathbb{E}_F \widehat{\theta} = \mathbb{E}_F\bar{X}_N^3 = \mathbb{E}_F\big[ \mu + N^{-1} \sum_{n=1}^N(X_n - \mu) \big]^3 = \mu^3 + \underbrace{N^{-1} 3 \mu \sigma^2 + N^{-2} \gamma}_{=b},
+\]</span> where <span class="math inline">\(\sigma^2 = \mathbb{E}(X_1-\mu)^2\)</span> and <span class="math inline">\(\gamma = \mathbb{E}(X_1-\mu)^3\)</span>. For the bootstrap version, we have <span class="math display">\[
+\mathbb{E}_{\widehat{F}_N} \widehat{\theta}^\star = \mathbb{E}_{\widehat{F}_N} (\bar{X}_N^\star)^3 = \mathbb{E}_{\widehat{F}_N} \big[ \bar{X}_N + N^{-1} \sum_{n=1}^N(X_n^\star - \bar{X}_N) \big]^3 = \bar{X}_N^3 + \underbrace{N^{-1} 3 \bar{X}_N \widehat{\sigma}^2 + N^{-2} \widehat{\gamma}}_{=\widehat{b}^\star},
+\]</span> where <span class="math inline">\(\widehat \sigma^2 = N^{-1} \sum_n (X_n - \bar{X}_N)^2\)</span> and <span class="math inline">\(\widehat \gamma = N^{-1} \sum_n (X_n - \bar{X}_N)^3\)</span>.</p>
+<p>Now, for <span class="math inline">\(\widehat{\theta}_b^\star = \widehat{\theta} - \widehat{b}^\star = \bar{X}_N^3 - N^{-1} 3 \bar{X}_N \widehat{\sigma}^2 - N^{-2} \widehat{\gamma}\)</span> we have <span class="math display">\[
+\mathbb{E}_F \widehat{\theta}_b^\star = \mu^3 + N^{-1} 3 \big[ \mu \sigma^2 - \mathbb{E}_F \bar{X}_N \widehat{\sigma}^2 \big] + N^{-2} \big[ \gamma - \mathbb{E}_F \widehat{\gamma} \big].
+\]</span></p>
+<p>At this point, there are several ways to argue that the bias has been decreased (but all of them are a bit painful). For example, it can be calculated explicitly that <span class="math inline">\(\mathbb{E}\bar{X}_N \widehat{\sigma}^2 = \mu \sigma^2 + \mathcal{O}(N^{-1})\)</span> and <span class="math inline">\(\mathbb{E}\widehat{\gamma} = \gamma + \mathcal{O}(N^{-1})\)</span>, and hence <span class="math inline">\(\text{bias}(\widehat{\theta}_b^\star) = \mathcal{O}(N^{-2})\)</span> as opposed to <span class="math inline">\(\text{bias}(\widehat{\theta}) = \mathcal{O}(N^{-1})\)</span>. Thus, using bootstrap, we have successfully reduced the bias by the full order of the sample size. <span style="float:right"><span class="math inline">\(\Delta\)</span></span></p>
+<p>In the examples above, we saw how resampling can be used to construct confidence intervals with better coverage compared to those obtained using CLT, and how the resampling distribution can be used to partially correct the bias of an estimator. Of course, the second example is special in that it allows for explicit calculations, while explicit calculation of <span class="math inline">\(q^\star(\alpha)\)</span> is not possible. Nonetheless, the bootstrap can be naturally paired up with Monte Carlo in such situations.</p>
+<p>We have already seen how basic Monte Carlo can help us avoid analytic calculations and perform numerous statistical tasks. However, the cases in which the distribution under the null is fully known (like in <a href="09_MonteCarlo.html#MC_ex">this example</a>) are quite rare. In many more cases, the distribution under the null is unknown, but can be approximated by the bootstrap idea above, and Monte Carlo can then be used to approximate desirable characteristics of such a distribution. From this point of view, by “bootstrap” it is commonly meant to combine</p>
+<ul>
+<li>the plug-in principle (i.e.&nbsp;estimating the unknowns), and</li>
+<li>Monte Carlo principle (i.e.&nbsp;simulation instead of analytic calculations).</li>
+</ul>
+<p>The former amounts to estimating either</p>
+<ul>
+<li>some parameters in the parametric problems <span class="math inline">\(\Longrightarrow\)</span> <em>parametric bootstrap</em>, or</li>
+<li>the whole <span class="math inline">\(F\)</span> via the empirical estimator <span class="math inline">\(\widehat{F}_N\)</span> in non-parametric problems <span class="math inline">\(\Longrightarrow\)</span> <em>non-parametric bootstrap</em>.</li>
+</ul>
+</section>
+<section id="the-non-parametric-bootstrap" class="level1">
+<h1>The Non-Parametric Bootstrap</h1>
+<ul>
+<li>let <span class="math inline">\(\mathcal{X} = \{ X_1,\ldots,X_N \}\)</span> be a random sample from <span class="math inline">\(F\)</span></li>
+<li>we are interested in <span class="math inline">\(\theta = \theta(F)\)</span>, a characteristic of <span class="math inline">\(F\)</span></li>
+<li>the estimator is given as <span class="math inline">\(\widehat{\theta} = \theta(\widehat{F})\)</span>
+<ul>
+<li>we will also write <span class="math inline">\(\widehat{\theta} = \theta[\mathcal{X}]\)</span>, since <span class="math inline">\(\widehat{F}\)</span> and thus the estimator depends on the sample</li>
+<li><span class="math inline">\(\widehat{F}\)</span> can be either a parametric on non-parametric estimate</li>
+</ul></li>
+<li>the distribution of a scaled estimator <span class="math inline">\(T = g(\widehat{\theta},\theta) = g(\theta[\mathcal{X}],\theta)\)</span> is of interest
+<ul>
+<li>e.g., <span class="math inline">\(T = \sqrt{N}(\widehat{\theta} - \theta)\)</span></li>
+</ul></li>
+</ul>
+<p>The workflow of the bootstrap is as follows for some <span class="math inline">\(B \in \mathbb{N}\)</span> (e.g., <span class="math inline">\(B=1000\)</span>): <span class="math display">\[
+\begin{eqnarray}
+\text{Data}\qquad &amp; &amp; \qquad\qquad\text{Resamples} \\
+\mathcal{X} = \{ X_1,\ldots,X_N \} &amp;\quad \Longrightarrow \quad&amp; \begin{cases}
+\quad\mathcal{X}_1^\star = \{ X_{1,1}^\star,\ldots,X_{1,N}^\star \} \quad \Longrightarrow \quad T_1^\star = g(\theta[\mathcal{X}_1^\star],\theta[\mathcal{X}]) \\
+\quad\qquad\vdots \\
+\quad\mathcal{X}_B^\star = \{ X_{B,1}^\star,\ldots,X_{B,N}^\star \} \;\;\Longrightarrow \quad T_B^\star = g(\theta[\mathcal{X}_B^\star],\theta[\mathcal{X}])
+\end{cases}
+\end{eqnarray}
+\]</span> and estimate the unknown distribution <span class="math inline">\(F_T(x) = P(T \leq x)\)</span> by the empirical distribution of <span class="math inline">\(T_1^\star,\ldots, T_B^\star\)</span>, i.e., by <span class="math display">\[
+\widehat{F}_{T,B}^\star(x) = \frac{1}{B}\sum_{b=1}^B \mathbb{I}_{[T_b^\star \leq x]}.
+\]</span> Any characteristic of <span class="math inline">\(F_T\)</span> can be estimated by the corresponding characteristic of <span class="math inline">\(\widehat{F}_{T,B}^\star\)</span>.</p>
+<p>For example, the quantiles <span class="math inline">\(q^\star(\alpha)\)</span> in <a href="#running_ex">the leading example above</a> can be approximated by the quantiles of this empirical distribution.</p>
+<p><em>Note:</em> The bootstrap resamples are obtained by sampling with replacement from the data <span class="math inline">\(X_1,\ldots,X_N\)</span>. But there is a natural question: how large the number of resamples <span class="math inline">\(B\)</span> should be? That depends on the characteristic of interest. To approximate quantiles, at least <span class="math inline">\(B=10^3\)</span>, but rather <span class="math inline">\(B=10^4\)</span>, is advisable, while to estimate the variance, <span class="math inline">\(B \geq 200\)</span> is usually considered.</p>
+<section id="some-theory" class="level2">
+<h2 class="anchored" data-anchor-id="some-theory">Some Theory</h2>
+<p>Any statistical methodology should be at least consistent. If we have consistency, we may ask for rates of convergence, like sketched in <a href="#running_ex">the example above</a>. But with bootstrap, theoretical research is hard, results have to derived again for different kinds of statistics. Here we will only provide a consistency result for the case of bootstrapping a smooth transformation of the empirical mean.</p>
+<p>Recall that we are using the empirical bootstrap distribution <span class="math inline">\(\widehat{F}_{T,B}^\star\)</span> as a proxy for the unknown distribution of the scaled estimator <span class="math inline">\(T\)</span>, denoted by <span class="math inline">\(F_{T,N}(x) = P(T \leq x)\)</span>. As we increase the number of bootstrap samples, <span class="math inline">\(\widehat{F}_{T,B}^\star\)</span> naturally approaches <span class="math inline">\(F_{T,N}^\star(x) = P(T_1^\star \leq x)\)</span>. In fact, by the <a href="https://en.wikipedia.org/wiki/Glivenko%E2%80%93Cantelli_theorem">Glivenko-Cantelli theorem</a>: <span class="math display">\[
+\sup_{x} \Big| \widehat{F}_{T,B}^\star(x) - F_{T,N}^\star(x) \Big| \overset{a.s.}{\to} 0 \quad \text{as} \quad B \to \infty.
+\]</span> Hence the question is how does <span class="math display">\[
+\sup_{x} \Big| F_{T,N}^\star(x) - F_{T,N}(x) \Big|
+\]</span> behave as <span class="math inline">\(N \to \infty\)</span>.</p>
+<p><strong>Theorem.</strong> Let <span class="math inline">\(\mathbb{E}X_1^2 &lt; \infty\)</span> and <span class="math inline">\(T = h(\bar{X}_N)\)</span>, where <span class="math inline">\(h\)</span> is continuously differentiable at <span class="math inline">\(\mu := \mathbb{E}(X_1)\)</span> and such that <span class="math inline">\(h(\mu) \neq 0\)</span>. Then <span class="math display">\[
+\sup_{x} \Big| F_{T,N}^\star(x) - F_{T,N}(x) \Big| \overset{a.s.}{\to} 0 \quad \text{as} \quad N \to \infty.
+\]</span></p>
+<p>The previous theorem shows consistency of the bootstrap or smooth transformations of the empirical average. It also holds for random vectors, where <span class="math inline">\(h : \mathbb{R}^p \to \mathbb{R}^q\)</span> where has continuous partial derivatives on some neighborhood of <span class="math inline">\(\mu\)</span>.</p>
+</section>
+<section id="applications" class="level2">
+<h2 class="anchored" data-anchor-id="applications">Applications</h2>
+<p>Here, we will demonstrate how to device bootstrap procedures for standard statistical tasks. We will not prove validity of those procedures (i.e., we will not show that the bootstrap works).</p>
+<section id="confidence-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="confidence-intervals">Confidence Intervals</h3>
+<p>Let <span class="math inline">\(T = \sqrt{N}(\widehat{\theta} - \theta)\)</span> where <span class="math inline">\(\theta \in \mathbb{R}\)</span>, thus <span class="math inline">\(T^\star_b = \sqrt{N}(\widehat{\theta}_b^\star - \widehat{\theta})\)</span> for <span class="math inline">\(b=1,\ldots,B\)</span>. We can take <span class="math inline">\(q_B^\star(\alpha)\)</span> for <span class="math inline">\(\alpha \in (0,1)\)</span> to be the <span class="math inline">\(\alpha\)</span>-quantile of the empirical distribution based on <span class="math inline">\(T^\star_b\)</span> for <span class="math inline">\(b=1,\ldots,B\)</span>, i.e., the <span class="math inline">\(\alpha\)</span>-quantile of the bootstrap distribution of <span class="math inline">\(T\)</span>. Provided that the <em>bootstrap works</em> (is consistent), we have <span class="math display">\[
+P\Big(q_B^\star(\alpha/2) \leq \sqrt{N}(\widehat{\theta} - \theta) \leq q_B^\star(1-\alpha/2) \Big) \to 1-\alpha
+\]</span> and hence <span class="math display">\[
+\left( \widehat{\theta} - \frac{q_B^\star(1-\alpha/2)}{\sqrt{N}}, \widehat{\theta} - \frac{q_B^\star(\alpha/2)}{\sqrt{N}} \right)
+\]</span> is a CI for <span class="math inline">\(\theta\)</span> with asymptotically correct coverage (again, provided that the <em>bootstrap works</em> and hence that the quantiles of the bootstrap distribution converge to those of the true distribution of <span class="math inline">\(T\)</span>).</p>
+<p>Note that the interval above is different from the one we worked with in our leading example above, where we have standardized for the scale. This is called <em>studentization</em> and it is highly recommended. It can often be shown that bootstrap procedures based on studentized statistics have better properties. For example, in the leading example above we have seen that the studentized CI had a faster rate of convergence (to the correct coverage) than the CI based on asymptotic normality. This would not happen without studentization. So let’s change the basic CI above into a studentized CI.</p>
+<p>Assume that <span class="math inline">\(\sqrt{N}(\widehat{\theta} - \theta) \to \mathcal{N}(0,v^2)\)</span>, i.e., <span class="math inline">\(v^2\)</span> is the asymptotic variance of <span class="math inline">\(T\)</span>. Let <span class="math inline">\(\widehat{v}\)</span> be a consistent estimator for <span class="math inline">\(v\)</span>. Now we consider the studentized statistics: <span class="math display">\[
+T = \sqrt{N}\frac{\widehat{\theta} - \theta}{\widehat{v}} \qquad \&amp; \qquad
+T^\star_b = \sqrt{N}\frac{\widehat{\theta}_b^\star - \widehat{\theta}}{\widehat{v}^\star_b}
+\]</span> where <span class="math inline">\(\widehat{v}^\star_b\)</span> is the estimator of the same form as <span class="math inline">\(\widehat{v}\)</span>, but calculated from the <span class="math inline">\(b\)</span>-th resample <span class="math inline">\(\mathcal{X}^\star_b\)</span>. Again, let <span class="math inline">\(q_B^\star(\alpha)\)</span> for <span class="math inline">\(\alpha \in (0,1)\)</span> be the <span class="math inline">\(\alpha\)</span>-quantile of the empirical distribution based on <span class="math inline">\(T^\star_b\)</span> for <span class="math inline">\(b=1,\ldots,B\)</span>. If bootstrap works, we have now <span class="math display">\[
+P\Big(q_B^\star(\alpha/2) \leq \sqrt{N}\frac{\widehat{\theta} - \theta}{\widehat{v}} \leq q_B^\star(1-\alpha/2) \Big) \to 1-\alpha
+\]</span> from which we get the CI with asymptotically correct coverage: <span class="math display">\[
+\left( \widehat{\theta} - \frac{q_B^\star(1-\alpha/2)}{\sqrt{N}}\widehat{v}, \widehat{\theta} - \frac{q_B^\star(\alpha/2)}{\sqrt{N}} \widehat{v}\right)
+\]</span></p>
+</section>
+<section id="variance-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="variance-estimation">Variance Estimation</h3>
+<p>We often know that <span class="math display">\[
+\sqrt{N}(\widehat{\theta} - \theta) \stackrel{d}{\to} \mathcal{N_p}(0, \Sigma),
+\]</span> but in these cases <span class="math inline">\(V=N^{-1}\Sigma\)</span> often has a complicated form (e.g., it has a complicated dependency on unknown parameters).</p>
+<p>But the bootstrap can be deployed quite easily: <span class="math display">\[
+\widehat{V}^\star = \frac{1}{B-1} \sum_{b=1}^B \left( \widehat{\theta}^\star_b - \bar{\theta}^\star \right) \left( \widehat{\theta}^\star_b - \bar{\theta}^\star \right)^\top, \qquad \text{where} \qquad
+\bar{\theta}^\star = \frac{1}{B}\sum_{b=1}^B \widehat{\theta}^\star_b,
+\]</span> where <span class="math inline">\(\widehat{\theta}^\star_b\)</span> is the same estimator as <span class="math inline">\(\widehat{\theta}\)</span>, only calculated from the <span class="math inline">\(b\)</span>-th bootstrap resample.</p>
+<p>Note that <span class="math inline">\(\widehat{V}^\star\)</span> is an estimator of <span class="math inline">\(N^{-1} \Sigma\)</span>, not just of <span class="math inline">\(\Sigma\)</span>. Critically, the bootstrap will fail if <span class="math inline">\(\mathrm{var}(\widehat{\theta}) = \infty\)</span>, which can actually happen even when the asymptotic normality holds.</p>
+<p><strong>Example:</strong> Let <span class="math inline">\(X_1,\ldots,X_N\)</span> be a random sample from the density <span class="math inline">\(f(x) = 3/x^4 \mathbb{I}_{[x \geq 1]}\)</span>. From the CLT we have <span class="math inline">\(\sqrt{N}(\bar{X}_N - 3/2) \to \mathcal{N}(0,3/4)\)</span>. Taking <span class="math inline">\(g(x) = \exp(x^4)\)</span>, the delta method gives us <span class="math display">\[
+\sqrt{N}\Big( g\big( \bar{X}_n\big) - g(3/2) \Big) \to \mathcal{N}\big(0,\{g'(3/2)\}^2 3/4 \big)
+\]</span> But the bootstrap will not work in this case, since even <span class="math inline">\(\mathbb{E}g\big( \bar{X}_n \big) = \infty\)</span>, see the code below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1000</span>)<span class="sc">/</span><span class="dv">10</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>target_d <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="dv">3</span><span class="sc">/</span>x<span class="sc">^</span><span class="dv">4</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="fu">target_d</span>(x),<span class="at">type=</span><span class="st">"l"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">6000</span>)<span class="sc">/</span><span class="dv">1001</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>proposal_d <span class="ot">&lt;-</span> <span class="fu">dcauchy</span>(x)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span><span class="sc">+</span>x,<span class="dv">2</span><span class="sc">*</span>proposal_d,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_09_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>const <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">1</span><span class="sc">^</span><span class="dv">4</span> <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span><span class="fu">dcauchy</span>(<span class="dv">0</span>)) <span class="co"># 4.7</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># rejection sampling from the target</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">317</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,N)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(j <span class="sc">&lt;</span> N){</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  Y <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="fu">abs</span>(<span class="fu">rcauchy</span>(<span class="dv">1</span>))</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  U <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(U <span class="sc">&lt;</span> <span class="fu">target_d</span>(Y)<span class="sc">/</span><span class="fu">dcauchy</span>(Y)<span class="sc">/</span>const){</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    X[j<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> Y</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    j <span class="ot">&lt;-</span> j<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(X,<span class="at">breaks=</span><span class="dv">16</span>,<span class="at">freq=</span>F)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,<span class="fu">target_d</span>(x),<span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_09_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bootstrap estimator of the variance</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>boot_stat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,B)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(b <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>B){</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  Xb <span class="ot">&lt;-</span> <span class="fu">sample</span>(X,N,<span class="at">replace=</span>T)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  boot_stat[b] <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">mean</span>(Xb)<span class="sc">^</span><span class="dv">4</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>(sigma_star <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>(B<span class="dv">-1</span>)<span class="sc">*</span><span class="fu">sum</span>((boot_stat<span class="sc">-</span><span class="fu">mean</span>(boot_stat))<span class="sc">^</span><span class="dv">2</span>)) <span class="co"># overshot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5482212</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span><span class="sc">*</span><span class="fu">exp</span>(<span class="fl">1.5</span><span class="sc">^</span><span class="dv">4</span>)<span class="sc">*</span><span class="fl">1.5</span><span class="sc">^</span><span class="dv">3</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="dv">3</span><span class="sc">/</span><span class="dv">4</span><span class="sc">/</span>N <span class="co"># true asymptotic variance we wish to estimate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3411.618</code></pre>
+</div>
+</div>
+</section>
+<section id="bias-reduction" class="level3">
+<h3 class="anchored" data-anchor-id="bias-reduction">Bias Reduction</h3>
+<p>Unbiased estimators are in reality quite rare. But, we can estimate the bias by bootstrapping as <span class="math inline">\(\widehat{b}^\star = \bar{\theta}^\star - \widehat{\theta}\)</span> and define the bias-corrected estimator <span class="math inline">\(\widehat{\theta}_b = \widehat{\theta} - \widehat{b}^\star\)</span>.</p>
+<p>We have seen in <a href="#bias_ex">an example above</a> that the bias-corrected estimator can have better properties. In that example, we tried to estimate <span class="math inline">\(g(\mathbb{E}X_1)\)</span> for <span class="math inline">\(g(x) = x^3\)</span> by <span class="math inline">\(g(\bar{X}_N)\)</span>, and we got a faster rate for the bias of the bias-corrected estimator. Something similar happens when working with any smooth enough <span class="math inline">\(g\)</span> instead.</p>
+</section>
+<section id="hypothesis-testing" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis Testing</h3>
+<p>Assume we wish to test a hypothesis <span class="math inline">\(H_0\)</span> using a statistic <span class="math inline">\(T\)</span>. Depending on the form of the alternative hypothesis <span class="math inline">\(H_1\)</span>, either</p>
+<ul>
+<li>large values of <span class="math inline">\(T\)</span>,</li>
+<li>small values of <span class="math inline">\(T\)</span>, or</li>
+<li>both large and small values of <span class="math inline">\(T\)</span></li>
+</ul>
+<p>testify against the null hypothesis and in favor of the alternative. Bootstrapping the statistic, we obtain <span class="math inline">\(T_1^\star, \ldots, T_B^\star\)</span> and depending on what values of the statistics testify against the hypothesis, we can estimate the p-value as either</p>
+<ul>
+<li><span class="math inline">\(\widehat{\text{p-val}} = \frac{1}{B} \left( \sum_{b=1}^B \mathbb{I}_{[T_b^\star \geq t_{\text{obs}}]} \right)\)</span>,</li>
+<li><span class="math inline">\(\widehat{\text{p-val}} = \frac{1}{B} \left( \sum_{b=1}^B \mathbb{I}_{[T_b^\star \leq t_{\text{obs}}]} \right)\)</span>, or</li>
+<li><span class="math inline">\(\widehat{\text{p-val}} = \frac{1}{B} \left( \sum_{b=1}^B \mathbb{I}_{[|T_b^\star| \geq |t_{\text{obs}}|]} \right)\)</span>,</li>
+</ul>
+<p>If the observed value <span class="math inline">\(t_{\text{obs}}\)</span> of the statistic <span class="math inline">\(T\)</span> is not too extreme (the form of <span class="math inline">\(H_1\)</span> decides what “extreme” is), we will observe more extreme values coming out of our bootstrap, which in turn increases our estimate of the p-value, which in turn prevents us from rejecting <span class="math inline">\(H_0\)</span>.</p>
+<p><strong>Example:</strong> Let <span class="math inline">\(X_1,\ldots,X_N\)</span> be a random sample with <span class="math inline">\(\mathbb{E}(X_1^2) &lt; \infty\)</span> and consider <span class="math inline">\(H_0: \mu = \mu_0\)</span> against</p>
+<ul>
+<li><span class="math inline">\(H_1: \mu &gt; \mu_0\)</span>. Taking the studentized statistic <span class="math inline">\(T = \sqrt{N}(\bar{X}_N - \mu_0)/s\)</span> for <span class="math inline">\(s = (N-1)^{-1} \sum_n (X_n - \bar{X}_N)^2\)</span> and the corresponding bootstrap statistics <span class="math inline">\(T_b^\star = \sqrt{N}(\bar{X}_b^\star - \bar{X}_N)/s^\star\)</span>, the bootstrap p-value is <span class="math display">\[
+\widehat{\text{p-val}} = \frac{1}{B} \left(\sum_{b=1}^B \mathbb{I}_{[T_b^\star \geq t_{\text{obs}}]} \right).
+\]</span></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">517</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rexp</span>(N,<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="co"># thus true mean = 2</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="fl">1.78</span> <span class="co"># hypothesized value</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>T_stat <span class="ot">&lt;-</span> (<span class="fu">mean</span>(X)<span class="sc">-</span>mu_0)<span class="sc">/</span><span class="fu">sd</span>(X)<span class="sc">*</span><span class="fu">sqrt</span>(N) <span class="co">#asympt. normal under H0</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>boot_stat <span class="ot">&lt;-</span> boot_stat_param <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,B)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(b <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>B){</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  Xb           <span class="ot">&lt;-</span> <span class="fu">sample</span>(X,N,<span class="at">replace=</span>T)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  boot_stat[b] <span class="ot">&lt;-</span> (<span class="fu">mean</span>(Xb)<span class="sc">-</span><span class="fu">mean</span>(X))<span class="sc">/</span><span class="fu">sd</span>(Xb)<span class="sc">*</span><span class="fu">sqrt</span>(N)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  Xb_param           <span class="ot">&lt;-</span> <span class="fu">rexp</span>(N, <span class="at">rate=</span><span class="dv">1</span><span class="sc">/</span>mu_0)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  boot_stat_param[b] <span class="ot">&lt;-</span> (<span class="fu">mean</span>(Xb_param)<span class="sc">-</span>mu_0)<span class="sc">/</span><span class="fu">sd</span>(Xb_param)<span class="sc">*</span><span class="fu">sqrt</span>(N)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>p_val       <span class="ot">&lt;-</span> <span class="fu">mean</span>(boot_stat <span class="sc">&gt;=</span> T_stat)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>p_val_param <span class="ot">&lt;-</span> <span class="fu">mean</span>(boot_stat_param <span class="sc">&gt;=</span> T_stat)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(p_val,p_val_param)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0379 0.0394</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">I</span>(<span class="fu">abs</span>(T_stat) <span class="sc">&gt;</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>)) <span class="co"># asymptotic test, easy to calculate asymptotic p-val</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Notice that while (parametric and non-parametric) bootstrap rejects the hypothesis on 5 % level, the test based on asymptotic normality does not. This could be expected, since we saw in our <a href="#running_ex">leading example</a> above that bootstrap produces better one-sided CIs, which are naturally dual to one-sided hypothesis tests. <!-- On the other hand, it can be shown that in the case of two-sided CIs and two-sided tests the asymptotic behavior of asymptotic normality is better, matching the bootstrap rates, and hence bootstrap is not expected to outperform the asymptotic test. As shown below, it is in fact the other way around. Note that we reduce the value of $\mu_0$ below to gain more power, since it is naturally harder to reject against the two-sided alternative. --></p>
+<ul>
+<li><span class="math inline">\(H_1: \mu \neq \mu_0\)</span>. Taking the same studentized statistics, the bootstrap p-value is this time <span class="math display">\[
+\widehat{\text{p-val}} = \frac{1}{B} \left(\sum_{b=1}^B \mathbb{I}_{[|T_b^\star| \geq |t_{\text{obs}}|]} \right).
+\]</span></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">517</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rexp</span>(N,<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="co"># thus true mean = 2</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="fl">1.7</span> <span class="co"># reduced, since harder to reject here</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>T_stat <span class="ot">&lt;-</span> (<span class="fu">mean</span>(X)<span class="sc">-</span>mu_0)<span class="sc">/</span><span class="fu">sd</span>(X)<span class="sc">*</span><span class="fu">sqrt</span>(N)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>boot_stat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,B)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(b <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>B){</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  Xb <span class="ot">&lt;-</span> <span class="fu">sample</span>(X,N,<span class="at">replace=</span>T)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  boot_stat[b] <span class="ot">&lt;-</span> (<span class="fu">mean</span>(Xb)<span class="sc">-</span><span class="fu">mean</span>(X))<span class="sc">/</span><span class="fu">sd</span>(Xb)<span class="sc">*</span><span class="fu">sqrt</span>(N)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>p_val       <span class="ot">&lt;-</span> <span class="fu">mean</span>(boot_stat <span class="sc">&gt;=</span> T_stat)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>p_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0139</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(T_stat)) <span class="co"># asymptotic test, easy to calculate asymptotic p-val</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.05592678</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="related-methods" class="level1">
+<h1>Related Methods</h1>
+<section id="parametric-bootstrap-and-goodness-of-fit-testing" class="level2">
+<h2 class="anchored" data-anchor-id="parametric-bootstrap-and-goodness-of-fit-testing">Parametric Bootstrap and Goodness-of-Fit Testing</h2>
+<p>Assume that <span class="math inline">\(X_1,\ldots,X_N\)</span> is a random sample from <span class="math inline">\(F = F_\gamma\)</span>, i.e., the distribution function is known up to a parameter <span class="math inline">\(\lambda \in \mathbb{R}^p\)</span>. The parametric bootstrap is similar to the non-parametric one, only instead of sampling with replacement from <span class="math inline">\(X_1,\ldots,X_N\)</span> we sample from the fitted distribution <span class="math inline">\(F_\widehat{\lambda}\)</span>, where <span class="math inline">\(\widehat{\lambda}\)</span> is a consistent estimator of <span class="math inline">\(\lambda\)</span>.</p>
+<p>Parametric bootstrap is mainly useful for Goodness-of-Fit (GoF) testing, that is the following problem: assume <span class="math inline">\(X_1,\ldots,X_N\)</span> is a random sample from a general <span class="math inline">\(F\)</span>, and for a parametric model <span class="math inline">\(\mathcal{F} = \{ F_\lambda \mid \lambda \in \Lambda \}\)</span>, we would like to test whether the data supports the hypothesis that <span class="math inline">\(F\)</span> belongs to this parametric family: <span class="math display">\[
+H_0: F \in \mathcal{F}, \qquad H_1: F \notin \mathcal{F}.
+\]</span></p>
+<p>The standard approach is to use the Kolmogorov-Smirnov statistic <span class="math display">\[
+T = \sup_x \Big| \widehat{F}_N(x) - F_\widehat{\lambda}(x) \Big|,
+\]</span> where <span class="math inline">\(\widehat{\lambda}\)</span> is a specific estimator consistent under the parametric model <span class="math inline">\(H_0\)</span> (e.g., the MLE).</p>
+<p>But here we are not comparing the empirical distribution to a fixed reference like in the usual <a href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test">Kolmogorov-Smirnov test</a>, instead we compare the non-parametric fit (<span class="math inline">\(\widehat{F}_N\)</span>) to the parametric fit (<span class="math inline">\(F_\widehat{\lambda}\)</span>). Hence the distribution of <span class="math inline">\(T\)</span> is complicated, but doing parametric bootstrap is easy:</p>
+<ul>
+<li><strong>for</strong> <span class="math inline">\(b=1,\ldots,B\)</span>
+<ul>
+<li>generate resample <span class="math inline">\(\mathcal{X}_b^\star = \{ X_{b,1}^\star,\ldots,X_{b,N}^\star \}\)</span></li>
+<li>estimate <span class="math inline">\(\widehat{\lambda}_b^\star\)</span> from the resample <span class="math inline">\(\mathcal{X}_b^\star\)</span></li>
+<li>calculate the EDF <span class="math inline">\(\widehat{F}_{N,b}^\star\)</span> from the resample <span class="math inline">\(\mathcal{X}_b^\star\)</span></li>
+<li>set <span class="math inline">\(t_b^\star = \sup_x \Big| \widehat{F}_{N,b}^\star(x) - F_{\widehat{\lambda}_b^\star}(x) \Big|\)</span></li>
+</ul></li>
+<li>estimate the p-value of the test by <span class="math display">\[
+\widehat{\text{p-val}} = \frac{1}{B}\left( \sum_{b=1}^B \mathbb{I}_{[T_b^\star \geq t_{\text{obs}}]} \right)
+\]</span></li>
+</ul>
+<p><strong>Note:</strong> When using bootstrap for hypothesis testing, it has been suggested to use the following bootstrap estimate of the <span class="math inline">\(p\)</span>-value</p>
+<p><span class="math display">\[\widehat{\text{p-val}} = \frac{1}{B+1}\left( 1+\sum_{b=1}^B \mathbb{I}_{[T_b^\star \geq t_{\text{obs}}]} \right)\]</span></p>
+<p>to improve finite sample performance.</p>
+</section>
+<section id="iterated-bootstrap" class="level2">
+<h2 class="anchored" data-anchor-id="iterated-bootstrap">Iterated Bootstrap</h2>
+<p>As we have seen in <a href="#bias_ex">an example above</a>, the bootstrap can be used to estimate the bias <span class="math inline">\(b\)</span> of an estimator by <span class="math inline">\(\widehat{b}^\star\)</span>, and the estimator of the bias can be in turn used to correct the estimator. But in that example, the bias-corrected estimator <span class="math inline">\(\widehat{\theta}_b^\star\)</span> is still biased (just the asymptotic order of the bias has been lowered), which means that the estimator of the bias <span class="math inline">\(\widehat{b}^\star\)</span> is itself biased. How about we iterate the bootstrap idea, and use another bootstrap to estimate the bias of <span class="math inline">\(\widehat{b}^\star\)</span>? Then we can adjust the estimator <span class="math inline">\(\widehat{\theta}_b^\star\)</span> even further and hopefully reduce its bias even further (i.e., lower the asymptotic order of the bias even more).</p>
+<p>In the following scheme, the double star denotes the double bootstrap estimate <span class="math display">\[
+\begin{eqnarray}
+\text{Estimator:} \quad&amp;\quad \widehat{\theta} \quad&amp;\quad \widehat{b}^\star \quad&amp;\quad \widehat{\theta}^\star_b \quad&amp;\quad \widehat{b}^{\star \star} \quad&amp;\quad \widehat{\theta}_b^{\star \star} \\
+\text{Bias:} \quad&amp;\quad \mathcal{O}(N^{-1}) \quad&amp;\quad \mathcal{O}(N^{-1}) \quad&amp;\quad \mathcal{O}(N^{-2}) \quad&amp;\quad \mathcal{O}(N^{-2}) \quad&amp;\quad \mathcal{O}(N^{-3})
+\end{eqnarray}
+\]</span></p>
+<p><strong>Example:</strong> In this example, consider the estimator <span class="math inline">\(\widehat{\tau} = N^{-1} \sum_{n} (X_n - \bar{X}_N)^2\)</span> of the variance <span class="math inline">\(\tau = \sigma^2 = \mathrm{var}{(X_1)}\)</span>. We know this estimator is biased, and we know that replacing <span class="math inline">\(N^{-1}\)</span> by <span class="math inline">\((N-1)^{-1}\)</span> would make it unbiased, but let us show how the bootstrap can be used without the analytic knowledge (and use the analytic knowledge only to evaluate what the bootstrap does). The bias is <span class="math inline">\(b=N^{-1} \tau\)</span>, and the bootstrap estimate of the bias is simply <span class="math inline">\(\widehat{b}^\star = N^{-1} \widehat{\tau}\)</span>. Next, since <span class="math inline">\(\mathrm{bias}(\widehat{\tau}) = \tau (N-1)/N\)</span>, we have <span class="math display">\[
+\mathbb{E}(\widehat{b}^\star) = \frac{(N-1) \tau}{N^2} = b[1 + N^{-1}] \quad \Rightarrow \quad \text{bias}(\widehat{b}^\star) = N^{-1} b = N^{-2} \tau
+\]</span> so <span class="math inline">\(\widehat{b}^\star\)</span> is unbiased up to order <span class="math inline">\(N^{-1}\)</span> for <span class="math inline">\(b\)</span>. Iterating bootstrap for the second time, we have <span class="math inline">\(N^{-2} \widehat{\tau}\)</span> as the bootstrap estimator for the bias of <span class="math inline">\(\widehat{b}^{\star}\)</span>, and the second-iteration estimator for <span class="math inline">\(b\)</span>, i.e., for the bias of <span class="math inline">\(\widehat{\tau}\)</span> itself, is thus <span class="math inline">\(\widehat{b}^{\star\star} = \widehat{b}^{\star} + N^{-2} \widehat{\tau}\)</span>. This is unbiased up to the order <span class="math inline">\(N^{-2}\)</span> for <span class="math inline">\(b\)</span>: <span class="math display">\[
+\mathbb{E}(\widehat{b}^{\star\star}) = \frac{(N-1) \tau}{N^2} + \frac{(N-1) \tau}{N^3} = \frac{\tau}{N}\left[ 1 - \frac{1}{N} + \frac{1}{N} - \frac{1}{N^2} \right] = b [1 + N^{-2}]
+\]</span> <span style="float:right"><span class="math inline">\(\Delta\)</span></span></p>
+<p>The example above is again a toy example where bootstrap calculations can be performed analytically. But similar improvements can be observed even when analytic calculations are not possible. In that case, we need to apply a second-iteration bootstrap to every first-iteration bootstrap sample, i.e., generating <span class="math inline">\(\mathcal{X}_{b,m}^{\star\star}\)</span> for <span class="math inline">\(m=1,\ldots,M\)</span>, for every <span class="math inline">\(\mathcal{X}_{b}^{\star}\)</span> where <span class="math inline">\(b=1,\ldots,B\)</span>. This is of course computationally demanding. Thus while we could in principle, iterate this idea to a third-iteration bootstrap an beyond, this would not be computationally feasible, and also the finite sample properties of the iterated bootstrap estimates may not show the improvements unless <span class="math inline">\(N\)</span> is very large. On the other hand, the iterated bootstrap can be useful in many cases from the methodological viewpoint.</p>
+<p><a name="test_var_ex"></a> <strong>Example:</strong> Let <span class="math inline">\(X_1,\ldots,X_p \in \mathbb{R}^p\)</span> be i.i.d. from a distribution depending on <span class="math inline">\(\theta \in \mathbb{R}^p\)</span>. We are interested in testing <span class="math inline">\(H_0: \theta = \theta_0\)</span> against <span class="math inline">\(H_1: \theta \neq \theta_0\)</span>. Let <span class="math inline">\(\widehat{\theta}\)</span> be an estimator such that <span class="math inline">\(\sqrt{N}(\widehat{\theta} - \theta) \stackrel{d}{\to} \mathcal{N}(0, \Sigma)\)</span>. Let us perform a bootstrap test based on the studentized statistic <span class="math display">\[
+T = \sqrt{N} \widehat{\Sigma}^{-1/2}(\widehat{\theta} - \theta_0) \stackrel{d}{\to} \mathcal{N}(0, I_{p\times p}) \qquad (\text{under } H_0),
+\]</span> where <span class="math inline">\(\widehat{\Sigma}\)</span> is a consistent estimator of <span class="math inline">\(\Sigma\)</span>. The asymptotic test can be based on the fact that <span class="math inline">\(\| T \|^2 \stackrel{d}{\to} \chi^2_p\)</span> under <span class="math inline">\(H_0\)</span>. We have several options how bootstrap can come into play:</p>
+<ul>
+<li>If we do not want to use the asymptotic distribution directly, we can use the standard bootstrap to perform the hypothesis test.</li>
+<li>If the estimator for <span class="math inline">\(\Sigma\)</span> is not available, which is often the case, one can use the standard bootstrap to estimate <span class="math inline">\(\Sigma\)</span> and carry on with the asymptotic test (based on the <span class="math inline">\(\chi^2_p\)</span> distribution).</li>
+<li>If we do not want to use the asymptotic distribution directly and the estimator for <span class="math inline">\(\Sigma\)</span> is not available, we can use double bootstrap to perform the test, as shown schematically below.</li>
+</ul>
+<p><span class="math display">\[
+\begin{eqnarray}
+\mathcal{X} = \{ X_1,\ldots,X_N \} &amp;
+\left\{\begin{array}
+x\mathcal{X}_1^\star = \{ X_{1,1}^\star,\ldots,X_{1,N}^\star \}
+  &amp;\left\{\begin{array}
+  x\mathcal{X}_{1,1}^{\star\star} = \{ X_{1,1,1}^{\star\star},\ldots,X_{1,1,N}^{\star\star} \} \\
+  \quad\qquad\vdots \\
+  \mathcal{X}_{1,M}^{\star\star} = \{ X_{1,M,1}^{\star\star},\ldots,X_{1,M,N}^{\star\star} \}
+  \end{array}\right\}
+  &amp;\widehat{\Sigma}_1^{\star\star} \quad \Longrightarrow \quad T_1^\star \\
+&amp;\qquad\qquad\vdots \\
+\quad\qquad\vdots&amp;\qquad\qquad\vdots \\
+&amp;\qquad\qquad\vdots \\
+\mathcal{X}_B^\star = \{ X_{B,1}^\star,\ldots,X_{B,N}^\star \}
+  &amp;\left\{\begin{array}
+  x\mathcal{X}_{B,1}^{\star\star} = \{ X_{B,1,1}^{\star\star},\ldots,X_{B,1,N}^{\star\star} \} \\
+  \quad\qquad\vdots \\
+  \mathcal{X}_{B,M}^{\star\star} = \{ X_{B,M,1}^{\star\star},\ldots,X_{B,M,N}^{\star\star} \}
+  \end{array}\right\}
+  &amp;\widehat{\Sigma}_B^{\star\star} \quad \Longrightarrow \quad T_B^\star \\
+\end{array}\right\} \widehat{p}
+\end{eqnarray}
+\]</span> where <span class="math display">\[
+\begin{align}
+\widehat{\Sigma}_b^{\star\star} &amp;= \frac{1}{M-1} \sum_{m=1}^M \left( \widehat{\theta}^{\star\star}_{b,m} - \bar{\theta}^{\star\star}_b \right) \left( \widehat{\theta}^{\star\star}_{b,m} - \bar{\theta}^{\star\star}_b \right)^\top, \quad \text{where} \quad \widehat{\theta}^{\star\star}_m = \theta\big[\mathcal{X}_{b,m}^{\star\star}\big] \quad \&amp;\quad
+\bar{\theta}^{\star\star}_b = \frac{1}{B}\sum_{b=1}^B \widehat{\theta}^{\star\star}_{b,m} \,,\\
+T_b^\star &amp;= \sqrt{N} \left( \widehat{\Sigma}_b^{\star\star} \right)^{-1/2} \left( \widehat{\theta}_b^\star - \widehat{\theta}\right), \\
+\widehat{p} &amp;= \frac{1}{B} \left( \sum_{b=1}^B I\big(\| T^\star_b \|^2 \geq \| t_{\text{obs}} \|^2\big) \right), \\
+\end{align}
+\]</span> <span style="float:right"><span class="math inline">\(\Delta\)</span></span></p>
+</section>
+<section id="jackknife" class="level2">
+<h2 class="anchored" data-anchor-id="jackknife">Jackknife</h2>
+<p>The jackknife is a predecessor of the bootstrap that also shares some similarities with the bootstrap as well with cross-validation. It was originally proposed for bias estimation, and later (but still before bootstrap) for variance estimation. The idea is to recalculate an estimator many times, always leaving out one observation at a time from the data set.</p>
+<p>Let <span class="math inline">\(X_1,\ldots,X_N\)</span> be a random sample from a distribution depending on <span class="math inline">\(\theta \in \mathbb{R}^p\)</span>. Let <span class="math inline">\(\widehat{\theta} = \theta[X_1,\ldots,X_N]\)</span> be an estimator of <span class="math inline">\(\theta\)</span> and let <span class="math inline">\(\widehat{\theta}_{-n} = \theta[X_1,\ldots,X_{n-1},X_{n+1},\ldots,X_N]\)</span> be the estimator calculated without the <span class="math inline">\(j\)</span>-th observation. Consider <span class="math inline">\(\bar{\theta} = N^{-1} \sum_n \widehat{\theta}_{-n}\)</span>.</p>
+<p>The jackknife estimator of the bias is <span class="math display">\[
+\widehat{b} = (N-1)(\bar{\theta} - \widehat{\theta}),
+\]</span> which has a similar form to the bootstrap estimator of the bias, but the <span class="math inline">\((N-1)\)</span> factor is surprising at first glance. A heuristic justification for the factor is as follows. Assuming for simplicity that <span class="math inline">\(p=1\)</span> and that <span class="math inline">\(b = \text{bias}(\widehat{\theta}) = a N^{-1} + b N^{-2} + \mathcal{O}(N^{-3})\)</span> for some constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, we have <span class="math display">\[
+\text{bias}(\widehat{\theta}_{-n}) = a (N-1)^{-1} + b (N-1)^{-2} + \mathcal{O}(N^{-3}) = \text{bias}(\bar{\theta}).
+\]</span> Hence <span class="math display">\[
+\begin{split}
+\mathbb{E}(\widehat{b}) &amp;= (N-1)\big\lbrace\text{bias}(\bar{\theta}) - \text{bias}(\widehat{\theta}_{})\big\rbrace = (n-1)\left\lbrace a \left( \frac{1}{N-1} - \frac{1}{N} \right) + \left( \frac{1}{(N-1)^2} - \frac{1}{N^2} \right) + \mathcal{O}\left(\frac{1}{N^3}\right)\right\rbrace \\&amp;= a N^{-1} + b N^{-2} \frac{2N-1}{N-1} + \mathcal{O}(N^{-3})
+\end{split},
+\]</span> so <span class="math inline">\(\widehat{b}\)</span> approximates <span class="math inline">\(b\)</span> correctly up to the order <span class="math inline">\(N^{-2}\)</span>, which corresponds to the bootstrap. The bias-corrected estimator is then <span class="math display">\[
+\widehat{\theta}_b^\star = \widehat{\theta} - \widehat{b} = N \widehat{\theta} - (N-1) \bar{\theta}.
+\]</span></p>
+<p>Tukey defined the pseudo-values <span class="math display">\[
+\theta_{n}^\star = N \widehat{\theta} - (N-1) \widehat{\theta}_{-n}
+\]</span> and conjectured that in some situations these can be treated as i.i.d. with approximately the same variance as <span class="math inline">\(N \mathrm{var}(\widehat{\theta})\)</span>, and hence we can take <span class="math display">\[
+\widehat{\mathrm{var}}(\widehat{\theta}) = \frac{1}{N}\frac{1}{N-1} \sum_{n=1}^N\left( \theta_{n}^\star - \bar{\theta}^\star \right) \left( \theta_{n}^\star - \bar{\theta}^\star \right)^\top.
+\]</span></p>
+<p>Similarly to the bootstrap, the jackknife has its theoretical version which allows us to study when it works. Today, the jackknife is considered as outdated, replaced by bootstrap, but it can still has its place. In the <a href="#test_var_ex">example above</a>, where double bootstrap is used to perform a studentized hypothesis test when variance estimator is not readily available, the second iteration of the bootstrap can be naturally replaced by jackknife instead. Depending on the sample size <span class="math inline">\(N\)</span>, this might lead to a better trade-off between accuracy and computation costs (note that the jackknife is generally cheaper than the bootstrap).</p>
+</section>
+</section>
+<section id="final-thoughts" class="level1">
+<h1>Final Thoughts</h1>
+<p>The name “bootstrap” refers to one of the absurd exploits of <a href="https://en.wikipedia.org/wiki/Baron_Munchausen">Baron Munchausen</a>, who allegedly got out from the bottom of the lake by pulling up his bootstraps. At first glance, it also seems absurd that by resampling (particularly with a non-parametric bootstrap) one could actually obtain better results compared to just using the data set once – after all, there cannot be more information in the resampled data sets. Nonetheless, the bootstrap can serve us when direct analytic calculations are not available. In such cases, one often relies on CLT and the asymptotic normality it provides. However, the asymptotic normality is not a very sharp tool: the distribution is always symmetric and thus it cannot work too well, e.g., for skewed distributions (of course, the skewness vanishes asymptotically, but in finite samples skewness is the main term describing the departure of the distribution of a given statistics from normality). A well set-up bootstrap can, on the other hand, provide an effective correction (e.g., for skewness) and thus provide a better approximation of the distribution of a given statistics compared to normality.</p>
+<p>There is a tendency to use bootstrap blindly and there has been claims such that the bootstrap (in its concordance with Monte Carlo simulations) makes mathematical skills obsolete in statistics. While bootstrap can indeed reduce the mathematical finesse needed to solve a statistical problem, e.g., to come up with a confidence interval or a test in practice, verifying the coverage of such a confidence interval or the validity of such a test actually requires even higher mathematical skills.</p>
+<p>We have not dived into such theoretical considerations, since the mathematical finesse required for those is far beyond the scope of this course. However, the folk knowledge is that bootstrap <em>works</em> when the statistics possesses asymptotic normality with a non-degenerate variance (which generally requires some regularity or smoothness conditions). On the other hand, one has to be careful when working with order statistics, extremal statistics, non-smooth transformations, or non-i.i.d. regimes (e.g., time series or regression settings).</p>
+<p>At the same time, it is fair to admit that theoretical properties of bootstrap are only asymptotic, and those may not serve as a good characterization of the finite sample performance. For example, it can be shown that the iterated bootstrap can reduce the asymptotic bias by an order increasing with the number of bootstrap iterations. However, more then two iterations are not practically viable. And even if they were, with more and more bootstrap iterations it will take larger and larger sample size for the asymptotic rates to “kick in” and result into better finite sample performance. Thus simulation studies examining the finite sample performance of any bootstrap procedure are vital.</p>
+<p>But the bottom line is that any bootstrap procedure (take the goodness-of-fit parametric bootstrap test above for an example) should not be just embraced without a suspicion. Ideally, both asymptotic properties of a bootstrap procedure and its actual finite sample performance should be investigated. In reality, asymptotic considerations are hard, but careful simulation studies investigating finite sample performances should always be performed.</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p>Davison &amp; Hinkley (2009) Bootstrap Methods and their Application</p>
+<p>Wasserman (2005) All of Nonparametric Statistics</p>
+<p>Shao &amp; Tu (1995) The Jackknife and Bootstrap</p>
+<p>Hall (1992) The Bootstrap and Edgeworth Expansion</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/math-517\.github\.io\/math_517_website\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/week_08.html" class="pagination-link" aria-label="Monte Carlo Methods">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Monte Carlo Methods</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../resources/computing/intro_to_r/index.html" class="pagination-link" aria-label="R">
+        <span class="nav-page-text">R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2024, Charles Dufour and Linda Mhalla</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/notes/week_09.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This page is built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -63,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../resources/computing/intro_to_r/index.html" rel="next">
+<link href="../notes/week_09.html" rel="next">
 <link href="../notes/week_06.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -375,6 +375,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../notes/week_08.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Monte Carlo Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/week_09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bootstrap</span></a>
   </div>
 </li>
       </ul>
@@ -765,7 +771,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>),<span class="fu">cumsum</span>(wein<span class="sc">*</span>(x<span class="sc">&gt;</span><span class="dv">2</span>)<span class="sc">*</span>(x<span class="sc">&lt;</span><span class="dv">6</span>))<span class="sc">/</span><span class="fu">cumsum</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>)),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>),<span class="at">xlab=</span><span class="st">"log(N)"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pnorm</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pnorm</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -816,7 +822,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>),<span class="fu">cumsum</span>(wein<span class="sc">*</span>(x<span class="sc">&gt;</span><span class="dv">2</span>)<span class="sc">*</span>(x<span class="sc">&lt;</span><span class="dv">6</span>))<span class="sc">/</span><span class="fu">cumsum</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>)),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="at">xlab=</span><span class="st">"log(N)"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pcauchy</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pcauchy</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -867,7 +873,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>),<span class="fu">cumsum</span>(wein<span class="sc">*</span>(x<span class="sc">&gt;</span><span class="dv">2</span>)<span class="sc">*</span>(x<span class="sc">&lt;</span><span class="dv">6</span>))<span class="sc">/</span><span class="fu">cumsum</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>)),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="at">xlab=</span><span class="st">"log(N)"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pcauchy</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pcauchy</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -1373,8 +1379,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../resources/computing/intro_to_r/index.html" class="pagination-link" aria-label="R">
-        <span class="nav-page-text">R</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notes/week_09.html" class="pagination-link" aria-label="Bootstrap">
+        <span class="nav-page-text">Bootstrap</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
