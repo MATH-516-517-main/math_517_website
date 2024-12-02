@@ -17,7 +17,7 @@ $ \newcommand{\E}{\mathbb{E}}
 
 # Introduction
 
-The primary goal of statistics is to extract information about a population (described by the distribution function $F$) based on a random sample $\mathcal{X} = \{ X_1,\ldots,X_N \}$ from this population. More often than not, one is interested in a particular characteristic of the population denoted generally by $\theta = \theta(F)$.
+The primary goal of statistics is to extract information about a population (described by a distribution function $F$) based on a random sample $\mathcal{X} = \{ X_1,\ldots,X_N \}$ from this population. More often than not, one is interested in a particular characteristic of the population denoted generally by $\theta = \theta(F)$.
 
 **Leading Ex.:** The mean $\theta = \E X_1 = \int x d F(x)$. [$\Delta$]{style="float:right"}
 
