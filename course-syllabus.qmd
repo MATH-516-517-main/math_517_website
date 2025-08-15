@@ -24,7 +24,7 @@ Students will practice proposing efficient solutions, and effectively communicat
 - Monte Carlo methods for sampling and numerical integration
 - Introduction to Bayesian inference
 - Markov chain Monte Carlo techniques (Gibbs sampler, Metropolis-Hastings algorithm, Hamiltonian Monte Carlo, convergence diagnostics)
-- Decision trees for classification
+- Decision trees for classification or Conformal prediction
 
 
 ## Prerequisites
