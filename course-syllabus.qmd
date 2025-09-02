@@ -31,7 +31,7 @@ Students will practice proposing efficient solutions, and effectively communicat
 
 Required courses: Probability and statistics, Linear models
 
-## Learning Outcomes
+## Learning outcomes
 By the end of the course, the student must be able to:
 
 - Plan complex visualisation and computational tasks
