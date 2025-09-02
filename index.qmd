@@ -12,10 +12,10 @@ It can be useful to check the available tutorials to get ready for the assignmen
 Please check the [FAQ](/course-faq.qmd) page for common questions and answers.
 :::
 
-<!--- ::: {.callout-important}
+::: {.callout-important}
 ## This is important
 Weeks 9 and 10 of the semester will exceptionally have a different structure in terms of lecture and exercises.
-::: -->
+:::
 
 
 ```{r}
