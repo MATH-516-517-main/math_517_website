@@ -152,7 +152,7 @@
     },
     "bit": {
       "Package": "bit",
-      "Version": "4.0.5.2",
+      "Version": "4.0.5",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
