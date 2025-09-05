@@ -10,7 +10,7 @@ bibliography: ref.bib
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 13 October 2024.**
+**Due date: 11:59pm on Sunday, 12 October 2025.**
 :::
 
 ::: {.callout-note collapse="true"}
