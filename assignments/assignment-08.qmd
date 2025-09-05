@@ -19,7 +19,7 @@ Use the corresponding invite link in [this google doc](https://docs.google.com/d
 :::
 
 ::: {.callout-warning collapse="false"}
-# Submission requirements
+# Submission requirements 
 
 You are required to hand in a PDF version of your report `report.pdf` (generated from the quarto file `report.qmd`) and the quarto file itself. The `report.qmd` should contain all the code necessary to reproduce your results: you should not show the actual code in the PDF report, unless you want to point out something specific.
 
