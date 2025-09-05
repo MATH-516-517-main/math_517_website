@@ -41,9 +41,9 @@ website:
         contents: exercises/*
       - section: "Assignments"
         contents: assignments/*
-      - section: "Projects"
+      - section: "Project"
         contents:
-          - href: projects/project-01.qmd
+          #- href: projects/project-01.qmd
           - href: projects/project-02.qmd
           - href: projects/project-tips-resources.qmd
             text: Tips + resources
