@@ -1,7 +1,7 @@
 ---
 title: "Assignment 8"
 subtitle: "Markov Chain Monte Carlo"
-date: 12-01-2023
+date: 11-28-2025
 format: html
 editor: visual
 ---
@@ -9,7 +9,7 @@ editor: visual
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 10 December 2023.**
+**Due date: 11:59pm on Sunday, 7 December 2025.**
 :::
 
 ::: {.callout-note collapse="true"}
