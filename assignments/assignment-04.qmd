@@ -1,7 +1,7 @@
 ---
 title: "Assignment 4"
 subtitle: "Tuning parameters selection with cross-validation"
-date: 10-10-2024
+date: 10-10-2025
 format: html
 editor: visual
 ---
@@ -9,7 +9,7 @@ editor: visual
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 19 October 2024.**
+**Due date: 11:59pm on Sunday, 19 October 2025.**
 :::
 
 ::: {.callout-note collapse="true"}
