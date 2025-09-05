@@ -1,7 +1,7 @@
 ---
 title: "Assignment 4"
 subtitle: "Tuning parameters selection with cross-validation"
-date: 10-20-2023
+date: 10-10-2024
 format: html
 editor: visual
 ---
@@ -9,8 +9,7 @@ editor: visual
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 20 October 2024.**
- _(pushed back to 27 October 2024)_
+**Due date: 11:59pm on Sunday, 19 October 2024.**
 :::
 
 ::: {.callout-note collapse="true"}
