@@ -1,6 +1,6 @@
 ---
 title: "Cheatsheets"
-description: "A collection of cheatsheets for`R` and `Python`"
+description: "A collection of cheatsheets for `Git`, `R` and `Python`"
 ---
 
 ### Git
