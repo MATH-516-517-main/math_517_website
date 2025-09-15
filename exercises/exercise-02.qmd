@@ -2,7 +2,7 @@
 title: "Exercise 2"
 subtitle: "Mutlivariate KDE"
 editor: visual
-date: 09-27-2024
+date: 09-26-2025
 ---
 
 Consider bivariate kernel density estimation. Simulate data from the bivariate normal distribution $\mathcal{N}((0,0), (1, 0.3; 0.3, 1))$.
