@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../notes/week_08.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-024c05bda1f7158131376b1415d9adc3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-351d4ac46195726efc3b6864f02416b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +119,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -165,12 +166,11 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../">MATH 517</a> 
-        <div class="sidebar-tools-main">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main">
     <a href="https://github.com/MATH-517/MATH_517_website" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
-    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -530,7 +530,7 @@ window.Quarto = {
 <li>non-parametrically by the empirical distribution function [ <em>N(x) = </em>{n=1}^N _{[X_n x]} ]</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>edf_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(N){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>edf_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(N){</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  EDF <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(X)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(EDF)</span>
@@ -539,7 +539,7 @@ window.Quarto = {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">517</span>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">edf_plot</span>(<span class="dv">12</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">edf_plot</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">edf_plot</span>(<span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -687,14 +687,14 @@ P\Big(q_B^\star(\alpha/2) \leq \sqrt{N}\frac{\widehat{\theta} - \theta}{\widehat
 \sqrt{N}\Big( g\big( \bar{X}_n\big) - g(3/2) \Big) \to \mathcal{N}\big(0,\{g'(3/2)\}^2 3/4 \big)
 \]</span> But the bootstrap will not work in this case, since even <span class="math inline">\(\mathbb{E}g\big( \bar{X}_n \big) = \infty\)</span>, see the code below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1000</span>)<span class="sc">/</span><span class="dv">10</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1000</span>)<span class="sc">/</span><span class="dv">10</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>target_d <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="dv">3</span><span class="sc">/</span>x<span class="sc">^</span><span class="dv">4</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="fu">target_d</span>(x),<span class="at">type=</span><span class="st">"l"</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">6000</span>)<span class="sc">/</span><span class="dv">1001</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>proposal_d <span class="ot">&lt;-</span> <span class="fu">dcauchy</span>(x)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span><span class="sc">+</span>x,<span class="dv">2</span><span class="sc">*</span>proposal_d,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span><span class="sc">+</span>x,<span class="dv">2</span><span class="sc">*</span>proposal_d,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">col=</span><span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -702,7 +702,7 @@ P\Big(q_B^\star(\alpha/2) \leq \sqrt{N}\frac{\widehat{\theta} - \theta}{\widehat
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>const <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">1</span><span class="sc">^</span><span class="dv">4</span> <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span><span class="fu">dcauchy</span>(<span class="dv">0</span>)) <span class="co"># 4.7</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>const <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">1</span><span class="sc">^</span><span class="dv">4</span> <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span><span class="fu">dcauchy</span>(<span class="dv">0</span>)) <span class="co"># 4.7</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># rejection sampling from the target</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">317</span>)</span>
@@ -718,7 +718,7 @@ P\Big(q_B^\star(\alpha/2) \leq \sqrt{N}\frac{\widehat{\theta} - \theta}{\widehat
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(X,<span class="at">breaks=</span><span class="dv">16</span>,<span class="at">freq=</span>F)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,<span class="fu">target_d</span>(x),<span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,<span class="fu">target_d</span>(x),<span class="at">type=</span><span class="st">"l"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -726,18 +726,18 @@ P\Big(q_B^\star(\alpha/2) \leq \sqrt{N}\frac{\widehat{\theta} - \theta}{\widehat
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bootstrap estimator of the variance</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bootstrap estimator of the variance</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>boot_stat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,B)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(b <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>B){</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  Xb <span class="ot">&lt;-</span> <span class="fu">sample</span>(X,N,<span class="at">replace=</span>T)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  boot_stat[b] <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">mean</span>(Xb)<span class="sc">^</span><span class="dv">4</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>(sigma_star <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>(B<span class="dv">-1</span>)<span class="sc">*</span><span class="fu">sum</span>((boot_stat<span class="sc">-</span><span class="fu">mean</span>(boot_stat))<span class="sc">^</span><span class="dv">2</span>)) <span class="co"># overshot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>(sigma_star <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>(B<span class="dv">-1</span>)<span class="sc">*</span><span class="fu">sum</span>((boot_stat<span class="sc">-</span><span class="fu">mean</span>(boot_stat))<span class="sc">^</span><span class="dv">2</span>)) <span class="co"># overshot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5482212</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span><span class="sc">*</span><span class="fu">exp</span>(<span class="fl">1.5</span><span class="sc">^</span><span class="dv">4</span>)<span class="sc">*</span><span class="fl">1.5</span><span class="sc">^</span><span class="dv">3</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="dv">3</span><span class="sc">/</span><span class="dv">4</span><span class="sc">/</span>N <span class="co"># true asymptotic variance we wish to estimate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span><span class="sc">*</span><span class="fu">exp</span>(<span class="fl">1.5</span><span class="sc">^</span><span class="dv">4</span>)<span class="sc">*</span><span class="fl">1.5</span><span class="sc">^</span><span class="dv">3</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="dv">3</span><span class="sc">/</span><span class="dv">4</span><span class="sc">/</span>N <span class="co"># true asymptotic variance we wish to estimate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3411.618</code></pre>
 </div>
@@ -770,7 +770,7 @@ P\Big(q_B^\star(\alpha/2) \leq \sqrt{N}\frac{\widehat{\theta} - \theta}{\widehat
 \]</span></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">517</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">517</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rexp</span>(N,<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="co"># thus true mean = 2</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="fl">1.78</span> <span class="co"># hypothesized value</span></span>
@@ -785,11 +785,11 @@ P\Big(q_B^\star(\alpha/2) \leq \sqrt{N}\frac{\widehat{\theta} - \theta}{\widehat
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>p_val       <span class="ot">&lt;-</span> <span class="fu">mean</span>(boot_stat <span class="sc">&gt;=</span> T_stat)</span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>p_val_param <span class="ot">&lt;-</span> <span class="fu">mean</span>(boot_stat_param <span class="sc">&gt;=</span> T_stat)</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(p_val,p_val_param)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(p_val,p_val_param)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0379 0.0394</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">I</span>(<span class="fu">abs</span>(T_stat) <span class="sc">&gt;</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>)) <span class="co"># asymptotic test, easy to calculate asymptotic p-val</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">I</span>(<span class="fu">abs</span>(T_stat) <span class="sc">&gt;</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>)) <span class="co"># asymptotic test, easy to calculate asymptotic p-val</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -801,7 +801,7 @@ P\Big(q_B^\star(\alpha/2) \leq \sqrt{N}\frac{\widehat{\theta} - \theta}{\widehat
 \]</span></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">517</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">517</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rexp</span>(N,<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="co"># thus true mean = 2</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="fl">1.7</span> <span class="co"># reduced, since harder to reject here</span></span>
@@ -813,11 +813,11 @@ P\Big(q_B^\star(\alpha/2) \leq \sqrt{N}\frac{\widehat{\theta} - \theta}{\widehat
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  boot_stat[b] <span class="ot">&lt;-</span> (<span class="fu">mean</span>(Xb)<span class="sc">-</span><span class="fu">mean</span>(X))<span class="sc">/</span><span class="fu">sd</span>(Xb)<span class="sc">*</span><span class="fu">sqrt</span>(N)</span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>p_val       <span class="ot">&lt;-</span> <span class="fu">mean</span>(boot_stat <span class="sc">&gt;=</span> T_stat)</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>p_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>p_val</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0139</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(T_stat)) <span class="co"># asymptotic test, easy to calculate asymptotic p-val</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(T_stat)) <span class="co"># asymptotic test, easy to calculate asymptotic p-val</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.05592678</code></pre>
 </div>
@@ -1001,13 +1001,14 @@ T_b^\star &amp;= \sqrt{N} \left( \widehat{\Sigma}_b^{\star\star} \right)^{-1/2} 
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

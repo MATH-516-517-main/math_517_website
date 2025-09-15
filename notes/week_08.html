@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../notes/week_06.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-024c05bda1f7158131376b1415d9adc3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-351d4ac46195726efc3b6864f02416b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +119,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -165,12 +166,11 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../">MATH 517</a> 
-        <div class="sidebar-tools-main">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main">
     <a href="https://github.com/MATH-517/MATH_517_website" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
-    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -623,7 +623,7 @@ f(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \quad \&amp; \quad g(x) = \frac{
 \]</span></p>
 <p>In the code below, I use <code>M</code> in place of <span class="math inline">\(c\)</span>, since <code>c</code> is sacred in <code>R</code>. The rate of the doubly exponential proposal is set at 1 as it minimizes the value of <span class="math inline">\(c=\sup f(x)/g(x)\)</span> and hence maximizes the acceptance probability.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">optimize</span>(<span class="at">f=</span><span class="cf">function</span>(x){<span class="fu">dnorm</span>(x)<span class="sc">/</span><span class="fu">dexp</span>(<span class="fu">abs</span>(x))<span class="sc">*</span><span class="dv">2</span>}, <span class="at">interval=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>),<span class="at">maximum=</span>T)<span class="sc">$</span>objective</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">optimize</span>(<span class="at">f=</span><span class="cf">function</span>(x){<span class="fu">dnorm</span>(x)<span class="sc">/</span><span class="fu">dexp</span>(<span class="fu">abs</span>(x))<span class="sc">*</span><span class="dv">2</span>}, <span class="at">interval=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>),<span class="at">maximum=</span>T)<span class="sc">$</span>objective</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns a single accepted sample from standard doubly exp. proposal and N(0,1) target</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>acc_rej_dexp_norm <span class="ot">&lt;-</span> <span class="cf">function</span>(M,a,b){</span>
@@ -649,7 +649,7 @@ f(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \quad \&amp; \quad g(x) = \frac{
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  X[n] <span class="ot">&lt;-</span> <span class="fu">acc_rej_dexp_norm</span>(M,a,b)</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(X),<span class="at">col=</span><span class="st">"red"</span>,<span class="at">main=</span><span class="st">"KDE plots from simulated data"</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">density</span>(<span class="fu">rnorm</span>(N)),<span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">density</span>(<span class="fu">rnorm</span>(N)),<span class="at">type=</span><span class="st">"l"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -754,7 +754,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 </ul>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>op <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">ps=</span><span class="dv">30</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>op <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">ps=</span><span class="dv">30</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)<span class="sc">/</span><span class="dv">1001</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="fu">dnorm</span>(x),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,<span class="fu">dexp</span>(x),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">col=</span><span class="st">"blue"</span>)</span>
@@ -768,7 +768,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>wein<span class="ot">=</span><span class="fu">dnorm</span>(x)<span class="sc">/</span><span class="fu">dexp</span>(x)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot(wein/sum(wein))</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>),<span class="fu">cumsum</span>(wein<span class="sc">*</span>(x<span class="sc">&gt;</span><span class="dv">2</span>)<span class="sc">*</span>(x<span class="sc">&lt;</span><span class="dv">6</span>))<span class="sc">/</span><span class="fu">cumsum</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>)),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>),<span class="at">xlab=</span><span class="st">"log(N)"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pnorm</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pnorm</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pnorm</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pnorm</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
 <div class="quarto-layout-row">
@@ -805,7 +805,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>op <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">ps=</span><span class="dv">30</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>op <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">ps=</span><span class="dv">30</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)<span class="sc">/</span><span class="dv">1001</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="fu">dcauchy</span>(x),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,<span class="fu">dexp</span>(x),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">col=</span><span class="st">"blue"</span>)</span>
@@ -819,7 +819,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>wein<span class="ot">=</span><span class="fu">dcauchy</span>(x)<span class="sc">/</span><span class="fu">dexp</span>(x)</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot(wein/sum(wein))</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>),<span class="fu">cumsum</span>(wein<span class="sc">*</span>(x<span class="sc">&gt;</span><span class="dv">2</span>)<span class="sc">*</span>(x<span class="sc">&lt;</span><span class="dv">6</span>))<span class="sc">/</span><span class="fu">cumsum</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>)),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="at">xlab=</span><span class="st">"log(N)"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pcauchy</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pcauchy</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pcauchy</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pcauchy</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
 <div class="quarto-layout-row">
@@ -856,7 +856,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>op <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">ps=</span><span class="dv">30</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>op <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">ps=</span><span class="dv">30</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)<span class="sc">/</span><span class="dv">1001</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="fu">dcauchy</span>(x),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,<span class="fu">dnorm</span>(x),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">col=</span><span class="st">"blue"</span>)</span>
@@ -870,7 +870,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>wein<span class="ot">=</span><span class="fu">dcauchy</span>(x)<span class="sc">/</span><span class="fu">dnorm</span>(x)</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot(wein/sum(wein))</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>),<span class="fu">cumsum</span>(wein<span class="sc">*</span>(x<span class="sc">&gt;</span><span class="dv">2</span>)<span class="sc">*</span>(x<span class="sc">&lt;</span><span class="dv">6</span>))<span class="sc">/</span><span class="fu">cumsum</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>)),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="at">xlab=</span><span class="st">"log(N)"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pcauchy</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pcauchy</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pcauchy</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pcauchy</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
 <div class="quarto-layout-row">
@@ -1002,13 +1002,14 @@ W_1^b,\ldots,W_N^b &amp;\Rightarrow&amp; \widehat{\mu}_2^b \Rightarrow \,Y_b &am
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

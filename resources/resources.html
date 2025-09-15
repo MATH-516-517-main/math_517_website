@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,14 +34,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-024c05bda1f7158131376b1415d9adc3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-351d4ac46195726efc3b6864f02416b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -169,7 +170,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -212,12 +213,11 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../">MATH 517</a> 
-        <div class="sidebar-tools-main">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main">
     <a href="https://github.com/MATH-517/MATH_517_website" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
-    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -579,7 +579,7 @@ Description
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-file-modified-sort="1757668237404" data-listing-reading-time-sort="5" data-listing-word-count-sort="835" data-listing-title-sort="Best practices for collaborative work" data-listing-filename-sort="collaboration.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1757926013112" data-listing-reading-time-sort="5" data-listing-word-count-sort="835" data-listing-title-sort="Best practices for collaborative work" data-listing-filename-sort="collaboration.qmd">
 <td>
 <a href="../resources/tips/collaboration.html" class="title listing-title">Best practices for collaborative work</a>
 </td>
@@ -589,7 +589,7 @@ Description
 
 </tr>
 
-<tr data-index="1" data-listing-file-modified-sort="1757668237404" data-listing-reading-time-sort="2" data-listing-word-count-sort="377" data-listing-title-sort="Good practices for coding" data-listing-filename-sort="tips_coding.qmd">
+<tr data-index="1" data-listing-file-modified-sort="1757926013112" data-listing-reading-time-sort="2" data-listing-word-count-sort="377" data-listing-title-sort="Good practices for coding" data-listing-filename-sort="tips_coding.qmd">
 <td>
 <a href="../resources/tips/tips_coding.html" class="title listing-title">Good practices for coding</a>
 </td>
@@ -599,7 +599,7 @@ Description
 
 </tr>
 
-<tr data-index="2" data-listing-file-modified-sort="1757668237404" data-listing-reading-time-sort="3" data-listing-word-count-sort="520" data-listing-title-sort="Reproducible scientific computing" data-listing-filename-sort="reproducible_research.qmd">
+<tr data-index="2" data-listing-file-modified-sort="1757926013112" data-listing-reading-time-sort="3" data-listing-word-count-sort="520" data-listing-title-sort="Reproducible scientific computing" data-listing-filename-sort="reproducible_research.qmd">
 <td>
 <a href="../resources/tips/reproducible_research.html" class="title listing-title">Reproducible scientific computing</a>
 </td>
@@ -609,7 +609,7 @@ Description
 
 </tr>
 
-<tr data-index="3" data-listing-file-modified-sort="1757668237404" data-listing-reading-time-sort="8" data-listing-word-count-sort="1489" data-listing-title-sort="Virtual environments" data-listing-filename-sort="virtual_environments.qmd">
+<tr data-index="3" data-listing-file-modified-sort="1757926013112" data-listing-reading-time-sort="8" data-listing-word-count-sort="1489" data-listing-title-sort="Virtual environments" data-listing-filename-sort="virtual_environments.qmd">
 <td>
 <a href="../resources/tips/virtual_environments.html" class="title listing-title">Virtual environments</a>
 </td>
@@ -643,7 +643,7 @@ Description
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-file-modified-sort="1757668237404" data-listing-reading-time-sort="1" data-listing-word-count-sort="131" data-listing-title-sort="Git and GitHub" data-listing-filename-sort="github.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1757926013112" data-listing-reading-time-sort="1" data-listing-word-count-sort="131" data-listing-title-sort="Git and GitHub" data-listing-filename-sort="github.qmd">
 <td>
 <a href="../resources/tutorials/github.html" class="title listing-title">Git and GitHub</a>
 </td>
@@ -653,7 +653,7 @@ Description
 
 </tr>
 
-<tr data-index="1" data-listing-file-modified-sort="1757668237404" data-listing-reading-time-sort="5" data-listing-word-count-sort="868" data-listing-title-sort="Github Classroom" data-listing-filename-sort="github_classroom.qmd">
+<tr data-index="1" data-listing-file-modified-sort="1757926013112" data-listing-reading-time-sort="5" data-listing-word-count-sort="868" data-listing-title-sort="Github Classroom" data-listing-filename-sort="github_classroom.qmd">
 <td>
 <a href="../resources/tutorials/github_classroom.html" class="title listing-title">Github Classroom</a>
 </td>
@@ -663,7 +663,7 @@ Description
 
 </tr>
 
-<tr data-index="2" data-listing-file-modified-sort="1757668237404" data-listing-reading-time-sort="2" data-listing-word-count-sort="249" data-listing-title-sort="Software installation" data-listing-filename-sort="installing_software.qmd">
+<tr data-index="2" data-listing-file-modified-sort="1757926013112" data-listing-reading-time-sort="2" data-listing-word-count-sort="249" data-listing-title-sort="Software installation" data-listing-filename-sort="installing_software.qmd">
 <td>
 <a href="../resources/tutorials/installing_software.html" class="title listing-title">Software installation</a>
 </td>
@@ -710,7 +710,7 @@ Description
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-file-modified-sort="1757668237396" data-listing-reading-time-sort="1" data-listing-word-count-sort="79" data-listing-title-sort="Cheatsheets" data-listing-filename-sort="computing-cheatsheets.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1757926013104" data-listing-reading-time-sort="1" data-listing-word-count-sort="79" data-listing-title-sort="Cheatsheets" data-listing-filename-sort="computing-cheatsheets.qmd">
 <td>
 <a href="../resources/computing/computing-cheatsheets.html" class="title listing-title">Cheatsheets</a>
 </td>
@@ -720,7 +720,7 @@ Description
 
 </tr>
 
-<tr data-index="1" data-listing-file-modified-sort="1757668237404" data-listing-reading-time-sort="1" data-listing-word-count-sort="96" data-listing-title-sort="Introduction to R" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-listing-file-modified-sort="1757926013111" data-listing-reading-time-sort="1" data-listing-word-count-sort="96" data-listing-title-sort="Introduction to R" data-listing-filename-sort="index.qmd">
 <td>
 <a href="../resources/computing/intro_to_r/index.html" class="title listing-title">Introduction to R</a>
 </td>
@@ -730,7 +730,7 @@ Description
 
 </tr>
 
-<tr data-index="2" data-listing-file-modified-sort="1757668237396" data-listing-reading-time-sort="1" data-listing-word-count-sort="83" data-listing-title-sort="Introduction to Julia" data-listing-filename-sort="index.qmd">
+<tr data-index="2" data-listing-file-modified-sort="1757926013104" data-listing-reading-time-sort="1" data-listing-word-count-sort="83" data-listing-title-sort="Introduction to Julia" data-listing-filename-sort="index.qmd">
 <td>
 <a href="../resources/computing/intro_to_julia/index.html" class="title listing-title">Introduction to Julia</a>
 </td>
@@ -740,7 +740,7 @@ Description
 
 </tr>
 
-<tr data-index="3" data-listing-file-modified-sort="1757668237397" data-listing-reading-time-sort="1" data-listing-word-count-sort="37" data-listing-title-sort="Introduction to Python" data-listing-filename-sort="index.qmd">
+<tr data-index="3" data-listing-file-modified-sort="1757926013104" data-listing-reading-time-sort="1" data-listing-word-count-sort="37" data-listing-title-sort="Introduction to Python" data-listing-filename-sort="index.qmd">
 <td>
 <a href="../resources/computing/intro_to_python/index.html" class="title listing-title">Introduction to Python</a>
 </td>
@@ -821,13 +821,14 @@ Description
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
