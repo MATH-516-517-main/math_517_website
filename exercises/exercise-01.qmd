@@ -2,7 +2,7 @@
 title: "Exercise 1"
 subtitle: "Peeking"
 editor: visual
-date: 09-13-2024
+date: 09-12-2025
 ---
 
 The severity depends on the number of peeks the researcher takes at the data and on the number of observations added between peeks.
