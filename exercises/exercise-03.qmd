@@ -2,7 +2,7 @@
 title: "Exercise 3"
 subtitle: "EM for multinomial"
 editor: visual
-date: 10-18-2024
+date: 10-17-2025
 ---
 
 This is one of the original illustrating examples for the use of the EM algorithm.
