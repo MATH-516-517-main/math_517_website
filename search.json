@@ -789,7 +789,7 @@
     "href": "notes/Stat_Revision.html#some-basic-results-in-stochastic-convergence",
     "title": "Review of basics in statistics",
     "section": "Some basic results in stochastic convergence",
-    "text": "Some basic results in stochastic convergence\n\nContinuous Mapping Theorem\nLet \\(g: \\mathbb{R} \\to \\mathbb{R}\\) be a continuous function. Then:\n\nIf \\(X_n \\overset{p}{\\to} X\\), then \\(g(X_n) \\overset{p}{\\to} g(X)\\).\nIf \\(Y_n \\overset{d}{\\to} Y\\), then \\(g(Y_n) \\overset{d}{\\to} g(Y)\\).\n\n\n\nSlutsky’s Theorem\nLet \\(X_n \\overset{d}{\\to} X\\) and \\(Y_n \\overset{d}{\\to} c \\in \\mathbb{R}\\). Then:\n\n\\(X_n + Y_n \\overset{d}{\\to} X + c\\)\n\\(X_n Y_n \\overset{d}{\\to} cX\\)\n\n\n\nGeneral Version of Slutsky’s Theorem\nLet \\(g: \\mathbb{R} \\times \\mathbb{R} \\to \\mathbb{R}\\) be continuous, and suppose \\(X_n \\overset{d}{\\to} X\\) and \\(Y_n \\overset{d}{\\to} c \\in \\mathbb{R}\\).\nThen, as \\(n \\to \\infty\\), \\[\n\\mathbb{P}(g(X_n, Y_n) \\to g(X, c)).\n\\]",
+    "text": "Some basic results in stochastic convergence\n\nContinuous Mapping Theorem\nLet \\(g: \\mathbb{R} \\to \\mathbb{R}\\) be a continuous function. Then:\n\nIf \\(X_n \\overset{p}{\\to} X\\), then \\(g(X_n) \\overset{p}{\\to} g(X)\\).\nIf \\(Y_n \\overset{d}{\\to} Y\\), then \\(g(Y_n) \\overset{d}{\\to} g(Y)\\).\n\n\n\nSlutsky’s Theorem\nLet \\(X_n \\overset{d}{\\to} X\\) and \\(Y_n \\overset{d}{\\to} c \\in \\mathbb{R}\\). Then:\n\n\\(X_n + Y_n \\overset{d}{\\to} X + c\\)\n\\(X_n Y_n \\overset{d}{\\to} cX\\)",
     "crumbs": [
       "Supplementary notes",
       "Review of basics in statistics"
