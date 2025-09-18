@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Charles Dufour">
-<meta name="description" content="A collection of resources for learning Julia">
 
-<title>Introduction to Julia – MATH 517</title>
+<title>Review of basics in statistics – MATH 517</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,27 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../resources/tutorials/github.html" rel="next">
-<link href="../../../resources/computing/intro_to_python/index.html" rel="prev">
-<script src="../../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-351d4ac46195726efc3b6864f02416b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../notes/week_02.html" rel="next">
+<link href="../projects/project-tips-resources.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-351d4ac46195726efc3b6864f02416b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-classes .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-classes'] = new List('listing-classes', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -133,8 +100,8 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Introduction to Julia – MATH 517">
-<meta property="og:description" content="A collection of resources for learning Julia">
+<meta property="og:title" content="Review of basics in statistics – MATH 517">
+<meta property="og:description" content="Homepage for MATH 517- Computational statistics and visualisation at EPFL, Fall 2025.">
 <meta property="og:site_name" content="MATH 517">
 </head>
 
@@ -147,7 +114,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Resources</li><li class="breadcrumb-item"><a href="../../../resources/computing/intro_to_r/index.html">Coding introduction</a></li><li class="breadcrumb-item"><a href="../../../resources/computing/intro_to_julia/index.html">Julia</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/Stat_Revision.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/Stat_Revision.html">Review of basics in statistics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -161,7 +128,7 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../../../index.html" class="sidebar-logo-link">
+      <a href="../index.html" class="sidebar-logo-link">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/MATH-517/MATH_517_website" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -185,25 +152,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../course-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview/Organisation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../course-syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../course-faq.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-faq.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Help &amp; FAQ</span></a>
   </div>
 </li>
@@ -220,25 +187,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../exercises/exercise-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/exercise-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../exercises/exercise-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/exercise-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../exercises/exercise-03.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/exercise-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../exercises/exercise-04.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/exercise-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 4</span></a>
   </div>
 </li>
@@ -255,49 +222,49 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-03.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-04.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-05.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 5</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-06.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 6</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-07.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-07.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 7</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../assignments/assignment-08.html" class="sidebar-item-text sidebar-link">
+  <a href="../assignments/assignment-08.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignment 8</span></a>
   </div>
 </li>
@@ -314,13 +281,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../projects/project-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../projects/project-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Main project</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../projects/project-tips-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../projects/project-tips-resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tips + resources</span></a>
   </div>
 </li>
@@ -328,58 +295,58 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Supplementary notes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/Stat_Revision.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/Stat_Revision.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Review of basics in statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/week_02.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/week_02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exploring Data with <code>tidyverse</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/week_03.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/week_03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kernel Density Estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/week_04.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/week_04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Non-parametric Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/week_05.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/week_05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cross-Validation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/week_06.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/week_06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">EM Algorithm</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/week_08.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/week_08.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Monte Carlo Methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notes/week_09.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/week_09.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bootstrap</span></a>
   </div>
 </li>
@@ -387,37 +354,37 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
  <span class="menu-text">Resources</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
  <span class="menu-text">Coding introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/computing/intro_to_r/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/computing/intro_to_r/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/computing/intro_to_python/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/computing/intro_to_python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/computing/intro_to_julia/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../resources/computing/intro_to_julia/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Julia</span></a>
   </div>
 </li>
@@ -434,19 +401,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/tutorials/github.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/tutorials/github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/tutorials/github_classroom.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/tutorials/github_classroom.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub classroom</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/tutorials/installing_software.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/tutorials/installing_software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installing software</span></a>
   </div>
 </li>
@@ -454,13 +421,13 @@ window.Quarto = {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cheatsheets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../resources/resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../resources/resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">All resources</span></a>
   </div>
 </li>
@@ -471,32 +438,34 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#probability-modes-of-convergence-and-limit-laws" id="toc-probability-modes-of-convergence-and-limit-laws" class="nav-link active" data-scroll-target="#probability-modes-of-convergence-and-limit-laws">Probability: modes of convergence and limit laws</a></li>
+  <li><a href="#probability-basic-concentration-inequalities" id="toc-probability-basic-concentration-inequalities" class="nav-link" data-scroll-target="#probability-basic-concentration-inequalities">Probability: basic concentration inequalities</a></li>
+  <li><a href="#some-basic-results-in-stochastic-convergence" id="toc-some-basic-results-in-stochastic-convergence" class="nav-link" data-scroll-target="#some-basic-results-in-stochastic-convergence">Some basic results in stochastic convergence</a>
+  <ul class="collapse">
+  <li><a href="#continuous-mapping-theorem" id="toc-continuous-mapping-theorem" class="nav-link" data-scroll-target="#continuous-mapping-theorem">Continuous Mapping Theorem</a></li>
+  <li><a href="#slutskys-theorem" id="toc-slutskys-theorem" class="nav-link" data-scroll-target="#slutskys-theorem">Slutsky’s Theorem</a></li>
+  <li><a href="#general-version-of-slutskys-theorem" id="toc-general-version-of-slutskys-theorem" class="nav-link" data-scroll-target="#general-version-of-slutskys-theorem">General Version of Slutsky’s Theorem</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/notes/Stat_Revision.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Resources</li><li class="breadcrumb-item"><a href="../../../resources/computing/intro_to_r/index.html">Coding introduction</a></li><li class="breadcrumb-item"><a href="../../../resources/computing/intro_to_julia/index.html">Julia</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/Stat_Revision.html">Supplementary notes</a></li><li class="breadcrumb-item"><a href="../notes/Stat_Revision.html">Review of basics in statistics</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introduction to Julia</h1>
+<h1 class="title">Review of basics in statistics</h1>
 </div>
 
-<div>
-  <div class="description">
-    A collection of resources for learning <code>Julia</code>
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Charles Dufour </p>
-          </div>
-  </div>
     
   
     
@@ -507,53 +476,161 @@ window.Quarto = {
 </header>
 
 
-<p><a href="https://juliateachingctu.github.io/Julia-for-Optimization-and-Learning/dev/">Julia for Optimization and Learning</a> should contain everything (and more) that you need to know about <code>Julia</code> for this course.</p>
-<p>For a refresher on <code>Julia</code> basics, you can check out one of the following resources:</p>
+<p>We will take a brief tour of some core ideas in statistics. Much of this content may already be familiar. For more in-depth discussion, see for example <a href="https://www.stat.cmu.edu/~brian/valerie/617-2022/0%20-%20books/2004%20-%20wasserman%20-%20all%20of%20statistics.pdf">All of Statistics</a> and <a href="https://hastie.su.domains/ElemStatLearn/">The Elements of Statistical Learning</a>.</p>
+<section id="probability-modes-of-convergence-and-limit-laws" class="level2">
+<h2 class="anchored" data-anchor-id="probability-modes-of-convergence-and-limit-laws">Probability: modes of convergence and limit laws</h2>
+<p>Let <span class="math inline">\(X_n\)</span>, for <span class="math inline">\(n = 1, 2, 3, \dots\)</span>, be a sequence of real-valued random variables.</p>
 <ul>
-<li><a href="https://julialang.org/learning/tutorials/">Tutorials from the official documentation</a></li>
-<li><a href="https://crsl4.github.io/julia-workshop/">Julia Workshop for Data Science</a></li>
-<li><a href="https://juliaacademy.com/courses?preview=logged_out">Julia academy</a></li>
-<li><a href="https://sylvaticus.github.io/SPMLJ/stable/">Introduction to Scientific Programming and Machine Learning with Julia</a></li>
-<li><a href="https://mth229.github.io/">MTH 229 - Calculus Computer Laboratory</a></li>
-<li><em>and many others</em></li>
+<li><p><strong>Almost sure convergence</strong>: <span class="math inline">\(X_n \overset{\mathrm{as}}{\to} X\)</span> means<br>
+<span class="math display">\[
+\mathbb{P}(\lim_{n \to \infty} X_n = X) = 1.
+\]</span></p></li>
+<li><p><strong>Convergence in probability</strong>: <span class="math inline">\(X_n \overset{p}{\to} X\)</span> means that for every<br>
+<span class="math inline">\(\epsilon &gt; 0\)</span>, <span class="math display">\[
+\mathbb{P}(|X_n - X| &gt; \epsilon) \to 0 \quad \text{as } n \to \infty.
+\]</span></p></li>
+<li><p><strong>Convergence in distribution</strong>: <span class="math inline">\(X_n \overset{d}{\to} X\)</span> means<br>
+<span class="math display">\[
+\mathbb{P}(X_n \leq x) \to \mathbb{P}(X \leq x)
+\]</span> at all continuity points <span class="math inline">\(x\)</span> of the law of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Almost sure convergence implies convergence in probability.</p></li>
+<li><p>Convergence in probability implies convergence in distribution.</p></li>
+<li><p>Convergence in distribution does <em>not</em> imply convergence in probability (except if the limiting distribution is constant).</p></li>
+<li><p>Convergence in distribution is equivalent to <span class="math inline">\(\mathbb{E}[f(X_n)] \to \mathbb{E}[f(X)]\)</span> for all bounded and continuous <span class="math inline">\(f\)</span> (this is part of what’s called the portmanteau lemma).</p></li>
+<li><p><strong>Asymptotic probability notation</strong>:<br>
+<span class="math inline">\(X_n = O_p(a_n)\)</span> means <span class="math inline">\(\frac{X_n}{a_n}\)</span> is bounded in probability, that is, for each <span class="math inline">\(\epsilon &gt; 0\)</span>, there exists <span class="math inline">\(M &gt; 0\)</span> such that for large enough <span class="math inline">\(n\)</span>, <span class="math display">\[
+\mathbb{P}\left( \left| \frac{X_n}{a_n} \right| &gt; M \right) \leq \epsilon.
+\]</span><br>
+Similarly, <span class="math inline">\(X_n = o_p(a_n)\)</span> means <span class="math inline">\(\frac{X_n}{a_n} \overset{p}{\to} 0\)</span>.</p></li>
 </ul>
-<div id="listing-classes" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<blockquote class="blockquote">
+<p><strong>Theorem (Law of Large Numbers).</strong><br>
+If <span class="math inline">\(X_1, X_2, \dots\)</span> are i.i.d. with mean <span class="math inline">\(\mu = \mathbb{E}[X_i]\)</span>, then the sample mean <span class="math display">\[
+\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i
+\]</span> satisfies <span class="math inline">\(\bar{X}_n \overset{\mathrm{as}}{\to} \mu\)</span>.</p>
+<p><em>Note:</em> this also implies <span class="math inline">\(\bar{X}_n \overset{p}{\to} \mu\)</span>, but not necessarily vice versa (e.g., if the mean is infinite).</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Theorem (Central Limit Theorem).</strong><br>
+Under the same conditions and assuming a finite second moment, letting <span class="math inline">\(\sigma^2 = \mathrm{Var}(X_i)\)</span>, we have <span class="math display">\[
+\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \overset{d}{\to} N(0,1).
+\]</span></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Theorem (Glivenko-Cantelli).</strong><br>
+If <span class="math inline">\(X_1, X_2, \dots\)</span> are i.i.d., then the empirical distribution function <span class="math display">\[
+F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbf{1}\{X_i \leq x\}
+\]</span> satisfies <span class="math display">\[
+\sup_x |F_n(x) - F(x)| \overset{\mathrm{as}}{\to} 0.
+\]</span></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Theorem (Kolmogorov-Smirnov).</strong><br>
+Under the same setup, <span class="math display">\[
+\sqrt{n} \sup_x |F_n(x) - F(x)| \overset{d}{\to} \sup_{t \in [0,1]} |B(t)|,
+\]</span> where <span class="math inline">\(B(t)\)</span> is a Brownian bridge (a Brownian motion conditioned on <span class="math inline">\(B(0) = 0\)</span> and <span class="math inline">\(B(1) = 0\)</span>).</p>
+</blockquote>
+</section>
+<section id="probability-basic-concentration-inequalities" class="level2">
+<h2 class="anchored" data-anchor-id="probability-basic-concentration-inequalities">Probability: basic concentration inequalities</h2>
+<ul>
+<li><p><strong>Markov’s inequality</strong>: if <span class="math inline">\(X \geq 0\)</span> and <span class="math inline">\(\mu = \mathbb{E}[X]\)</span>, then for any <span class="math inline">\(a &gt; 0\)</span>,<br>
+<span class="math display">\[
+\mathbb{P}(X \geq a) \leq \frac{\mu}{a}.
+\]</span></p></li>
+<li><p><strong>Chebyshev’s inequality</strong>: if <span class="math inline">\(\mu = \mathbb{E}[X]\)</span> and <span class="math inline">\(\sigma^2 = \mathrm{Var}(X)\)</span>, then for any <span class="math inline">\(t &gt; 0\)</span>,<br>
+<span class="math display">\[
+\mathbb{P}(|X - \mu| \geq t) \leq \frac{\sigma^2}{t^2}.
+\]</span></p></li>
+<li><p><strong>Hoeffding’s inequality</strong>: if <span class="math inline">\(X_1, \dots, X_n\)</span> are independent and mean zero, and <span class="math inline">\(a_i \leq X_i \leq b_i\)</span>, then for any <span class="math inline">\(t &gt; 0\)</span>,<br>
+<span class="math display">\[
+\mathbb{P}(\bar{X}_n \geq t) \leq \exp\left(-\frac{2n^2t^2}{\sum_{i=1}^n (b_i - a_i)^2}\right).
+\]</span></p></li>
+<li><p><strong>Bernstein’s inequality</strong>: let <span class="math inline">\(\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i\)</span>. If <span class="math inline">\(X_1, \dots, X_n\)</span> are independent and mean zero, with <span class="math inline">\(\sigma_i^2 = \mathrm{Var}(X_i)\)</span> and <span class="math inline">\(|X_i| \leq M\)</span> for all <span class="math inline">\(i\)</span>, then for any <span class="math inline">\(t &gt; 0\)</span>,<br>
+<span class="math display">\[
+\mathbb{P}(\bar{X}_n \geq t) \leq \exp\left(-\frac{nt^2/2}{\frac{1}{n} \sum_{i=1}^n \sigma_i^2 + Mt/3}\right).
+\]</span></p></li>
+</ul>
+</section>
+<section id="some-basic-results-in-stochastic-convergence" class="level2">
+<h2 class="anchored" data-anchor-id="some-basic-results-in-stochastic-convergence">Some basic results in stochastic convergence</h2>
+<section id="continuous-mapping-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-mapping-theorem">Continuous Mapping Theorem</h3>
+<p>Let <span class="math inline">\(g: \mathbb{R} \to \mathbb{R}\)</span> be a continuous function. Then:</p>
+<ul>
+<li>If <span class="math inline">\(X_n \overset{p}{\to} X\)</span>, then <span class="math inline">\(g(X_n) \overset{p}{\to} g(X)\)</span>.</li>
+<li>If <span class="math inline">\(Y_n \overset{d}{\to} Y\)</span>, then <span class="math inline">\(g(Y_n) \overset{d}{\to} g(Y)\)</span>.</li>
+</ul>
+</section>
+<section id="slutskys-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="slutskys-theorem">Slutsky’s Theorem</h3>
+<p>Let <span class="math inline">\(X_n \overset{d}{\to} X\)</span> and <span class="math inline">\(Y_n \overset{d}{\to} c \in \mathbb{R}\)</span>. Then:</p>
+<ul>
+<li><span class="math inline">\(X_n + Y_n \overset{d}{\to} X + c\)</span></li>
+<li><span class="math inline">\(X_n Y_n \overset{d}{\to} cX\)</span></li>
+</ul>
+</section>
+<section id="general-version-of-slutskys-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="general-version-of-slutskys-theorem">General Version of Slutsky’s Theorem</h3>
+<p>Let <span class="math inline">\(g: \mathbb{R} \times \mathbb{R} \to \mathbb{R}\)</span> be continuous, and suppose <span class="math inline">\(X_n \overset{d}{\to} X\)</span> and <span class="math inline">\(Y_n \overset{d}{\to} c \in \mathbb{R}\)</span>.<br>
+Then, as <span class="math inline">\(n \to \infty\)</span>, <span class="math display">\[
+\mathbb{P}(g(X_n, Y_n) \to g(X, c)).
+\]</span></p>
+<!-- ## Convexity and optimization -->
+<!-- A *convex set* \( C \subseteq \mathbb{R}^d \) satisfies: -->
+<!-- \[ -->
+<!-- x, y \in C \Rightarrow t x + (1 - t) y \in C, \quad \text{for all } t \in [0, 1]. -->
+<!-- \] -->
+<!-- A *convex function* \( f : \mathbb{R}^d \to (-\infty, \infty] \) is one for which its effective domain \( \mathrm{dom}(f) \) is a convex set, and -->
+<!-- \[ -->
+<!-- f(t x + (1 - t) y) \leq t f(x) + (1 - t) f(y), \quad \text{for all } x, y \in \mathrm{dom}(f), \; t \in [0,1]. -->
+<!-- \] -->
+<!-- The function is *strictly convex* if the inequality is strict whenever \( x \neq y \) and \( t \in (0,1) \). Concavity means \( -f \) is convex, and the same applies to strict concavity. -->
+<!-- A differentiable function \( f \) is convex if and only if \( \mathrm{dom}(f) \) is convex and: -->
+<!-- \[ -->
+<!-- f(y) \geq f(x) + \nabla f(x)^\top (y - x), \quad \text{for all } x, y \in \mathrm{dom}(f). -->
+<!-- \] -->
+<!-- This is known as the *first-order characterization* of convexity. -->
+<!-- A twice-differentiable function \( f \) is convex if and only if \( \mathrm{dom}(f) \) is convex and -->
+<!-- \[ -->
+<!-- \nabla^2 f(x) \succeq 0, \quad \text{for all } x \in \mathrm{dom}(f), -->
+<!-- \] -->
+<!-- where \( \nabla^2 f \) is the Hessian of \( f \), and \( A \succeq 0 \) indicates that matrix \( A \) is positive semidefinite. -->
+<!-- You can verify that least squares, logistic regression, and Poisson regression objectives are convex by checking the forms of their Hessians. -->
+<!-- ## Optimization basics -->
+<!-- An *optimization problem* takes the form: -->
+<!-- \[ -->
+<!-- \begin{aligned} -->
+<!-- & \min_x \quad && f(x) \\ -->
+<!-- & \text{subject to} \quad && g_i(x) \leq 0, \quad i = 1, \dots, m \\ -->
+<!-- & && h_j(x) = 0, \quad j = 1, \dots, k. -->
+<!-- \end{aligned} -->
+<!-- \] -->
+<!-- The feasible region is implicitly defined as: -->
+<!-- \[ -->
+<!-- D = \mathrm{dom}(f) \cap \bigcap_{i=1}^m \mathrm{dom}(g_i) \cap \bigcap_{j=1}^k \mathrm{dom}(h_j). -->
+<!-- \] -->
+<!-- A *convex optimization problem* is one in which \( f \) and \( g_i \) are convex and \( h_j \) are affine. That is: -->
+<!-- \[ -->
+<!-- \begin{aligned} -->
+<!-- & \min_x \quad && f(x) \\ -->
+<!-- & \text{subject to} \quad && g_i(x) \leq 0, \quad i = 1, \dots, m \\ -->
+<!-- & && Ax = b, -->
+<!-- \end{aligned} -->
+<!-- \] -->
+<!-- is convex if \( f \) and \( g_i \) are convex. -->
+<!-- The function \( f \) is called the *objective function*. A *feasible point* lies in \( D \) and satisfies all constraints. The smallest objective value among all feasible points is denoted \( f^\star \) and is called the *optimal value*. -->
+<!-- If a feasible point achieves the optimal value, it is denoted \( x^\star \) and is a *solution* or *minimizer*. In statistics, this is often written with a hat, like \( \hat{\theta} \) for the MLE. If \( f \) is strictly convex and a solution exists, it is unique. -->
+<!-- A point \( \bar{x} \) is a *local solution* if it's feasible and there exists \( \delta > 0 \) such that: -->
+<!-- \[ -->
+<!-- f(\bar{x}) \leq f(x) \quad \text{for all feasible } x \text{ such that } \|x - \bar{x}\|_2 \leq \delta. -->
+<!-- \] -->
+<!-- In convex problems, every local solution is also a global solution—this is the *fundamental theorem of convex optimization*. -->
+<!-- Many estimators in statistics and machine learning are defined by such problems. Convex problems are common, though non-convex optimization (e.g., in deep learning) has become more prominent in recent years. -->
 
-<th>
-Subject
-</th>
 
-<th>
-Description
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-file-modified-sort="1758224765315" data-listing-reading-time-sort="2" data-listing-word-count-sort="267" data-listing-title-sort="Good practices in `Julia`" data-listing-filename-sort="good_practice_julia.qmd">
-<td>
-<a href="../../../resources/computing/intro_to_julia/good_practice_julia.html" class="title listing-title">Good practices in <code>Julia</code></a>
-</td>
-<td>
-<span class="listing-description">Tips and tricks for writing better code</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-<div class="callout-info">
-<p>A very useful Julia package is <a href="https://github.com/JuliaStats/RDatasets.jl">RDatasets.jl</a>, which provides access to many of the datasets available in R packages.</p>
-</div>
-
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -958,13 +1035,13 @@ Description
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../resources/computing/intro_to_python/index.html" class="pagination-link" aria-label="Python">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Python</span>
+      <a href="../projects/project-tips-resources.html" class="pagination-link" aria-label="Tips + resources">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tips + resources</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../resources/tutorials/github.html" class="pagination-link" aria-label="GitHub">
-        <span class="nav-page-text">GitHub</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notes/week_02.html" class="pagination-link" aria-label="Exploring Data with `tidyverse`">
+        <span class="nav-page-text">Exploring Data with <code>tidyverse</code></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -976,7 +1053,7 @@ Description
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/resources/computing/intro_to_julia/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/notes/Stat_Revision.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
