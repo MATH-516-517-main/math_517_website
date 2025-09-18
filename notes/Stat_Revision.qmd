@@ -1,0 +1,202 @@
+---
+title: "Review of basics in statistics"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+We will take a brief tour of some core ideas in statistics. Much of this content may already be familiar. For more in-depth discussion, see for example [All of Statistics](https://www.stat.cmu.edu/~brian/valerie/617-2022/0%20-%20books/2004%20-%20wasserman%20-%20all%20of%20statistics.pdf) and [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/).
+
+## Probability: modes of convergence and limit laws
+
+Let $X_n$, for $n = 1, 2, 3, \dots$, be a sequence of real-valued random variables.
+
+- **Almost sure convergence**: $X_n \overset{\mathrm{as}}{\to} X$ means  
+  $$
+  \mathbb{P}(\lim_{n \to \infty} X_n = X) = 1.
+  $$
+
+- **Convergence in probability**: $X_n \overset{p}{\to} X$ means that for every  
+  $\epsilon > 0$,
+  $$
+  \mathbb{P}(|X_n - X| > \epsilon) \to 0 \quad \text{as } n \to \infty.
+  $$
+
+- **Convergence in distribution**: $X_n \overset{d}{\to} X$ means  
+  $$
+  \mathbb{P}(X_n \leq x) \to \mathbb{P}(X \leq x)
+  $$
+  at all continuity points $x$ of the law of $X$.
+
+- Almost sure convergence implies convergence in probability.
+- Convergence in probability implies convergence in distribution.
+- Convergence in distribution does *not* imply convergence in probability (except if the limiting distribution is constant).
+- Convergence in distribution is equivalent to $\mathbb{E}[f(X_n)] \to \mathbb{E}[f(X)]$ for all bounded and continuous $f$ (this is part of what's called the portmanteau lemma).
+
+- **Asymptotic probability notation**:  
+  $X_n = O_p(a_n)$ means $\frac{X_n}{a_n}$ is bounded in probability, that is, for each $\epsilon > 0$, there exists $M > 0$ such that for large enough $n$,
+  $$
+  \mathbb{P}\left( \left| \frac{X_n}{a_n} \right| > M \right) \leq \epsilon.
+  $$  
+  Similarly, $X_n = o_p(a_n)$ means $\frac{X_n}{a_n} \overset{p}{\to} 0$.
+
+> **Theorem (Law of Large Numbers).**  
+> If $X_1, X_2, \dots$ are i.i.d. with mean $\mu = \mathbb{E}[X_i]$, then the sample mean
+> $$
+> \bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i
+> $$
+> satisfies $\bar{X}_n \overset{\mathrm{as}}{\to} \mu$.
+>
+> *Note:* this also implies $\bar{X}_n \overset{p}{\to} \mu$, but not necessarily vice versa (e.g., if the mean is infinite).
+
+> **Theorem (Central Limit Theorem).**  
+> Under the same conditions and assuming a finite second moment, letting $\sigma^2 = \mathrm{Var}(X_i)$, we have
+> $$
+> \frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \overset{d}{\to} N(0,1).
+> $$
+
+> **Theorem (Glivenko-Cantelli).**  
+> If $X_1, X_2, \dots$ are i.i.d., then the empirical distribution function
+> $$
+> F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbf{1}\{X_i \leq x\}
+> $$
+> satisfies
+> $$
+> \sup_x |F_n(x) - F(x)| \overset{\mathrm{as}}{\to} 0.
+> $$
+
+> **Theorem (Kolmogorov-Smirnov).**  
+> Under the same setup,
+> $$
+> \sqrt{n} \sup_x |F_n(x) - F(x)| \overset{d}{\to} \sup_{t \in [0,1]} |B(t)|,
+> $$
+> where $B(t)$ is a Brownian bridge (a Brownian motion conditioned on $B(0) = 0$ and $B(1) = 0$).
+
+## Probability: basic concentration inequalities
+
+- **Markov's inequality**: if $X \geq 0$ and $\mu = \mathbb{E}[X]$, then for any $a > 0$,  
+  $$
+  \mathbb{P}(X \geq a) \leq \frac{\mu}{a}.
+  $$
+
+- **Chebyshev's inequality**: if $\mu = \mathbb{E}[X]$ and $\sigma^2 = \mathrm{Var}(X)$, then for any $t > 0$,  
+  $$
+  \mathbb{P}(|X - \mu| \geq t) \leq \frac{\sigma^2}{t^2}.
+  $$
+
+- **Hoeffding's inequality**: if $X_1, \dots, X_n$ are independent and mean zero, and $a_i \leq X_i \leq b_i$, then for any $t > 0$,  
+  $$
+  \mathbb{P}(\bar{X}_n \geq t) \leq \exp\left(-\frac{2n^2t^2}{\sum_{i=1}^n (b_i - a_i)^2}\right).
+  $$
+
+- **Bernstein's inequality**: let $\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i$. If $X_1, \dots, X_n$ are independent and mean zero, with $\sigma_i^2 = \mathrm{Var}(X_i)$ and $|X_i| \leq M$ for all $i$, then for any $t > 0$,  
+  $$
+  \mathbb{P}(\bar{X}_n \geq t) \leq \exp\left(-\frac{nt^2/2}{\frac{1}{n} \sum_{i=1}^n \sigma_i^2 + Mt/3}\right).
+  $$
+
+## Some basic results in stochastic convergence
+
+### Continuous Mapping Theorem
+
+Let $g: \mathbb{R} \to \mathbb{R}$ be a continuous function. Then:
+
+- If $X_n \overset{p}{\to} X$, then $g(X_n) \overset{p}{\to} g(X)$.
+- If $Y_n \overset{d}{\to} Y$, then $g(Y_n) \overset{d}{\to} g(Y)$.
+
+### Slutsky’s Theorem
+
+Let $X_n \overset{d}{\to} X$ and $Y_n \overset{d}{\to} c \in \mathbb{R}$. Then:
+
+- $X_n + Y_n \overset{d}{\to} X + c$
+- $X_n Y_n \overset{d}{\to} cX$
+
+### General Version of Slutsky’s Theorem
+
+Let $g: \mathbb{R} \times \mathbb{R} \to \mathbb{R}$ be continuous, and suppose $X_n \overset{d}{\to} X$ and $Y_n \overset{d}{\to} c \in \mathbb{R}$.  
+Then, as $n \to \infty$,
+$$
+\mathbb{P}(g(X_n, Y_n) \to g(X, c)).
+$$
+
+<!-- ## Convexity and optimization -->
+
+<!-- A *convex set* \( C \subseteq \mathbb{R}^d \) satisfies: -->
+
+<!-- \[ -->
+<!-- x, y \in C \Rightarrow t x + (1 - t) y \in C, \quad \text{for all } t \in [0, 1]. -->
+<!-- \] -->
+
+<!-- A *convex function* \( f : \mathbb{R}^d \to (-\infty, \infty] \) is one for which its effective domain \( \mathrm{dom}(f) \) is a convex set, and -->
+
+<!-- \[ -->
+<!-- f(t x + (1 - t) y) \leq t f(x) + (1 - t) f(y), \quad \text{for all } x, y \in \mathrm{dom}(f), \; t \in [0,1]. -->
+<!-- \] -->
+
+<!-- The function is *strictly convex* if the inequality is strict whenever \( x \neq y \) and \( t \in (0,1) \). Concavity means \( -f \) is convex, and the same applies to strict concavity. -->
+
+<!-- A differentiable function \( f \) is convex if and only if \( \mathrm{dom}(f) \) is convex and: -->
+
+<!-- \[ -->
+<!-- f(y) \geq f(x) + \nabla f(x)^\top (y - x), \quad \text{for all } x, y \in \mathrm{dom}(f). -->
+<!-- \] -->
+
+<!-- This is known as the *first-order characterization* of convexity. -->
+
+<!-- A twice-differentiable function \( f \) is convex if and only if \( \mathrm{dom}(f) \) is convex and -->
+
+<!-- \[ -->
+<!-- \nabla^2 f(x) \succeq 0, \quad \text{for all } x \in \mathrm{dom}(f), -->
+<!-- \] -->
+
+<!-- where \( \nabla^2 f \) is the Hessian of \( f \), and \( A \succeq 0 \) indicates that matrix \( A \) is positive semidefinite. -->
+
+<!-- You can verify that least squares, logistic regression, and Poisson regression objectives are convex by checking the forms of their Hessians. -->
+
+<!-- ## Optimization basics -->
+
+<!-- An *optimization problem* takes the form: -->
+
+<!-- \[ -->
+<!-- \begin{aligned} -->
+<!-- & \min_x \quad && f(x) \\ -->
+<!-- & \text{subject to} \quad && g_i(x) \leq 0, \quad i = 1, \dots, m \\ -->
+<!-- & && h_j(x) = 0, \quad j = 1, \dots, k. -->
+<!-- \end{aligned} -->
+<!-- \] -->
+
+<!-- The feasible region is implicitly defined as: -->
+
+<!-- \[ -->
+<!-- D = \mathrm{dom}(f) \cap \bigcap_{i=1}^m \mathrm{dom}(g_i) \cap \bigcap_{j=1}^k \mathrm{dom}(h_j). -->
+<!-- \] -->
+
+<!-- A *convex optimization problem* is one in which \( f \) and \( g_i \) are convex and \( h_j \) are affine. That is: -->
+
+<!-- \[ -->
+<!-- \begin{aligned} -->
+<!-- & \min_x \quad && f(x) \\ -->
+<!-- & \text{subject to} \quad && g_i(x) \leq 0, \quad i = 1, \dots, m \\ -->
+<!-- & && Ax = b, -->
+<!-- \end{aligned} -->
+<!-- \] -->
+
+<!-- is convex if \( f \) and \( g_i \) are convex. -->
+
+<!-- The function \( f \) is called the *objective function*. A *feasible point* lies in \( D \) and satisfies all constraints. The smallest objective value among all feasible points is denoted \( f^\star \) and is called the *optimal value*. -->
+
+<!-- If a feasible point achieves the optimal value, it is denoted \( x^\star \) and is a *solution* or *minimizer*. In statistics, this is often written with a hat, like \( \hat{\theta} \) for the MLE. If \( f \) is strictly convex and a solution exists, it is unique. -->
+
+<!-- A point \( \bar{x} \) is a *local solution* if it's feasible and there exists \( \delta > 0 \) such that: -->
+
+<!-- \[ -->
+<!-- f(\bar{x}) \leq f(x) \quad \text{for all feasible } x \text{ such that } \|x - \bar{x}\|_2 \leq \delta. -->
+<!-- \] -->
+
+<!-- In convex problems, every local solution is also a global solution—this is the *fundamental theorem of convex optimization*. -->
+
+<!-- Many estimators in statistics and machine learning are defined by such problems. Convex problems are common, though non-convex optimization (e.g., in deep learning) has become more prominent in recent years. -->
+
