@@ -114,14 +114,6 @@ Let $X_n \overset{d}{\to} X$ and $Y_n \overset{d}{\to} c \in \mathbb{R}$. Then:
 - $X_n + Y_n \overset{d}{\to} X + c$
 - $X_n Y_n \overset{d}{\to} cX$
 
-### General Version of Slutsky’s Theorem
-
-Let $g: \mathbb{R} \times \mathbb{R} \to \mathbb{R}$ be continuous, and suppose $X_n \overset{d}{\to} X$ and $Y_n \overset{d}{\to} c \in \mathbb{R}$.  
-Then, as $n \to \infty$,
-$$
-\mathbb{P}(g(X_n, Y_n) \to g(X, c)).
-$$
-
 <!-- ## Convexity and optimization -->
 
 <!-- A *convex set* \( C \subseteq \mathbb{R}^d \) satisfies: -->
