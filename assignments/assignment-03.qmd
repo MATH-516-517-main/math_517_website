@@ -1,7 +1,7 @@
 ---
 title: "Assignment 3"
 subtitle: "Global Optimal Bandwidth"
-date: 10-3-2025
+date: 09-26-2025
 format: html
 editor: visual
 bibliography: ref.bib
@@ -10,7 +10,7 @@ bibliography: ref.bib
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 12 October 2025.**
+**Due date: 11:59pm on Sunday, 5 October 2025.**
 :::
 
 ::: {.callout-note collapse="true"}
