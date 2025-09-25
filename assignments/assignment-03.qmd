@@ -1,6 +1,6 @@
 ---
 title: "Assignment 3"
-subtitle: "Global Optimal Bandwidth"
+subtitle: "Local linear regression: Linear smoother and global optimal bandwidth"
 date: 09-26-2025
 format: html
 editor: visual
