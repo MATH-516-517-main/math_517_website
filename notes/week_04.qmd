@@ -22,6 +22,103 @@ Suppose we observe i.i.d. copies of a bivariate random vector $(X,Y)^\top$, that
 
 The simplest idea would be to use what we learned in the previous chapter, i.e. kernel density estimation. Denoting $f_X(x)$ the marginal density of $X$, $f_{X,Y}(x,y)$ the joint density of $X$ and $Y$ and $f_{Y|X}(y|x)$ the marginal density of $Y$ given $X$, we can express the conditional expectation above as $$ m(x) = \mathbb{E}\big[ Y \big| X = x \big] = \int_\mathbb{R} y f_{Y|X}(y|x) dy = \frac{\int_\mathbb{R} y f_{X,Y}(x,y) dy}{f_X(x)} $$ Plugging in the KDEs of $f_{X|Y}(x,y)$ and $f_X(x)$ (with a fixed bandwidth $h$, a fixed kernel $K(\cdot)$ for the univariate density, and the separable kernel $K(\cdot)K(\cdot)$ for the bivariate density), i.e. $$ \widehat{f}_X(x) = \frac{1}{nh} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) \qquad \& \qquad \widehat{f}_{X,Y}(x,y) = \frac{1}{n h^2} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) K\left( \frac{Y_i-y}{h} \right), $$ into the previous formula, we obtain an estimator of the conditional expectation: $$ \widehat{m}(x) = \frac{\sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) Y_i}{ \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right)} $$ where we used that $\frac{1}{h} \int_\mathbb{R} y K\left( \frac{Y_i-x}{h} \right) dy = \int_\mathbb{R} (Y + th) K(t) dt = Y$, where we used the symmetry of the kernel (twice).
 
+
+To understand the statistical properties of the local constant estimator, we analyze its **bias** and **variance**. This will allow us to study its mean squared error and to discuss bandwidth selection.
+
+## 1.1 Decomposition
+
+Write $Y_i = m(x) + \big(m(X_i)-m(x)\big) + \varepsilon_i$, with $\mathbb{E}[\varepsilon_i|X_i]=0$, $\mathbb{E}[\varepsilon_i^2|X_i]=\sigma^2$. Plugging this into the estimator gives
+
+$$
+\widehat{m}(x) = m(x) + \frac{\widehat{m}_1(x)}{\widehat{f}(x)} + \frac{\widehat{m}_2(x)}{\widehat{f}(x)},
+$$
+
+where
+
+$$
+\widehat{f}(x) = \frac{1}{nh}\sum_{i=1}^n K\!\left(\frac{X_i-x}{h}\right),
+$$
+
+$$
+\widehat{m}_1(x) = \frac{1}{nh}\sum_{i=1}^n K\!\left(\frac{X_i-x}{h}\right)\big(m(X_i)-m(x)\big),
+$$
+
+$$
+\widehat{m}_2(x) = \frac{1}{nh}\sum_{i=1}^n K\!\left(\frac{X_i-x}{h}\right)\varepsilon_i.
+$$
+
+Thus, $\widehat{m}_1$ captures the contribution of the local slope and curvature of $m$, while $\widehat{m}_2$ captures the stochastic noise.
+
+---
+
+## 1.2 Expectation of $\widehat{m}_2(x)$
+
+Since $\mathbb{E}[\varepsilon_i|X_i]=0$, we immediately obtain
+
+$$
+\mathbb{E}[\widehat{m}_2(x)] = 0.
+$$
+
+The variance is:
+
+$$
+\mathrm{Var}(\widehat{m}_2(x)) = \frac{\sigma^2}{nh^2}\,\mathbb{E}\!\left[K\!\left(\frac{X-x}{h}\right)^2\right].
+$$
+
+Changing variables $u=(z-x)/h$ gives
+
+$$
+\mathrm{Var}(\widehat{m}_2(x)) = \frac{\sigma^2}{nh}\,f_X(x) g(K) + o\!\left(\frac{1}{nh}\right),
+$$
+
+with $g(K) = \int K(u)^2 , du$.
+
+---
+
+## 1.3 Expectation of $\widehat{m}_1(x)$
+
+Expanding $m(X_i)$ around $x$ with a Taylor series:
+
+$$
+m(x+hu) = m(x) + hu\,m'(x) + \tfrac{1}{2}(hu)^2 m''(x) + o(h^2).
+$$
+
+Multiplying with the expansion of $f_X(x+hu)$ and integrating against $K(u)$, the $O(h)$ terms vanish because $\int uK(u)du=0$. The leading term is of order $h^2$:
+
+$$
+\mathbb{E}[\widehat{m}_1(x)] = h^2 \sigma_K^2\left( \tfrac{1}{2} m''(x) f_X(x) + m'(x) f'_X(x) \right) + o(h^2),
+$$
+
+where $\sigma_K^2 = \int u^2 K(u),du$.
+
+The variance of $\widehat{m}_1(x)$ is of smaller order, $O(h/n)$, and negligible compared to its mean.
+
+---
+
+## 1.4 Bias and Variance of $\widehat{m}(x)$
+
+Combining the pieces and using $\widehat{f}(x) \to f_X(x)$:
+
+* **Bias:**
+
+$$
+\mathbb{E}[\widehat{m}(x)] - m(x) \;\approx\; h^2 \sigma_K^2 \left( \tfrac{1}{2} m''(x) + m'(x) \frac{f'_X(x)}{f_X(x)} \right).
+$$
+
+* **Variance:**
+
+$$
+\mathrm{Var}(\widehat{m}(x)) \;\approx\; \frac{\sigma^2 g(K)}{n h f_X(x)}.
+$$
+
+---
+
+Therefore,
+
+* The **bias** is of order $O(h^2)$ and depends on both the curvature of $m$ and the slope of $m$ relative to the design density $f_X$.
+* The **variance** is of order $O!\left((nh)^{-1}\right)$.
+
+
 Note that the previous estimator is just a weighted average, and a weighted average is a solution to a weighted least squares problem, in this case: $$ \widehat{m}(x) = \underset{\beta_0 \in \mathbb{R}}{\mathrm{arg \; min}} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) (Y_i - \beta_0)^2 $$ So the conditional expectation can be estimated at a fixed location $x$ (i.e. locally) by an intercept-only linear model (i.e. constant). Hence we call this estimator *local constant regression*.
 
 # 2. Local Polynomial Regression
