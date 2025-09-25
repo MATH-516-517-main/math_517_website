@@ -443,7 +443,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#local-constant-regression" id="toc-local-constant-regression" class="nav-link active" data-scroll-target="#local-constant-regression">1. Local Constant Regression</a></li>
+  <li><a href="#local-constant-regression" id="toc-local-constant-regression" class="nav-link active" data-scroll-target="#local-constant-regression">1. Local Constant Regression</a>
+  <ul class="collapse">
+  <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition">1.1 Decomposition</a></li>
+  <li><a href="#expectation-of-widehatm_2x" id="toc-expectation-of-widehatm_2x" class="nav-link" data-scroll-target="#expectation-of-widehatm_2x">1.2 Expectation of <span class="math inline">\(\widehat{m}_2(x)\)</span></a></li>
+  <li><a href="#expectation-of-widehatm_1x" id="toc-expectation-of-widehatm_1x" class="nav-link" data-scroll-target="#expectation-of-widehatm_1x">1.3 Expectation of <span class="math inline">\(\widehat{m}_1(x)\)</span></a></li>
+  <li><a href="#bias-and-variance-of-widehatmx" id="toc-bias-and-variance-of-widehatmx" class="nav-link" data-scroll-target="#bias-and-variance-of-widehatmx">1.4 Bias and Variance of <span class="math inline">\(\widehat{m}(x)\)</span></a></li>
+  </ul></li>
   <li><a href="#local-polynomial-regression" id="toc-local-polynomial-regression" class="nav-link" data-scroll-target="#local-polynomial-regression">2. Local Polynomial Regression</a></li>
   <li><a href="#local-linear-regression" id="toc-local-linear-regression" class="nav-link" data-scroll-target="#local-linear-regression">3. Local Linear Regression</a>
   <ul class="collapse">
@@ -482,7 +488,80 @@ window.Quarto = {
 <section id="local-constant-regression" class="level1">
 <h1>1. Local Constant Regression</h1>
 <p>The simplest idea would be to use what we learned in the previous chapter, i.e.&nbsp;kernel density estimation. Denoting <span class="math inline">\(f_X(x)\)</span> the marginal density of <span class="math inline">\(X\)</span>, <span class="math inline">\(f_{X,Y}(x,y)\)</span> the joint density of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and <span class="math inline">\(f_{Y|X}(y|x)\)</span> the marginal density of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>, we can express the conditional expectation above as <span class="math display">\[ m(x) = \mathbb{E}\big[ Y \big| X = x \big] = \int_\mathbb{R} y f_{Y|X}(y|x) dy = \frac{\int_\mathbb{R} y f_{X,Y}(x,y) dy}{f_X(x)} \]</span> Plugging in the KDEs of <span class="math inline">\(f_{X|Y}(x,y)\)</span> and <span class="math inline">\(f_X(x)\)</span> (with a fixed bandwidth <span class="math inline">\(h\)</span>, a fixed kernel <span class="math inline">\(K(\cdot)\)</span> for the univariate density, and the separable kernel <span class="math inline">\(K(\cdot)K(\cdot)\)</span> for the bivariate density), i.e.&nbsp;<span class="math display">\[ \widehat{f}_X(x) = \frac{1}{nh} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) \qquad \&amp; \qquad \widehat{f}_{X,Y}(x,y) = \frac{1}{n h^2} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) K\left( \frac{Y_i-y}{h} \right), \]</span> into the previous formula, we obtain an estimator of the conditional expectation: <span class="math display">\[ \widehat{m}(x) = \frac{\sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) Y_i}{ \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right)} \]</span> where we used that <span class="math inline">\(\frac{1}{h} \int_\mathbb{R} y K\left( \frac{Y_i-x}{h} \right) dy = \int_\mathbb{R} (Y + th) K(t) dt = Y\)</span>, where we used the symmetry of the kernel (twice).</p>
+<p>To understand the statistical properties of the local constant estimator, we analyze its <strong>bias</strong> and <strong>variance</strong>. This will allow us to study its mean squared error and to discuss bandwidth selection.</p>
+<section id="decomposition" class="level2">
+<h2 class="anchored" data-anchor-id="decomposition">1.1 Decomposition</h2>
+<p>Write <span class="math inline">\(Y_i = m(x) + \big(m(X_i)-m(x)\big) + \varepsilon_i\)</span>, with <span class="math inline">\(\mathbb{E}[\varepsilon_i|X_i]=0\)</span>, <span class="math inline">\(\mathbb{E}[\varepsilon_i^2|X_i]=\sigma^2\)</span>. Plugging this into the estimator gives</p>
+<p><span class="math display">\[
+\widehat{m}(x) = m(x) + \frac{\widehat{m}_1(x)}{\widehat{f}(x)} + \frac{\widehat{m}_2(x)}{\widehat{f}(x)},
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\widehat{f}(x) = \frac{1}{nh}\sum_{i=1}^n K\!\left(\frac{X_i-x}{h}\right),
+\]</span></p>
+<p><span class="math display">\[
+\widehat{m}_1(x) = \frac{1}{nh}\sum_{i=1}^n K\!\left(\frac{X_i-x}{h}\right)\big(m(X_i)-m(x)\big),
+\]</span></p>
+<p><span class="math display">\[
+\widehat{m}_2(x) = \frac{1}{nh}\sum_{i=1}^n K\!\left(\frac{X_i-x}{h}\right)\varepsilon_i.
+\]</span></p>
+<p>Thus, <span class="math inline">\(\widehat{m}_1\)</span> captures the contribution of the local slope and curvature of <span class="math inline">\(m\)</span>, while <span class="math inline">\(\widehat{m}_2\)</span> captures the stochastic noise.</p>
+<hr>
+</section>
+<section id="expectation-of-widehatm_2x" class="level2">
+<h2 class="anchored" data-anchor-id="expectation-of-widehatm_2x">1.2 Expectation of <span class="math inline">\(\widehat{m}_2(x)\)</span></h2>
+<p>Since <span class="math inline">\(\mathbb{E}[\varepsilon_i|X_i]=0\)</span>, we immediately obtain</p>
+<p><span class="math display">\[
+\mathbb{E}[\widehat{m}_2(x)] = 0.
+\]</span></p>
+<p>The variance is:</p>
+<p><span class="math display">\[
+\mathrm{Var}(\widehat{m}_2(x)) = \frac{\sigma^2}{nh^2}\,\mathbb{E}\!\left[K\!\left(\frac{X-x}{h}\right)^2\right].
+\]</span></p>
+<p>Changing variables <span class="math inline">\(u=(z-x)/h\)</span> gives</p>
+<p><span class="math display">\[
+\mathrm{Var}(\widehat{m}_2(x)) = \frac{\sigma^2}{nh}\,f_X(x) g(K) + o\!\left(\frac{1}{nh}\right),
+\]</span></p>
+<p>with <span class="math inline">\(g(K) = \int K(u)^2 , du\)</span>.</p>
+<hr>
+</section>
+<section id="expectation-of-widehatm_1x" class="level2">
+<h2 class="anchored" data-anchor-id="expectation-of-widehatm_1x">1.3 Expectation of <span class="math inline">\(\widehat{m}_1(x)\)</span></h2>
+<p>Expanding <span class="math inline">\(m(X_i)\)</span> around <span class="math inline">\(x\)</span> with a Taylor series:</p>
+<p><span class="math display">\[
+m(x+hu) = m(x) + hu\,m'(x) + \tfrac{1}{2}(hu)^2 m''(x) + o(h^2).
+\]</span></p>
+<p>Multiplying with the expansion of <span class="math inline">\(f_X(x+hu)\)</span> and integrating against <span class="math inline">\(K(u)\)</span>, the <span class="math inline">\(O(h)\)</span> terms vanish because <span class="math inline">\(\int uK(u)du=0\)</span>. The leading term is of order <span class="math inline">\(h^2\)</span>:</p>
+<p><span class="math display">\[
+\mathbb{E}[\widehat{m}_1(x)] = h^2 \sigma_K^2\left( \tfrac{1}{2} m''(x) f_X(x) + m'(x) f'_X(x) \right) + o(h^2),
+\]</span></p>
+<p>where <span class="math inline">\(\sigma_K^2 = \int u^2 K(u),du\)</span>.</p>
+<p>The variance of <span class="math inline">\(\widehat{m}_1(x)\)</span> is of smaller order, <span class="math inline">\(O(h/n)\)</span>, and negligible compared to its mean.</p>
+<hr>
+</section>
+<section id="bias-and-variance-of-widehatmx" class="level2">
+<h2 class="anchored" data-anchor-id="bias-and-variance-of-widehatmx">1.4 Bias and Variance of <span class="math inline">\(\widehat{m}(x)\)</span></h2>
+<p>Combining the pieces and using <span class="math inline">\(\widehat{f}(x) \to f_X(x)\)</span>:</p>
+<ul>
+<li><strong>Bias:</strong></li>
+</ul>
+<p><span class="math display">\[
+\mathbb{E}[\widehat{m}(x)] - m(x) \;\approx\; h^2 \sigma_K^2 \left( \tfrac{1}{2} m''(x) + m'(x) \frac{f'_X(x)}{f_X(x)} \right).
+\]</span></p>
+<ul>
+<li><strong>Variance:</strong></li>
+</ul>
+<p><span class="math display">\[
+\mathrm{Var}(\widehat{m}(x)) \;\approx\; \frac{\sigma^2 g(K)}{n h f_X(x)}.
+\]</span></p>
+<hr>
+<p>Therefore,</p>
+<ul>
+<li>The <strong>bias</strong> is of order <span class="math inline">\(O(h^2)\)</span> and depends on both the curvature of <span class="math inline">\(m\)</span> and the slope of <span class="math inline">\(m\)</span> relative to the design density <span class="math inline">\(f_X\)</span>.</li>
+<li>The <strong>variance</strong> is of order <span class="math inline">\(O!\left((nh)^{-1}\right)\)</span>.</li>
+</ul>
 <p>Note that the previous estimator is just a weighted average, and a weighted average is a solution to a weighted least squares problem, in this case: <span class="math display">\[ \widehat{m}(x) = \underset{\beta_0 \in \mathbb{R}}{\mathrm{arg \; min}} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) (Y_i - \beta_0)^2 \]</span> So the conditional expectation can be estimated at a fixed location <span class="math inline">\(x\)</span> (i.e.&nbsp;locally) by an intercept-only linear model (i.e.&nbsp;constant). Hence we call this estimator <em>local constant regression</em>.</p>
+</section>
 </section>
 <section id="local-polynomial-regression" class="level1">
 <h1>2. Local Polynomial Regression</h1>

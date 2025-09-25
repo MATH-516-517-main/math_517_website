@@ -1568,6 +1568,50 @@
     ]
   },
   {
+    "objectID": "notes/week_04.html#decomposition",
+    "href": "notes/week_04.html#decomposition",
+    "title": "Non-parametric Regression",
+    "section": "1.1 Decomposition",
+    "text": "1.1 Decomposition\nWrite \\(Y_i = m(x) + \\big(m(X_i)-m(x)\\big) + \\varepsilon_i\\), with \\(\\mathbb{E}[\\varepsilon_i|X_i]=0\\), \\(\\mathbb{E}[\\varepsilon_i^2|X_i]=\\sigma^2\\). Plugging this into the estimator gives\n\\[\n\\widehat{m}(x) = m(x) + \\frac{\\widehat{m}_1(x)}{\\widehat{f}(x)} + \\frac{\\widehat{m}_2(x)}{\\widehat{f}(x)},\n\\]\nwhere\n\\[\n\\widehat{f}(x) = \\frac{1}{nh}\\sum_{i=1}^n K\\!\\left(\\frac{X_i-x}{h}\\right),\n\\]\n\\[\n\\widehat{m}_1(x) = \\frac{1}{nh}\\sum_{i=1}^n K\\!\\left(\\frac{X_i-x}{h}\\right)\\big(m(X_i)-m(x)\\big),\n\\]\n\\[\n\\widehat{m}_2(x) = \\frac{1}{nh}\\sum_{i=1}^n K\\!\\left(\\frac{X_i-x}{h}\\right)\\varepsilon_i.\n\\]\nThus, \\(\\widehat{m}_1\\) captures the contribution of the local slope and curvature of \\(m\\), while \\(\\widehat{m}_2\\) captures the stochastic noise.",
+    "crumbs": [
+      "Supplementary notes",
+      "Non-parametric Regression"
+    ]
+  },
+  {
+    "objectID": "notes/week_04.html#expectation-of-widehatm_2x",
+    "href": "notes/week_04.html#expectation-of-widehatm_2x",
+    "title": "Non-parametric Regression",
+    "section": "1.2 Expectation of \\(\\widehat{m}_2(x)\\)",
+    "text": "1.2 Expectation of \\(\\widehat{m}_2(x)\\)\nSince \\(\\mathbb{E}[\\varepsilon_i|X_i]=0\\), we immediately obtain\n\\[\n\\mathbb{E}[\\widehat{m}_2(x)] = 0.\n\\]\nThe variance is:\n\\[\n\\mathrm{Var}(\\widehat{m}_2(x)) = \\frac{\\sigma^2}{nh^2}\\,\\mathbb{E}\\!\\left[K\\!\\left(\\frac{X-x}{h}\\right)^2\\right].\n\\]\nChanging variables \\(u=(z-x)/h\\) gives\n\\[\n\\mathrm{Var}(\\widehat{m}_2(x)) = \\frac{\\sigma^2}{nh}\\,f_X(x) g(K) + o\\!\\left(\\frac{1}{nh}\\right),\n\\]\nwith \\(g(K) = \\int K(u)^2 , du\\).",
+    "crumbs": [
+      "Supplementary notes",
+      "Non-parametric Regression"
+    ]
+  },
+  {
+    "objectID": "notes/week_04.html#expectation-of-widehatm_1x",
+    "href": "notes/week_04.html#expectation-of-widehatm_1x",
+    "title": "Non-parametric Regression",
+    "section": "1.3 Expectation of \\(\\widehat{m}_1(x)\\)",
+    "text": "1.3 Expectation of \\(\\widehat{m}_1(x)\\)\nExpanding \\(m(X_i)\\) around \\(x\\) with a Taylor series:\n\\[\nm(x+hu) = m(x) + hu\\,m'(x) + \\tfrac{1}{2}(hu)^2 m''(x) + o(h^2).\n\\]\nMultiplying with the expansion of \\(f_X(x+hu)\\) and integrating against \\(K(u)\\), the \\(O(h)\\) terms vanish because \\(\\int uK(u)du=0\\). The leading term is of order \\(h^2\\):\n\\[\n\\mathbb{E}[\\widehat{m}_1(x)] = h^2 \\sigma_K^2\\left( \\tfrac{1}{2} m''(x) f_X(x) + m'(x) f'_X(x) \\right) + o(h^2),\n\\]\nwhere \\(\\sigma_K^2 = \\int u^2 K(u),du\\).\nThe variance of \\(\\widehat{m}_1(x)\\) is of smaller order, \\(O(h/n)\\), and negligible compared to its mean.",
+    "crumbs": [
+      "Supplementary notes",
+      "Non-parametric Regression"
+    ]
+  },
+  {
+    "objectID": "notes/week_04.html#bias-and-variance-of-widehatmx",
+    "href": "notes/week_04.html#bias-and-variance-of-widehatmx",
+    "title": "Non-parametric Regression",
+    "section": "1.4 Bias and Variance of \\(\\widehat{m}(x)\\)",
+    "text": "1.4 Bias and Variance of \\(\\widehat{m}(x)\\)\nCombining the pieces and using \\(\\widehat{f}(x) \\to f_X(x)\\):\n\nBias:\n\n\\[\n\\mathbb{E}[\\widehat{m}(x)] - m(x) \\;\\approx\\; h^2 \\sigma_K^2 \\left( \\tfrac{1}{2} m''(x) + m'(x) \\frac{f'_X(x)}{f_X(x)} \\right).\n\\]\n\nVariance:\n\n\\[\n\\mathrm{Var}(\\widehat{m}(x)) \\;\\approx\\; \\frac{\\sigma^2 g(K)}{n h f_X(x)}.\n\\]\n\nTherefore,\n\nThe bias is of order \\(O(h^2)\\) and depends on both the curvature of \\(m\\) and the slope of \\(m\\) relative to the design density \\(f_X\\).\nThe variance is of order \\(O!\\left((nh)^{-1}\\right)\\).\n\nNote that the previous estimator is just a weighted average, and a weighted average is a solution to a weighted least squares problem, in this case: \\[ \\widehat{m}(x) = \\underset{\\beta_0 \\in \\mathbb{R}}{\\mathrm{arg \\; min}} \\sum_{i=1}^n K\\left( \\frac{X_i-x}{h} \\right) (Y_i - \\beta_0)^2 \\] So the conditional expectation can be estimated at a fixed location \\(x\\) (i.e. locally) by an intercept-only linear model (i.e. constant). Hence we call this estimator local constant regression.",
+    "crumbs": [
+      "Supplementary notes",
+      "Non-parametric Regression"
+    ]
+  },
+  {
     "objectID": "notes/week_04.html#bandwidth-selection",
     "href": "notes/week_04.html#bandwidth-selection",
     "title": "Non-parametric Regression",
