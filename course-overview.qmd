@@ -25,7 +25,7 @@ As far as the lecture topics go, the first 2 lectures will be less mathematical,
 
 Apart from the topics mentioned [in the schedule](index.qmd), mastering this course requires scripting (simulation studies and visualization tasks), as well as sharing your code via **GitHub**. You will be required to do a project, and various assignments fostering these skills. **Exercise classes should be attended** and used to pick up the required skills, and work on the assignments and project! Additional exercises can be found in the Exercices tab on this website.
 
-# Evaluation 
+# Evaluation
 
 The assessment method for this course is "contrôle continue", meaning that the course and all the work required from the students effectively ends before Christmas. This also means that the **work needed to pass this course starts immediately on Week 1**.
 
