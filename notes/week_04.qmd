@@ -115,8 +115,8 @@ $$
 
 Therefore,
 
-* The **bias** is of order $O(h^2)$ and depends on both the curvature of $m$ and the slope of $m$ relative to the design density $f_X$.
-* The **variance** is of order $O!\left((nh)^{-1}\right)$.
+* The **bias** is of order $o(h^2)$ and depends on both the curvature of $m$ and the slope of $m$ relative to the design density $f_X$.
+* The **variance** is of order $o\left((nh)^{-1}\right)$.
 
 
 Note that the previous estimator is just a weighted average, and a weighted average is a solution to a weighted least squares problem, in this case: $$ \widehat{m}(x) = \underset{\beta_0 \in \mathbb{R}}{\mathrm{arg \; min}} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) (Y_i - \beta_0)^2 $$ So the conditional expectation can be estimated at a fixed location $x$ (i.e. locally) by an intercept-only linear model (i.e. constant). Hence we call this estimator *local constant regression*.
