@@ -557,8 +557,8 @@ m(x+hu) = m(x) + hu\,m'(x) + \tfrac{1}{2}(hu)^2 m''(x) + o(h^2).
 <hr>
 <p>Therefore,</p>
 <ul>
-<li>The <strong>bias</strong> is of order <span class="math inline">\(O(h^2)\)</span> and depends on both the curvature of <span class="math inline">\(m\)</span> and the slope of <span class="math inline">\(m\)</span> relative to the design density <span class="math inline">\(f_X\)</span>.</li>
-<li>The <strong>variance</strong> is of order <span class="math inline">\(O!\left((nh)^{-1}\right)\)</span>.</li>
+<li>The <strong>bias</strong> is of order <span class="math inline">\(o(h^2)\)</span> and depends on both the curvature of <span class="math inline">\(m\)</span> and the slope of <span class="math inline">\(m\)</span> relative to the design density <span class="math inline">\(f_X\)</span>.</li>
+<li>The <strong>variance</strong> is of order <span class="math inline">\(o\left((nh)^{-1}\right)\)</span>.</li>
 </ul>
 <p>Note that the previous estimator is just a weighted average, and a weighted average is a solution to a weighted least squares problem, in this case: <span class="math display">\[ \widehat{m}(x) = \underset{\beta_0 \in \mathbb{R}}{\mathrm{arg \; min}} \sum_{i=1}^n K\left( \frac{X_i-x}{h} \right) (Y_i - \beta_0)^2 \]</span> So the conditional expectation can be estimated at a fixed location <span class="math inline">\(x\)</span> (i.e.&nbsp;locally) by an intercept-only linear model (i.e.&nbsp;constant). Hence we call this estimator <em>local constant regression</em>.</p>
 </section>
