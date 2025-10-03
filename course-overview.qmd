@@ -57,7 +57,7 @@ The main project can start following the $7$-th lecture, deadline on December 21
 <a name="groups"></a>
 **Groups** can be of size of either 2 or 3 people. The size will *not* matter w.r.t. to grading. However, a group of size 3 will have one additional task to do: as part of their submission, every team member will individually include a short paragraph describing contributions of every individual member of the team. This is not to be discussed among the team members, as it serves as a safeguard. Regardless of their individual contributions, each member of the team will receive the same grade, apart from where this would be extremely unfair. Such cases will be discussed personally. In case of any team-work problems, the students are encouraged to seek advice (mostly as a group) from the teachers (mostly during the exercise classes).
 
-<!-- # Grade Calculation
+<!-- # Grade Calculation 
 
 Your submissions will receive a grade on the percentage scale of the final grade, e.g. the assignments will be awarded either 0 and 5 points, the small project between 0 and 20 points (mostly 0, 5, 10, 15 or 20), and the final project between 0 and 40 points (again, mostly divisible by 5). Let $a_1,\ldots,a_8$ denote points you receive from the assignments, $s$ points received for the small project, and $p$ be the final project points. The final grade will be calculated as
 $$
