@@ -42,6 +42,6 @@ First google your issue. 90 times out of 100 this will solve your issues. Anothe
 the software you are using. For the very last percent you can ask your question during the exercises hours. 
 
 
-#### I cannot find the repository linked to the assignment, what should I do?
+#### I cannot find the repository linked to the assignment, what should I do? 
 
 At the top of each assignment there should be a link you can manually click to accept the assignment. If this happens *after* the first assignment, please let us know.
