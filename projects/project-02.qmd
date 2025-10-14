@@ -33,7 +33,7 @@ Your `README.md` should contain instructions on reproducing the PDF report from 
 
 1. [ ] `report.pdf` in GitHub repository (e.g., generated from `report.qmd` or `report.tex`) (**max 20 pages**)
 2. [ ] `report.qmd` in GitHub repository (source code, should be able to run from top to bottom)
-3. [ ] `README.md` with instructions on how to run the code and reproduce the PDF report. If applicable, please briefly describe the contributions of the team memebers. Please delete everything not related to your project in it.
+3. [ ] `README.md` with instructions on how to run the code and reproduce the PDF report. If applicable, please briefly describe the contributions of the team members. Please delete everything not related to your project in it.
 :::
 
 
