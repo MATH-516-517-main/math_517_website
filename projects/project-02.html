@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-be957c301d5297518e03763a59cfd0ed.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-433c10f544771496701cc4260bf32989.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -409,8 +409,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#topics-for-the-final-project" id="toc-topics-for-the-final-project" class="nav-link active" data-scroll-target="#topics-for-the-final-project">Topics for the final project</a>
+  <ul class="collapse">
+  <li><a href="#cross-validation-for-pca" id="toc-cross-validation-for-pca" class="nav-link" data-scroll-target="#cross-validation-for-pca">1. Cross-validation for PCA</a></li>
+  <li><a href="#comparison-of-variable-selectors-in-regression" id="toc-comparison-of-variable-selectors-in-regression" class="nav-link" data-scroll-target="#comparison-of-variable-selectors-in-regression">2. Comparison of variable selectors in regression</a></li>
+  <li><a href="#comparison-of-cross-validation-methods-for-data-with-temporal-structure" id="toc-comparison-of-cross-validation-methods-for-data-with-temporal-structure" class="nav-link" data-scroll-target="#comparison-of-cross-validation-methods-for-data-with-temporal-structure">3. Comparison of cross-validation methods for data with temporal structure</a></li>
+  <li><a href="#the-em-algorithm-for-different-patterns-of-missingness" id="toc-the-em-algorithm-for-different-patterns-of-missingness" class="nav-link" data-scroll-target="#the-em-algorithm-for-different-patterns-of-missingness">4. The EM algorithm for different patterns of missingness</a></li>
+  <li><a href="#diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-7" id="toc-diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-7" class="nav-link" data-scroll-target="#diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-7">5. Diving into one of the course topics, e.g., MM algorithms or Monte Carlo integration (Week 7)</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/projects/project-02.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -504,11 +517,54 @@ Important
 <li>concepts explored beyond the scope of the course <em>(in the soft sense that they were not fully covered during classes)</em></li>
 <li>overall quality <em>(correctness, demonstration of understanding, etc.)</em></li>
 </ul>
-<p>A project seriously lacking in any of the criteria above will be penalized. <!--- ## Recap on global optimal bandwidth
+<p>A project seriously lacking in any of the criteria above will be penalized.</p>
+<section id="topics-for-the-final-project" class="level2">
+<h2 class="anchored" data-anchor-id="topics-for-the-final-project">Topics for the final project</h2>
+<p><em>Unless otherwise stated, you are not required to code everything from scratch (unless there is no available source code).</em></p>
+<section id="cross-validation-for-pca" class="level3">
+<h3 class="anchored" data-anchor-id="cross-validation-for-pca">1. Cross-validation for PCA</h3>
+<ul>
+<li>A simulation study to compare the advantages of EM over the repaired CV for PCA, covered in <a href="https://math-516-517-main.github.io/math_517_website/lectures/05_CV.pdf">Week 4</a>.</li>
+<li>Implement a third approach to CV for PCA based on matrix completion (boils down to performing SVD with missing data). Details about this approach are given in <a href="https://math-516-517-main.github.io/math_517_website/notes/week_05.html">the supplementary notes</a> and a deeper dive into the matter is covered in <a href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=0a2508a9fd89513ddf1c227274c8192993520692">Perry (2009), Section 5</a>.</li>
+<li>Compare the three methods.</li>
+</ul>
+</section>
+<section id="comparison-of-variable-selectors-in-regression" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-of-variable-selectors-in-regression">2. Comparison of variable selectors in regression</h3>
+<ul>
+<li><a href="https://projecteuclid.org/journals/statistical-science/volume-35/issue-4/Best-Subset-Forward-Stepwise-or-Lasso-Analysis-and-Recommendations-Based/10.1214/19-STS733.short">Hastie et al.&nbsp;(2020)</a> have some surprising results in their simulation study, but one important method (adaptive lasso) is omitted. Try to recreate the study with adaptive lasso included (and perhaps elastic net, too?).</li>
+<li>The project should address the following question: When it comes to variable selection, which method to choose and under which settings and for which aim/criterion (explainability, predictability, sparsity, or number of correct covariates)?</li>
+</ul>
+</section>
+<section id="comparison-of-cross-validation-methods-for-data-with-temporal-structure" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-of-cross-validation-methods-for-data-with-temporal-structure">3. Comparison of cross-validation methods for data with temporal structure</h3>
+<p>When short-range temporal dependence (autocorrelation) is not taken care of, “simple” cross-validation methods can break down as the validation and training samples are no longer independent. For instance, the “simple” CV approaches can lead to underestimation of smoothing parameters (overfitting). Several methods for dealing with such issues have been proposed in the literature. Among these, we mention the following - removing distance-based buffers around hold-out points in the LOOCV - block cross-validation - neighborhood cross validation, recently proposed by <a href="https://arxiv.org/pdf/2404.16490v2">Wood (2024)</a></p>
+<p>The project aims at</p>
+<ul>
+<li>exploring why cross-validation might fail in presence of temporal (or spatial) dependence, and</li>
+<li>making a survey of some of the modified cross-validation methods proposed in the literature to deal with autocorrelation and to compare them in a non-parametric regression setting (e.g., with smoothing splines).</li>
+</ul>
+<p>Naturally, different short-range autocorrelation schemes should be investigated (e.g., AR or MA Gaussian processes).</p>
+<p>References related to this subject: <a href="https://projecteuclid.org/journals/annals-of-statistics/volume-19/issue-4/Comparison-of-Two-Bandwidth-Selectors-with-Dependent-Errors/10.1214/aos/1176348377.full">Chu and Maaron (1991)</a>, <a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://projecteuclid.org/journals/statistics-surveys/volume-4/issue-none/A-survey-of-cross-validation-procedures-for-model-selection/10.1214/09-SS054.pdf&amp;ved=2ahUKEwiqjbDdkKSJAxX5if0HHd4mPZAQFnoECA4QAQ&amp;usg=AOvVaw2z3xj4V6JzRULYBwGScd-l">Arlot and Celisse (2010)</a>, <a href="https://nsojournals.onlinelibrary.wiley.com/doi/10.1111/ecog.02881">Roberts et al.&nbsp;(2016)</a>.</p>
+</section>
+<section id="the-em-algorithm-for-different-patterns-of-missingness" class="level3">
+<h3 class="anchored" data-anchor-id="the-em-algorithm-for-different-patterns-of-missingness">4. The EM algorithm for different patterns of missingness</h3>
+<ul>
+<li>Comparison of the performances of the EM algorithm for different percentage of missing values and for different missing-data mechanisms.</li>
+<li><em>Optional (if you have time and energy):</em> In a setting with missing data, what about comparing parameter estimates obtained via EM with those obtained (with maximum likelihood) after imputation? You can choose one (or more) of the imputation methods described <a href="https://rmisstastic.netlify.app/how-to/impute/missImp.pdf">here</a>.</li>
+<li>The project should address the following question: When you are faced with a missing data problem, when is the EM algorithm a good option for statistical inference (the estimation process)?</li>
+</ul>
+</section>
+<section id="diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-7" class="level3">
+<h3 class="anchored" data-anchor-id="diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-7">5. Diving into one of the course topics, e.g., MM algorithms or Monte Carlo integration (Week 7)</h3>
+<p>Consult with the teacher to define the project and ensure its feasibility.</p>
+<!--- ## Recap on global optimal bandwidth
 
---></p>
+-->
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -931,7 +987,7 @@ Important
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/projects/project-02.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/projects/project-02.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
