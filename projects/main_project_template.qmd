@@ -1,0 +1,125 @@
+---
+title: "Title of project"
+author: "[Students' names]"
+date: "2025-10-31"
+format:
+  pdf:
+    toc: false          # manual control over placement
+    number-sections: true
+    toc-depth: 2
+---
+
+\begin{center}
+{\textbf{Abstract}}\\[1em]
+\begin{minipage}{0.85\textwidth}
+\small
+
+Provide a concise summary (≈150–200 words) of the study:
+
+- What is the main statistical question or computational problem?
+
+- Which methods or algorithms are compared?
+
+- What is the simulation setup?
+
+- What are the key findings and conclusions?
+
+\end{minipage}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+# Introduction
+
+Clearly introduce the context and motivation:
+
+- Explain the broader statistical problem (e.g., estimation, model selection, computational efficiency).
+- Identify the specific question your simulation addresses.
+- Summarize relevant background or prior work (with citations).
+- Describe briefly what your report will do (outline of sections).
+
+The introduction should make it clear why the computational aspect of the method matters.
+
+# Theory / Background
+
+Provide the theoretical background necessary to understand your methods.
+
+- Summarize the key ideas behind the statistical method(s) you study.
+- Define relevant notation.
+- Derive or restate key equations (as needed).
+- Explain any algorithms (e.g., EM, cross-validation, etc.) with clear intuition and mathematical description.
+- If multiple methods are compared, dedicate subsections to each.
+
+# Simulation setup
+
+Describe your experimental design in detail so results are reproducible. Here are some aspects you might want to include in this section.
+
+## Model or data-generating process
+
+- Describe the model you simulate from (e.g., Bayesian hierarchical model, PCA data matrix, regression setup, etc.).
+- Include equations or data-generating schemes.
+- Specify parameters, sample sizes, number of groups, and sources of variability.
+
+## Methods or algorithms implemented
+
+- Describe how each computational method is applied.
+- Mention software or libraries (e.g., R, Python, PyMC, numpy, etc.).
+- Explain any assumptions (e.g., Gaussianity, known variances).
+
+## Evaluation metrics
+
+- Define the metrics used to compare methods (e.g., MSE, bias, runtime, convergence rate).
+- Describe the number of simulation replications.
+- Mention baseline configurations and which parameters are varied.
+
+# Results
+
+Present your simulation results clearly.
+
+## Main comparisons
+
+- Compare performance across methods under baseline settings.
+- Use well-labeled figures and tables (e.g., boxplots, convergence curves).
+
+## Sensitivity analyses
+
+- Show how results change when varying sample size, model parameters, or hyperparameters.
+- Interpret trends (e.g., robustness, scalability, stability).
+
+## Real data example *(optional)*
+
+- If applicable, demonstrate the method(s) on a real dataset.
+- Describe preprocessing steps.
+- Discuss practical implications of findings.
+
+# Discussion
+
+Interpret and synthesize the results:
+
+- What are the key takeaways?
+- How do the findings align with theoretical expectations?
+- What are the strengths and limitations of each method?
+- Are there practical recommendations?
+
+# Conclusion
+
+Summarize the main contributions and insights in a few concise paragraphs:
+
+- Restate the computational/statistical question.
+- Highlight the main results.
+- Mention possible extensions or future work.
+
+# References
+
+List all references cited in the report, formatted consistently (e.g., APA, IEEE).
+
+# Appendix *(optional)*
+
+Include:
+
+- Additional figures or diagnostics (so the main text remains focused).
+- Details on derivations, code snippets (if helpful), or implementation notes.
