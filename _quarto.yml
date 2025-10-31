@@ -45,6 +45,7 @@ website:
         contents:
           #- href: projects/project-01.qmd
           - href: projects/project-02.qmd
+          - href: projects/main_project_template.qmd
           - href: projects/project-tips-resources.qmd
             text: Tips + resources
       - section: "Supplementary notes"
