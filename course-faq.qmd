@@ -24,7 +24,7 @@ For git, please see [here](resources/tutorials/github.qmd) for instructions on h
 
 You can use any kind of text editor or IDE you like. We recomment using [VS Code](https://code.visualstudio.com/) with the extension corresponding to your language of choice. You can also use [Rstudio](https://rstudio.com/products/rstudio/download/) for R. See [here](resources/tutorials/installing_software.qmd) for instructions on how to install the software and IDEs.
 
-#### How do I submit an assignment?
+#### How do I submit an assignment? 
 
 We will be using Github-classroom to distribute and collect assignments. You will need to create a Github account if you don't already have one.
 
