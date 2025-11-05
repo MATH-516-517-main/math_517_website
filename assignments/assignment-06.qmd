@@ -1,6 +1,6 @@
 ---
 title: "Assignment 6"
-subtitle: "Generating Gaussian samples"
+subtitle: "Generating from a multimodal distribution"
 date: 10-31-2025
 format: html
 editor: visual
