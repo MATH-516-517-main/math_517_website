@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-433c10f544771496701cc4260bf32989.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -166,11 +166,12 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
-      <div class="sidebar-tools-main">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MATH 517</a> 
+        <div class="sidebar-tools-main">
     <a href="https://github.com/MATH-517/MATH_517_website" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
+    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -782,7 +783,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>),<span class="fu">cumsum</span>(wein<span class="sc">*</span>(x<span class="sc">&gt;</span><span class="dv">2</span>)<span class="sc">*</span>(x<span class="sc">&lt;</span><span class="dv">6</span>))<span class="sc">/</span><span class="fu">cumsum</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>)),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>),<span class="at">xlab=</span><span class="st">"log(N)"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pnorm</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pnorm</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
+<div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -833,7 +834,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>),<span class="fu">cumsum</span>(wein<span class="sc">*</span>(x<span class="sc">&gt;</span><span class="dv">2</span>)<span class="sc">*</span>(x<span class="sc">&lt;</span><span class="dv">6</span>))<span class="sc">/</span><span class="fu">cumsum</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>)),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="at">xlab=</span><span class="st">"log(N)"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pcauchy</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pcauchy</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
+<div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -884,7 +885,7 @@ I := \int_\mathcal{X} f(x) d x = \int_\mathcal{X} \frac{f(x)}{g(x)} g(x) d x =
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>),<span class="fu">cumsum</span>(wein<span class="sc">*</span>(x<span class="sc">&gt;</span><span class="dv">2</span>)<span class="sc">*</span>(x<span class="sc">&lt;</span><span class="dv">6</span>))<span class="sc">/</span><span class="fu">cumsum</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>)),<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="at">xlab=</span><span class="st">"log(N)"</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="fu">pcauchy</span>(<span class="dv">6</span>)<span class="sc">-</span><span class="fu">pcauchy</span>(<span class="dv">2</span>),<span class="at">b=</span><span class="dv">0</span>,<span class="at">col=</span><span class="st">"sienna"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
+<div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
