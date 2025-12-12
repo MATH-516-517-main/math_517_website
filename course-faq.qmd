@@ -12,7 +12,7 @@ If you do not find the answer to your question here, you can use the search bar 
 
 #### Which language will we be using?
 
-You can use either Python, R, or Julia. We will be providing code examples in R and suppport in all three languages. 
+You can use either Python, R, or Julia. We will be providing code examples in R and suppport in all three languages.
 
 
 
