@@ -1,5 +1,5 @@
 ---
-title: "Review of basics in statistics"
+title: "Probability and stochastic convergence: A review"
 output:
   html_document:
     toc: true
@@ -51,7 +51,7 @@ Let $X_n$, for $n = 1, 2, 3, \dots$, be a sequence of real-valued random variabl
 > $$
 > satisfies $\bar{X}_n \overset{\mathrm{as}}{\to} \mu$.
 >
-> *Note:* this also implies $\bar{X}_n \overset{p}{\to} \mu$, but not necessarily vice versa (e.g., if the mean is infinite).
+> *Note:* this also implies $\bar{X}_n \overset{p}{\to} \mu$, but the converse does not hold in general.
 
 > **Theorem (Central Limit Theorem).**  
 > Under the same conditions and assuming a finite second moment, letting $\sigma^2 = \mathrm{Var}(X_i)$, we have
@@ -75,6 +75,37 @@ Let $X_n$, for $n = 1, 2, 3, \dots$, be a sequence of real-valued random variabl
 > \sqrt{n} \sup_x |F_n(x) - F(x)| \overset{d}{\to} \sup_{t \in [0,1]} |B(t)|,
 > $$
 > where $B(t)$ is a Brownian bridge (a Brownian motion conditioned on $B(0) = 0$ and $B(1) = 0$).
+
+## Consistency of an estimator
+
+Let $\hat{\theta}_n$ be an estimator of a parameter $\theta$.
+
+- **Weak consistency**:
+  $$
+  \hat{\theta}_n \overset{p}{\to} \theta.
+  $$
+
+- **Strong consistency**:
+  $$
+  \hat{\theta}_n \overset{\mathrm{as}}{\to} \theta.
+  $$
+
+- **Mean-square consistency**:
+  $$
+  \mathbb{E}\left[(\hat{\theta}_n-\theta)^2\right]\to 0.
+  $$
+
+Strong consistency implies weak consistency. Mean-square consistency also implies weak consistency by Markov's inequality. In general, weak consistency does not imply either strong or mean-square consistency.
+
+Since
+$$
+\mathbb{E}\left[(\hat{\theta}_n-\theta)^2\right]
+=
+\operatorname{Var}(\hat{\theta}_n)
++
+\left\{\operatorname{Bias}(\hat{\theta}_n)\right\}^2,
+$$
+an estimator is mean-square consistent if both its variance and squared bias converge to zero.
 
 ## Probability: basic concentration inequalities
 
@@ -114,81 +145,12 @@ Let $X_n \overset{d}{\to} X$ and $Y_n \overset{d}{\to} c \in \mathbb{R}$. Then:
 - $X_n + Y_n \overset{d}{\to} X + c$
 - $X_n Y_n \overset{d}{\to} cX$
 
-<!-- ## Convexity and optimization -->
+### General Version of Slutsky's Theorem
 
-<!-- A *convex set* \( C \subseteq \mathbb{R}^d \) satisfies: -->
-
-<!-- \[ -->
-<!-- x, y \in C \Rightarrow t x + (1 - t) y \in C, \quad \text{for all } t \in [0, 1]. -->
-<!-- \] -->
-
-<!-- A *convex function* \( f : \mathbb{R}^d \to (-\infty, \infty] \) is one for which its effective domain \( \mathrm{dom}(f) \) is a convex set, and -->
-
-<!-- \[ -->
-<!-- f(t x + (1 - t) y) \leq t f(x) + (1 - t) f(y), \quad \text{for all } x, y \in \mathrm{dom}(f), \; t \in [0,1]. -->
-<!-- \] -->
-
-<!-- The function is *strictly convex* if the inequality is strict whenever \( x \neq y \) and \( t \in (0,1) \). Concavity means \( -f \) is convex, and the same applies to strict concavity. -->
-
-<!-- A differentiable function \( f \) is convex if and only if \( \mathrm{dom}(f) \) is convex and: -->
-
-<!-- \[ -->
-<!-- f(y) \geq f(x) + \nabla f(x)^\top (y - x), \quad \text{for all } x, y \in \mathrm{dom}(f). -->
-<!-- \] -->
-
-<!-- This is known as the *first-order characterization* of convexity. -->
-
-<!-- A twice-differentiable function \( f \) is convex if and only if \( \mathrm{dom}(f) \) is convex and -->
-
-<!-- \[ -->
-<!-- \nabla^2 f(x) \succeq 0, \quad \text{for all } x \in \mathrm{dom}(f), -->
-<!-- \] -->
-
-<!-- where \( \nabla^2 f \) is the Hessian of \( f \), and \( A \succeq 0 \) indicates that matrix \( A \) is positive semidefinite. -->
-
-<!-- You can verify that least squares, logistic regression, and Poisson regression objectives are convex by checking the forms of their Hessians. -->
-
-<!-- ## Optimization basics -->
-
-<!-- An *optimization problem* takes the form: -->
-
-<!-- \[ -->
-<!-- \begin{aligned} -->
-<!-- & \min_x \quad && f(x) \\ -->
-<!-- & \text{subject to} \quad && g_i(x) \leq 0, \quad i = 1, \dots, m \\ -->
-<!-- & && h_j(x) = 0, \quad j = 1, \dots, k. -->
-<!-- \end{aligned} -->
-<!-- \] -->
-
-<!-- The feasible region is implicitly defined as: -->
-
-<!-- \[ -->
-<!-- D = \mathrm{dom}(f) \cap \bigcap_{i=1}^m \mathrm{dom}(g_i) \cap \bigcap_{j=1}^k \mathrm{dom}(h_j). -->
-<!-- \] -->
-
-<!-- A *convex optimization problem* is one in which \( f \) and \( g_i \) are convex and \( h_j \) are affine. That is: -->
-
-<!-- \[ -->
-<!-- \begin{aligned} -->
-<!-- & \min_x \quad && f(x) \\ -->
-<!-- & \text{subject to} \quad && g_i(x) \leq 0, \quad i = 1, \dots, m \\ -->
-<!-- & && Ax = b, -->
-<!-- \end{aligned} -->
-<!-- \] -->
-
-<!-- is convex if \( f \) and \( g_i \) are convex. -->
-
-<!-- The function \( f \) is called the *objective function*. A *feasible point* lies in \( D \) and satisfies all constraints. The smallest objective value among all feasible points is denoted \( f^\star \) and is called the *optimal value*. -->
-
-<!-- If a feasible point achieves the optimal value, it is denoted \( x^\star \) and is a *solution* or *minimizer*. In statistics, this is often written with a hat, like \( \hat{\theta} \) for the MLE. If \( f \) is strictly convex and a solution exists, it is unique. -->
-
-<!-- A point \( \bar{x} \) is a *local solution* if it's feasible and there exists \( \delta > 0 \) such that: -->
-
-<!-- \[ -->
-<!-- f(\bar{x}) \leq f(x) \quad \text{for all feasible } x \text{ such that } \|x - \bar{x}\|_2 \leq \delta. -->
-<!-- \] -->
-
-<!-- In convex problems, every local solution is also a global solution—this is the *fundamental theorem of convex optimization*. -->
-
-<!-- Many estimators in statistics and machine learning are defined by such problems. Convex problems are common, though non-convex optimization (e.g., in deep learning) has become more prominent in recent years. -->
+Let \(g:\mathbb{R}^2\to\mathbb{R}\) be continuous. If
+$X_n\overset{d}{\to}X$ and $Y_n\overset{p}{\to}c$, where $c$ is
+constant, then
+$$
+g(X_n,Y_n)\overset{d}{\to}g(X,c).
+$$
 
