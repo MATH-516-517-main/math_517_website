@@ -1,24 +1,8 @@
 [
   {
-    "listing": "/resources/resources.html",
+    "listing": "/resources/computing/intro_to_python/index.html",
     "items": [
-      "/resources/computing/computing-cheatsheets.html",
-      "/resources/computing/intro_to_r/index.html",
-      "/resources/computing/intro_to_julia/index.html",
-      "/resources/computing/intro_to_python/index.html",
-      "/resources/tips/collaboration.html",
-      "/resources/tips/tips_coding.html",
-      "/resources/tips/reproducible_research.html",
-      "/resources/tips/virtual_environments.html",
-      "/resources/tutorials/github.html",
-      "/resources/tutorials/github_classroom.html",
-      "/resources/tutorials/installing_software.html"
-    ]
-  },
-  {
-    "listing": "/resources/computing/intro_to_julia/index.html",
-    "items": [
-      "/resources/computing/intro_to_julia/good_practice_julia.html"
+      "/resources/computing/intro_to_python/good_practice_python.html"
     ]
   },
   {
@@ -32,9 +16,25 @@
     ]
   },
   {
-    "listing": "/resources/computing/intro_to_python/index.html",
+    "listing": "/resources/computing/intro_to_julia/index.html",
     "items": [
-      "/resources/computing/intro_to_python/good_practice_python.html"
+      "/resources/computing/intro_to_julia/good_practice_julia.html"
+    ]
+  },
+  {
+    "listing": "/resources/resources.html",
+    "items": [
+      "/resources/computing/computing-cheatsheets.html",
+      "/resources/computing/intro_to_r/index.html",
+      "/resources/computing/intro_to_julia/index.html",
+      "/resources/computing/intro_to_python/index.html",
+      "/resources/tips/collaboration.html",
+      "/resources/tips/tips_coding.html",
+      "/resources/tips/reproducible_research.html",
+      "/resources/tips/virtual_environments.html",
+      "/resources/tutorials/github.html",
+      "/resources/tutorials/github_classroom.html",
+      "/resources/tutorials/installing_software.html"
     ]
   }
 ]
