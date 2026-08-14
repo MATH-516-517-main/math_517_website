@@ -1,0 +1,9 @@
+---
+title: "Exercise sheet 1"
+editor: visual
+date: 09-11-2026
+---
+
+Problem sheet is available [here](https://moodle.epfl.ch/pluginfile.php/3552373/mod_resource/content/1/math517_26_ex01.pdf) on [Moodle](https://moodle.epfl.ch/course/view.php?id=16763).
+
+Solutions will be made available the following Monday [here](https://moodle.epfl.ch/course/section.php?id=291554) on [Moodle](https://moodle.epfl.ch/course/view.php?id=16763).
