@@ -14,7 +14,7 @@ Please check the [FAQ](/course-faq.qmd) page for common questions and answers.
 
 ::: {.callout-important}
 ## This is important 
-Weeks 9 and 10 of the semester will exceptionally have a different structure in terms of lecture and exercises.
+The midterm will take place on Week 7 during the lecture's slot. There will be no lecture on that week.
 :::
 
 
@@ -27,7 +27,7 @@ library(googlesheets4)
 library(gt)
 library(tidyverse)
 gs4_deauth()
-d <- read_sheet("https://docs.google.com/spreadsheets/d/1S-U4mKW2yzIOW4gUevzlSsoX3WKppImjiOxMuRyiXrM/edit?usp=sharing") 
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1MuCNeWbDy5LuHVeVvCXVowXTPmzexdy0uR6lkGJqMHQ/edit?usp=sharing") 
 ```
 
 ```{r}
