@@ -44,7 +44,7 @@ The final grade will consist of
 
 ## Midterm
 
-The written midterm will take place on Week 7 during the lecture slot. Examination will only involve theoretical exercises and no coding. 
+The written midterm will take place on Week 7 during the lecture slot. Examination will be closed-book and will not involve a coding part. 
 
 ## Assignments
 
