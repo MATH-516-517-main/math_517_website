@@ -38,13 +38,13 @@ The final grade will consist of
     - collaboration during the exercise classes is encouraged, but avoid copies
 * final project -- 40 % of the grade, handed-in in groups of 2-3 student. [^1]
 
-**Grading** will be done on a rough scale. For example, the assignment (theoretical or computational) will be mostly graded on a three-point scale, you either receive full 7% (1 point) or 3.5% (0.5 points) or nothing (0 points). The project will be evaluated based on the following criteria: Exposition (clarity, structure, and logic of the writing and presentation), involvement (evidence of active engagement and personal effort), comprehensiveness (how thoroughly and appropriately the problem was addressed), and mastery (understanding and application of relevant statistical methods).
+**Grading of the assignments** will be done on a rough scale. For example, the assignment will be mostly graded on a three-point scale, you either receive full 7% (1 point) or 3.5% (0.5 points) or nothing (0 points). The project will be evaluated based on the following criteria: Exposition (clarity, structure, and logic of the writing and presentation), involvement (evidence of active engagement and personal effort), comprehensiveness (how thoroughly and appropriately the problem was addressed), and mastery (understanding and application of relevant statistical methods).
 
-**Deadlines** for the assignments will always be set at the end of the week (the midnight between Sunday and Monday), hence, e.g., "deadline on Week 9" simply means the assignment can be handed-in by 23:59 on November 15. An assignment from Week $k$ (given at the end of slides to the $k$-th lecture) will have their deadline on Week $k+1$ (i.e., the midnight between Sunday and Monday following the $(k+1)$-th lecture, see [the schedule](index.qmd)). Some exceptions might apply.
+**Deadlines for the assignments** will always be set at the end of the week (the midnight between Sunday and Monday), hence, e.g., "deadline on Week 9" simply means the assignment can be handed-in by 23:59 on November 15. An assignment from Week $k$ (given at the end of slides to the $k$-th lecture) will have their deadline on Week $k+1$ (i.e., the midnight between Sunday and Monday following the $(k+1)$-th lecture, see [the schedule](index.qmd)). Some exceptions might apply.
 
 ## Midterm
 
-The written midterm will take place on Week 7 during the lecture slot. Examination will be closed-book and will not involve a coding part. 
+The written midterm will take place on Week 7 during the lecture. Examination will be closed-book and will not involve a coding part. 
 
 ## Assignments
 
