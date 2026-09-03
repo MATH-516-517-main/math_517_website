@@ -1,7 +1,7 @@
 ---
-title: "Assignment 8"
-subtitle: "Markov Chain Monte Carlo"
-date: 11-28-2025
+title: "Assignment 3"
+subtitle: "TBD"
+date: 11-27-2026
 format: html
 editor: visual
 ---
@@ -9,7 +9,7 @@ editor: visual
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 7 December 2025.**
+**Due date: 11:59pm on Sunday, 6 December 2026.**
 :::
 
 ::: {.callout-note collapse="true"}
