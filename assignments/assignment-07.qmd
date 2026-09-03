@@ -1,7 +1,7 @@
 ---
-title: "Assignment 7"
-subtitle: "Confidence intervals for the mean of an exponential distribution"
-date: 11-7-2025
+title: "Assignment 2"
+subtitle: "TBD"
+date: 11-13-2026
 format: html
 editor: visual
 ---
@@ -10,7 +10,7 @@ editor: visual
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 23 November 2025.**
+**Due date: 11:59pm on Sunday, 22 November 2026.**
 :::
 
 ::: {.callout-note collapse="true"}
