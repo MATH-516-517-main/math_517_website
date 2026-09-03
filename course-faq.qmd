@@ -26,7 +26,7 @@ You can use any kind of text editor or IDE you like. We recomment using [VS Code
 
 #### How do I submit an assignment? 
 
-We will be using Github-classroom to distribute and collect assignments. You will need to create a Github account if you don't already have one.
+We will be using Github-classroom (or an equivalent GitHub-related) service to distribute and collect assignments. You will need to create a Github account if you don't already have one.
 
 
 ### Technical issues
