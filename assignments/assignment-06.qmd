@@ -1,7 +1,7 @@
 ---
-title: "Assignment 6"
-subtitle: "Generating from a multimodal distribution"
-date: 10-31-2025
+title: "Assignment 1"
+subtitle: "TBD"
+date: 11-06-2026
 format: html
 editor: visual
 bibliography: ref.bib
@@ -10,7 +10,7 @@ bibliography: ref.bib
 ::: callout-important
 # Deadline
 
-**Due date: 11:59pm on Sunday, 9 November 2025.**
+**Due date: 11:59pm on Sunday, 15 November 2026.**
 :::
 
 ::: {.callout-note collapse="true"}
