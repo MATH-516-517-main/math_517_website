@@ -16,7 +16,7 @@ editor: visual
 ::: {.callout-note collapse="true"}
 # Invite link for GitHub Classroom
 
-Use the corresponding invite link in [this google doc](https://docs.google.com/document/d/1XTO7obXEr2Yxllxk48wnZ5e49ptPGMsMyl40KEZDGRg/edit?usp=sharing) (accessible with your EPFL account) to accept the assignment. Then go to the [course GitHub organization](https://github.com/MATH-517) and locate the repo titled `ae-7-YOUR_GITHUB_USERNAME` to get started.
+Use the corresponding invite link in [this google doc](https://docs.google.com/document/d/1DiMi9qyrjFnK8nchuEPGcRTUJaZuAPdara2BkZhG258/edit?usp=sharing) (accessible with your EPFL account) to accept the assignment. Then go to the [course GitHub organization](https://github.com/MATH-517) and locate the repo titled `ae-2-YOUR_GITHUB_USERNAME` to get started.
 :::
 
 ::: {.callout-warning collapse="false"}
