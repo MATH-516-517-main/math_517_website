@@ -506,7 +506,7 @@
     "href": "resources/resources.html",
     "title": "All the additional resources",
     "section": "",
-    "text": "Supplementary material for the course\n\n\n\n\n\nTips and tricks\n\n\n\n\n\n\nSubject\n\n\n\nDescription\n\n\n\n\n\n\n\n\nBest practices for collaborative work\n\n\nUsing code style guidelines, sharing code and collaborating.\n\n\n\n\n\n\nGood practices for coding\n\n\nA collection of tips and tricks to write better code\n\n\n\n\n\n\nReproducible scientific computing\n\n\nWhy and how to make your scientific computing reproducible.\n\n\n\n\n\n\nVirtual environments\n\n\nHow to make it possible for others to run your code with the same dependencies as you\n\n\n\n\n\n\nNo matching items\n\n\n\nTutorials\n\n\n\n\n\n\nSubject\n\n\n\nDescription\n\n\n\n\n\n\n\n\nGit and GitHub\n\n\nA guide to set-up Git and GitHub\n\n\n\n\n\n\nGithub Classroom\n\n\nHow to use Github Classroom to submit assignments\n\n\n\n\n\n\nSoftware installation\n\n\nHow to have everything ready for the course\n\n\n\n\n\n\nNo matching items\n\n\n\nIntroduction to Programming\n\n\n\n\n\n\nNote\n\n\n\nYou might want to choose from other tutorials as they might suit your learning style better. See the additional ressources for each language.\n\n\n\n\n\n\n\n\nSubject\n\n\n\nDescription\n\n\n\n\n\n\n\n\nCheatsheets\n\n\nA collection of cheatsheets for Git, R and Python\n\n\n\n\n\n\nIntroduction to R\n\n\nA collection of resources for learning R\n\n\n\n\n\n\nIntroduction to Julia\n\n\nA collection of resources for learning Julia\n\n\n\n\n\n\nIntroduction to Python\n\n\nA collection of resources for learning Python\n\n\n\n\n\n\nNo matching items\n\n\nAdditional resources\n\nSetting up your Data Science Project\nR for Data Science (2e)\nPython for Data Analysis (3e)\nData Analysis and Visualisation in R for Ecologists\nIntroduction to R for Geospatial Data",
+    "text": "Supplementary material for the course\n\n\n\n\n\nTips and tricks\n\n\n\n\n\n\nSubject\n\n\n\nDescription\n\n\n\n\n\n\n\n\nBest practices for collaborative work\n\n\nUsing code style guidelines, sharing code and collaborating.\n\n\n\n\n\n\nGood practices for coding\n\n\nA collection of tips and tricks to write better code\n\n\n\n\n\n\nReproducible scientific computing\n\n\nWhy and how to make your scientific computing reproducible.\n\n\n\n\n\n\nVirtual environments\n\n\nHow to make it possible for others to run your code with the same dependencies as you\n\n\n\n\n\n\nNo matching items\n\n\n\nTutorials\n\n\n\n\n\n\nSubject\n\n\n\nDescription\n\n\n\n\n\n\n\n\nGit and GitHub\n\n\nA guide to set-up Git and GitHub\n\n\n\n\n\n\nClassroom 50\n\n\nHow to use Classroom 50 to work on and submit assignments\n\n\n\n\n\n\nSoftware installation\n\n\nHow to have everything ready for the course\n\n\n\n\n\n\nNo matching items\n\n\n\nIntroduction to Programming\n\n\n\n\n\n\nNote\n\n\n\nYou might want to choose from other tutorials as they might suit your learning style better. See the additional ressources for each language.\n\n\n\n\n\n\n\n\nSubject\n\n\n\nDescription\n\n\n\n\n\n\n\n\nCheatsheets\n\n\nA collection of cheatsheets for Git, R and Python\n\n\n\n\n\n\nIntroduction to R\n\n\nA collection of resources for learning R\n\n\n\n\n\n\nIntroduction to Julia\n\n\nA collection of resources for learning Julia\n\n\n\n\n\n\nIntroduction to Python\n\n\nA collection of resources for learning Python\n\n\n\n\n\n\nNo matching items\n\n\nAdditional resources\n\nSetting up your Data Science Project\nR for Data Science (2e)\nPython for Data Analysis (3e)\nData Analysis and Visualisation in R for Ecologists\nIntroduction to R for Geospatial Data",
     "crumbs": [
       "Resources",
       "All resources"
@@ -1149,33 +1149,9 @@
   {
     "objectID": "resources/tutorials/github_classroom.html",
     "href": "resources/tutorials/github_classroom.html",
-    "title": "Github Classroom",
+    "title": "Classroom 50",
     "section": "",
-    "text": "We will use Github Classroom for the assignments in this course. This document will give you a brief introduction to Github Classroom and how to use it.",
-    "crumbs": [
-      "Resources",
-      "Tutorials",
-      "GitHub classroom"
-    ]
-  },
-  {
-    "objectID": "resources/tutorials/github_classroom.html#introduction",
-    "href": "resources/tutorials/github_classroom.html#introduction",
-    "title": "Github Classroom",
-    "section": "Introduction",
-    "text": "Introduction\nThis guide is here to help you get started. GitHub Classroom is a platform that we will use to manage and distribute assignments, making it easier for you to collaborate on coursework.",
-    "crumbs": [
-      "Resources",
-      "Tutorials",
-      "GitHub classroom"
-    ]
-  },
-  {
-    "objectID": "resources/tutorials/github_classroom.html#what-is-github-classroom",
-    "href": "resources/tutorials/github_classroom.html#what-is-github-classroom",
-    "title": "Github Classroom",
-    "section": "What is GitHub Classroom?",
-    "text": "What is GitHub Classroom?\nGitHub Classroom is a tool that simplifies the process of creating, distributing, and submitting assignments on GitHub. It leverages the power of Git, a version control system, and GitHub, a web-based platform for code hosting and collaboration. With GitHub Classroom, you’ll be able to access your assignments, work on them, and submit your work – all in one place.",
+    "text": "We will use Classroom 50 for the assignments in this course. Classroom 50 is a free, open-source alternative to GitHub Classroom for distributing, managing, submitting, and grading programming assignments through GitHub.\nThis guide covers the typical student workflow: accept an assignment, clone its repository, work locally, submit your work, and review feedback. Your instructor’s instructions for a particular assignment always take precedence over this general guide.\nFor more detail, see the official Classroom 50 Web Student Guide and CLI Student Guide.",
     "crumbs": [
       "Resources",
       "Tutorials",
@@ -1185,9 +1161,9 @@
   {
     "objectID": "resources/tutorials/github_classroom.html#prerequisites",
     "href": "resources/tutorials/github_classroom.html#prerequisites",
-    "title": "Github Classroom",
+    "title": "Classroom 50",
     "section": "Prerequisites",
-    "text": "Prerequisites\nBefore we dive into using GitHub Classroom, make sure you have the following:\n\nGitHub Account: If you don’t already have a GitHub account, you can sign up for free at GitHub. This account will be essential for participating in assignments.\nGit Installed: Git is a tool that helps you manage your code changes. You can download and install Git from the official website: Git Downloads. See this tutorial if you need help installing Git.",
+    "text": "Prerequisites\nBefore you start, make sure you have the following:\n\nA GitHub account. If you do not already have one, follow GitHub’s guide to creating an account. Use the same account throughout the course.\nGit installed. Download Git from the official Git website. See this tutorial if you need help installing Git.\nAccess to the course’s GitHub organization. We will add you to the course roster later during the semester. GitHub may email you an organization invitation. You can accept it from the email, from Classroom 50, or by opening the assignment link.\nThe Classroom 50 student command-line tool (recommended). The gh student submit command provides the most reliable submission workflow. It requires the GitHub CLI and the Classroom 50 student extension. After installing the GitHub CLI, run:\n\ngh extension install foundation50/gh-student\nFor complete setup instructions, see the official Classroom 50 installation guide.",
     "crumbs": [
       "Resources",
       "Tutorials",
@@ -1197,9 +1173,9 @@
   {
     "objectID": "resources/tutorials/github_classroom.html#getting-started",
     "href": "resources/tutorials/github_classroom.html#getting-started",
-    "title": "Github Classroom",
-    "section": "Getting Started",
-    "text": "Getting Started\nLet’s begin by taking the first steps with GitHub Classroom:\n\n1. Accept the Classroom Invitation\nYour instructor will provide you with a link to the GitHub Classroom assignment. Click on the link, and it will guide you to accept the invitation. This action will create a private repository for your assignment within your GitHub account.\n\n\n2. Clone the Repository\nNext, you’ll want to bring the assignment to your computer so you can work on it. To do this, you need to clone the assignment repository. Don’t worry; cloning simply means making a copy of the assignment on your computer.\n\nOpen a terminal or Git Bash (if you installed Git).\nNavigate to the directory where you want to store your assignment (e.g., Documents).\nUse the following command, replacing &lt;repository_url&gt; with the URL of your assignment repository (you can find it on the GitHub page of your assignment):\n\ngit clone &lt;repository_url&gt;\n\n\n3. Work on the Assignment\nNow that you have the assignment on your computer, explore the repository. Inside, you’ll find instructions and possibly some starter code or files. These will guide you on what to do. You can use any code editor or development environment you’re comfortable with.\n\n\n4. Save Your Work\nWhile working on your assignment, be sure to save your progress regularly. In the Git world, this is called “committing.” It helps you keep track of your changes and lets you go back to previous versions if needed.\n\nTo commit your changes, open the terminal in the project folder and run these commands:\n\ngit add .\ngit commit -m \"Your commit message here\"\n\n\n\n\n\n\nNote\n\n\n\nYour commit message should be short and descriptive. It should explain what changes you made in this commit. See for example this article for some tips on how to write good commit messages.\n\n\n\n\n5. Share Your Progress\nTo collaborate with classmates or ask for help from your instructor, you need to share your work with them on GitHub. You do this by “pushing” your changes to GitHub. This action will update your assignment repository on GitHub with your latest changes. You don’t have to do it everytime you make a change, but keep in mind that you’ll need to push your changes before submitting your assignment, and that pushing helps you keep your work safe in case something happens to your computer. When working in group, don’t forget to pull the changes from your teammates before pushing your own changes.\n\nTo push your changes to GitHub, use this command:\n\ngit push\n\n\n6. Submit Your Assignment\nWhen you’re satisfied with your work and ready to turn it in, you’ll need to submit your assignment through GitHub. This is typically done through a “Pull Request” on GitHub. Your instructor will provide instructions on how to submit. (If nothing is mentioned, you can assume that you only need to push your work on the main branch.)\n\n\n7. Review Feedback\nAfter the submission deadline, your instructor will review your assignment and may provide feedback or grades through GitHub. You can see this feedback by checking the pull request in your assignment repository on GitHub.",
+    "title": "Classroom 50",
+    "section": "Getting started",
+    "text": "Getting started\n\n1. Accept the assignment\nWe will provide a Classroom 50 assignment link. Open that link and:\n\nSelect Sign in with GitHub and authorize Classroom 50 if prompted.\nConfirm that you are signed in with the GitHub account you use for this course.\nAccept the invitation to the course’s GitHub organization if Classroom 50 shows one.\nReview the assignment information and select Accept assignment.\nWait while Classroom 50 creates and configures your assignment repository. Do not click the button repeatedly.\nSelect Open repository when setup is complete.\n\nThe repository is created in the course’s GitHub organization, not in your personal account. It is normally private, although an instructor may configure an assignment to use a public repository. Classroom 50 will warn you before creating a public repository.\n\n\n\n\n\n\nImportant\n\n\n\nDo not fork the starter repository yourself. Work only in the repository that Classroom 50 creates for you or your group.\n\n\nIf Classroom 50 reports that you are not yet a member, ask your instructor to add you to the course roster. Once the invitation arrives, accept it and try the assignment link again.\n\n\n2. Clone the repository\nCloning downloads the assignment repository to your computer. On the GitHub page for your assignment repository, select Code and copy the HTTPS or SSH URL. Then open a terminal, navigate to the folder where you keep your coursework, and run:\ngit clone &lt;repository_url&gt;\ncd &lt;repository_folder&gt;\nReplace &lt;repository_url&gt; and &lt;repository_folder&gt; with the values for your assignment. You only need to clone a repository once.\nBefore starting a new work session, enter the repository folder and download any remote updates:\ngit pull\nThis is especially important if you work on more than one computer, collaborate on a group assignment, edit files on GitHub, or your instructor updates the assignment workflow.\n\n\n3. Work on the assignment\nRead the instructions and inspect the starter files in the repository. Use the editor or development environment of your choice. Work incrementally and test your work as you go.\nClassroom 50 may add administrative files such as .classroom50.yaml and files under .github/workflows/. Do not edit or delete them unless your instructor explicitly tells you to do so.\n\n\n4. Commit and push your progress\nA commit records a meaningful checkpoint in the repository’s history. Save your files, then run:\ngit status\ngit add .\ngit commit -m \"Describe the completed change\"\ngit push\nCommit and push regularly. A commit exists only on your computer until you push it to GitHub.\n\n\n\n\n\n\nNote\n\n\n\nUse short, descriptive commit messages that explain what the commit accomplishes. For example, Add input validation is more useful than Update. See How to Write a Git Commit Message for additional guidance.\n\n\nFor a group assignment, pull your teammates’ changes before you begin and again before you push:\ngit pull\nIf Git reports a conflict, resolve it carefully before continuing. Do not force-push unless your instructor explicitly tells you to do so.\n\n\n5. Submit the assignment\nThe recommended submission method is the Classroom 50 student command. From inside the cloned assignment repository, run:\ngh student submit\nThis snapshots the files that should be submitted, pushes the submission to the repository’s default branch, and starts grading when autograding is enabled. It also prints links to the relevant GitHub pages.\nSubmission behavior can vary by assignment:\n\nEvery-push assignments: a normal git push triggers grading. Using gh student submit is still recommended for the final submission.\nSubmit-only assignments: a normal push saves your work but does not trigger grading. You must run gh student submit or follow the tag instructions supplied by your instructor.\nMilestone-tag assignments: your instructor may require a specific tag such as phase1 or complete. Use exactly the tag name given in the assignment instructions.\n\n\n\n\n\n\n\nImportant\n\n\n\nDo not create, close, or merge a pull request to submit unless your instructor explicitly asks you to. If Classroom 50 created a Feedback pull request, leave it open; Classroom 50 uses it to display changes, automated results, and instructor feedback.\n\n\n\n\n6. Verify the submission and review feedback\nReturn to Classroom 50 and open the assignment’s My submission page (or Group submission for a group assignment). Confirm that your latest submission appears.\nIf the assignment has a Feedback pull request, leave it open. Your instructor may use it to review your work and provide comments.\nWhen autograding is enabled, you can also:\n\nopen the repository’s Actions tab to follow the grading workflow; and\nopen Releases to view automated scores and per-test results.\n\nAutomated results may cover only part of the assignment. Your instructor may assess additional requirements and provide feedback separately.",
     "crumbs": [
       "Resources",
       "Tutorials",
@@ -1207,11 +1183,11 @@
     ]
   },
   {
-    "objectID": "resources/tutorials/github_classroom.html#conclusion",
-    "href": "resources/tutorials/github_classroom.html#conclusion",
-    "title": "Github Classroom",
-    "section": "Conclusion",
-    "text": "Conclusion\nGitHub Classroom is a valuable tool that can make your Master’s program coursework more manageable and collaborative. While it might seem intimidating at first, remember that it’s a skill worth learning, and you can always reach out to your instructor or classmates for assistance. With this guide, you’re well on your way to successfully using GitHub Classroom for your assignments. Happy learning and coding!",
+    "objectID": "resources/tutorials/github_classroom.html#troubleshooting",
+    "href": "resources/tutorials/github_classroom.html#troubleshooting",
+    "title": "Classroom 50",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\n\nThe organization or assignment does not appear: verify that you are using the correct GitHub account and have accepted the course organization invitation.\nThe assignment link says “Not a member yet”: ask your instructor to add you to the roster, accept the resulting invitation, and try again.\ngh is not recognized: install the GitHub CLI, then install the student extension with gh extension install foundation50/gh-student.\nAuthentication fails: run gh student login, follow the browser or device-code prompts, and then retry.\nA push is rejected because the remote has new changes: run git pull, resolve any conflicts, and push again.\nA normal push was not graded: the assignment may be submit-only. Run gh student submit or follow the instructor’s required tag instructions.\n\nFor more help, consult the official Classroom 50 troubleshooting guide or contact your instructor or teaching assistant.",
     "crumbs": [
       "Resources",
       "Tutorials",
@@ -1219,11 +1195,35 @@
     ]
   },
   {
-    "objectID": "resources/tutorials/github_classroom.html#tips-and-tricks",
-    "href": "resources/tutorials/github_classroom.html#tips-and-tricks",
-    "title": "Github Classroom",
-    "section": "Tips and tricks",
-    "text": "Tips and tricks\nThere exists an integration with VSCode that can make your life easier when working with Github Classroom if you are using VSCode.",
+    "objectID": "resources/tutorials/github_classroom.html#tips",
+    "href": "resources/tutorials/github_classroom.html#tips",
+    "title": "Classroom 50",
+    "section": "Tips",
+    "text": "Tips\n\nRun git status often; it shows which files changed and whether commits still need to be pushed.\nIf you use Visual Studio Code, its built-in source control tools can help you review, commit, pull, and push changes. You can still use gh student submit in VS Code’s integrated terminal.",
+    "crumbs": [
+      "Resources",
+      "Tutorials",
+      "GitHub classroom"
+    ]
+  },
+  {
+    "objectID": "resources/tutorials/github_classroom.html#quick-reference",
+    "href": "resources/tutorials/github_classroom.html#quick-reference",
+    "title": "Classroom 50",
+    "section": "Quick reference",
+    "text": "Quick reference\n\n\n\nTask\nCommand\n\n\n\n\nCheck the repository\ngit status\n\n\nDownload remote changes\ngit pull\n\n\nStage changes\ngit add .\n\n\nCommit changes\ngit commit -m \"Describe the change\"\n\n\nPush commits\ngit push\n\n\nSubmit with Classroom 50\ngh student submit",
+    "crumbs": [
+      "Resources",
+      "Tutorials",
+      "GitHub classroom"
+    ]
+  },
+  {
+    "objectID": "resources/tutorials/github_classroom.html#further-reading",
+    "href": "resources/tutorials/github_classroom.html#further-reading",
+    "title": "Classroom 50",
+    "section": "Further reading",
+    "text": "Further reading\n\nClassroom 50\nClassroom 50 Web Student Guide\nClassroom 50 CLI Student Guide\ngh student command reference\nGitHub’s Git guides",
     "crumbs": [
       "Resources",
       "Tutorials",

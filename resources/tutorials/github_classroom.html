@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="How to use Github Classroom to submit assignments">
+<meta name="description" content="How to use Classroom 50 to work on and submit assignments">
 
-<title>Github Classroom – MATH 517</title>
+<title>Classroom 50 – MATH 517</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -112,8 +112,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta property="og:title" content="Github Classroom – MATH 517">
-<meta property="og:description" content="How to use Github Classroom to submit assignments">
+<meta property="og:title" content="Classroom 50 – MATH 517">
+<meta property="og:description" content="How to use Classroom 50 to work on and submit assignments">
 <meta property="og:site_name" content="MATH 517">
 </head>
 
@@ -462,21 +462,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#what-is-github-classroom" id="toc-what-is-github-classroom" class="nav-link" data-scroll-target="#what-is-github-classroom">What is GitHub Classroom?</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a>
   <ul class="collapse">
-  <li><a href="#accept-the-classroom-invitation" id="toc-accept-the-classroom-invitation" class="nav-link" data-scroll-target="#accept-the-classroom-invitation">1. Accept the Classroom Invitation</a></li>
-  <li><a href="#clone-the-repository" id="toc-clone-the-repository" class="nav-link" data-scroll-target="#clone-the-repository">2. Clone the Repository</a></li>
-  <li><a href="#work-on-the-assignment" id="toc-work-on-the-assignment" class="nav-link" data-scroll-target="#work-on-the-assignment">3. Work on the Assignment</a></li>
-  <li><a href="#save-your-work" id="toc-save-your-work" class="nav-link" data-scroll-target="#save-your-work">4. Save Your Work</a></li>
-  <li><a href="#share-your-progress" id="toc-share-your-progress" class="nav-link" data-scroll-target="#share-your-progress">5. Share Your Progress</a></li>
-  <li><a href="#submit-your-assignment" id="toc-submit-your-assignment" class="nav-link" data-scroll-target="#submit-your-assignment">6. Submit Your Assignment</a></li>
-  <li><a href="#review-feedback" id="toc-review-feedback" class="nav-link" data-scroll-target="#review-feedback">7. Review Feedback</a></li>
+  <li><a href="#accept-the-assignment" id="toc-accept-the-assignment" class="nav-link" data-scroll-target="#accept-the-assignment">1. Accept the assignment</a></li>
+  <li><a href="#clone-the-repository" id="toc-clone-the-repository" class="nav-link" data-scroll-target="#clone-the-repository">2. Clone the repository</a></li>
+  <li><a href="#work-on-the-assignment" id="toc-work-on-the-assignment" class="nav-link" data-scroll-target="#work-on-the-assignment">3. Work on the assignment</a></li>
+  <li><a href="#commit-and-push-your-progress" id="toc-commit-and-push-your-progress" class="nav-link" data-scroll-target="#commit-and-push-your-progress">4. Commit and push your progress</a></li>
+  <li><a href="#submit-the-assignment" id="toc-submit-the-assignment" class="nav-link" data-scroll-target="#submit-the-assignment">5. Submit the assignment</a></li>
+  <li><a href="#verify-the-submission-and-review-feedback" id="toc-verify-the-submission-and-review-feedback" class="nav-link" data-scroll-target="#verify-the-submission-and-review-feedback">6. Verify the submission and review feedback</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#tips-and-tricks" id="toc-tips-and-tricks" class="nav-link" data-scroll-target="#tips-and-tricks">Tips and tricks</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
+  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
+  <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference">Quick reference</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/resources/tutorials/github_classroom.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -485,12 +484,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Resources</li><li class="breadcrumb-item"><a href="../../resources/tutorials/github.html">Tutorials</a></li><li class="breadcrumb-item"><a href="../../resources/tutorials/github_classroom.html">GitHub classroom</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Github Classroom</h1>
+<h1 class="title">Classroom 50</h1>
 </div>
 
 <div>
   <div class="description">
-    How to use Github Classroom to submit assignments
+    How to use Classroom 50 to work on and submit assignments
   </div>
 </div>
 
@@ -507,7 +506,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>We will use Github Classroom for the assignments in this course. This document will give you a brief introduction to Github Classroom and how to use it.</p>
+<p>We will use <a href="https://classroom50.org/">Classroom 50</a> for the assignments in this course. Classroom 50 is a free, open-source alternative to GitHub Classroom for distributing, managing, submitting, and grading programming assignments through GitHub.</p>
+<p>This guide covers the typical student workflow: accept an assignment, clone its repository, work locally, submit your work, and review feedback. Your instructor’s instructions for a particular assignment always take precedence over this general guide.</p>
+<p>For more detail, see the official <a href="https://github.com/foundation50/classroom50/blob/main/wiki/Web-Student-Guide.md">Classroom 50 Web Student Guide</a> and <a href="https://github.com/foundation50/classroom50/blob/main/wiki/CLI-Student-Guide.md">CLI Student Guide</a>.</p>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>Before you start, make sure you have the following:</p>
+<ol type="1">
+<li><p><strong>A GitHub account.</strong> If you do not already have one, follow GitHub’s guide to <a href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github">creating an account</a>. Use the same account throughout the course.</p></li>
+<li><p><strong>Git installed.</strong> Download Git from the official <a href="https://git-scm.com/downloads">Git website</a>. See <a href="../../resources/tutorials/github.html">this tutorial</a> if you need help installing Git.</p></li>
+<li><p><strong>Access to the course’s GitHub organization.</strong> We will add you to the course roster later during the semester. GitHub may email you an organization invitation. You can accept it from the email, from Classroom 50, or by opening the assignment link.</p></li>
+<li><p><strong>The Classroom 50 student command-line tool (recommended).</strong> The <code>gh student submit</code> command provides the most reliable submission workflow. It requires the <a href="https://cli.github.com/">GitHub CLI</a> and the Classroom 50 student extension. After installing the GitHub CLI, run:</p></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> extension install foundation50/gh-student</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For complete setup instructions, see the official <a href="https://github.com/foundation50/classroom50/blob/main/wiki/Installation.md">Classroom 50 installation guide</a>.</p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<section id="accept-the-assignment" class="level3">
+<h3 class="anchored" data-anchor-id="accept-the-assignment">1. Accept the assignment</h3>
+<p>We will provide a Classroom 50 assignment link. Open that link and:</p>
+<ol type="1">
+<li>Select <strong>Sign in with GitHub</strong> and authorize Classroom 50 if prompted.</li>
+<li>Confirm that you are signed in with the GitHub account you use for this course.</li>
+<li>Accept the invitation to the course’s GitHub organization if Classroom 50 shows one.</li>
+<li>Review the assignment information and select <strong>Accept assignment</strong>.</li>
+<li>Wait while Classroom 50 creates and configures your assignment repository. Do not click the button repeatedly.</li>
+<li>Select <strong>Open repository</strong> when setup is complete.</li>
+</ol>
+<p>The repository is created in the course’s GitHub organization, not in your personal account. It is normally private, although an instructor may configure an assignment to use a public repository. Classroom 50 will warn you before creating a public repository.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -518,54 +545,34 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Following the email you received, you should have created a Github account and sent us your username. You should have been invited to the <a href="https://github.com/MATH-517">course organization MATH-517</a> during the first week of the semester. If you have not accepted, please do it now. If you have any problems (or haven’t received the invitation), please send an email to the teaching assistant (aka me) ASAP with the subject line “Github Classroom” and in the body of the email, please include your Github username.</p>
+<p>Do not fork the starter repository yourself. Work only in the repository that Classroom 50 creates for you or your group.</p>
 </div>
 </div>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>This guide is here to help you get started. GitHub Classroom is a platform that we will use to manage and distribute assignments, making it easier for you to collaborate on coursework.</p>
-</section>
-<section id="what-is-github-classroom" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-github-classroom">What is GitHub Classroom?</h2>
-<p>GitHub Classroom is a tool that simplifies the process of creating, distributing, and submitting assignments on GitHub. It leverages the power of Git, a version control system, and GitHub, a web-based platform for code hosting and collaboration. With GitHub Classroom, you’ll be able to access your assignments, work on them, and submit your work – all in one place.</p>
-</section>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>Before we dive into using GitHub Classroom, make sure you have the following:</p>
-<ol type="1">
-<li><p><strong>GitHub Account:</strong> If you don’t already have a GitHub account, you can sign up for free at <a href="https://github.com/">GitHub</a>. This account will be essential for participating in assignments.</p></li>
-<li><p><strong>Git Installed:</strong> Git is a tool that helps you manage your code changes. You can download and install Git from the official website: <a href="https://git-scm.com/downloads">Git Downloads</a>. See <a href="../../resources/tutorials/github.html">this tutorial</a> if you need help installing Git.</p></li>
-</ol>
-</section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
-<p>Let’s begin by taking the first steps with GitHub Classroom:</p>
-<section id="accept-the-classroom-invitation" class="level3">
-<h3 class="anchored" data-anchor-id="accept-the-classroom-invitation">1. Accept the Classroom Invitation</h3>
-<p>Your instructor will provide you with a link to the GitHub Classroom assignment. Click on the link, and it will guide you to accept the invitation. This action will create a private repository for your assignment within your GitHub account.</p>
+<p>If Classroom 50 reports that you are not yet a member, ask your instructor to add you to the course roster. Once the invitation arrives, accept it and try the assignment link again.</p>
 </section>
 <section id="clone-the-repository" class="level3">
-<h3 class="anchored" data-anchor-id="clone-the-repository">2. Clone the Repository</h3>
-<p>Next, you’ll want to bring the assignment to your computer so you can work on it. To do this, you need to clone the assignment repository. Don’t worry; cloning simply means making a copy of the assignment on your computer.</p>
-<ul>
-<li>Open a terminal or Git Bash (if you installed Git).</li>
-<li>Navigate to the directory where you want to store your assignment (e.g., <code>Documents</code>).</li>
-<li>Use the following command, replacing <code>&lt;repository_url&gt;</code> with the URL of your assignment repository (you can find it on the GitHub page of your assignment):</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>repository_url<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 class="anchored" data-anchor-id="clone-the-repository">2. Clone the repository</h3>
+<p>Cloning downloads the assignment repository to your computer. On the GitHub page for your assignment repository, select <strong>Code</strong> and copy the HTTPS or SSH URL. Then open a terminal, navigate to the folder where you keep your coursework, and run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>repository_url<span class="op">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="op">&lt;</span>repository_folder<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Replace <code>&lt;repository_url&gt;</code> and <code>&lt;repository_folder&gt;</code> with the values for your assignment. You only need to clone a repository once.</p>
+<p>Before starting a new work session, enter the repository folder and download any remote updates:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is especially important if you work on more than one computer, collaborate on a group assignment, edit files on GitHub, or your instructor updates the assignment workflow.</p>
 </section>
 <section id="work-on-the-assignment" class="level3">
-<h3 class="anchored" data-anchor-id="work-on-the-assignment">3. Work on the Assignment</h3>
-<p>Now that you have the assignment on your computer, explore the repository. Inside, you’ll find instructions and possibly some starter code or files. These will guide you on what to do. You can use any code editor or development environment you’re comfortable with.</p>
+<h3 class="anchored" data-anchor-id="work-on-the-assignment">3. Work on the assignment</h3>
+<p>Read the instructions and inspect the starter files in the repository. Use the editor or development environment of your choice. Work incrementally and test your work as you go.</p>
+<p>Classroom 50 may add administrative files such as <code>.classroom50.yaml</code> and files under <code>.github/workflows/</code>. Do not edit or delete them unless your instructor explicitly tells you to do so.</p>
 </section>
-<section id="save-your-work" class="level3">
-<h3 class="anchored" data-anchor-id="save-your-work">4. Save Your Work</h3>
-<p>While working on your assignment, be sure to save your progress regularly. In the Git world, this is called “committing.” It helps you keep track of your changes and lets you go back to previous versions if needed.</p>
-<ul>
-<li>To commit your changes, open the terminal in the project folder and run these commands:</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Your commit message here"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="commit-and-push-your-progress" class="level3">
+<h3 class="anchored" data-anchor-id="commit-and-push-your-progress">4. Commit and push your progress</h3>
+<p>A commit records a meaningful checkpoint in the repository’s history. Save your files, then run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Describe the completed change"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Commit and push regularly. A commit exists only on your computer until you push it to GitHub.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -576,34 +583,115 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Your commit message should be short and descriptive. It should explain what changes you made in this commit. See for example <a href="https://www.gitkraken.com/learn/git/best-practices/git-commit-message">this article</a> for some tips on how to write good commit messages.</p>
+<p>Use short, descriptive commit messages that explain what the commit accomplishes. For example, <code>Add input validation</code> is more useful than <code>Update</code>. See <a href="https://cbea.ms/git-commit/">How to Write a Git Commit Message</a> for additional guidance.</p>
 </div>
 </div>
+<p>For a group assignment, pull your teammates’ changes before you begin and again before you push:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If Git reports a conflict, resolve it carefully before continuing. Do not force-push unless your instructor explicitly tells you to do so.</p>
 </section>
-<section id="share-your-progress" class="level3">
-<h3 class="anchored" data-anchor-id="share-your-progress">5. Share Your Progress</h3>
-<p>To collaborate with classmates or ask for help from your instructor, you need to share your work with them on GitHub. You do this by “pushing” your changes to GitHub. This action will update your assignment repository on GitHub with your latest changes. You don’t have to do it everytime you make a change, but keep in mind that you’ll need to push your changes before submitting your assignment, and that pushing helps you keep your work safe in case something happens to your computer. When working in group, don’t forget to pull the changes from your teammates before pushing your own changes.</p>
+<section id="submit-the-assignment" class="level3">
+<h3 class="anchored" data-anchor-id="submit-the-assignment">5. Submit the assignment</h3>
+<p>The recommended submission method is the Classroom 50 student command. From inside the cloned assignment repository, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> student submit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This snapshots the files that should be submitted, pushes the submission to the repository’s default branch, and starts grading when autograding is enabled. It also prints links to the relevant GitHub pages.</p>
+<p>Submission behavior can vary by assignment:</p>
 <ul>
-<li>To push your changes to GitHub, use this command:</li>
+<li><strong>Every-push assignments:</strong> a normal <code>git push</code> triggers grading. Using <code>gh student submit</code> is still recommended for the final submission.</li>
+<li><strong>Submit-only assignments:</strong> a normal push saves your work but does not trigger grading. You must run <code>gh student submit</code> or follow the tag instructions supplied by your instructor.</li>
+<li><strong>Milestone-tag assignments:</strong> your instructor may require a specific tag such as <code>phase1</code> or <code>complete</code>. Use exactly the tag name given in the assignment instructions.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not create, close, or merge a pull request to submit unless your instructor explicitly asks you to. If Classroom 50 created a <strong>Feedback</strong> pull request, leave it open; Classroom 50 uses it to display changes, automated results, and instructor feedback.</p>
+</div>
+</div>
 </section>
-<section id="submit-your-assignment" class="level3">
-<h3 class="anchored" data-anchor-id="submit-your-assignment">6. Submit Your Assignment</h3>
-<p>When you’re satisfied with your work and ready to turn it in, you’ll need to submit your assignment through GitHub. This is typically done through a “Pull Request” on GitHub. Your instructor will provide instructions on how to submit. (If nothing is mentioned, you can assume that you only need to push your work on the <code>main</code> branch.)</p>
+<section id="verify-the-submission-and-review-feedback" class="level3">
+<h3 class="anchored" data-anchor-id="verify-the-submission-and-review-feedback">6. Verify the submission and review feedback</h3>
+<p>Return to Classroom 50 and open the assignment’s <strong>My submission</strong> page (or <strong>Group submission</strong> for a group assignment). Confirm that your latest submission appears.</p>
+<p>If the assignment has a <strong>Feedback</strong> pull request, leave it open. Your instructor may use it to review your work and provide comments.</p>
+<p>When autograding is enabled, you can also:</p>
+<ul>
+<li>open the repository’s <strong>Actions</strong> tab to follow the grading workflow; and</li>
+<li>open <strong>Releases</strong> to view automated scores and per-test results.</li>
+</ul>
+<p>Automated results may cover only part of the assignment. Your instructor may assess additional requirements and provide feedback separately.</p>
 </section>
-<section id="review-feedback" class="level3">
-<h3 class="anchored" data-anchor-id="review-feedback">7. Review Feedback</h3>
-<p>After the submission deadline, your instructor will review your assignment and may provide feedback or grades through GitHub. You can see this feedback by checking the pull request in your assignment repository on GitHub.</p>
 </section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>The organization or assignment does not appear:</strong> verify that you are using the correct GitHub account and have accepted the course organization invitation.</li>
+<li><strong>The assignment link says “Not a member yet”:</strong> ask your instructor to add you to the roster, accept the resulting invitation, and try again.</li>
+<li><strong><code>gh</code> is not recognized:</strong> install the <a href="https://cli.github.com/">GitHub CLI</a>, then install the student extension with <code>gh extension install foundation50/gh-student</code>.</li>
+<li><strong>Authentication fails:</strong> run <code>gh student login</code>, follow the browser or device-code prompts, and then retry.</li>
+<li><strong>A push is rejected because the remote has new changes:</strong> run <code>git pull</code>, resolve any conflicts, and push again.</li>
+<li><strong>A normal push was not graded:</strong> the assignment may be submit-only. Run <code>gh student submit</code> or follow the instructor’s required tag instructions.</li>
+</ul>
+<p>For more help, consult the official <a href="https://github.com/foundation50/classroom50/blob/main/wiki/Troubleshooting.md">Classroom 50 troubleshooting guide</a> or contact your instructor or teaching assistant.</p>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>GitHub Classroom is a valuable tool that can make your Master’s program coursework more manageable and collaborative. While it might seem intimidating at first, remember that it’s a skill worth learning, and you can always reach out to your instructor or classmates for assistance. With this guide, you’re well on your way to successfully using GitHub Classroom for your assignments. Happy learning and coding!</p>
+<section id="tips" class="level2">
+<h2 class="anchored" data-anchor-id="tips">Tips</h2>
+<ul>
+<li>Run <code>git status</code> often; it shows which files changed and whether commits still need to be pushed.</li>
+<li>If you use Visual Studio Code, its built-in <a href="https://code.visualstudio.com/docs/sourcecontrol/overview">source control tools</a> can help you review, commit, pull, and push changes. You can still use <code>gh student submit</code> in VS Code’s integrated terminal.</li>
+</ul>
 </section>
-<section id="tips-and-tricks" class="level2">
-<h2 class="anchored" data-anchor-id="tips-and-tricks">Tips and tricks</h2>
-<p>There exists an <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.classroom&amp;ssr=false#overview">integration with VSCode</a> that can make your life easier when working with Github Classroom if you are using VSCode.</p>
+<section id="quick-reference" class="level2">
+<h2 class="anchored" data-anchor-id="quick-reference">Quick reference</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Check the repository</td>
+<td><code>git status</code></td>
+</tr>
+<tr class="even">
+<td>Download remote changes</td>
+<td><code>git pull</code></td>
+</tr>
+<tr class="odd">
+<td>Stage changes</td>
+<td><code>git add .</code></td>
+</tr>
+<tr class="even">
+<td>Commit changes</td>
+<td><code>git commit -m "Describe the change"</code></td>
+</tr>
+<tr class="odd">
+<td>Push commits</td>
+<td><code>git push</code></td>
+</tr>
+<tr class="even">
+<td>Submit with Classroom 50</td>
+<td><code>gh student submit</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://classroom50.org/">Classroom 50</a></li>
+<li><a href="https://github.com/foundation50/classroom50/blob/main/wiki/Web-Student-Guide.md">Classroom 50 Web Student Guide</a></li>
+<li><a href="https://github.com/foundation50/classroom50/blob/main/wiki/CLI-Student-Guide.md">Classroom 50 CLI Student Guide</a></li>
+<li><a href="https://github.com/foundation50/classroom50/blob/main/wiki/gh-student.md"><code>gh student</code> command reference</a></li>
+<li><a href="https://github.com/git-guides">GitHub’s Git guides</a></li>
+</ul>
 
 
 </section>
