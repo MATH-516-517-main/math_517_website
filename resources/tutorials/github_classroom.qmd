@@ -1,97 +1,170 @@
 ---
-title: "Github Classroom"
-description:  "How to use Github Classroom to submit assignments"
-output:
-  html_document:
+title: "Classroom 50"
+description: "How to use Classroom 50 to work on and submit assignments"
+format:
+  html:
     toc: true
 ---
 
-We will use Github Classroom for the assignments in this course. This document will give you a brief introduction to Github Classroom and how to use it.
+We will use [Classroom 50](https://classroom50.org/) for the assignments in this course. Classroom 50 is a free, open-source alternative to GitHub Classroom for distributing, managing, submitting, and grading programming assignments through GitHub.
 
-::: callout-important
-Following the email you received, you should have created a Github account and sent us your username. You should have been invited to the [course organization MATH-517](https://github.com/MATH-517) during the first week of the semester. If you have not accepted, please do it now. If you have any problems (or haven't received the invitation), please send an email to  the teaching assistant (aka me) ASAP with the subject line "Github Classroom" and in the body of the email, please include your Github username.
-:::
+This guide covers the typical student workflow: accept an assignment, clone its repository, work locally, submit your work, and review feedback. Your instructor's instructions for a particular assignment always take precedence over this general guide.
 
-
-## Introduction
-
-This guide is here to help you get started. GitHub Classroom is a platform that we will use to manage and distribute assignments, making it easier for you to collaborate on coursework.
-
-## What is GitHub Classroom?
-
-GitHub Classroom is a tool that simplifies the process of creating, distributing, and submitting assignments on GitHub. It leverages the power of Git, a version control system, and GitHub, a web-based platform for code hosting and collaboration. With GitHub Classroom, you'll be able to access your assignments, work on them, and submit your work -- all in one place.
+For more detail, see the official [Classroom 50 Web Student Guide](https://github.com/foundation50/classroom50/blob/main/wiki/Web-Student-Guide.md) and [CLI Student Guide](https://github.com/foundation50/classroom50/blob/main/wiki/CLI-Student-Guide.md).
 
 ## Prerequisites
 
-Before we dive into using GitHub Classroom, make sure you have the following:
+Before you start, make sure you have the following:
 
-1. **GitHub Account:** If you don't already have a GitHub account, you can sign up for free at [GitHub](https://github.com/). This account will be essential for participating in assignments.
+1. **A GitHub account.** If you do not already have one, follow GitHub's guide to [creating an account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github). Use the same account throughout the course.
 
-2. **Git Installed:** Git is a tool that helps you manage your code changes. You can download and install Git from the official website: [Git Downloads](https://git-scm.com/downloads). See [this tutorial](github.qmd) if you need help installing Git.
+2. **Git installed.** Download Git from the official [Git website](https://git-scm.com/downloads). See [this tutorial](github.qmd) if you need help installing Git.
 
+3. **Access to the course's GitHub organization.** We will add you to the course roster later during the semester. GitHub may email you an organization invitation. You can accept it from the email, from Classroom 50, or by opening the assignment link.
 
-## Getting Started
+4. **The Classroom 50 student command-line tool (recommended).** The `gh student submit` command provides the most reliable submission workflow. It requires the [GitHub CLI](https://cli.github.com/) and the Classroom 50 student extension. After installing the GitHub CLI, run:
 
-Let's begin by taking the first steps with GitHub Classroom:
+```bash
+gh extension install foundation50/gh-student
+```
 
-### 1. Accept the Classroom Invitation
+For complete setup instructions, see the official [Classroom 50 installation guide](https://github.com/foundation50/classroom50/blob/main/wiki/Installation.md).
 
-Your instructor will provide you with a link to the GitHub Classroom assignment. Click on the link, and it will guide you to accept the invitation. This action will create a private repository for your assignment within your GitHub account.
+## Getting started
 
-### 2. Clone the Repository
+### 1. Accept the assignment
 
-Next, you'll want to bring the assignment to your computer so you can work on it. To do this, you need to clone the assignment repository. Don't worry; cloning simply means making a copy of the assignment on your computer.
+We will provide a Classroom 50 assignment link. Open that link and:
 
-- Open a terminal or Git Bash (if you installed Git).
-- Navigate to the directory where you want to store your assignment (e.g., `Documents`).
-- Use the following command, replacing `<repository_url>` with the URL of your assignment repository (you can find it on the GitHub page of your assignment):
+1. Select **Sign in with GitHub** and authorize Classroom 50 if prompted.
+2. Confirm that you are signed in with the GitHub account you use for this course.
+3. Accept the invitation to the course's GitHub organization if Classroom 50 shows one.
+4. Review the assignment information and select **Accept assignment**.
+5. Wait while Classroom 50 creates and configures your assignment repository. Do not click the button repeatedly.
+6. Select **Open repository** when setup is complete.
+
+The repository is created in the course's GitHub organization, not in your personal account. It is normally private, although an instructor may configure an assignment to use a public repository. Classroom 50 will warn you before creating a public repository.
+
+::: callout-important
+Do not fork the starter repository yourself. Work only in the repository that Classroom 50 creates for you or your group.
+:::
+
+If Classroom 50 reports that you are not yet a member, ask your instructor to add you to the course roster. Once the invitation arrives, accept it and try the assignment link again.
+
+### 2. Clone the repository
+
+Cloning downloads the assignment repository to your computer. On the GitHub page for your assignment repository, select **Code** and copy the HTTPS or SSH URL. Then open a terminal, navigate to the folder where you keep your coursework, and run:
 
 ```bash
 git clone <repository_url>
+cd <repository_folder>
 ```
 
-### 3. Work on the Assignment
+Replace `<repository_url>` and `<repository_folder>` with the values for your assignment. You only need to clone a repository once.
 
-Now that you have the assignment on your computer, explore the repository. Inside, you'll find instructions and possibly some starter code or files. These will guide you on what to do. You can use any code editor or development environment you're comfortable with.
-
-### 4. Save Your Work
-
-While working on your assignment, be sure to save your progress regularly. In the Git world, this is called "committing." It helps you keep track of your changes and lets you go back to previous versions if needed.
-
-- To commit your changes, open the terminal in the project folder and run these commands:
+Before starting a new work session, enter the repository folder and download any remote updates:
 
 ```bash
+git pull
+```
+
+This is especially important if you work on more than one computer, collaborate on a group assignment, edit files on GitHub, or your instructor updates the assignment workflow.
+
+### 3. Work on the assignment
+
+Read the instructions and inspect the starter files in the repository. Use the editor or development environment of your choice. Work incrementally and test your work as you go.
+
+Classroom 50 may add administrative files such as `.classroom50.yaml` and files under `.github/workflows/`. Do not edit or delete them unless your instructor explicitly tells you to do so.
+
+### 4. Commit and push your progress
+
+A commit records a meaningful checkpoint in the repository's history. Save your files, then run:
+
+```bash
+git status
 git add .
-git commit -m "Your commit message here"
-```
-
-:::callout-note
-Your commit message should be short and descriptive. It should explain what changes you made in this commit. See for example [this article](https://www.gitkraken.com/learn/git/best-practices/git-commit-message) for some tips on how to write good commit messages.
-:::
-
-### 5. Share Your Progress
-
-To collaborate with classmates or ask for help from your instructor, you need to share your work with them on GitHub. You do this by "pushing" your changes to GitHub. This action will update your assignment repository on GitHub with your latest changes. You don't have to do it everytime you make a change, but keep in mind that you'll need to push your changes before submitting your assignment, and that pushing helps you keep your work safe in case something happens to your computer. When working in group, don't forget to pull the changes from your teammates before pushing your own changes.
-
-- To push your changes to GitHub, use this command:
-
-```bash
+git commit -m "Describe the completed change"
 git push
 ```
 
-### 6. Submit Your Assignment
+Commit and push regularly. A commit exists only on your computer until you push it to GitHub.
 
-When you're satisfied with your work and ready to turn it in, you'll need to submit your assignment through GitHub. This is typically done through a "Pull Request" on GitHub. Your instructor will provide instructions on how to submit. (If nothing is mentioned, you can assume that you only need to push your work on the `main` branch.)
+::: callout-note
+Use short, descriptive commit messages that explain what the commit accomplishes. For example, `Add input validation` is more useful than `Update`. See [How to Write a Git Commit Message](https://cbea.ms/git-commit/) for additional guidance.
+:::
 
-### 7. Review Feedback
+For a group assignment, pull your teammates' changes before you begin and again before you push:
 
-After the submission deadline, your instructor will review your assignment and may provide feedback or grades through GitHub. You can see this feedback by checking the pull request in your assignment repository on GitHub.
+```bash
+git pull
+```
 
-## Conclusion
+If Git reports a conflict, resolve it carefully before continuing. Do not force-push unless your instructor explicitly tells you to do so.
 
-GitHub Classroom is a valuable tool that can make your Master's program coursework more manageable and collaborative. While it might seem intimidating at first, remember that it's a skill worth learning, and you can always reach out to your instructor or classmates for assistance. With this guide, you're well on your way to successfully using GitHub Classroom for your assignments. Happy learning and coding!
+### 5. Submit the assignment
 
+The recommended submission method is the Classroom 50 student command. From inside the cloned assignment repository, run:
 
-## Tips and tricks
+```bash
+gh student submit
+```
 
-There exists an [integration with VSCode](https://marketplace.visualstudio.com/items?itemName=GitHub.classroom&ssr=false#overview) that can make your life easier when working with Github Classroom if you are using VSCode.
+This snapshots the files that should be submitted, pushes the submission to the repository's default branch, and starts grading when autograding is enabled. It also prints links to the relevant GitHub pages.
+
+Submission behavior can vary by assignment:
+
+- **Every-push assignments:** a normal `git push` triggers grading. Using `gh student submit` is still recommended for the final submission.
+- **Submit-only assignments:** a normal push saves your work but does not trigger grading. You must run `gh student submit` or follow the tag instructions supplied by your instructor.
+- **Milestone-tag assignments:** your instructor may require a specific tag such as `phase1` or `complete`. Use exactly the tag name given in the assignment instructions.
+
+::: callout-important
+Do not create, close, or merge a pull request to submit unless your instructor explicitly asks you to. If Classroom 50 created a **Feedback** pull request, leave it open; Classroom 50 uses it to display changes, automated results, and instructor feedback.
+:::
+
+### 6. Verify the submission and review feedback
+
+Return to Classroom 50 and open the assignment’s **My submission** page (or **Group submission** for a group assignment). Confirm that your latest submission appears.
+
+If the assignment has a **Feedback** pull request, leave it open. Your instructor may use it to review your work and provide comments.
+
+When autograding is enabled, you can also:
+
+- open the repository’s **Actions** tab to follow the grading workflow; and
+- open **Releases** to view automated scores and per-test results.
+
+Automated results may cover only part of the assignment. Your instructor may assess additional requirements and provide feedback separately.
+
+## Troubleshooting
+
+- **The organization or assignment does not appear:** verify that you are using the correct GitHub account and have accepted the course organization invitation.
+- **The assignment link says “Not a member yet”:** ask your instructor to add you to the roster, accept the resulting invitation, and try again.
+- **`gh` is not recognized:** install the [GitHub CLI](https://cli.github.com/), then install the student extension with `gh extension install foundation50/gh-student`.
+- **Authentication fails:** run `gh student login`, follow the browser or device-code prompts, and then retry.
+- **A push is rejected because the remote has new changes:** run `git pull`, resolve any conflicts, and push again.
+- **A normal push was not graded:** the assignment may be submit-only. Run `gh student submit` or follow the instructor's required tag instructions.
+
+For more help, consult the official [Classroom 50 troubleshooting guide](https://github.com/foundation50/classroom50/blob/main/wiki/Troubleshooting.md) or contact your instructor or teaching assistant.
+
+## Tips
+
+- Run `git status` often; it shows which files changed and whether commits still need to be pushed.
+- If you use Visual Studio Code, its built-in [source control tools](https://code.visualstudio.com/docs/sourcecontrol/overview) can help you review, commit, pull, and push changes. You can still use `gh student submit` in VS Code's integrated terminal.
+
+## Quick reference
+
+| Task | Command |
+|---|---|
+| Check the repository | `git status` |
+| Download remote changes | `git pull` |
+| Stage changes | `git add .` |
+| Commit changes | `git commit -m "Describe the change"` |
+| Push commits | `git push` |
+| Submit with Classroom 50 | `gh student submit` |
+
+## Further reading
+
+- [Classroom 50](https://classroom50.org/)
+- [Classroom 50 Web Student Guide](https://github.com/foundation50/classroom50/blob/main/wiki/Web-Student-Guide.md)
+- [Classroom 50 CLI Student Guide](https://github.com/foundation50/classroom50/blob/main/wiki/CLI-Student-Guide.md)
+- [`gh student` command reference](https://github.com/foundation50/classroom50/blob/main/wiki/gh-student.md)
+- [GitHub's Git guides](https://github.com/git-guides)
