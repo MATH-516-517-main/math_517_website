@@ -7,7 +7,7 @@ format:
 
 ## Course description
 
-The course will provide the opportunity to tackle real world problems requiring advanced computational skills and visualisation techniques to complement statistical thinking. 
+The course will provide the opportunity to tackle real world problems requiring advanced computational skills and visualisation techniques to complement statistical thinking.
 Students will practice proposing efficient solutions, and effectively communicating the results with stakeholders.
 
 ## Content
