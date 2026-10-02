@@ -46,7 +46,7 @@ The final grade will consist of
 
 The written midterm will take place on Week 7 during the lecture. Examination will be closed-book and will not involve a coding part. 
 
-## Assignments
+## Assignments 
 
 There will be 3 assignments during the semester, graded as described above. Assignments can be found in the `Assignments` tab on this website (or equivalently in [the schedule](index.qmd)). Note that you must set-up the GitHub machinery to be able to submit the assignments (and the Project).
 
