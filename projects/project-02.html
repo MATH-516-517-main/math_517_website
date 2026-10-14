@@ -426,13 +426,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#topics-for-the-final-project" id="toc-topics-for-the-final-project" class="nav-link active" data-scroll-target="#topics-for-the-final-project">Topics for the final project</a>
+  <li><a href="#use-of-generative-ai-tools" id="toc-use-of-generative-ai-tools" class="nav-link active" data-scroll-target="#use-of-generative-ai-tools">Use of generative AI tools</a></li>
+  <li><a href="#topics-for-the-final-project" id="toc-topics-for-the-final-project" class="nav-link" data-scroll-target="#topics-for-the-final-project">Topics for the final project</a>
   <ul class="collapse">
   <li><a href="#cross-validation-for-pca" id="toc-cross-validation-for-pca" class="nav-link" data-scroll-target="#cross-validation-for-pca">1. Cross-validation for PCA</a></li>
   <li><a href="#comparison-of-variable-selectors-in-regression" id="toc-comparison-of-variable-selectors-in-regression" class="nav-link" data-scroll-target="#comparison-of-variable-selectors-in-regression">2. Comparison of variable selectors in regression</a></li>
-  <li><a href="#comparison-of-cross-validation-methods-for-data-with-temporal-structure" id="toc-comparison-of-cross-validation-methods-for-data-with-temporal-structure" class="nav-link" data-scroll-target="#comparison-of-cross-validation-methods-for-data-with-temporal-structure">3. Comparison of cross-validation methods for data with temporal structure</a></li>
-  <li><a href="#the-em-algorithm-for-different-patterns-of-missingness" id="toc-the-em-algorithm-for-different-patterns-of-missingness" class="nav-link" data-scroll-target="#the-em-algorithm-for-different-patterns-of-missingness">4. The EM algorithm for different patterns of missingness</a></li>
-  <li><a href="#diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-7" id="toc-diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-7" class="nav-link" data-scroll-target="#diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-7">5. Diving into one of the course topics, e.g., MM algorithms or Monte Carlo integration (Week 7)</a></li>
+  <li><a href="#comparison-of-cross-validation-methods-for-temporally-dependent-data" id="toc-comparison-of-cross-validation-methods-for-temporally-dependent-data" class="nav-link" data-scroll-target="#comparison-of-cross-validation-methods-for-temporally-dependent-data">3. Comparison of cross-validation methods for temporally dependent data</a></li>
+  <li><a href="#statistical-inference-with-missing-data-em-versus-imputation" id="toc-statistical-inference-with-missing-data-em-versus-imputation" class="nav-link" data-scroll-target="#statistical-inference-with-missing-data-em-versus-imputation">4. Statistical inference with missing data: EM versus imputation</a></li>
+  <li><a href="#diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-8" id="toc-diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-8" class="nav-link" data-scroll-target="#diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-8">5. Diving into one of the course topics, e.g., MM algorithms or Monte Carlo integration (Week 8)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MATH-517/MATH_517_website/edit/main/projects/project-02.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH-517/MATH_517_website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -530,49 +531,81 @@ Important
 <li>overall quality <em>(scope, correctness, demonstration of understanding, etc.)</em></li>
 </ul>
 <p>A project seriously lacking in any of the criteria above will be penalized.</p>
+<section id="use-of-generative-ai-tools" class="level2">
+<h2 class="anchored" data-anchor-id="use-of-generative-ai-tools">Use of generative AI tools</h2>
+<p>The purpose of this project is to develop your ability to formulate scientific questions, design and conduct statistical investigations, and communicate your findings. All intellectual contributions must therefore be your own.</p>
+<p>The use of generative AI tools (e.g., ChatGPT, Claude, Copilot) is therefore <strong>not permitted for content generation</strong>, including proposing research ideas, designing simulation studies, writing sections of the report, interpreting results, or generating code.</p>
+<p>However, AI tools may be used for <strong>limited technical and editorial assistance</strong>, such as debugging code you have written yourself or checking spelling, grammar, and typographical errors in your own text.</p>
+<p>As in scientific publishing, transparency and accountability are essential. If you use generative AI tools, you must briefly disclose their use in your report, specifying the tool and the purpose for which it was used.</p>
+<p>The project should reflect your own reasoning and understanding. This should be evident throughout the report, particularly in the motivation of your research question, the design of your simulations, and the interpretation and discussion of your results. You are expected to understand and be able to explain every aspect of your submitted work.</p>
+</section>
 <section id="topics-for-the-final-project" class="level2">
 <h2 class="anchored" data-anchor-id="topics-for-the-final-project">Topics for the final project</h2>
 <p><em>Unless otherwise stated, you are not required to code everything from scratch (unless there is no available source code).</em></p>
 <section id="cross-validation-for-pca" class="level3">
 <h3 class="anchored" data-anchor-id="cross-validation-for-pca">1. Cross-validation for PCA</h3>
+<p>Several cross-validation methods have been proposed to select the number of principal components in PCA. The project aims to compare three approaches:</p>
 <ul>
-<li>A simulation study to compare the advantages of EM over the repaired CV for PCA, covered in <a href="https://math-516-517-main.github.io/math_517_website/lectures/05_CV.pdf">Week 4</a>.</li>
-<li>Implement a third approach to CV for PCA based on matrix completion (boils down to performing SVD with missing data). Details about this approach are given in <a href="https://math-516-517-main.github.io/math_517_website/notes/week_05.html">the supplementary notes</a> and a deeper dive into the matter is covered in <a href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=0a2508a9fd89513ddf1c227274c8192993520692">Perry (2009), Section 5</a>.</li>
-<li>Compare the three methods.</li>
+<li><strong>EM-based CV and repaired CV</strong>, covered in <a href="https://math-516-517-main.github.io/math_517_website/lectures/05_CV.pdf">Week 4</a>.</li>
+<li><strong>CV based on matrix completion:</strong> Implement a third approach that relies on performing a singular value decomposition (SVD) with missing entries. Details are provided in <a href="https://math-516-517-main.github.io/math_517_website/notes/week_05.html">the supplementary notes</a>, with a more detailed treatment in <a href="https://arxiv.org/pdf/0909.3052">Perry (2009), Section 5.3</a>.</li>
+<li>Compare the three methods through a simulation study.</li>
 </ul>
+<p>Students should investigate how the performance of these methods depends on the underlying dimension of the data and the level of noise, using simulated low-rank data matrices. Performance should be assessed in terms of the ability to select an appropriate number of principal components and the resulting reconstruction error.</p>
+<p>The project should address the following question: Under which conditions does one cross-validation approach outperform the others in selecting the number of principal components?</p>
+<p>An interesting extension would be to investigate how the performance of the methods changes with the proportion or pattern of missing entries.</p>
 </section>
 <section id="comparison-of-variable-selectors-in-regression" class="level3">
 <h3 class="anchored" data-anchor-id="comparison-of-variable-selectors-in-regression">2. Comparison of variable selectors in regression</h3>
+<p><a href="https://projecteuclid.org/journals/statistical-science/volume-35/issue-4/Best-Subset-Forward-Stepwise-or-Lasso-Analysis-and-Recommendations-Based/10.1214/19-STS733.short">Hastie et al.&nbsp;(2020)</a> report some surprising results in their simulation study comparing variable-selection methods in linear regression. However, one important method, the adaptive lasso, is omitted.</p>
+<p>The project aims to reproduce and extend parts of their simulation study:</p>
 <ul>
-<li><a href="https://projecteuclid.org/journals/statistical-science/volume-35/issue-4/Best-Subset-Forward-Stepwise-or-Lasso-Analysis-and-Recommendations-Based/10.1214/19-STS733.short">Hastie et al.&nbsp;(2020)</a> have some surprising results in their simulation study, but one important method (adaptive lasso) is omitted. Try to recreate the study with adaptive lasso included (and perhaps elastic net, too?).</li>
-<li>The project should address the following question: When it comes to variable selection, which method to choose and under which settings and for which aim/criterion (explainability, predictability, sparsity, or number of correct covariates)?</li>
+<li>Reproduce a selection of the simulation settings considered by Hastie et al.&nbsp;(2020).</li>
+<li>Include the <strong>adaptive lasso</strong> in the comparison (and possibly elastic net).</li>
+<li>Compare the methods with respect to predictive performance, variable-selection accuracy, and sparsity.</li>
 </ul>
+<p>Students should investigate how their conclusions depend on the signal-to-noise ratio, the correlation structure of the predictors, and the degree of sparsity of the true regression model.</p>
+<p>The project should address the following question: Which variable-selection method should be preferred, under which conditions, and for which objective (prediction, variable selection, or sparsity)? In particular, does the method with the smallest prediction error also identify the relevant covariates most reliably?</p>
+<p>The goal is not to identify a universally best method, but to understand the trade-offs between the competing approaches.</p>
 </section>
-<section id="comparison-of-cross-validation-methods-for-data-with-temporal-structure" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-of-cross-validation-methods-for-data-with-temporal-structure">3. Comparison of cross-validation methods for data with temporal structure</h3>
-<p>When short-range temporal dependence (autocorrelation) is not taken care of, “simple” cross-validation methods can break down as the validation and training samples are no longer independent. For instance, the “simple” CV approaches can lead to underestimation of smoothing parameters (overfitting). Several methods for dealing with such issues have been proposed in the literature. Among these, we mention the following - removing distance-based buffers around hold-out points in the LOOCV - block cross-validation - neighborhood cross validation, recently proposed by <a href="https://arxiv.org/pdf/2404.16490v2">Wood (2024)</a></p>
-<p>The project aims at</p>
+<section id="comparison-of-cross-validation-methods-for-temporally-dependent-data" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-of-cross-validation-methods-for-temporally-dependent-data">3. Comparison of cross-validation methods for temporally dependent data</h3>
+<p>Standard cross-validation methods can perform poorly when observations exhibit temporal or spatial dependence. In particular, when short-range autocorrelation in the errors is ignored, conventional cross-validation may favor overly complex models, leading, for example, to the selection of excessively small smoothing parameters (overfitting) in non-parametric regression.</p>
+<p>Several modifications of standard cross-validation have been proposed to address this issue, including:</p>
 <ul>
-<li>exploring why cross-validation might fail in presence of temporal (or spatial) dependence, and</li>
-<li>making a survey of some of the modified cross-validation methods proposed in the literature to deal with autocorrelation and to compare them in a non-parametric regression setting (e.g., with smoothing splines).</li>
+<li><strong>Buffered cross-validation:</strong> Excluding observations within a certain distance of each validation point.</li>
+<li><strong>Block cross-validation:</strong> Holding out contiguous blocks of observations rather than individual points.</li>
+<li><strong>Neighborhood cross-validation:</strong> A recently proposed approach by <a href="https://arxiv.org/pdf/2404.16490v2">Wood (2024)</a>.</li>
 </ul>
-<p>Naturally, different short-range autocorrelation schemes should be investigated (e.g., AR or MA Gaussian processes).</p>
-<p>References related to this subject: <a href="https://projecteuclid.org/journals/annals-of-statistics/volume-19/issue-4/Comparison-of-Two-Bandwidth-Selectors-with-Dependent-Errors/10.1214/aos/1176348377.full">Chu and Maaron (1991)</a>, <a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://projecteuclid.org/journals/statistics-surveys/volume-4/issue-none/A-survey-of-cross-validation-procedures-for-model-selection/10.1214/09-SS054.pdf&amp;ved=2ahUKEwiqjbDdkKSJAxX5if0HHd4mPZAQFnoECA4QAQ&amp;usg=AOvVaw2z3xj4V6JzRULYBwGScd-l">Arlot and Celisse (2010)</a>, <a href="https://nsojournals.onlinelibrary.wiley.com/doi/10.1111/ecog.02881">Roberts et al.&nbsp;(2016)</a>.</p>
-</section>
-<section id="the-em-algorithm-for-different-patterns-of-missingness" class="level3">
-<h3 class="anchored" data-anchor-id="the-em-algorithm-for-different-patterns-of-missingness">4. The EM algorithm for different patterns of missingness</h3>
+<p>The project aims to investigate how temporal dependence affects the performance of cross-validation methods and under which conditions the modified procedures offer an improvement.</p>
+<p>Students should conduct a simulation study in a non-parametric regression setting (e.g., using smoothing splines), considering different strengths and structures of short-range autocorrelation (e.g., AR or MA Gaussian error processes).</p>
+<p>The study should address the following questions:</p>
 <ul>
-<li>Comparison of the performances of the EM algorithm for different percentage of missing values and for different missing-data mechanisms.</li>
-<li><em>Optional (if you have time and energy):</em> In a setting with missing data, what about comparing parameter estimates obtained via EM with those obtained (with maximum likelihood) after imputation? You can choose one (or more) of the imputation methods described <a href="https://rmisstastic.netlify.app/how-to/impute/missImp.pdf">here</a>.</li>
-<li>The project should address the following question: When you are faced with a missing data problem, when is the EM algorithm a good option for statistical inference (the estimation process)?</li>
+<li>How does autocorrelation affect the smoothing parameters selected by standard cross-validation and the resulting estimation accuracy?</li>
+<li>To what extent can modified cross-validation procedures mitigate these effects?</li>
+<li>How does the performance of these procedures depend on the strength and range of temporal dependence?</li>
 </ul>
+<p>An interesting extension would be to investigate how the size of the excluded neighborhood or validation block affects the results. In particular, is there a trade-off between reducing dependence and retaining enough observations for model fitting?</p>
+<p><strong>References:</strong> <a href="https://projecteuclid.org/journals/annals-of-statistics/volume-19/issue-4/Comparison-of-Two-Bandwidth-Selectors-with-Dependent-Errors/10.1214/aos/1176348377.full">Chu and Marron (1991)</a>, <a href="https://projecteuclid.org/journals/statistics-surveys/volume-4/issue-none/A-survey-of-cross-validation-procedures-for-model-selection/10.1214/09-SS054">Arlot and Celisse (2010)</a>, <a href="https://doi.org/10.1111/ecog.02881">Roberts et al.&nbsp;(2017)</a>, <a href="https://arxiv.org/pdf/2404.16490v2">Wood (2024)</a>.</p>
 </section>
-<section id="diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-7" class="level3">
-<h3 class="anchored" data-anchor-id="diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-7">5. Diving into one of the course topics, e.g., MM algorithms or Monte Carlo integration (Week 7)</h3>
-<p>Consult with the teacher to define the project and ensure its feasibility.</p>
-<!--- ## Recap on global optimal bandwidth
-
--->
+<section id="statistical-inference-with-missing-data-em-versus-imputation" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-inference-with-missing-data-em-versus-imputation">4. Statistical inference with missing data: EM versus imputation</h3>
+<p>Missing observations are common in statistical applications, and different approaches have been proposed to deal with them. Among these, the expectation-maximization (EM) algorithm allows maximum likelihood estimation from incomplete data, while imputation methods replace missing observations with plausible values before applying standard statistical procedures.</p>
+<p>The project aims to investigate how different approaches to handling missing data affect the quality of statistical inference.</p>
+<p>Students should:</p>
+<ul>
+<li>Consider a statistical model with a known data-generating mechanism (e.g., a multivariate Gaussian model).</li>
+<li>Simulate missing observations under different missingness mechanisms (MCAR, MAR, and possibly MNAR), varying the proportion of missing values.</li>
+<li>Compare maximum likelihood estimation using EM with alternative approaches such as single or multiple imputation. A description of imputation methods can be found <a href="https://rmisstastic.netlify.app/how-to/impute/missImp.pdf">here</a>.</li>
+<li>Evaluate the methods in terms of bias, mean squared error, and, where appropriate, confidence interval coverage.</li>
+</ul>
+<p>The project should address the following question:</p>
+<p>Under which assumptions and missingness scenarios can reliable statistical inference be obtained from incomplete data, and what are the consequences of using an inappropriate method?</p>
+<p>An interesting extension would be to investigate how violations of the assumptions underlying the different methods affect their performance.</p>
+</section>
+<section id="diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-8" class="level3">
+<h3 class="anchored" data-anchor-id="diving-into-one-of-the-course-topics-e.g.-mm-algorithms-or-monte-carlo-integration-week-8">5. Diving into one of the course topics, e.g., MM algorithms or Monte Carlo integration (Week 8)</h3>
+<p>The project should be centered around a clearly formulated research question that can be investigated through a simulation study. Simply implementing or illustrating an algorithm is not sufficient: the project should aim to reveal something about its behavior, limitations, or performance under different conditions.</p>
+<p>Students choosing this option must discuss their proposal with the teachers to ensure that the research question is sufficiently interesting and that the project is feasible within the available time.</p>
 
 
 </section>
