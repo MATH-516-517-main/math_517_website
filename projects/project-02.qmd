@@ -48,6 +48,17 @@ Part of the grade for the final project will be awarded for value added (e.g., s
 
 A project seriously lacking in any of the criteria above will be penalized.
 
+## Use of generative AI tools
+
+The purpose of this project is to develop your ability to formulate scientific questions, design and conduct statistical investigations, and communicate your findings. All intellectual contributions must therefore be your own.
+
+The use of generative AI tools (e.g., ChatGPT, Claude, Copilot) is therefore **not permitted for content generation**, including proposing research ideas, designing simulation studies, writing sections of the report, interpreting results, or generating code.
+
+However, AI tools may be used for **limited technical and editorial assistance**, such as debugging code you have written yourself or checking spelling, grammar, and typographical errors in your own text. 
+
+As in scientific publishing, transparency and accountability are essential. If you use generative AI tools, you must briefly disclose their use in your report, specifying the tool and the purpose for which it was used.
+
+The project should reflect your own reasoning and understanding. This should be evident throughout the report, particularly in the motivation of your research question, the design of your simulations, and the interpretation and discussion of your results. You are expected to understand and be able to explain every aspect of your submitted work.
 
 ## Topics for the final project
 
@@ -57,41 +68,79 @@ _Unless otherwise stated, you are not required to code everything from scratch (
 
 ### 1. Cross-validation for PCA
 
-   - A simulation study to compare the advantages of EM over the repaired CV for PCA, covered in [Week 4](https://math-516-517-main.github.io/math_517_website/lectures/05_CV.pdf).
-   - Implement a third approach to CV for PCA based on matrix completion (boils down to performing SVD with missing data). Details about this approach are given in [the supplementary notes](https://math-516-517-main.github.io/math_517_website/notes/week_05.html) and a deeper dive into the matter is covered in [Perry (2009), Section 5](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=0a2508a9fd89513ddf1c227274c8192993520692).
-   - Compare the three methods.
+Several cross-validation methods have been proposed to select the number of principal components in PCA. The project aims to compare three approaches:
+
+- **EM-based CV and repaired CV**, covered in [Week 4](https://math-516-517-main.github.io/math_517_website/lectures/05_CV.pdf).
+- **CV based on matrix completion:** Implement a third approach that relies on performing a singular value decomposition (SVD) with missing entries. Details are provided in [the supplementary notes](https://math-516-517-main.github.io/math_517_website/notes/week_05.html), with a more detailed treatment in [Perry (2009), Section 5.3](https://arxiv.org/pdf/0909.3052).
+- Compare the three methods through a simulation study.
+
+Students should investigate how the performance of these methods depends on the underlying dimension of the data and the level of noise, using simulated low-rank data matrices. Performance should be assessed in terms of the ability to select an appropriate number of principal components and the resulting reconstruction error.
+
+The project should address the following question: Under which conditions does one cross-validation approach outperform the others in selecting the number of principal components?
+
+An interesting extension would be to investigate how the performance of the methods changes with the proportion or pattern of missing entries.
 
 ### 2. Comparison of variable selectors in regression
 
-   - [Hastie et al. (2020)](https://projecteuclid.org/journals/statistical-science/volume-35/issue-4/Best-Subset-Forward-Stepwise-or-Lasso-Analysis-and-Recommendations-Based/10.1214/19-STS733.short) have some surprising results in their simulation study, but one important method (adaptive lasso) is omitted. Try to recreate the study with adaptive lasso included (and perhaps elastic net, too?). 
-   - The project should address the following question: When it comes to variable selection, which method to choose and under which settings and for which aim/criterion (explainability, predictability, sparsity, or number of correct covariates)?
+[Hastie et al. (2020)](https://projecteuclid.org/journals/statistical-science/volume-35/issue-4/Best-Subset-Forward-Stepwise-or-Lasso-Analysis-and-Recommendations-Based/10.1214/19-STS733.short) report some surprising results in their simulation study comparing variable-selection methods in linear regression. However, one important method, the adaptive lasso, is omitted.
 
-### 3. Comparison of cross-validation methods for data with temporal structure
+The project aims to reproduce and extend parts of their simulation study:
 
-When short-range temporal dependence (autocorrelation) is not taken care of, "simple" cross-validation methods can break down as the validation and training samples are no longer independent. For instance, the "simple" CV approaches can lead to underestimation of smoothing parameters (overfitting). Several methods for dealing with such issues have been proposed in the literature. Among these, we mention the following
--  removing distance-based buffers around hold-out points in the LOOCV
--  block cross-validation
--  neighborhood cross validation, recently proposed by [Wood (2024)](https://arxiv.org/pdf/2404.16490v2)
+- Reproduce a selection of the simulation settings considered by Hastie et al. (2020).
+- Include the **adaptive lasso** in the comparison (and possibly elastic net).
+- Compare the methods with respect to predictive performance, variable-selection accuracy, and sparsity.
 
-The project aims at 
+Students should investigate how their conclusions depend on the signal-to-noise ratio, the correlation structure of the predictors, and the degree of sparsity of the true regression model.
 
- - exploring why cross-validation might fail in presence of temporal (or spatial) dependence, and
- - making a survey of some of the modified cross-validation methods proposed in the literature to deal with autocorrelation and to compare them in a non-parametric regression setting (e.g., with smoothing splines).
- 
-Naturally, different short-range autocorrelation schemes should be investigated (e.g., AR or MA Gaussian processes). 
+The project should address the following question: Which variable-selection method should be preferred, under which conditions, and for which objective (prediction, variable selection, or sparsity)? In particular, does the method with the smallest prediction error also identify the relevant covariates most reliably?
 
-References related to this subject: [Chu and Maaron (1991)](https://projecteuclid.org/journals/annals-of-statistics/volume-19/issue-4/Comparison-of-Two-Bandwidth-Selectors-with-Dependent-Errors/10.1214/aos/1176348377.full), [Arlot and Celisse (2010)](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://projecteuclid.org/journals/statistics-surveys/volume-4/issue-none/A-survey-of-cross-validation-procedures-for-model-selection/10.1214/09-SS054.pdf&ved=2ahUKEwiqjbDdkKSJAxX5if0HHd4mPZAQFnoECA4QAQ&usg=AOvVaw2z3xj4V6JzRULYBwGScd-l), [Roberts et al. (2016)](https://nsojournals.onlinelibrary.wiley.com/doi/10.1111/ecog.02881).
+The goal is not to identify a universally best method, but to understand the trade-offs between the competing approaches.
 
-### 4. The EM algorithm for different patterns of missingness
+### 3. Comparison of cross-validation methods for temporally dependent data
 
-- Comparison of the performances of the EM algorithm for different percentage of missing values and for different missing-data mechanisms.
-- *Optional (if you have time and energy):* In a setting with missing data, what about comparing parameter estimates obtained via EM with those obtained (with maximum likelihood) after imputation? You can choose one (or more) of the imputation methods described [here](https://rmisstastic.netlify.app/how-to/impute/missImp.pdf).
-- The project should address the following question: When you are faced with a missing data problem, when is the EM algorithm a good option for statistical inference (the estimation process)?
+Standard cross-validation methods can perform poorly when observations exhibit temporal or spatial dependence. In particular, when short-range autocorrelation in the errors is ignored, conventional cross-validation may favor overly complex models, leading, for example, to the selection of excessively small smoothing parameters (overfitting) in non-parametric regression.
 
-### 5. Diving into one of the course topics, e.g., MM algorithms or Monte Carlo integration (Week 7)
+Several modifications of standard cross-validation have been proposed to address this issue, including:
 
-Consult with the teacher to define the project and ensure its feasibility.
+- **Buffered cross-validation:** Excluding observations within a certain distance of each validation point.
+- **Block cross-validation:** Holding out contiguous blocks of observations rather than individual points.
+- **Neighborhood cross-validation:** A recently proposed approach by [Wood (2024)](https://arxiv.org/pdf/2404.16490v2).
 
-<!--- ## Recap on global optimal bandwidth
+The project aims to investigate how temporal dependence affects the performance of cross-validation methods and under which conditions the modified procedures offer an improvement.
 
--->
+Students should conduct a simulation study in a non-parametric regression setting (e.g., using smoothing splines), considering different strengths and structures of short-range autocorrelation (e.g., AR or MA Gaussian error processes).
+
+The study should address the following questions:
+
+- How does autocorrelation affect the smoothing parameters selected by standard cross-validation and the resulting estimation accuracy?
+- To what extent can modified cross-validation procedures mitigate these effects?
+- How does the performance of these procedures depend on the strength and range of temporal dependence?
+
+An interesting extension would be to investigate how the size of the excluded neighborhood or validation block affects the results. In particular, is there a trade-off between reducing dependence and retaining enough observations for model fitting?
+
+**References:** [Chu and Marron (1991)](https://projecteuclid.org/journals/annals-of-statistics/volume-19/issue-4/Comparison-of-Two-Bandwidth-Selectors-with-Dependent-Errors/10.1214/aos/1176348377.full), [Arlot and Celisse (2010)](https://projecteuclid.org/journals/statistics-surveys/volume-4/issue-none/A-survey-of-cross-validation-procedures-for-model-selection/10.1214/09-SS054), [Roberts et al. (2017)](https://doi.org/10.1111/ecog.02881), [Wood (2024)](https://arxiv.org/pdf/2404.16490v2). 
+
+### 4. Statistical inference with missing data: EM versus imputation
+
+Missing observations are common in statistical applications, and different approaches have been proposed to deal with them. Among these, the expectation-maximization (EM) algorithm allows maximum likelihood estimation from incomplete data, while imputation methods replace missing observations with plausible values before applying standard statistical procedures.
+
+The project aims to investigate how different approaches to handling missing data affect the quality of statistical inference.
+
+Students should:
+
+- Consider a statistical model with a known data-generating mechanism (e.g., a multivariate Gaussian model).
+- Simulate missing observations under different missingness mechanisms (MCAR, MAR, and possibly MNAR), varying the proportion of missing values.
+- Compare maximum likelihood estimation using EM with alternative approaches such as single or multiple imputation. A description of imputation methods can be found [here](https://rmisstastic.netlify.app/how-to/impute/missImp.pdf).
+- Evaluate the methods in terms of bias, mean squared error, and, where appropriate, confidence interval coverage.
+
+The project should address the following question:
+
+Under which assumptions and missingness scenarios can reliable statistical inference be obtained from incomplete data, and what are the consequences of using an inappropriate method?
+
+An interesting extension would be to investigate how violations of the assumptions underlying the different methods affect their performance.
+
+### 5. Diving into one of the course topics, e.g., MM algorithms or Monte Carlo integration (Week 8)
+
+The project should be centered around a clearly formulated research question that can be investigated through a simulation study. Simply implementing or illustrating an algorithm is not sufficient: the project should aim to reveal something about its behavior, limitations, or performance under different conditions.
+
+Students choosing this option must discuss their proposal with the teachers to ensure that the research question is sufficiently interesting and that the project is feasible within the available time.
