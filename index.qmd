@@ -4,7 +4,7 @@ execute:
   freeze: false
 ---
 
-This page contains an outline of the topics, exercises (ex.), and assignments (ae.) for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester. See the [overview](/course-overview.qmd) page for more information about the course.
+This page contains an outline of the topics, exercises (ex.), and assignments (ae.) for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester. See the [overview](/course-overview.qmd) page for more information about the course. 
 
 
 ::: callout-tip
