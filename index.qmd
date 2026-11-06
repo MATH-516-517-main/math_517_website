@@ -9,7 +9,7 @@ This page contains an outline of the topics, exercises (ex.), and assignments (a
 
 ::: callout-tip
 It can be useful to check the available tutorials to get ready for the assignments quickly. You can find them under the resources section on your left.
-Please check the [FAQ](/course-faq.qmd) page for common questions and answers.
+Please check the [FAQ](/course-faq.qmd) page for common questions and answers. 
 :::
 
 ::: {.callout-important}
