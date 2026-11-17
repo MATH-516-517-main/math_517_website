@@ -10,12 +10,6 @@
     ]
   },
   {
-    "listing": "/resources/computing/intro_to_python/index.html",
-    "items": [
-      "/resources/computing/intro_to_python/good_practice_python.html"
-    ]
-  },
-  {
     "listing": "/resources/resources.html",
     "items": [
       "/resources/computing/computing-cheatsheets.html",
@@ -35,6 +29,12 @@
     "listing": "/resources/computing/intro_to_julia/index.html",
     "items": [
       "/resources/computing/intro_to_julia/good_practice_julia.html"
+    ]
+  },
+  {
+    "listing": "/resources/computing/intro_to_python/index.html",
+    "items": [
+      "/resources/computing/intro_to_python/good_practice_python.html"
     ]
   }
 ]
